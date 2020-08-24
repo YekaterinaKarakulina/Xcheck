@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import { DatePicker } from 'antd';
-import { updateInitialState } from '../../actions';
+import { updateInitialState } from '../../store/actions';
 
-import { HomePage, CartPage } from '../pages';
+import { HomePage, CartPage } from '../../pages';
 
 import './app.scss';
 

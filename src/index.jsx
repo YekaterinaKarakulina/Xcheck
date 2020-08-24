@@ -6,8 +6,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './components/app';
 import Service from './services/service';
-import { ServiceProvider } from './components/service-context';
-import store from './store';
+import { ServiceProvider } from './service-context';
+import store from './store/store';
 
 const service = new Service();
 

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { UPDATE_INITIAL_STATE } from './types';
-import Service from '../services/service';
+import Service from '../../services/service';
 
 const service = new Service();
 
