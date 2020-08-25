@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import { Switch, Route } from 'react-router-dom';
 import { DatePicker } from 'antd';
 import { updateInitialState } from '../../store/actions';
@@ -8,7 +9,14 @@ import { HomePage, CartPage } from '../../pages';
 
 import './app.scss';
 
-class App extends React.Component {
+interface Props {
+  props?: any;
+  state: any;
+  updateInitialState(): Object;
+  dispatch?: Dispatch;
+}
+
+class App extends React.Component<Props, {}> {
   componentDidMount() {
     const { updateInitialState } = this.props;
     updateInitialState();
@@ -25,7 +33,7 @@ class App extends React.Component {
     return (
       <>
         <div>
-          id: {testData[0].id}, someData: {testData[0].data}
+          id: {testData.id}, someData: {testData.data}
         </div>
         <DatePicker />
         <Switch>
@@ -43,7 +51,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     updateInitialState: () => dispatch(updateInitialState()),
   };
