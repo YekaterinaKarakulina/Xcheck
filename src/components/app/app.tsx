@@ -7,6 +7,8 @@ import { updateInitialState } from '../../store/actions';
 
 import { HomePage, CartPage } from '../../pages';
 
+import SiderDemo from '../sidebar';
+
 import './app.scss';
 
 interface Props {
@@ -32,6 +34,7 @@ class App extends React.Component<Props, {}> {
 
     return (
       <>
+        <SiderDemo />
         <div>
           id: {testData.id}, someData: {testData.data}
         </div>
