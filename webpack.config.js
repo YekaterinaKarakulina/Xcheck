@@ -44,7 +44,7 @@ module.exports = (env = {}) => {
     mode: isProd ? 'production' : isDev && 'development',
     devtool: isProd ? 'none' : isDev && 'source-map',
     watch: isDev,
-    entry: './src/index.jsx',
+    entry: './src/index.tsx',
     output: {
       path: path.join(__dirname, '/build'),
       filename: 'bundle.js',
@@ -54,16 +54,18 @@ module.exports = (env = {}) => {
       rules: [
 
         {
-          test: /\.(js|jsx|ts|tsx)$/,
+          test: /\.(js|jsx|xts|tsx)$/,
           use: 'babel-loader',
           exclude: /node_modules/,
         },
+
         {
           enforce: 'pre',
           test: /\.(js|jsx|ts|tsx)$/,
           exclude: /node_modules/,
           loader: 'eslint-loader',
         },
+
         {
           test: /\.(png|jpg|jpeg|gif|ico|svg|gif)$/,
           use: [
@@ -86,7 +88,7 @@ module.exports = (env = {}) => {
       ]
     },
     resolve: {
-      extensions: ['.js', '.jsx', 'ts', 'tsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     plugins: getPlugins(),
     devServer: {

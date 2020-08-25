@@ -18,7 +18,6 @@
   "rules": {
     "strict": 0,
     "react/state-in-constructor": 0,
-    "react/prop-types": 0,
     "react/jsx-props-no-spreading": "off",
     "no-console": "off",
     "no-shadow": "off",
@@ -26,14 +25,38 @@
       "error",
       "never"
     ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
     "react/jsx-filename-extension": [
       1,
       {
         "extensions": [
           ".js",
-          ".jsx"
+          ".jsx",
+          ".ts",
+          ".tsx"
         ]
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
   }
 }
