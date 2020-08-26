@@ -4,6 +4,7 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Checkbox from '@material-ui/core/Checkbox';
+import PropTypes from 'prop-types';
 
 const headCells = [
   { id: 'title', numeric: false, disablePadding: true, label: 'Title' },
@@ -52,6 +53,19 @@ const EnhancedTableHead = (props) => {
       </TableRow>
     </TableHead>
   );
+};
+
+EnhancedTableHead.propTypes = {
+  classes: PropTypes.shape({
+    root: PropTypes.string.isRequired,
+    visuallyHidden: PropTypes.string.isRequired,
+  }).isRequired,
+  numSelected: PropTypes.number.isRequired,
+  onRequestSort: PropTypes.func.isRequired,
+  onSelectAllClick: PropTypes.func.isRequired,
+  order: PropTypes.oneOf(['asc', 'desc']).isRequired,
+  orderBy: PropTypes.string.isRequired,
+  rowCount: PropTypes.number.isRequired,
 };
 
 export default EnhancedTableHead;

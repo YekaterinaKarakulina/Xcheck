@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -12,6 +10,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { createData, getComparator, stableSort } from './tasks/utilTasks';
 import EnhancedTableToolbar from './tasks/EnhancedTableTasksToolbar';
 import EnhancedTableHead from './tasks/EnhancedTableTasksHead';
+import { useStyles } from './tasks/styles';
 
 const rows = [
   createData('First', 'QQQQQQQ', 'author', 'done'),
@@ -23,30 +22,6 @@ const rows = [
   createData('Last', 'First', 'author', 'done'),
   createData('Jelly', 'First', 'author', 'done'),
 ];
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  paper: {
-    width: '100%',
-    marginBottom: theme.spacing(2),
-  },
-  table: {
-    minWidth: 750,
-  },
-  visuallyHidden: {
-    border: 0,
-    clip: 'rect(0 0 0 0)',
-    height: 1,
-    margin: -1,
-    overflow: 'hidden',
-    padding: 0,
-    position: 'absolute',
-    top: 20,
-    width: 1,
-  },
-}));
 
 const TasksTable = () => {
   const classes = useStyles();
