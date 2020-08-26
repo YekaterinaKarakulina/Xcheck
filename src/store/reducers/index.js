@@ -1,4 +1,4 @@
-import { UPDATE_INITIAL_STATE, GET_USERS_SUCCESS } from '../actions/types';
+import { UPDATE_INITIAL_STATE, GET_USERS_SUCCESS, POST_USER_SUCCESS } from '../actions/types';
 
 const initialState = {
   testData: {},
@@ -19,6 +19,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         users: action.payload,
+      };
+
+    case POST_USER_SUCCESS:
+      return {
+        ...state,
+        users: [...state.users, action.payload],
       };
 
     default:

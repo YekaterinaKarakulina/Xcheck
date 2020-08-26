@@ -1,9 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { connect } from 'react-redux';
-import { getUsers } from '../store/actions';
+import { getUsers, postUser } from '../store/actions';
 
 class HomePage extends React.Component {
   state = { value: '' };
@@ -20,9 +19,9 @@ class HomePage extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const { value } = this.state;
-    // const { putUser } = this.props;
-    console.log(`Отправленное имя: ${value}`);
-    // putUser(value);
+    const { postUser } = this.props;
+    postUser({ id: value, name: value });
+    this.setState({ value: '' });
   }
 
   render() {
@@ -32,7 +31,7 @@ class HomePage extends React.Component {
       <div>
         <h1>Home page</h1>
         <form onSubmit={(event) => this.handleSubmit(event)}>
-          <label>
+          <label htmlFor="name">
             Имя:
             <input id="name" onChange={(event) => this.handleChange(event)} value={value} />
           </label>
@@ -56,7 +55,7 @@ const mapStateToProps = ({ users }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // putUser: (name) => dispatch(putUser(name)),
+    postUser: (user) => dispatch(postUser(user)),
     getUsers: () => dispatch(getUsers()),
   };
 };

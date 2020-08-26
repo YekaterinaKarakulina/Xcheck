@@ -1,4 +1,4 @@
-import { UPDATE_INITIAL_STATE, GET_USERS } from './types';
+import { UPDATE_INITIAL_STATE, GET_USERS, POST_USER } from './types';
 
 const updateInitialState = () => {
   return {
@@ -16,4 +16,11 @@ const getUsers = () => {
   };
 };
 
-export { updateInitialState, getUsers };
+const postUser = (newUser) => {
+  return {
+    type: POST_USER,
+    payload: newUser,
+  };
+};
+
+export { updateInitialState, getUsers, postUser };

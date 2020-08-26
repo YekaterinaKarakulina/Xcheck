@@ -1,6 +1,6 @@
-import { watchGetUsers } from './users';
+import { all } from 'redux-saga/effects';
+import { watchGetUsers, watchPostUser } from './users';
 
 export default function* rootSaga() {
-  yield watchGetUsers();
-  console.log('root saga');
+  yield all([watchGetUsers(), watchPostUser()]);
 }
