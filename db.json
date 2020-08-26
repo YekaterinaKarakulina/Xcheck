@@ -1,8 +1,12 @@
 {
-  "testData": [
+  "users": [
     {
       "id": 1,
-      "data": "test data"
+      "name": "user1"
+    },
+    {
+      "id": 2,
+      "name": "user2"
     }
   ]
 }

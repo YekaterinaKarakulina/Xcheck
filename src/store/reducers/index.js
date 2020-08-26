@@ -1,8 +1,9 @@
-import { UPDATE_INITIAL_STATE } from '../actions/types';
+import { UPDATE_INITIAL_STATE, GET_USERS_SUCCESS } from '../actions/types';
 
 const initialState = {
   testData: {},
   loading: true,
+  users: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +13,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         testData: action.payload,
         loading: false,
+      };
+
+    case GET_USERS_SUCCESS:
+      return {
+        ...state,
+        users: action.payload,
       };
 
     default:

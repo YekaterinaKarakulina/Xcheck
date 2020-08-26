@@ -1,5 +1,4 @@
-/* eslint-disable import/prefer-default-export */
-import { UPDATE_INITIAL_STATE } from './types';
+import { UPDATE_INITIAL_STATE, GET_USERS } from './types';
 
 const updateInitialState = () => {
   return {
@@ -11,4 +10,10 @@ const updateInitialState = () => {
   };
 };
 
-export { updateInitialState };
+const getUsers = () => {
+  return {
+    type: GET_USERS,
+  };
+};
+
+export { updateInitialState, getUsers };
