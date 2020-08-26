@@ -1,14 +1,4 @@
-import { UPDATE_INITIAL_STATE, GET_USERS, POST_USER } from './types';
-
-const updateInitialState = () => {
-  return {
-    type: UPDATE_INITIAL_STATE,
-    payload: {
-      id: 1,
-      data: 'test data',
-    },
-  };
-};
+import { GET_USERS, POST_USER } from './types';
 
 const getUsers = () => {
   return {
@@ -23,4 +13,4 @@ const postUser = (newUser) => {
   };
 };
 
-export { updateInitialState, getUsers, postUser };
+export { getUsers, postUser };
