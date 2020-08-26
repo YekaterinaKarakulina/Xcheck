@@ -1,9 +1,19 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+
 import { getUsers, postUser } from '../store/actions';
 
-class HomePage extends React.Component {
+interface Props {
+  props?: any;
+  state: any;
+  users: Array<Object>;
+  dispatch?: Dispatch;
+  getUsers(): Object;
+  postUser({ id: Number, name: String }): Object;
+}
+
+class HomePage extends React.Component<Props, {}> {
   state = { value: '' };
 
   componentDidMount() {
