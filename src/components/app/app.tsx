@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import { DatePicker } from 'antd';
 import { updateInitialState } from '../../store/actions';
 
-import { HomePage, CartPage } from '../../pages';
+import { HomePage, CartPage, TasksTable } from '../../pages';
 
 import './app.scss';
 
@@ -39,6 +39,7 @@ class App extends React.Component<Props, {}> {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={CartPage} />
+          <Route path="/tasks" component={TasksTable} />
         </Switch>
       </>
     );
