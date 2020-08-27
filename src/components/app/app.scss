@@ -1,1 +1,18 @@
 @import '~antd/dist/antd.css';
+
+html {
+  font-size: 10px;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.ant-page-header {
+  margin-bottom: 2.5rem;
+}
+
+.ant-table-wrapper {
+  margin: 2rem auto;
+}
