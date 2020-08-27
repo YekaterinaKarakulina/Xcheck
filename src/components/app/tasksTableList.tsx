@@ -3,9 +3,10 @@ import 'antd/dist/antd.css';
 import { Table, Tag, Space, Button, Input } from 'antd';
 import {
   EditOutlined,
-  ArrowRightOutlined,
+  EyeOutlined,
   DownloadOutlined,
   SearchOutlined,
+  PlusOutlined,
 } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
 
@@ -43,12 +44,9 @@ class TasksTable extends React.Component {
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <div style={{ padding: 8 }}>
         <Input
-          ref={(node) => {
-            this.searchInput = node;
-          }}
           placeholder={`Search ${dataIndex}`}
           value={selectedKeys[0]}
-          onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+          onChange={(event) => setSelectedKeys(event.target.value ? [event.target.value] : [])}
           onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
           style={{ width: 188, marginBottom: 8, display: 'block' }}
         />
@@ -75,11 +73,6 @@ class TasksTable extends React.Component {
       record[dataIndex]
         ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
         : '',
-    onFilterDropdownVisibleChange: (visible) => {
-      if (visible) {
-        setTimeout(() => this.searchInput.select(), 100);
-      }
-    },
     render: (text) => {
       const { searchedColumn, searchText } = this.state;
       return searchedColumn === dataIndex ? (
@@ -161,14 +154,24 @@ class TasksTable extends React.Component {
         render: () => (
           <Space size="large">
             <Button type="primary" icon={<EditOutlined />} size="small" />
-            <Button type="primary" icon={<ArrowRightOutlined />} size="small" />
+            <Button type="primary" icon={<EyeOutlined />} size="small" />
             <Button type="primary" icon={<DownloadOutlined />} size="small" />
           </Space>
         ),
       },
     ];
     return (
-      <div>
+      <div className="wrapper">
+        <h2 style={{ margin: '1rem' }}>Tasks table</h2>
+        <Button
+          style={{ margin: '1rem' }}
+          shape="round"
+          type="primary"
+          icon={<PlusOutlined />}
+          size="small"
+        >
+          Add new task
+        </Button>
         <Table columns={columns} dataSource={data} />
       </div>
     );
