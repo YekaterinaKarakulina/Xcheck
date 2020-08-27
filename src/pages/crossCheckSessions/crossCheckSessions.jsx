@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'antd';
 
 import { getCrossCheckSessions } from '../../store/actions';
+
+import CrossCheckSessionsTable from './table';
+import mapData from './mapData';
 
 class CrossCheckSessions extends React.Component {
   componentDidMount() {
@@ -12,8 +16,17 @@ class CrossCheckSessions extends React.Component {
 
   render() {
     const { crossCheckSessions } = this.props;
-    console.log(crossCheckSessions);
-    return <div>crossCheckSessions</div>;
+    const tableData = [];
+    crossCheckSessions.forEach((session) => {
+      tableData.push(mapData(session));
+    });
+
+    return (
+      <>
+        <Button type="primary">Add new session</Button>
+        <CrossCheckSessionsTable tableData={tableData} />
+      </>
+    );
   }
 }
 

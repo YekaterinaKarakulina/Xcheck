@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { DatePicker } from 'antd';
 
 import { HomePage, CartPage, CrossCheckSessions } from '../../pages';
 
@@ -12,7 +11,6 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <DatePicker />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={CartPage} />
