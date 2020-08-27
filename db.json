@@ -9,5 +9,40 @@
       "name": "user2"
     }
   ],
-  "tasks": []
+  "tasks": [],
+  "crossCheckSessions": [
+    {
+      "id": "rss2020Q3react-xcheck",
+      "state": "DRAFT",
+      "taskId": "simple-task-v1",
+      "coefficient": 0.7,
+      "startDate": "2020-07-07",
+      "endDate": "2020-07-14",
+      "discardMinScore": true,
+      "discardMaxScore": false,
+      "minReviewsAmount": 1,
+      "desiredReviewersAmount": 2,
+      "attendees": [
+        {
+          "githubId": "ButterBrot777",
+          "reviewerOf": [
+            "torvalds",
+            "cardamo"
+          ]
+        },
+        {
+          "githubId": "torvalds",
+          "reviewerOf": [
+            "cardamo"
+          ]
+        },
+        {
+          "githubId": "cardamo",
+          "reviewerOf": [
+            "ButterBrot777"
+          ]
+        }
+      ]
+    }
+  ]
 }
