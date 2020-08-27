@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'antd';
+import { Button, PageHeader } from 'antd';
 
 import { getCrossCheckSessions } from '../../store/actions';
 
@@ -27,10 +27,11 @@ class CrossCheckSessions extends React.Component<Props, {}> {
     });
 
     return (
-      <>
+      <div className="wrapper">
+        <PageHeader className="site-page-header" title="CrossCheck Sessions" />
         <Button type="primary">Add new session</Button>
         <CrossCheckSessionsTable tableData={tableData} />
-      </>
+      </div>
     );
   }
 }
