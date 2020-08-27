@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { DatePicker } from 'antd';
 
 import { HomePage, CartPage } from '../../pages';
+import RequestListPage from '../request-list-page';
 
 import './app.scss';
 
@@ -16,6 +17,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={CartPage} />
+          <Route path="/request" component={RequestListPage} />
         </Switch>
       </>
     );
