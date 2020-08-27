@@ -1,40 +1,15 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Table, Tag, Space, Button, Input } from 'antd';
-import {
-  EditOutlined,
-  EyeOutlined,
-  DownloadOutlined,
-  SearchOutlined,
-  PlusOutlined,
-} from '@ant-design/icons';
+import { EditOutlined, EyeOutlined, DownloadOutlined, SearchOutlined } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
 
-const data = [
-  {
-    key: '1',
-    title: 'Task1',
-    author: 'John Brown',
-    description: 'New York No. 1 Lake Park',
-    state: ['closed'],
-  },
-  {
-    key: '2',
-    title: 'Task2',
-    author: 'John Brown',
-    description: 'London No. 1 Lake Park',
-    state: ['active'],
-  },
-  {
-    key: '3',
-    title: 'Task3',
-    author: 'John Brown',
-    description: 'Sidney No. 1 Lake Park',
-    state: ['archived'],
-  },
-];
+interface Props {
+  props?: any;
+  tableData: any;
+}
 
-class TasksTable extends React.Component {
+class TasksTable extends React.Component<Props, {}> {
   state = {
     searchText: '',
     searchedColumn: '',
@@ -160,21 +135,9 @@ class TasksTable extends React.Component {
         ),
       },
     ];
-    return (
-      <div className="wrapper">
-        <h2 style={{ margin: '1rem' }}>Tasks table</h2>
-        <Button
-          style={{ margin: '1rem' }}
-          shape="round"
-          type="primary"
-          icon={<PlusOutlined />}
-          size="small"
-        >
-          Add new task
-        </Button>
-        <Table columns={columns} dataSource={data} />
-      </div>
-    );
+
+    const { tableData } = this.props;
+    return <Table columns={columns} dataSource={tableData} />;
   }
 }
 export default TasksTable;

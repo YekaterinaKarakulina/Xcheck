@@ -1,4 +1,4 @@
-import { GET_USERS, POST_USER } from './types';
+import { GET_USERS, POST_USER, GET_TASKSTABLE_SESSIONS } from './types';
 
 const getUsers = () => {
   return {
@@ -13,4 +13,10 @@ const postUser = (newUser) => {
   };
 };
 
-export { getUsers, postUser };
+const getTasksTable = () => {
+  return {
+    type: GET_TASKSTABLE_SESSIONS,
+  };
+};
+
+export { getUsers, postUser, getTasksTable };
