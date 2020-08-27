@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-// import { Switch, Route } from 'react-router-dom';
-// import { DatePicker } from 'antd';
+import { Switch, Route } from 'react-router-dom';
+import { DatePicker } from 'antd';
 import { updateInitialState } from '../../store/actions';
 
-// import { HomePage, CartPage } from '../../pages';
+import { HomePage, CartPage } from '../../pages';
 
-import SiderDemo from '../sidebar';
+import MainMenu from '../sidebar';
 
 import './app.scss';
 
@@ -26,7 +26,7 @@ class App extends React.Component<Props, {}> {
 
   render() {
     const { state } = this.props;
-    const { /* testData, */ loading } = state;
+    const { testData, loading } = state;
 
     if (loading) {
       return <div>Loading...</div>;
@@ -34,15 +34,15 @@ class App extends React.Component<Props, {}> {
 
     return (
       <>
-        <SiderDemo />
-        {/* <div>
+        <MainMenu />
+        <div>
           id: {testData.id}, someData: {testData.data}
         </div>
         <DatePicker />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={CartPage} />
-        </Switch> */}
+        </Switch>
       </>
     );
   }
