@@ -13,11 +13,11 @@ import EnhancedTableHead from './tasks/EnhancedTableTasksHead';
 import { useStyles } from './tasks/styles';
 
 const rows = [
-  createData('First', 'QQQQQQQ', 'author', 'done'),
-  createData('Second', 'Ufhfgh fgagarg gfsadg', 'author', 'done'),
-  createData('Third', 'Firstf gfd', 'author', 'done'),
-  createData('Frozen', 'AAAA', 'author', 'done'),
-  createData('Gingerbread', 'Lghgjg  jndshj ghsh ', 'author', 'done'),
+  createData('First', 'aaaa', 'Author', 'adone'),
+  createData('Second', 'aUfhfgh fgagarg gfsadg', 'bauthor', 'bdone'),
+  createData('Third', 'bFirstf gfd', 'cauthor', 'cdone'),
+  createData('Frozen', 'cAAAA', 'dauthor', 'ddone'),
+  createData('Gingerbread', 'dddd ', 'author', 'fdone'),
   createData('Honeycomb', 'First author Honeycomb', 'author', 'done'),
   createData('Last', 'First', 'author', 'done'),
   createData('Jelly', 'First', 'author', 'done'),
@@ -32,6 +32,9 @@ const TasksTable = () => {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (event, property) => {
+    if (property === 'description') {
+      return;
+    }
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
