@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
@@ -8,7 +7,13 @@ import { getCrossCheckSessions } from '../../store/actions';
 import CrossCheckSessionsTable from './table';
 import mapData from './mapData';
 
-class CrossCheckSessions extends React.Component {
+interface Props {
+  props?: any;
+  getCrossCheckSessions(): Object;
+  crossCheckSessions: any;
+}
+
+class CrossCheckSessions extends React.Component<Props, {}> {
   componentDidMount() {
     const { getCrossCheckSessions } = this.props;
     getCrossCheckSessions();
