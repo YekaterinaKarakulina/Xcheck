@@ -1,14 +1,16 @@
-/* eslint-disable import/prefer-default-export */
-import { UPDATE_INITIAL_STATE } from './types';
+import { GET_USERS, POST_USER } from './types';
 
-const updateInitialState = () => {
+const getUsers = () => {
   return {
-    type: UPDATE_INITIAL_STATE,
-    payload: {
-      id: 1,
-      data: 'test data',
-    },
+    type: GET_USERS,
   };
 };
 
-export { updateInitialState };
+const postUser = (newUser) => {
+  return {
+    type: POST_USER,
+    payload: newUser,
+  };
+};
+
+export { getUsers, postUser };

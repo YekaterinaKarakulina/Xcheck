@@ -1,22 +1,10 @@
-import { UPDATE_INITIAL_STATE } from '../actions/types';
+import { combineReducers } from 'redux';
+import users from './users';
+import tasks from './tasks';
 
-const initialState = {
-  testData: {},
-  loading: true,
-};
+const rootReducer = combineReducers({
+  users,
+  tasks,
+});
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case UPDATE_INITIAL_STATE:
-      return {
-        ...state,
-        testData: action.payload,
-        loading: false,
-      };
-
-    default:
-      return state;
-  }
-};
-
-export default reducer;
+export default rootReducer;
