@@ -4,7 +4,7 @@ import { Button, PageHeader } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { getTasksTable } from '../store/actions/index';
 import TasksTableList from '../components/app/tasksTableList';
-import mapDataTable from '../components/app/tasksTable/mapDataTable';
+import mapDataTable from '../components/tasksTable/mapDataTable';
 
 interface Props {
   props?: any;
