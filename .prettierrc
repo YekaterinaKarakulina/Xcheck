@@ -4,5 +4,5 @@
   "tabWidth": 2,
   "useTabs": false,
   "semi": true,
-  "encoding": 'utf-8',
+  "encoding": "utf-8"
 }

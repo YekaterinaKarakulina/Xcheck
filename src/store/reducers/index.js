@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+import { reducer as reduxFormReducer } from 'redux-form';
 import { UPDATE_INITIAL_STATE } from '../actions/types';
 
 const initialState = {
@@ -19,4 +21,7 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default combineReducers({
+  reducer,
+  form: reduxFormReducer,
+});

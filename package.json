@@ -4,7 +4,7 @@
   "description": "RS School React - X check",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --open",
     "build-prod": "webpack --env.mode=production",
     "build-dev": "webpack --env.mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -28,6 +28,7 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "redux-form": "^8.3.6",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   },
