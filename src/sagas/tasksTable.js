@@ -7,7 +7,7 @@ import {
 } from '../store/actions/types';
 
 function* workerGetTasksTable() {
-  const uri = 'http://localhost:3000/tasks';
+  const uri = 'http://localhost:3000/tasksTableData';
   try {
     const result = yield call(Axios.get, uri);
     yield put({ type: GET_TASKSTABLE_SESSIONS_SUCCESS, payload: result.data });
