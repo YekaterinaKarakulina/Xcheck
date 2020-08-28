@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import RequestListPage from '../request-list-page';
 import { HomePage, CartPage, CrossCheckSessions } from '../../pages';
 
 import MainMenu from '../sidebar';
@@ -16,6 +17,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={CartPage} />
+          <Route path="/request" component={RequestListPage} />
           <Route path="/crossCheckSessions" component={CrossCheckSessions} />
         </Switch>
       </>
