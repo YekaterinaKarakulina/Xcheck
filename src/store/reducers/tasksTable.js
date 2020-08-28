@@ -1,6 +1,6 @@
 import { GET_TASKSTABLE_SESSIONS_SUCCESS, GET_TASKSTABLE_SESSIONS_FAILURE } from '../actions/types';
 
-const tasksTable = (state = [], action) => {
+const tasksTableData = (state = [], action) => {
   switch (action.type) {
     case GET_TASKSTABLE_SESSIONS_SUCCESS:
       return action.payload;
@@ -14,4 +14,4 @@ const tasksTable = (state = [], action) => {
   }
 };
 
-export default tasksTable;
+export default tasksTableData;

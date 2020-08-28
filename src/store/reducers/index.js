@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import users from './users';
 import tasks from './tasks';
-import tasksTable from './tasksTable';
+import tasksTableData from './tasksTable';
 
 const rootReducer = combineReducers({
   users,
   tasks,
-  tasksTable,
+  tasksTableData,
 });
 
 export default rootReducer;

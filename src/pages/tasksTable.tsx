@@ -9,7 +9,7 @@ import mapDataTable from '../components/app/tasksTable/mapDataTable';
 interface Props {
   props?: any;
   getTasksTable(): Object;
-  tasksTable: any;
+  tasksTableData: any;
 }
 
 class TasksTable extends React.Component<Props, {}> {
@@ -19,9 +19,9 @@ class TasksTable extends React.Component<Props, {}> {
   }
 
   render() {
-    const { tasksTable } = this.props;
+    const { tasksTableData } = this.props;
     const tableData = [];
-    tasksTable.forEach((session) => {
+    tasksTableData.forEach((session) => {
       tableData.push(mapDataTable(session));
     });
 
@@ -43,8 +43,8 @@ class TasksTable extends React.Component<Props, {}> {
   }
 }
 
-const mapStateToProps = ({ tasksTable }) => {
-  return { tasksTable };
+const mapStateToProps = ({ tasksTableData }) => {
+  return { tasksTableData };
 };
 
 const mapDispatchToProps = (dispatch) => {

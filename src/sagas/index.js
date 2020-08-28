@@ -3,6 +3,5 @@ import { watchGetUsers, watchPostUser } from './users';
 import watchGetTasksTable from './tasksTable';
 
 export default function* rootSaga() {
-  yield all([watchGetUsers(), watchPostUser()]);
   yield all([watchGetUsers(), watchPostUser(), watchGetTasksTable()]);
 }
