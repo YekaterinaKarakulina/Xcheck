@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import RequestListPage from '../request-list-page';
-import { HomePage, CartPage, CrossCheckSessions, TasksTable } from '../../pages';
+import { HomePage, CartPage, CrossCheckSessions, TasksTable, ReviewsListPage } from '../../pages';
 
-import MainMenu from '../sidebar';
+// import MainMenu from '../sidebar';
 
 import './app.scss';
 
 class App extends React.Component {
-  componentDidMount() { }
+  componentDidMount() {}
 
   render() {
     return (
@@ -19,6 +19,7 @@ class App extends React.Component {
           <Route path="/tasks" component={TasksTable} />
           <Route path="/request" component={RequestListPage} />
           <Route path="/crossCheckSessions" component={CrossCheckSessions} />
+          <Route path="/reviews" component={ReviewsListPage} />
         </Switch>
       </>
     );
