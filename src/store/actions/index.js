@@ -1,4 +1,4 @@
-import { GET_USERS, POST_USER, GET_CROSSCHECK_SESSIONS } from './types';
+import { GET_USERS, POST_USER, GET_CROSSCHECK_SESSIONS, GET_TASKSTABLE_SESSIONS } from './types';
 
 const getUsers = () => {
   return {
@@ -13,10 +13,16 @@ const postUser = (newUser) => {
   };
 };
 
+const getTasksTable = () => {
+  return {
+    type: GET_TASKSTABLE_SESSIONS,
+  };
+};
+
 const getCrossCheckSessions = () => {
   return {
     type: GET_CROSSCHECK_SESSIONS,
   };
 };
 
-export { getUsers, postUser, getCrossCheckSessions };
+export { getUsers, postUser, getCrossCheckSessions, getTasksTable };
