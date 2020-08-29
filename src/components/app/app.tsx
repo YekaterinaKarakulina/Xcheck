@@ -8,7 +8,7 @@ import { HomePage, CartPage, CrossCheckSessions, TasksTable, ReviewsListPage } f
 import './app.scss';
 
 class App extends React.Component {
-  componentDidMount() { }
+  componentDidMount() {}
 
   render() {
     return (

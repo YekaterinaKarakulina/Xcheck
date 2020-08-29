@@ -1,4 +1,10 @@
-import { GET_USERS, POST_USER, GET_CROSSCHECK_SESSIONS, GET_TASKSTABLE_SESSIONS, GET_REVIEWS_LIST } from './types';
+import {
+  GET_USERS,
+  POST_USER,
+  GET_CROSSCHECK_SESSIONS,
+  GET_TASKSTABLE_SESSIONS,
+  GET_REVIEWS_LIST,
+} from './types';
 
 const getUsers = () => {
   return {

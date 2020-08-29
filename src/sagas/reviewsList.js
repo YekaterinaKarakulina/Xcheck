@@ -1,9 +1,9 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import Axios from 'axios';
 import {
-    GET_REVIEWS_LIST,
-    GET_REVIEWS_LIST_SUCCESS,
-    GET_REVIEWS_LIST_FAILURE,
+  GET_REVIEWS_LIST,
+  GET_REVIEWS_LIST_SUCCESS,
+  GET_REVIEWS_LIST_FAILURE,
 } from '../store/actions/types';
 
 function* workerGetReviewsList() {
@@ -11,9 +11,9 @@ function* workerGetReviewsList() {
   try {
     const result = yield call(Axios.get, uri);
     console.log(result);
-    yield put({ 
-      type: GET_REVIEWS_LIST_SUCCESS, 
-      payload: result.data 
+    yield put({
+      type: GET_REVIEWS_LIST_SUCCESS,
+      payload: result.data,
     });
   } catch {
     yield put({

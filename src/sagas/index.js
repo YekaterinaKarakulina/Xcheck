@@ -5,5 +5,11 @@ import watchGetTasksTable from './tasksTable';
 import watchGetReviewsList from './reviewsList';
 
 export default function* rootSaga() {
-  yield all([watchGetUsers(), watchPostUser(), watchGetCrossCheckSessions(), watchGetTasksTable(),watchGetReviewsList()]);
+  yield all([
+    watchGetUsers(),
+    watchPostUser(),
+    watchGetCrossCheckSessions(),
+    watchGetTasksTable(),
+    watchGetReviewsList(),
+  ]);
 }
