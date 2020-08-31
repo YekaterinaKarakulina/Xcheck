@@ -18,6 +18,7 @@
     "no-shadow": "off",
     "func-names": ["error", "never"],
     "one-var": "off",
+    "react/prop-types": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
