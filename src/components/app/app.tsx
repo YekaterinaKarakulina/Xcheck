@@ -2,7 +2,14 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import RequestListPage from '../request-list-page';
 import ReviewRequest from '../../pages/reviewRequest';
-import { HomePage, CartPage, CrossCheckSessions, TasksTable, ReviewsListPage } from '../../pages';
+import {
+  HomePage,
+  CartPage,
+  CrossCheckSessions,
+  TasksTable,
+  ReviewsListPage,
+  GithubLogin,
+} from '../../pages';
 
 // import MainMenu from '../sidebar';
 
@@ -23,6 +30,7 @@ class App extends React.Component {
           <Route path="/crossCheckSessions" component={CrossCheckSessions} />
           <Route path="/reviewRequest" component={ReviewRequest} />
           <Route path="/reviews" component={ReviewsListPage} />
+          <Route path="/login" component={GithubLogin} />
         </Switch>
       </>
     );
