@@ -1,14 +1,40 @@
-/* eslint-disable import/prefer-default-export */
-import { UPDATE_INITIAL_STATE } from './types';
+import {
+  GET_USERS,
+  POST_USER,
+  GET_CROSSCHECK_SESSIONS,
+  GET_TASKSTABLE_SESSIONS,
+  GET_REVIEWS_LIST,
+} from './types';
 
-const updateInitialState = () => {
+const getUsers = () => {
   return {
-    type: UPDATE_INITIAL_STATE,
-    payload: {
-      id: 1,
-      data: 'test data',
-    },
+    type: GET_USERS,
   };
 };
 
-export { updateInitialState };
+const postUser = (newUser) => {
+  return {
+    type: POST_USER,
+    payload: newUser,
+  };
+};
+
+const getTasksTable = () => {
+  return {
+    type: GET_TASKSTABLE_SESSIONS,
+  };
+};
+
+const getCrossCheckSessions = () => {
+  return {
+    type: GET_CROSSCHECK_SESSIONS,
+  };
+};
+
+const getReviewsList = () => {
+  return {
+    type: GET_REVIEWS_LIST,
+  };
+};
+
+export { getUsers, postUser, getCrossCheckSessions, getTasksTable, getReviewsList };
