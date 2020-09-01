@@ -8,6 +8,7 @@ import {
   CrossCheckSessions,
   TasksTable,
   ReviewsListPage,
+  CrossCheckSession,
   GithubLogin,
 } from '../../pages';
 
@@ -30,6 +31,7 @@ class App extends React.Component {
           <Route path="/crossCheckSessions" component={CrossCheckSessions} />
           <Route path="/reviewRequest" component={ReviewRequest} />
           <Route path="/reviews" component={ReviewsListPage} />
+          <Route path="/addCrossCheckSession" component={CrossCheckSession} />
           <Route path="/login" component={GithubLogin} />
         </Switch>
       </>
