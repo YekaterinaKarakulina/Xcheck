@@ -1,4 +1,7 @@
 import { combineReducers } from 'redux';
+
+import { reducer as reduxFormReducer } from 'redux-form';
+
 import users from './users';
 import tasks from './tasks';
 import tasksTableData from './tasksTable';
@@ -11,6 +14,7 @@ const rootReducer = combineReducers({
   crossCheckSessions,
   reviewsList,
   tasksTableData,
+  crossCheckSessionForm: reduxFormReducer,
 });
 
 export default rootReducer;
