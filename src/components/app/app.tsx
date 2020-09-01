@@ -10,6 +10,7 @@ import {
   ReviewsListPage,
   CrossCheckSession,
   GithubLogin,
+  TaskForm,
 } from '../../pages';
 
 // import MainMenu from '../sidebar';
@@ -33,6 +34,7 @@ class App extends React.Component {
           <Route path="/reviews" component={ReviewsListPage} />
           <Route path="/addCrossCheckSession" component={CrossCheckSession} />
           <Route path="/login" component={GithubLogin} />
+          <Route path="/taskForm" component={TaskForm} />
         </Switch>
       </>
     );

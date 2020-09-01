@@ -1,0 +1,11 @@
+.creationItemposition {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  li {
+    list-style-type: none;
+  }
+  li:first-child {
+    margin-bottom: 1rem;
+  }
+}

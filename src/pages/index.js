@@ -5,6 +5,7 @@ import CrossCheckSessions from './crossCheckSessions';
 import ReviewsListPage from './reviewsListPage';
 import CrossCheckSession from './crossCheckSession';
 import GithubLogin from './github-login';
+import TaskForm from './taskForm/taskForm';
 
 export {
   HomePage,
@@ -14,4 +15,5 @@ export {
   ReviewsListPage,
   GithubLogin,
   CrossCheckSession,
+  TaskForm,
 };
