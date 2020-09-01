@@ -19,6 +19,8 @@
     "func-names": ["error", "never"],
     "one-var": "off",
     "react/prop-types": "off",
+    // "no-restricted-syntax:": "off",
+    // "no-prototype-builtins": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

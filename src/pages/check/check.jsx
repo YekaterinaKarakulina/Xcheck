@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 
 import CheckForm from './CheckForm';
-import { tasks } from './data';
+import { tasks, reviewRequests } from './data';
 
 class Check extends Component {
   constructor(props) {
@@ -11,28 +11,33 @@ class Check extends Component {
 
     this.state = {
       task: {},
+      reviewRequest: {},
     };
   }
 
   componentDidMount() {
     this.setState({
       task: tasks[0],
+      reviewRequest: reviewRequests[0],
     });
   }
 
   render() {
     const { handleSubmit } = this.props;
-    const { task } = this.state;
+    const { task, reviewRequest } = this.state;
     const items = task.items || [];
     const basics = {
+        id: 1,
         title: 'Basic Scope',
         items: [],
       },
       extras = {
+        id: 2,
         title: 'Extra Scope',
         items: [],
       },
       fines = {
+        id: 3,
         title: 'Fines',
         items: [],
       };
@@ -56,7 +61,11 @@ class Check extends Component {
       <>
         <div className="check">
           <div className="check__container">
-            <CheckForm groups={[basics, extras, fines]} handleSubmit={handleSubmit} />
+            <CheckForm
+              groups={[basics, extras, fines]}
+              reviewRequest={reviewRequest || {}}
+              handleSubmit={handleSubmit}
+            />
           </div>
         </div>
       </>
