@@ -14,7 +14,6 @@ const makeField = (Component, formItemLayout) => ({
   ...rest
 }) => {
   const hasError = meta.touched && meta.invalid;
-  console.log(formItemLayout);
 
   return (
     <FormItem
