@@ -3,6 +3,15 @@ import HomePage from './home-page';
 import TasksTable from './tasksTable';
 import CrossCheckSessions from './crossCheckSessions';
 import ReviewsListPage from './reviewsListPage';
+import CrossCheckSession from './crossCheckSession';
 import GithubLogin from './github-login';
 
-export { HomePage, CartPage, CrossCheckSessions, TasksTable, ReviewsListPage, GithubLogin };
+export {
+  HomePage,
+  CartPage,
+  CrossCheckSessions,
+  TasksTable,
+  ReviewsListPage,
+  GithubLogin,
+  CrossCheckSession,
+};
