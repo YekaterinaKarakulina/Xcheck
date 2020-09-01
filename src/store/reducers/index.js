@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   crossCheckSessions,
   reviewsList,
   tasksTableData,
-  crossCheckSessionForm: reduxFormReducer,
+  form: reduxFormReducer,
 });
 
 export default rootReducer;

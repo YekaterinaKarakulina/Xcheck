@@ -7,7 +7,7 @@ import {
   CrossCheckSessions,
   TasksTable,
   ReviewsListPage,
-  CrossCheckSessionsForm,
+  CrossCheckSession,
 } from '../../pages';
 
 // import MainMenu from '../sidebar';
@@ -27,7 +27,7 @@ class App extends React.Component {
           <Route path="/request" component={RequestListPage} />
           <Route path="/crossCheckSessions" component={CrossCheckSessions} />
           <Route path="/reviews" component={ReviewsListPage} />
-          <Route path="/crossCheckSessionForm" component={CrossCheckSessionsForm} />
+          <Route path="/addCrossCheckSession" component={CrossCheckSession} />
         </Switch>
       </>
     );

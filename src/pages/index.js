@@ -3,13 +3,6 @@ import HomePage from './home-page';
 import TasksTable from './tasksTable';
 import CrossCheckSessions from './crossCheckSessions';
 import ReviewsListPage from './reviewsListPage';
-import CrossCheckSessionsForm from './crossCheckSessionForm';
+import CrossCheckSession from './crossCheckSession';
 
-export {
-  HomePage,
-  CartPage,
-  CrossCheckSessions,
-  TasksTable,
-  ReviewsListPage,
-  CrossCheckSessionsForm,
-};
+export { HomePage, CartPage, CrossCheckSessions, TasksTable, ReviewsListPage, CrossCheckSession };

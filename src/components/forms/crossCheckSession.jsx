@@ -150,7 +150,7 @@ const CrossCheckSessionForm = (props) => {
 
       <FormItem {...tailFormItemLayout}>
         <Button type="primary" htmlType="submit" disabled={pristine || submitting}>
-          Submit
+          Create
         </Button>
       </FormItem>
     </Form>
