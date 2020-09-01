@@ -54,6 +54,32 @@
       "attendees": []
     }
   ],
+  "reviews": [
+    {
+      "id": "rev-id-1",
+      "requestId": "rev-req-1",
+      "author": "author1",
+      "task": "english fo kids",
+      "state": "disputed",
+      "grade" : {}
+    },
+    {
+      "id": "rev-id-2",
+      "requestId": "rev-req-2",
+      "author": "author2",
+      "task": "movie search",
+      "state": "published",
+      "grade" : {}
+    },
+    {
+      "id": "rev-id-3",
+      "requestId": "rev-req-2",
+      "author": "author3",
+      "task": "xcheck",
+      "state": "draft",
+      "grade" : {}
+    }
+  ],
   "tasksTableData": [
     {
       "key": "1",

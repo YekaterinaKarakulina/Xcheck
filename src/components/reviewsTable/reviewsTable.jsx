@@ -1,26 +1,30 @@
-import React, { Component } from 'react';
-import 'antd/dist/antd.css';
-import { Table, Space, Button, Input } from 'antd';
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import { Table, Tag, Space, Button, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import Highlighter from 'react-highlight-words';
 
-import './request-list-page.scss';
-import request from './data';
+export default class ReviewsTable extends React.Component {
+  state = {
+    searchText: '',
+    searchedColumn: '',
+  };
 
-class RequestListPage extends Component {
   getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <div style={{ padding: 8 }}>
         <Input
           placeholder={`Search ${dataIndex}`}
           value={selectedKeys[0]}
-          onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-          onPressEnter={() => this.handleSearch(confirm)}
+          onChange={(event) => setSelectedKeys(event.target.value ? [event.target.value] : [])}
+          onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
           style={{ width: 188, marginBottom: 8, display: 'block' }}
         />
         <Space>
           <Button
             type="primary"
-            onClick={() => this.handleSearch(confirm)}
+            onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
             icon={<SearchOutlined />}
             size="small"
             style={{ width: 90 }}
@@ -40,14 +44,32 @@ class RequestListPage extends Component {
       record[dataIndex]
         ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
         : '',
+    render: (text) => {
+      const { searchedColumn, searchText } = this.state;
+      return searchedColumn === dataIndex ? (
+        <Highlighter
+          highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+          searchWords={[searchText]}
+          autoEscape
+          textToHighlight={text ? text.toString() : ''}
+        />
+      ) : (
+        text
+      );
+    },
   });
 
-  handleSearch = (confirm) => {
+  handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
+    this.setState({
+      searchText: selectedKeys[0],
+      searchedColumn: dataIndex,
+    });
   };
 
   handleReset = (clearFilters) => {
     clearFilters();
+    this.setState({ searchText: '' });
   };
 
   render() {
@@ -77,10 +99,36 @@ class RequestListPage extends Component {
         dataIndex: 'state',
         key: 'state',
         sorter: (a, b) => (a.state > b.state ? 1 : -1),
+        render: (state) => {
+          let color = 'green';
+          switch (state) {
+            case 'published':
+              color = 'green';
+              break;
+            case 'draft':
+              color = 'geekblue';
+              break;
+            case 'disputed':
+              color = 'volcano';
+              break;
+            default:
+              color = 'green';
+          }
+          return <Tag color={color}>{state.toUpperCase()}</Tag>;
+        },
       },
     ];
-    return <Table dataSource={request} columns={columns} rowKey="id" />;
+
+    const { tableData } = this.props;
+
+    return <Table columns={columns} dataSource={tableData} />;
   }
 }
 
-export default RequestListPage;
+ReviewsTable.propTypes = {
+  tableData: PropTypes.arrayOf(PropTypes.object),
+};
+
+ReviewsTable.defaultProps = {
+  tableData: [],
+};
