@@ -8,7 +8,7 @@ import MainMenu from '../sidebar';
 import './app.scss';
 
 class App extends React.Component {
-  componentDidMount() { }
+  componentDidMount() {}
 
   render() {
     return (
