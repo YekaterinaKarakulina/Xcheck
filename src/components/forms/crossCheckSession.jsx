@@ -1,7 +1,9 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
+import PropTypes from 'prop-types';
+
+import makeField from './makeField';
 
 import { required, minLength, maxLength } from '../../utils';
 
@@ -37,29 +39,11 @@ const tailFormItemLayout = {
   },
 };
 
-const makeField = (Component) => ({ input, meta, children, hasFeedback, label, ...rest }) => {
-  const hasError = meta.touched && meta.invalid;
-
-  return (
-    <FormItem
-      {...formItemLayout}
-      label={label}
-      validateStatus={hasError ? 'error' : 'success'}
-      hasFeedback={hasFeedback && hasError}
-      help={hasError && meta.error}
-    >
-      <Component {...input} {...rest}>
-        {children}
-      </Component>
-    </FormItem>
-  );
-};
-
-const AInput = makeField(Input);
-const AInputNumber = makeField(InputNumber);
-const ASelect = makeField(Select);
-const ACheckbox = makeField(Checkbox);
-const ARangePicker = makeField(RangePicker);
+const AInput = makeField(Input, formItemLayout);
+const AInputNumber = makeField(InputNumber, formItemLayout);
+const ASelect = makeField(Select, formItemLayout);
+const ACheckbox = makeField(Checkbox, formItemLayout);
+const ARangePicker = makeField(RangePicker, formItemLayout);
 
 const CrossCheckSessionForm = (props) => {
   const { handleSubmit, pristine, submitting } = props;
@@ -155,6 +139,12 @@ const CrossCheckSessionForm = (props) => {
       </FormItem>
     </Form>
   );
+};
+
+CrossCheckSessionForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  pristine: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool.isRequired,
 };
 
 export default reduxForm({
