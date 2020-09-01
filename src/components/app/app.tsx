@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import RequestListPage from '../request-list-page';
+import ReviewRequest from '../../pages/reviewRequest';
 import {
   HomePage,
   CartPage,
@@ -8,6 +9,8 @@ import {
   TasksTable,
   ReviewsListPage,
   Check,
+  CrossCheckSession,
+  GithubLogin,
 } from '../../pages';
 
 // import MainMenu from '../sidebar';
@@ -20,6 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <>
+        {/* <MainMenu /> */}
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={CartPage} />
@@ -27,7 +31,10 @@ class App extends React.Component {
           <Route path="/check" component={Check} />
           <Route path="/request" component={RequestListPage} />
           <Route path="/crossCheckSessions" component={CrossCheckSessions} />
+          <Route path="/reviewRequest" component={ReviewRequest} />
           <Route path="/reviews" component={ReviewsListPage} />
+          <Route path="/addCrossCheckSession" component={CrossCheckSession} />
+          <Route path="/login" component={GithubLogin} />
         </Switch>
       </>
     );

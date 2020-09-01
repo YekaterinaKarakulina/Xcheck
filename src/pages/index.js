@@ -4,5 +4,16 @@ import TasksTable from './tasksTable';
 import Check from './check/check';
 import CrossCheckSessions from './crossCheckSessions';
 import ReviewsListPage from './reviewsListPage';
+import CrossCheckSession from './crossCheckSession';
+import GithubLogin from './github-login';
 
-export { HomePage, CartPage, CrossCheckSessions, TasksTable, ReviewsListPage, Check };
+export {
+  HomePage,
+  CartPage,
+  CrossCheckSessions,
+  TasksTable,
+  ReviewsListPage,
+  GithubLogin,
+  CrossCheckSession,
+  Check,
+};
