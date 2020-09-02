@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
 import PropTypes from 'prop-types';
-
 import makeField from './makeField';
 import { postCrossCheckSession } from '../../store/actions/crossCheckSession';
-
 import { required, minLength, maxLength } from '../../utils';
 import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
 
@@ -149,7 +147,7 @@ const CrossCheckSessionForm = (props) => {
 
       <Field
         label="Create as DRAFT"
-        name="state"
+        name="draft"
         component={ACheckbox}
         type="checkbox"
         hasFeedback

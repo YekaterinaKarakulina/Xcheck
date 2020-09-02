@@ -10,24 +10,28 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
     minReviewsAmount,
     desiredReviewsAmount,
     discardMinScore,
+    discardMaxScore,
+    draft,
   } = values;
 
   const id = `rss2020Q3react-${taskName}`;
 
   const dateField = '_d';
-  const startDate = moment(crossCheckSessionPeriod[0][dateField]).format('YYYY-MM-DD');
-  const endDate = moment(crossCheckSessionPeriod[1][dateField]).format('YYYY-MM-DD');
+  const dateFormat = 'YYYY-MM-DD';
+  const startDate = moment(crossCheckSessionPeriod[0][dateField]).format(dateFormat);
+  const endDate = moment(crossCheckSessionPeriod[1][dateField]).format(dateFormat);
+  const state = draft ? 'draft' : 'active';
 
   return {
     id,
     author,
-    state: 'closed',
+    state,
     taskId,
     coefficient: taskCoefficient,
     startDate,
     endDate,
     discardMinScore,
-    discardMaxScore: false,
+    discardMaxScore,
     minReviewsAmount,
     desiredReviewersAmount: desiredReviewsAmount,
     attendees: [],
