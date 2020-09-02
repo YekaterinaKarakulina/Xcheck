@@ -8,6 +8,7 @@ import {
   CrossCheckSessions,
   TasksTable,
   ReviewsListPage,
+  Check,
   CrossCheckSession,
   GithubLogin,
   TaskForm,
@@ -28,6 +29,7 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/tasks" component={TasksTable} />
+          <Route path="/check" component={Check} />
           <Route path="/request" component={RequestListPage} />
           <Route path="/crossCheckSessions" component={CrossCheckSessions} />
           <Route path="/reviewRequest" component={ReviewRequest} />

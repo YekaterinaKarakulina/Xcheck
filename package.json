@@ -4,7 +4,7 @@
   "description": "RS School React - X check",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --open",
     "build-prod": "webpack --env.mode=production",
     "build-dev": "webpack --env.mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
