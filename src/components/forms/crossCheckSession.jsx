@@ -52,7 +52,6 @@ const CrossCheckSessionForm = (props) => {
   const { handleSubmit, pristine, submitting, reset, postCrossCheckSession } = props;
 
   const myHandleSubmit = (values) => {
-    console.log(values);
     const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
     postCrossCheckSession(crossCheckSession);
   };
@@ -138,7 +137,22 @@ const CrossCheckSessionForm = (props) => {
         component={ACheckbox}
         type="checkbox"
         hasFeedback
-        validate={required}
+      />
+
+      <Field
+        label="Discard max score"
+        name="discardMaxScore"
+        component={ACheckbox}
+        type="checkbox"
+        hasFeedback
+      />
+
+      <Field
+        label="Create as DRAFT"
+        name="state"
+        component={ACheckbox}
+        type="checkbox"
+        hasFeedback
       />
 
       <FormItem {...tailFormItemLayout}>
@@ -184,6 +198,8 @@ const form = reduxForm({
     minReviewsAmount: 2,
     desiredReviewsAmount: 3,
     discardMinScore: true,
+    discardMaxScore: false,
+    state: true,
   },
 })(CrossCheckSessionForm);
 
