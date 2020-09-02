@@ -49,13 +49,13 @@ const ARangePicker = makeField(RangePicker, formItemLayout);
 const CrossCheckSessionForm = (props) => {
   const { handleSubmit, pristine, submitting, reset, postCrossCheckSession } = props;
 
-  const myHandleSubmit = (values) => {
+  const onSubmit = (values) => {
     const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
     postCrossCheckSession(crossCheckSession);
   };
 
   return (
-    <Form onFinish={handleSubmit(myHandleSubmit)}>
+    <Form onFinish={handleSubmit(onSubmit)}>
       <Field
         label="Task name"
         name="taskName"
@@ -185,7 +185,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    postCrossCheckSession: (a) => dispatch(postCrossCheckSession(a)),
+    postCrossCheckSession: (crossCheckSession) =>
+      dispatch(postCrossCheckSession(crossCheckSession)),
   };
 };
 
