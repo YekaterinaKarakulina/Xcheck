@@ -31,20 +31,22 @@ class Check extends Component {
     const { task, reviewRequest } = this.state;
     const items = task.items || [];
     const basics = {
-        id: 1,
-        title: 'Basic Scope',
-        items: [],
-      },
-      extras = {
-        id: 2,
-        title: 'Extra Scope',
-        items: [],
-      },
-      fines = {
-        id: 3,
-        title: 'Fines',
-        items: [],
-      };
+      id: 1,
+      title: 'Basic Scope',
+      items: [],
+    };
+
+    const extras = {
+      id: 2,
+      title: 'Extra Scope',
+      items: [],
+    };
+
+    const fines = {
+      id: 3,
+      title: 'Fines',
+      items: [],
+    };
 
     items.forEach((listItem) => {
       switch (listItem.category) {
@@ -84,8 +86,6 @@ Check.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
 };
 
-Check = reduxForm({
+export default reduxForm({
   form: 'check',
 })(Check);
-
-export default Check;

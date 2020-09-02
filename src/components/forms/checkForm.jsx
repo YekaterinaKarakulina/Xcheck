@@ -47,8 +47,7 @@ const CheckForm = ({ groups, reviewRequest, handleSubmit }) => {
                 );
               })
             : groupsItem.items.map((gItem) => {
-                const { score, comment } = selfGrade.items[gItem.id];
-                console.log(score, comment);
+                const { comment } = selfGrade.items[gItem.id];
 
                 return (
                   <div key={gItem.id} className="check__form-item">
@@ -91,7 +90,7 @@ const CheckForm = ({ groups, reviewRequest, handleSubmit }) => {
   });
 
   return (
-    <Form onSubmit={handleSubmit(handleSubmit)} className="check__form">
+    <Form onSubmit={handleSubmit} className="check__form">
       <div className="check__form-inner"> {formFields}</div>
       <div className="check__form-bottom">
         <Button type="primary" htmlType="submit" size="large">
