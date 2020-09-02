@@ -1,10 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Form, Input, Button, InputNumber, Select } from 'antd';
+import { Form, Input, Button, InputNumber, Select, Checkbox } from 'antd';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import makeField from '../forms/makeField';
 import { required, minLength, maxLength } from '../../utils';
+import { formItemLayout, tailFormItemLayout } from '../forms/formLayot';
 import FieldArraysForm from './FieldArraysForm';
 import './taskForm.scss';
 
@@ -16,34 +17,11 @@ const { TextArea } = Input;
 const taskId = uuidv4();
 const FormItem = Form.Item;
 
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 6 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 14 },
-  },
-};
-
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 14,
-      offset: 6,
-    },
-  },
-};
-
 const AInput = makeField(Input, formItemLayout);
 const AInputNumber = makeField(InputNumber, formItemLayout);
 const ASelect = makeField(Select, formItemLayout);
 const ATextArea = makeField(TextArea, formItemLayout);
+const ACheckbox = makeField(Checkbox, formItemLayout);
 
 const TaskFormCreation = (props) => {
   const { handleSubmit, pristine, submitting } = props;
@@ -101,6 +79,16 @@ const TaskFormCreation = (props) => {
         placeholder="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/xcheck/xcheck.md"
         hasFeedback
       />
+
+      <Field
+        label="Only cross-check"
+        name="crosscheck"
+        component={ACheckbox}
+        type="checkbox"
+        hasFeedback
+      />
+
+      <Field label="Save as draft" name="draft" component={ACheckbox} type="checkbox" hasFeedback />
 
       <FieldArraysForm />
 

@@ -4,20 +4,10 @@ import { Input, Button, InputNumber } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { v4 as uuidv4 } from 'uuid';
 import { required } from '../../utils';
+import { formItemLayout } from '../forms/formLayot';
 import makeField from '../forms/makeField';
 
 const { TextArea } = Input;
-
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 6 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 14 },
-  },
-};
 
 const AInput = makeField(Input, formItemLayout);
 const AInputNumber = makeField(InputNumber, formItemLayout);
