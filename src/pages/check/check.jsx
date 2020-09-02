@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
-
-import CheckForm from './CheckForm';
+import { Typography } from 'antd';
+import 'antd/dist/antd.css';
+import CheckForm from '../../components/forms/checkForm';
 import { tasks, reviewRequests } from './data';
+import './check.scss';
+
+const { Title } = Typography;
 
 class Check extends Component {
   constructor(props) {
@@ -18,7 +22,7 @@ class Check extends Component {
   componentDidMount() {
     this.setState({
       task: tasks[0],
-      reviewRequest: reviewRequests[0],
+      reviewRequest: reviewRequests[0], // reviewRequests[0] || { selfGrade: {} }
     });
   }
 
@@ -61,6 +65,9 @@ class Check extends Component {
       <>
         <div className="check">
           <div className="check__container">
+            <Title level={1} className="check__title">
+              Check Form
+            </Title>
             <CheckForm
               groups={[basics, extras, fines]}
               reviewRequest={reviewRequest || {}}

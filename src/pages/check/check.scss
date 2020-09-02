@@ -1,0 +1,70 @@
+.check {
+  margin: 2rem 0 5rem;
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__form {
+    // &-inner {
+    // }
+
+    &-row {
+      margin-bottom: 5rem;
+
+      &-title {
+        margin-bottom: 3rem !important;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #000;
+      }
+
+      // &-body {
+      // }
+    }
+
+    &-item {
+      margin-bottom: 4rem;
+
+      &-row {
+        margin-bottom: 2rem;
+      }
+
+      &-group {
+        margin-bottom: 3rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      // &-title {
+      // }
+
+      &-desc {
+        margin-left: 2rem;
+      }
+
+      .ant-form-item-control-input {
+        input {
+          max-width: 8rem;
+        }
+
+        textarea {
+          max-width: 50rem;
+        }
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 3rem;
+      border-top: 1px solid #000;
+    }
+  }
+}
