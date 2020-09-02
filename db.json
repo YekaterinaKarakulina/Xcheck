@@ -87,9 +87,7 @@
       "author": "John Brown",
       "description": "New York No. 1 Lake Park",
       "taskId": "11",
-      "state": [
-        "closed"
-      ]
+      "state": ["closed"]
     },
     {
       "key": "2",
@@ -97,9 +95,7 @@
       "author": "John Brown",
       "description": "London No. 1 Lake Park",
       "taskId": "22",
-      "state": [
-        "active"
-      ]
+      "state": ["active"]
     },
     {
       "key": "3",
@@ -107,9 +103,7 @@
       "author": "John Brown",
       "description": "Sidney No. 1 Lake Park",
       "taskId": "33",
-      "state": [
-        "archived"
-      ]
+      "state": ["archived"]
     }
   ]
 }
