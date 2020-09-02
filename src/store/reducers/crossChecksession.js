@@ -1,5 +1,14 @@
+import { POST_CROSSCHECK_SESSION_SUCCESS, POST_CROSSCHECK_SESSION_FAILURE } from '../actions/types';
+
 const crossCheckSession = (state = [], action) => {
   switch (action.type) {
+    case POST_CROSSCHECK_SESSION_SUCCESS:
+      return action.payload;
+
+    case POST_CROSSCHECK_SESSION_FAILURE:
+      console.log(action.payload);
+      return state;
+
     default:
       return state;
   }
