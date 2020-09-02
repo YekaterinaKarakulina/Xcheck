@@ -1,11 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
 import PropTypes from 'prop-types';
 
 import makeField from './makeField';
+import { postCrossCheckSession } from '../../store/actions/crossCheckSession';
 
 import { required, minLength, maxLength } from '../../utils';
+import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
 
 const minLength3 = minLength(3);
 const maxLength50 = maxLength(50);
@@ -46,10 +49,16 @@ const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
 const CrossCheckSessionForm = (props) => {
-  const { handleSubmit, pristine, submitting } = props;
+  const { handleSubmit, pristine, submitting, reset, postCrossCheckSession } = props;
+
+  const myHandleSubmit = (values) => {
+    console.log(values);
+    const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
+    postCrossCheckSession(crossCheckSession);
+  };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onFinish={handleSubmit(myHandleSubmit)}>
       <Field
         label="Task name"
         name="taskName"
@@ -133,8 +142,17 @@ const CrossCheckSessionForm = (props) => {
       />
 
       <FormItem {...tailFormItemLayout}>
-        <Button type="primary" htmlType="submit" disabled={pristine || submitting}>
+        <Button
+          type="primary"
+          htmlType="submit"
+          disabled={pristine || submitting}
+          style={{ marginRight: '1rem' }}
+        >
           Create
+        </Button>
+
+        <Button disabled={pristine || submitting} onClick={reset}>
+          Clear Values
         </Button>
       </FormItem>
     </Form>
@@ -145,9 +163,21 @@ CrossCheckSessionForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
+  reset: PropTypes.func.isRequired,
+  postCrossCheckSession: PropTypes.func.isRequired,
 };
 
-export default reduxForm({
+const mapStateToProps = (state) => {
+  return { state };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    postCrossCheckSession: (a) => dispatch(postCrossCheckSession(a)),
+  };
+};
+
+const form = reduxForm({
   form: 'crossCheckSession',
   initialValues: {
     taskCoefficient: 1,
@@ -156,3 +186,5 @@ export default reduxForm({
     discardMinScore: true,
   },
 })(CrossCheckSessionForm);
+
+export default connect(mapStateToProps, mapDispatchToProps)(form);
