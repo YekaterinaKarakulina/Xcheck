@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
@@ -6,12 +7,12 @@ import 'antd/dist/antd.css';
 import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
 
-interface Props {
-  props?: any;
-  tableData: any;
-}
+// interface Props {
+//   props?: any;
+//   tableData: any;
+// }
 
-class CrossCheckSessionsTable extends React.Component<Props, {}> {
+class CrossCheckSessionsTable extends React.Component {
   componentDidMount() {}
 
   render() {

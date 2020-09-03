@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import makeField from './makeField';
 import { postCrossCheckSession } from '../../store/actions/crossCheckSession';
@@ -47,12 +48,23 @@ const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
 const CrossCheckSessionForm = (props) => {
-  const { handleSubmit, pristine, submitting, reset, postCrossCheckSession } = props;
+  const {
+    handleSubmit,
+    pristine,
+    submitting,
+    reset,
+    postCrossCheckSession,
+    isRedirectReady,
+  } = props;
 
   const onSubmit = (values) => {
     const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
     postCrossCheckSession(crossCheckSession);
   };
+
+  if (isRedirectReady) {
+    return <Redirect to="/crossCheckSessions/" />;
+  }
 
   return (
     <Form onFinish={handleSubmit(onSubmit)}>
@@ -177,11 +189,12 @@ CrossCheckSessionForm.propTypes = {
   submitting: PropTypes.bool.isRequired,
   reset: PropTypes.func.isRequired,
   postCrossCheckSession: PropTypes.func.isRequired,
+  isRedirectReady: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return { state };
-};
+const mapStateToProps = (state) => ({
+  isRedirectReady: state.form.crossCheckSession.isRedirectReady,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -198,7 +211,7 @@ const form = reduxForm({
     desiredReviewsAmount: 3,
     discardMinScore: true,
     discardMaxScore: false,
-    state: true,
+    draft: true,
   },
 })(CrossCheckSessionForm);
 

@@ -5,6 +5,7 @@ import {
   POST_CROSSCHECK_SESSION,
   POST_CROSSCHECK_SESSION_SUCCESS,
   POST_CROSSCHECK_SESSION_FAILURE,
+  REDIRECT_TO_CROSSCHECK_SESSIONS,
 } from '../store/actions/types';
 
 function* workerPostCrossCheckSession(action) {
@@ -12,6 +13,7 @@ function* workerPostCrossCheckSession(action) {
   try {
     const result = yield call(Axios.post, uri, action.payload);
     yield put({ type: POST_CROSSCHECK_SESSION_SUCCESS, payload: result.data });
+    yield put({ type: REDIRECT_TO_CROSSCHECK_SESSIONS });
   } catch {
     yield put({
       type: POST_CROSSCHECK_SESSION_FAILURE,
