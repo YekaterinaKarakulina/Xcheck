@@ -23,9 +23,8 @@ function* workerGetCrossCheckSessions() {
 }
 
 function* workerGetCrossCheckSessionById(action) {
-  console.log(action.payload);
   try {
-    const uri = 'http://localhost:3000/crossCheckSessions/rss2020Q3react-songbird';
+    const uri = `http://localhost:3000/crossCheckSessions/${action.payload}`;
     const result = yield call(Axios.get, uri);
     console.log(result.data);
     yield put({ type: GET_CROSSCHECK_SESSION_SUCCESS, payload: result.data });

@@ -1,8 +1,9 @@
 import moment from 'moment';
+import { v4 as uuidv4 } from 'uuid';
 
 const transformFormValuesToCrossCheckSessionObject = (values) => {
   const {
-    taskName,
+    title,
     author,
     taskId,
     crossCheckSessionPeriod,
@@ -14,7 +15,7 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
     draft,
   } = values;
 
-  const id = `rss2020Q3react-${taskName}`;
+  const id = uuidv4();
 
   const dateField = '_d';
   const dateFormat = 'YYYY-MM-DD';
@@ -24,6 +25,7 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
 
   return {
     id,
+    title,
     author,
     state,
     taskId,

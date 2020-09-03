@@ -46,10 +46,10 @@ const CrossCheckSessionForm = (props) => {
   return (
     <Form onFinish={handleSubmit(onSubmit)}>
       <Field
-        label="Task name"
-        name="taskName"
+        label="Title"
+        name="title"
         component={AInput}
-        placeholder="Type task name"
+        placeholder="Type title"
         hasFeedback
         validate={[required, minLength3, maxLength50]}
       />
