@@ -1,16 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-
 import 'antd/dist/antd.css';
-
+import { connect } from 'react-redux';
 import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
-
-// interface Props {
-//   props?: any;
-//   tableData: any;
-// }
+import { getCrossCheckSessionById } from '../../store/actions/crossCheckSession';
 
 class CrossCheckSessionsTable extends React.Component {
   componentDidMount() {}
@@ -73,10 +68,18 @@ class CrossCheckSessionsTable extends React.Component {
       {
         title: 'Action',
         key: 'action',
-        render: () => (
-          <Space size="middle">
+        render: (action, row) => (
+          <Space size="middle" data-id={row.title}>
             <EyeTwoTone twoToneColor="#9254de" />
-            <EditTwoTone twoToneColor="#ffa940" />
+            <EditTwoTone
+              twoToneColor="#ffa940"
+              onClick={() => {
+                console.log('---------- edit -------');
+                console.log(row.title);
+                const { getCrossCheckSessionById } = this.props;
+                getCrossCheckSessionById(row.title);
+              }}
+            />
             <CloseCircleTwoTone twoToneColor="#ff4d4f" />
           </Space>
         ),
@@ -89,4 +92,14 @@ class CrossCheckSessionsTable extends React.Component {
   }
 }
 
-export default CrossCheckSessionsTable;
+const mapStateToProps = (state) => {
+  return { state };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getCrossCheckSessionById: (id) => dispatch(getCrossCheckSessionById(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionsTable);

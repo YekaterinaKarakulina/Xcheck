@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { POST_CROSSCHECK_SESSION } from './types';
+import { POST_CROSSCHECK_SESSION, GET_CROSSCHECK_SESSION_BY_ID } from './types';
 
 const postCrossCheckSession = (crossCheckSession) => {
   return {
@@ -8,4 +8,11 @@ const postCrossCheckSession = (crossCheckSession) => {
   };
 };
 
-export { postCrossCheckSession };
+const getCrossCheckSessionById = (id) => {
+  return {
+    type: GET_CROSSCHECK_SESSION_BY_ID,
+    payload: id,
+  };
+};
+
+export { postCrossCheckSession, getCrossCheckSessionById };
