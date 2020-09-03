@@ -14,7 +14,7 @@ function* workerGetTasksTable() {
   } catch {
     yield put({
       type: GET_TASKSTABLE_SESSIONS_FAILURE,
-      payload: `ERROR! Cannot get users at ${uri}`,
+      payload: `ERROR! Cannot get tasks at ${uri}`,
     });
   }
 }

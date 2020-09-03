@@ -1,11 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
 import PropTypes from 'prop-types';
-
 import makeField from './makeField';
-
+import { postCrossCheckSession } from '../../store/actions/crossCheckSession';
 import { required, minLength, maxLength } from '../../utils';
+import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
 
 const minLength3 = minLength(3);
 const maxLength50 = maxLength(50);
@@ -46,10 +47,15 @@ const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
 const CrossCheckSessionForm = (props) => {
-  const { handleSubmit, pristine, submitting } = props;
+  const { handleSubmit, pristine, submitting, reset, postCrossCheckSession } = props;
+
+  const onSubmit = (values) => {
+    const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
+    postCrossCheckSession(crossCheckSession);
+  };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onFinish={handleSubmit(onSubmit)}>
       <Field
         label="Task name"
         name="taskName"
@@ -129,12 +135,36 @@ const CrossCheckSessionForm = (props) => {
         component={ACheckbox}
         type="checkbox"
         hasFeedback
-        validate={required}
+      />
+
+      <Field
+        label="Discard max score"
+        name="discardMaxScore"
+        component={ACheckbox}
+        type="checkbox"
+        hasFeedback
+      />
+
+      <Field
+        label="Create as DRAFT"
+        name="draft"
+        component={ACheckbox}
+        type="checkbox"
+        hasFeedback
       />
 
       <FormItem {...tailFormItemLayout}>
-        <Button type="primary" htmlType="submit" disabled={pristine || submitting}>
+        <Button
+          type="primary"
+          htmlType="submit"
+          disabled={pristine || submitting}
+          style={{ marginRight: '1rem' }}
+        >
           Create
+        </Button>
+
+        <Button disabled={pristine || submitting} onClick={reset}>
+          Clear Values
         </Button>
       </FormItem>
     </Form>
@@ -145,14 +175,31 @@ CrossCheckSessionForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
+  reset: PropTypes.func.isRequired,
+  postCrossCheckSession: PropTypes.func.isRequired,
 };
 
-export default reduxForm({
+const mapStateToProps = (state) => {
+  return { state };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    postCrossCheckSession: (crossCheckSession) =>
+      dispatch(postCrossCheckSession(crossCheckSession)),
+  };
+};
+
+const form = reduxForm({
   form: 'crossCheckSession',
   initialValues: {
     taskCoefficient: 1,
     minReviewsAmount: 2,
     desiredReviewsAmount: 3,
     discardMinScore: true,
+    discardMaxScore: false,
+    state: true,
   },
 })(CrossCheckSessionForm);
+
+export default connect(mapStateToProps, mapDispatchToProps)(form);
