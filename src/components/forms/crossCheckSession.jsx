@@ -9,6 +9,7 @@ import { required, minLength, maxLength } from '../../utils';
 import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
 import makeField from './makeField';
 import { formItemLayout, tailFormItemLayout } from './formLayout';
+import { crossCheckSessionForm } from './initialValues';
 
 const minLength3 = minLength(3);
 const maxLength50 = maxLength(50);
@@ -182,14 +183,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const form = reduxForm({
   form: 'crossCheckSession',
-  initialValues: {
-    taskCoefficient: 1,
-    minReviewsAmount: 2,
-    desiredReviewsAmount: 3,
-    discardMinScore: true,
-    discardMaxScore: false,
-    draft: true,
-  },
+  initialValues: crossCheckSessionForm,
 })(CrossCheckSessionForm);
 
 export default connect(mapStateToProps, mapDispatchToProps)(form);
