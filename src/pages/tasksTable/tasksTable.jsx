@@ -1,18 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, PageHeader } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { getTasksTable } from '../store/actions/index';
-import TasksTableList from '../components/app/tasksTableList';
-import mapDataTable from '../components/tasksTable/mapDataTable';
+import { getTasksTable } from '../../store/actions/index';
+import TasksTableList from '../../components/tasksTable/tasksTableList';
+import mapDataTable from '../../components/tasksTable/mapDataTable';
 
-interface Props {
-  props?: any;
-  getTasksTable(): Object;
-  tasksTableData: any;
-}
-
-class TasksTable extends React.Component<Props, {}> {
+class TasksTable extends React.Component {
   componentDidMount() {
     const { getTasksTable } = this.props;
     getTasksTable();
@@ -42,6 +37,11 @@ class TasksTable extends React.Component<Props, {}> {
     );
   }
 }
+
+TasksTable.propTypes = {
+  tasksTableData: PropTypes.instanceOf(Array).isRequired,
+  getTasksTable: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ tasksTableData }) => {
   return { tasksTableData };
