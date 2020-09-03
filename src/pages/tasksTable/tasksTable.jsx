@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button, PageHeader } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { getTasksTable } from '../store/actions/index';
-import TasksTableList from '../components/app/tasksTableList';
-import mapDataTable from '../components/tasksTable/mapDataTable';
+import { getTasksTable } from '../../store/actions/index';
+import TasksTableList from '../../components/tasksTable/tasksTableList';
+import mapDataTable from '../../components/tasksTable/mapDataTable';
 
 class TasksTable extends React.Component {
   componentDidMount() {
