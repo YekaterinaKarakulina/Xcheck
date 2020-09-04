@@ -5,7 +5,10 @@ import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { postCrossCheckSession } from '../../store/actions/crossCheckSession';
+import {
+  postCrossCheckSession,
+  updateCrossCheckSession,
+} from '../../store/actions/crossCheckSession';
 import { required, minLength, maxLength } from '../../utils';
 import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
 import makeField from './makeField';
@@ -32,12 +35,18 @@ let CrossCheckSessionForm = (props) => {
     submitting,
     reset,
     postCrossCheckSession,
+    updateCrossCheckSession,
+    initialValues,
     isRedirectToTableReady,
   } = props;
 
   const onSubmit = (values) => {
     const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
-    postCrossCheckSession(crossCheckSession);
+    if (initialValues.id) {
+      updateCrossCheckSession(crossCheckSession);
+    } else {
+      postCrossCheckSession(crossCheckSession);
+    }
   };
 
   if (isRedirectToTableReady) {
@@ -179,6 +188,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     postCrossCheckSession: (crossCheckSession) =>
       dispatch(postCrossCheckSession(crossCheckSession)),
+    updateCrossCheckSession: (crossCheckSession) =>
+      dispatch(updateCrossCheckSession(crossCheckSession)),
   };
 };
 

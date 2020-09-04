@@ -1,8 +1,10 @@
 import {
-  POST_CROSSCHECK_SESSION_SUCCESS,
-  POST_CROSSCHECK_SESSION_FAILURE,
   GET_CROSSCHECK_SESSION_SUCCESS,
   GET_CROSSCHECK_SESSION_FAILURE,
+  POST_CROSSCHECK_SESSION_SUCCESS,
+  POST_CROSSCHECK_SESSION_FAILURE,
+  UPDATE_CROSSCHECK_SESSION_SUCCESS,
+  UPDATE_CROSSCHECK_SESSION_FAILURE,
   REDIRECT_TO_CROSSCHECK_SESSIONS,
   REDIRECT_TO_CROSSCHECK_SESSION_FORM,
 } from '../actions/types';
@@ -15,20 +17,38 @@ const initialState = {
 
 const crossCheckSessions = (state = initialState, action) => {
   switch (action.type) {
-    case POST_CROSSCHECK_SESSION_SUCCESS:
+    case GET_CROSSCHECK_SESSION_SUCCESS:
+      return {
+        ...state,
+        formValues: action.payload,
+        isRedirectToTableReady: false,
+        isRedirectToFormReady: false,
+      };
+
+    case GET_CROSSCHECK_SESSION_FAILURE:
+      console.log(action.payload);
       return state;
+
+    case POST_CROSSCHECK_SESSION_SUCCESS:
+      return {
+        ...state,
+        isRedirectToTableReady: false,
+        isRedirectToFormReady: false,
+      };
 
     case POST_CROSSCHECK_SESSION_FAILURE:
       console.log(action.payload);
       return state;
 
-    case GET_CROSSCHECK_SESSION_SUCCESS:
+    case UPDATE_CROSSCHECK_SESSION_SUCCESS:
       return {
         ...state,
-        formValues: action.payload,
+        isRedirectToTableReady: false,
+        isRedirectToFormReady: false,
+        formValues: {},
       };
 
-    case GET_CROSSCHECK_SESSION_FAILURE:
+    case UPDATE_CROSSCHECK_SESSION_FAILURE:
       console.log(action.payload);
       return state;
 
@@ -45,7 +65,11 @@ const crossCheckSessions = (state = initialState, action) => {
       };
 
     default:
-      return state;
+      return {
+        ...state,
+        isRedirectToTableReady: false,
+        isRedirectToFormReady: false,
+      };
   }
 };
 

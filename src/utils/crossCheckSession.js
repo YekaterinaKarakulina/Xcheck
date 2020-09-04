@@ -15,7 +15,11 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
     draft = false,
   } = values;
 
-  const id = uuidv4();
+  let { id } = values;
+
+  if (!id) {
+    id = uuidv4();
+  }
 
   const dateField = '_d';
   const dateFormat = 'YYYY-MM-DD';
