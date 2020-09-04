@@ -1,4 +1,4 @@
-const crossCheckSession = (state = [], action) => {
+const crossCheckSession = (state = {}, action) => {
   switch (action.type) {
     default:
       return state;

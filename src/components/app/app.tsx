@@ -8,8 +8,10 @@ import {
   CrossCheckSessions,
   TasksTable,
   ReviewsListPage,
+  Check,
   CrossCheckSession,
   GithubLogin,
+  TaskForm,
 } from '../../pages';
 
 // import MainMenu from '../sidebar';
@@ -27,12 +29,14 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/tasks" component={TasksTable} />
+          <Route path="/check" component={Check} />
           <Route path="/request" component={RequestListPage} />
-          <Route path="/crossCheckSessions" component={CrossCheckSessions} />
+          <Route path="/crossCheckSessions/" component={CrossCheckSessions} />
           <Route path="/reviewRequest" component={ReviewRequest} />
           <Route path="/reviews" component={ReviewsListPage} />
-          <Route path="/addCrossCheckSession" component={CrossCheckSession} />
+          <Route path="/addCrossCheckSession/" component={CrossCheckSession} />
           <Route path="/login" component={GithubLogin} />
+          <Route path="/taskForm" component={TaskForm} />
         </Switch>
       </>
     );
