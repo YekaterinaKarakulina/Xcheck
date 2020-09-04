@@ -56,6 +56,7 @@ class HomePage extends React.Component<Props, {}> {
           <Link to="/login">Login</Link>
         )}
         <h1>Home page</h1>
+        <Link to="/crossCheckSessions/">crossCheckSessions</Link>
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <label htmlFor="name">
             Имя:

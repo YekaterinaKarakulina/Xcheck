@@ -1,3 +1,4 @@
+/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import { PageHeader } from 'antd';
 import TaskFormCreation from '../../components/taskForm/taskFormCreation';

@@ -12,7 +12,8 @@
   "tasks": [],
   "crossCheckSessions": [
     {
-      "id": "rss2020Q3react-songbird",
+      "id": "id-1",
+      "title": "rss2020Q3react-songbird",
       "author": "author2",
       "state": "closed",
       "taskId": "react-task-songbird",
@@ -26,7 +27,8 @@
       "attendees": []
     },
     {
-      "id": "rss2020Q3react-xcheck",
+      "id": "id-2",
+      "title": "rss2020Q3react-xcheck",
       "author": "author1",
       "state": "active",
       "taskId": "react-task-xcheck",
@@ -40,7 +42,8 @@
       "attendees": []
     },
     {
-      "id": "rss2020Q3react-schedule",
+      "id": "id-3",
+      "title": "rss2020Q3react-schedule",
       "author": "author3",
       "state": "draft",
       "taskId": "react-task-schedule",
@@ -87,7 +90,9 @@
       "author": "John Brown",
       "description": "New York No. 1 Lake Park",
       "taskId": "11",
-      "state": ["closed"]
+      "state": [
+        "closed"
+      ]
     },
     {
       "key": "2",
@@ -95,7 +100,9 @@
       "author": "John Brown",
       "description": "London No. 1 Lake Park",
       "taskId": "22",
-      "state": ["active"]
+      "state": [
+        "active"
+      ]
     },
     {
       "key": "3",
@@ -103,7 +110,9 @@
       "author": "John Brown",
       "description": "Sidney No. 1 Lake Park",
       "taskId": "33",
-      "state": ["archived"]
+      "state": [
+        "archived"
+      ]
     }
   ]
 }

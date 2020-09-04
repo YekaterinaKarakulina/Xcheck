@@ -1,12 +1,18 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import makeField from './makeField';
-import { postCrossCheckSession } from '../../store/actions/crossCheckSession';
+import {
+  postCrossCheckSession,
+  updateCrossCheckSession,
+} from '../../store/actions/crossCheckSession';
 import { required, minLength, maxLength } from '../../utils';
 import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
+import makeField from './makeField';
+import { formItemLayout, tailFormItemLayout } from './formLayout';
 
 const minLength3 = minLength(3);
 const maxLength50 = maxLength(50);
@@ -16,51 +22,44 @@ const { RangePicker } = DatePicker;
 
 const FormItem = Form.Item;
 
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 6 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 14 },
-  },
-};
-
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 14,
-      offset: 6,
-    },
-  },
-};
-
 const AInput = makeField(Input, formItemLayout);
 const AInputNumber = makeField(InputNumber, formItemLayout);
 const ASelect = makeField(Select, formItemLayout);
 const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
-const CrossCheckSessionForm = (props) => {
-  const { handleSubmit, pristine, submitting, reset, postCrossCheckSession } = props;
+let CrossCheckSessionForm = (props) => {
+  const {
+    handleSubmit,
+    pristine,
+    submitting,
+    reset,
+    postCrossCheckSession,
+    updateCrossCheckSession,
+    initialValues,
+    isRedirectToTableReady,
+  } = props;
 
   const onSubmit = (values) => {
     const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
-    postCrossCheckSession(crossCheckSession);
+    if (initialValues.id) {
+      updateCrossCheckSession(crossCheckSession);
+    } else {
+      postCrossCheckSession(crossCheckSession);
+    }
   };
+
+  if (isRedirectToTableReady) {
+    return <Redirect to="/crossCheckSessions/" />;
+  }
 
   return (
     <Form onFinish={handleSubmit(onSubmit)}>
       <Field
-        label="Task name"
-        name="taskName"
+        label="Title"
+        name="title"
         component={AInput}
-        placeholder="Type task name"
+        placeholder="Type title"
         hasFeedback
         validate={[required, minLength3, maxLength50]}
       />
@@ -177,29 +176,26 @@ CrossCheckSessionForm.propTypes = {
   submitting: PropTypes.bool.isRequired,
   reset: PropTypes.func.isRequired,
   postCrossCheckSession: PropTypes.func.isRequired,
+  isRedirectToTableReady: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state) => {
-  return { state };
-};
+const mapStateToProps = ({ crossCheckSessions }) => ({
+  initialValues: crossCheckSessions.formValues,
+  isRedirectToTableReady: crossCheckSessions.isRedirectToTableReady,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
     postCrossCheckSession: (crossCheckSession) =>
       dispatch(postCrossCheckSession(crossCheckSession)),
+    updateCrossCheckSession: (crossCheckSession) =>
+      dispatch(updateCrossCheckSession(crossCheckSession)),
   };
 };
 
-const form = reduxForm({
+CrossCheckSessionForm = reduxForm({
   form: 'crossCheckSession',
-  initialValues: {
-    taskCoefficient: 1,
-    minReviewsAmount: 2,
-    desiredReviewsAmount: 3,
-    discardMinScore: true,
-    discardMaxScore: false,
-    state: true,
-  },
+  enableReinitialize: true,
 })(CrossCheckSessionForm);
 
-export default connect(mapStateToProps, mapDispatchToProps)(form);
+export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionForm);

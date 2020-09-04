@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import makeField from '../forms/makeField';
 import { required, minLength, maxLength } from '../../utils';
-import { formItemLayout, tailFormItemLayout } from '../forms/formLayot';
+import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
 import FieldArraysForm from './FieldArraysForm';
 import './taskForm.scss';
 

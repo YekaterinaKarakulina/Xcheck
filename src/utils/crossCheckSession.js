@@ -1,20 +1,25 @@
 import moment from 'moment';
+import { v4 as uuidv4 } from 'uuid';
 
 const transformFormValuesToCrossCheckSessionObject = (values) => {
   const {
-    taskName,
+    title,
     author,
     taskId,
     crossCheckSessionPeriod,
     taskCoefficient,
     minReviewsAmount,
     desiredReviewsAmount,
-    discardMinScore,
-    discardMaxScore,
-    draft,
+    discardMinScore = false,
+    discardMaxScore = false,
+    draft = false,
   } = values;
 
-  const id = `rss2020Q3react-${taskName}`;
+  let { id } = values;
+
+  if (!id) {
+    id = uuidv4();
+  }
 
   const dateField = '_d';
   const dateFormat = 'YYYY-MM-DD';
@@ -24,16 +29,17 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
 
   return {
     id,
+    title,
     author,
     state,
     taskId,
-    coefficient: taskCoefficient,
+    coefficient: Number(taskCoefficient),
     startDate,
     endDate,
     discardMinScore,
     discardMaxScore,
-    minReviewsAmount,
-    desiredReviewersAmount: desiredReviewsAmount,
+    minReviewsAmount: Number(minReviewsAmount),
+    desiredReviewersAmount: Number(desiredReviewsAmount),
     attendees: [],
   };
 };

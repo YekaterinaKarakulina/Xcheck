@@ -4,7 +4,7 @@ import { Input, Button, InputNumber } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { v4 as uuidv4 } from 'uuid';
 import { required } from '../../utils';
-import { formItemLayout } from '../forms/formLayot';
+import { formItemLayout } from '../forms/formLayout';
 import makeField from '../forms/makeField';
 
 const { TextArea } = Input;
