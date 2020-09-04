@@ -11,8 +11,8 @@ import {
 function* workerPostCrossCheckSession(action) {
   const uri = 'http://localhost:3000/crossCheckSessions';
   try {
-    const result = yield call(Axios.post, uri, action.payload);
-    yield put({ type: POST_CROSSCHECK_SESSION_SUCCESS, payload: result.data });
+    yield call(Axios.post, uri, action.payload);
+    yield put({ type: POST_CROSSCHECK_SESSION_SUCCESS });
     yield put({ type: REDIRECT_TO_CROSSCHECK_SESSIONS });
   } catch {
     yield put({

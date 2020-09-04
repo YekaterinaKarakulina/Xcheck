@@ -10,9 +10,9 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
     taskCoefficient,
     minReviewsAmount,
     desiredReviewsAmount,
-    discardMinScore,
-    discardMaxScore,
-    draft,
+    discardMinScore = false,
+    discardMaxScore = false,
+    draft = false,
   } = values;
 
   const id = uuidv4();

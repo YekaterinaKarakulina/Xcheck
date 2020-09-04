@@ -7,6 +7,7 @@ import {
   GET_CROSSCHECK_SESSION_BY_ID,
   GET_CROSSCHECK_SESSION_SUCCESS,
   GET_CROSSCHECK_SESSION_FAILURE,
+  REDIRECT_TO_CROSSCHECK_SESSION_FORM,
 } from '../store/actions/types';
 
 function* workerGetCrossCheckSessions() {
@@ -28,6 +29,7 @@ function* workerGetCrossCheckSessionById(action) {
     const result = yield call(Axios.get, uri);
     console.log(result.data);
     yield put({ type: GET_CROSSCHECK_SESSION_SUCCESS, payload: result.data });
+    yield put({ type: REDIRECT_TO_CROSSCHECK_SESSION_FORM });
   } catch {
     yield put({
       type: GET_CROSSCHECK_SESSION_FAILURE,

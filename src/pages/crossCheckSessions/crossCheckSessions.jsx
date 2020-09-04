@@ -16,9 +16,9 @@ class CrossCheckSessions extends React.Component {
   }
 
   render() {
-    const { crossCheckSessions } = this.props;
+    const { crossCheckSessionsData } = this.props;
     const tableData = [];
-    crossCheckSessions.forEach((session) => {
+    crossCheckSessionsData.forEach((session) => {
       tableData.push(mapData(session));
     });
 
@@ -34,8 +34,8 @@ class CrossCheckSessions extends React.Component {
   }
 }
 
-const mapStateToProps = ({ crossCheckSessions }) => {
-  return { crossCheckSessions };
+const mapStateToProps = ({ crossCheckSessionsData }) => {
+  return { crossCheckSessionsData };
 };
 
 const mapDispatchToProps = (dispatch) => {

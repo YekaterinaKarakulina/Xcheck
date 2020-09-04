@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
@@ -9,7 +10,6 @@ import { required, minLength, maxLength } from '../../utils';
 import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
 import makeField from './makeField';
 import { formItemLayout, tailFormItemLayout } from './formLayout';
-import { crossCheckSessionForm } from './initialValues';
 
 const minLength3 = minLength(3);
 const maxLength50 = maxLength(50);
@@ -25,14 +25,14 @@ const ASelect = makeField(Select, formItemLayout);
 const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
-const CrossCheckSessionForm = (props) => {
+let CrossCheckSessionForm = (props) => {
   const {
     handleSubmit,
     pristine,
     submitting,
     reset,
     postCrossCheckSession,
-    isRedirectReady,
+    isRedirectToTableReady,
   } = props;
 
   const onSubmit = (values) => {
@@ -40,7 +40,7 @@ const CrossCheckSessionForm = (props) => {
     postCrossCheckSession(crossCheckSession);
   };
 
-  if (isRedirectReady) {
+  if (isRedirectToTableReady) {
     return <Redirect to="/crossCheckSessions/" />;
   }
 
@@ -167,11 +167,12 @@ CrossCheckSessionForm.propTypes = {
   submitting: PropTypes.bool.isRequired,
   reset: PropTypes.func.isRequired,
   postCrossCheckSession: PropTypes.func.isRequired,
-  isRedirectReady: PropTypes.bool.isRequired,
+  isRedirectToTableReady: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  isRedirectReady: state.form.crossCheckSession.isRedirectReady,
+const mapStateToProps = ({ crossCheckSessions }) => ({
+  initialValues: crossCheckSessions.formValues,
+  isRedirectToTableReady: crossCheckSessions.isRedirectToTableReady,
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -181,9 +182,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const form = reduxForm({
+CrossCheckSessionForm = reduxForm({
   form: 'crossCheckSession',
-  initialValues: crossCheckSessionForm,
+  enableReinitialize: true,
 })(CrossCheckSessionForm);
 
-export default connect(mapStateToProps, mapDispatchToProps)(form);
+export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionForm);

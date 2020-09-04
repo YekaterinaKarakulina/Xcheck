@@ -3,6 +3,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
 import { getCrossCheckSessionById } from '../../store/actions/crossCheckSession';
@@ -81,14 +82,18 @@ const CrossCheckSessionsTable = (props) => {
     },
   ];
 
-  const { tableData } = props;
+  const { tableData, isRedirectToFormReady } = props;
+
+  if (isRedirectToFormReady) {
+    return <Redirect to="/addCrossCheckSession/" />;
+  }
 
   return <Table columns={columns} dataSource={tableData} />;
 };
 
-const mapStateToProps = (state) => {
-  return { state };
-};
+const mapStateToProps = ({ crossCheckSessions }) => ({
+  isRedirectToFormReady: crossCheckSessions.isRedirectToFormReady,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
