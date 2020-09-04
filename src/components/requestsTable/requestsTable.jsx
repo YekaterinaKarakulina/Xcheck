@@ -1,11 +1,11 @@
-/* eslint-disable react/prop-types */
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Table, Space, Button, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { getRequests } from '../../store/actions/requests';
 
-class RequestsTable extends Component {
+class RequestsTable extends React.Component {
   componentDidMount() {
     const { getRequests } = this.props;
     getRequests();
@@ -88,6 +88,11 @@ class RequestsTable extends Component {
     return <Table dataSource={requestsData} columns={columns} rowKey="id" />;
   }
 }
+
+RequestsTable.propTypes = {
+  getRequests: PropTypes.func.isRequired,
+  requestsData: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 const mapStateToProps = ({ requestsData }) => {
   return { requestsData };
