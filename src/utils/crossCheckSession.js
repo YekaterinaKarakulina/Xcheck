@@ -33,13 +33,13 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
     author,
     state,
     taskId,
-    coefficient: taskCoefficient,
+    coefficient: Number(taskCoefficient),
     startDate,
     endDate,
     discardMinScore,
     discardMaxScore,
-    minReviewsAmount,
-    desiredReviewersAmount: desiredReviewsAmount,
+    minReviewsAmount: Number(minReviewsAmount),
+    desiredReviewersAmount: Number(desiredReviewsAmount),
     attendees: [],
   };
 };
