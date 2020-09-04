@@ -1,15 +1,11 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import PropTypes from 'prop-types';
 import { Table, Tag, Space, Button, Input } from 'antd';
-import { EditOutlined, EyeOutlined, DownloadOutlined, SearchOutlined } from '@ant-design/icons';
+import { DownloadOutlined, SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
 
-interface Props {
-  props?: any;
-  tableData: any;
-}
-
-class TasksTable extends React.Component<Props, {}> {
+class TasksTable extends React.Component {
   state = {
     searchText: '',
     searchedColumn: '',
@@ -128,9 +124,9 @@ class TasksTable extends React.Component<Props, {}> {
         key: 'action',
         render: () => (
           <Space size="large">
-            <Button type="primary" icon={<EditOutlined />} size="small" />
-            <Button type="primary" icon={<EyeOutlined />} size="small" />
-            <Button type="primary" icon={<DownloadOutlined />} size="small" />
+            <Button type="text" icon={<EditTwoTone twoToneColor="#ffa940" />} size="small" />
+            <Button type="text" icon={<EyeTwoTone twoToneColor="#9254de" />} size="small" />
+            <Button type="text" icon={<DownloadOutlined />} size="small" />
           </Space>
         ),
       },
@@ -140,4 +136,9 @@ class TasksTable extends React.Component<Props, {}> {
     return <Table columns={columns} dataSource={tableData} />;
   }
 }
+
+TasksTable.propTypes = {
+  tableData: PropTypes.instanceOf(Array).isRequired,
+};
+
 export default TasksTable;
