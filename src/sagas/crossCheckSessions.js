@@ -7,6 +7,9 @@ import {
   GET_CROSSCHECK_SESSION_BY_ID,
   GET_CROSSCHECK_SESSION_SUCCESS,
   GET_CROSSCHECK_SESSION_FAILURE,
+  POST_CROSSCHECK_SESSION,
+  POST_CROSSCHECK_SESSION_SUCCESS,
+  POST_CROSSCHECK_SESSION_FAILURE,
   UPDATE_CROSSCHECK_SESSION,
   UPDATE_CROSSCHECK_SESSION_SUCCESS,
   UPDATE_CROSSCHECK_SESSION_FAILURE,
@@ -41,6 +44,20 @@ function* workerGetCrossCheckSessionById(action) {
   }
 }
 
+function* workerPostCrossCheckSession(action) {
+  const uri = 'http://localhost:3000/crossCheckSessions';
+  try {
+    yield call(Axios.post, uri, action.payload);
+    yield put({ type: POST_CROSSCHECK_SESSION_SUCCESS });
+    yield put({ type: REDIRECT_TO_CROSSCHECK_SESSIONS });
+  } catch {
+    yield put({
+      type: POST_CROSSCHECK_SESSION_FAILURE,
+      payload: `ERROR! Cannot post crossCheck session at ${uri}`,
+    });
+  }
+}
+
 function* workerUpdateCrossCheckSession(action) {
   try {
     const uri = `http://localhost:3000/crossCheckSessions/${action.payload.id}`;
@@ -58,6 +75,7 @@ function* workerUpdateCrossCheckSession(action) {
 function* watchGetCrossCheckSessions() {
   yield takeEvery(GET_CROSSCHECK_SESSIONS, workerGetCrossCheckSessions);
   yield takeEvery(GET_CROSSCHECK_SESSION_BY_ID, workerGetCrossCheckSessionById);
+  yield takeEvery(POST_CROSSCHECK_SESSION, workerPostCrossCheckSession);
   yield takeEvery(UPDATE_CROSSCHECK_SESSION, workerUpdateCrossCheckSession);
 }
 
