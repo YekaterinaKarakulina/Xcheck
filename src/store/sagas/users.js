@@ -7,7 +7,7 @@ import {
   POST_USER,
   POST_USER_SUCCESS,
   POST_USER_FAILURE,
-} from '../store/actions/types';
+} from '../actions/types';
 
 function* workerGetUsers() {
   const uri = 'http://localhost:3000/users';
