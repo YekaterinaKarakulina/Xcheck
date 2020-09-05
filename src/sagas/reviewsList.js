@@ -4,7 +4,7 @@ import {
   GET_REVIEWS_LIST,
   GET_REVIEWS_LIST_SUCCESS,
   GET_REVIEWS_LIST_FAILURE,
-} from '../actions/types';
+} from '../store/actions/types';
 
 function* workerGetReviewsList() {
   const uri = 'http://localhost:3000/reviews';
