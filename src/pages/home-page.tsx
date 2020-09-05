@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { Link } from 'react-router-dom';
-
+import { v4 as uuidv4 } from 'uuid';
 import { getUsers, postUser } from '../store/actions';
-import { getLoginStatus, getUser } from '../store/selectors/login';
+import { logoutSuccess } from '../store/actions/login';
+import { getLoginStatus, getUser, getUserRoles } from '../store/selectors/login';
 
 interface Props {
   props?: any;
@@ -14,33 +15,50 @@ interface Props {
   user: Object;
   dispatch?: Dispatch;
   getUsers(): Object;
-  postUser({ id: Number, name: String }): Object;
+  postUser({ id: String, githubId: String, roles: Array }): Object;
+  logoutSuccess(): Object;
+  roles: Array<String>;
 }
 
 class HomePage extends React.Component<Props, {}> {
-  state = { value: '' };
+  state = { githubId: '' };
 
   componentDidMount() {
     const { getUsers } = this.props;
     getUsers();
   }
 
+  componentDidUpdate(prevProps) {
+    const { postUser, isLoggedIn, users, user, roles } = this.props;
+    if (!prevProps.users.length && users.length) {
+      if (isLoggedIn) {
+        const isUserExists = users.filter(({ githubId }) => githubId === user.login);
+        if (isUserExists.length) {
+          return;
+        }
+        const { login } = user;
+        const id = uuidv4();
+        postUser({ id, githubId: login, roles });
+      }
+    }
+  }
+
   handleChange = (event) => {
-    this.setState({ value: event.target.value });
+    this.setState({ githubId: event.target.value });
   };
 
   handleSubmit(event) {
     event.preventDefault();
-    const { value } = this.state;
+    const { githubId } = this.state;
     const { postUser } = this.props;
-    postUser({ id: value, name: value });
-    this.setState({ value: '' });
+    const id = uuidv4();
+    postUser({ id, githubId, roles: ['student'] });
+    this.setState({ githubId: '' });
   }
 
   render() {
-    const { value } = this.state;
-    const { users, isLoggedIn, user } = this.props;
-    console.log(user);
+    const { githubId } = this.state;
+    const { users, isLoggedIn, user, logoutSuccess } = this.props;
     return (
       <div>
         {isLoggedIn ? (
@@ -51,6 +69,9 @@ class HomePage extends React.Component<Props, {}> {
               alt="Avatar"
             />
             <span>{user.login}</span>
+            <button type="button" onClick={logoutSuccess}>
+              Logout
+            </button>
           </>
         ) : (
           <Link to="/login">Login</Link>
@@ -58,14 +79,18 @@ class HomePage extends React.Component<Props, {}> {
         <h1>Home page</h1>
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <label htmlFor="name">
-            Имя:
-            <input id="name" onChange={(event) => this.handleChange(event)} value={value} />
+            GithubId:
+            <input id="name" onChange={(event) => this.handleChange(event)} value={githubId} />
           </label>
           <input type="submit" value="Отправить" />
         </form>
         <ul>
-          {users.map(({ id, name }) => {
-            return <li key={id}>{name}</li>;
+          {users.map(({ id, githubId, roles }) => {
+            return (
+              <li key={id}>
+                {githubId}: {roles.map((role) => `${role}, `)}
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -77,12 +102,14 @@ const mapStateToProps = (state) => ({
   users: state.users,
   isLoggedIn: getLoginStatus(state),
   user: getUser(state),
+  roles: getUserRoles(state),
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     postUser: (user) => dispatch(postUser(user)),
     getUsers: () => dispatch(getUsers()),
+    logoutSuccess: () => dispatch(logoutSuccess()),
   };
 };
 

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getLoginStatus } from '../../store/selectors/login';
 import RequestListPage from '../request-list-page';
 import ReviewRequest from '../../pages/reviewRequest';
 import {
@@ -10,18 +12,18 @@ import {
   ReviewsListPage,
   GithubLogin,
 } from '../../pages';
-
-// import MainMenu from '../sidebar';
-
 import './app.scss';
 
-class App extends React.Component {
-  componentDidMount() {}
+interface Props {
+  props?: any;
+  isLoggedIn: Boolean;
+}
 
+class App extends React.PureComponent<Props, {}> {
   render() {
+    const { isLoggedIn } = this.props;
     return (
       <>
-        {/* <MainMenu /> */}
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={CartPage} />
@@ -30,11 +32,15 @@ class App extends React.Component {
           <Route path="/crossCheckSessions" component={CrossCheckSessions} />
           <Route path="/reviewRequest" component={ReviewRequest} />
           <Route path="/reviews" component={ReviewsListPage} />
-          <Route path="/login" component={GithubLogin} />
+          {!isLoggedIn ? <Route path="/login" component={GithubLogin} /> : <Redirect to="/" />}
         </Switch>
       </>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  isLoggedIn: getLoginStatus(state),
+});
+
+export default connect(mapStateToProps)(App);

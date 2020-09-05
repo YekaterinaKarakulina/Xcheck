@@ -14,7 +14,8 @@ function* workerGetUsers() {
   try {
     const result = yield call(Axios.get, uri);
     yield put({ type: GET_USERS_SUCCESS, payload: result.data });
-  } catch {
+  } catch (error) {
+    console.error('error', error);
     yield put({ type: GET_USERS_FAILURE, payload: `ERROR! Cannot get users at ${uri}` });
   }
 }
