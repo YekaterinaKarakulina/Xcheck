@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 import { Form, Input, Button, InputNumber, Select, Checkbox } from 'antd';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
@@ -7,6 +8,7 @@ import makeField from '../forms/makeField';
 import { required, minLength, maxLength } from '../../utils';
 import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
 import FieldArraysForm from './FieldArraysForm';
+import { postTaskSession } from '../../store/actions/task';
 import './taskForm.scss';
 
 const minLength3 = minLength(3);
@@ -23,14 +25,18 @@ const ASelect = makeField(Select, formItemLayout);
 const ATextArea = makeField(TextArea, formItemLayout);
 const ACheckbox = makeField(Checkbox, formItemLayout);
 
-const TaskFormCreation = (props) => {
-  const { handleSubmit, pristine, submitting } = props;
+let TaskFormCreation = (props) => {
+  const { handleSubmit, pristine, submitting, postTaskSession } = props;
+
+  const onSubmit = (values) => {
+    postTaskSession(values);
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Field
         label="Task title"
-        name="taskTitle"
+        name="title"
         component={AInput}
         placeholder="Type task title"
         hasFeedback
@@ -57,10 +63,17 @@ const TaskFormCreation = (props) => {
         validate={required}
       />
 
-      <Field label="Status" name="status" component={ASelect} onBlur={(e) => e.preventDefault()}>
+      <Field
+        label="Status"
+        name="status"
+        component={ASelect}
+        validate={required}
+        onBlur={(e) => e.preventDefault()}
+      >
         <Option value="open">Open</Option>
         <Option value="closed">Closed</Option>
         <Option value="archived">Archived</Option>
+        <Option value="draft">Draft</Option>
       </Field>
 
       <Field label="Description" name="description" component={ATextArea} hasFeedback />
@@ -81,8 +94,6 @@ const TaskFormCreation = (props) => {
         hasFeedback
       />
 
-      <Field label="Save as draft" name="draft" component={ACheckbox} type="checkbox" hasFeedback />
-
       <FieldArraysForm />
 
       <FormItem {...tailFormItemLayout}>
@@ -98,12 +109,25 @@ TaskFormCreation.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
+  postTaskSession: PropTypes.func.isRequired,
 };
 
-export default reduxForm({
+const mapStateToProps = ({ values }) => {
+  return { values };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    postTaskSession: (values) => dispatch(postTaskSession(values)),
+  };
+};
+
+TaskFormCreation = reduxForm({
   form: 'taskCreation',
   initialValues: {
     taskScore: 100,
     taskId,
   },
 })(TaskFormCreation);
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskFormCreation);

@@ -92,32 +92,30 @@ class TasksTable extends React.Component {
         key: 'description',
       },
       {
-        title: 'State',
-        key: 'state',
-        dataIndex: 'state',
-        ...this.getColumnSearchProps('state'),
-        render: (state) => (
-          <span>
-            {state.map((tag) => {
-              let color;
-              switch (tag) {
-                case 'active':
-                  color = 'green';
-                  break;
-                case 'closed':
-                  color = 'red';
-                  break;
-                default:
-                  color = 'blue';
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })}
-          </span>
-        ),
+        title: 'Status',
+        key: 'status',
+        dataIndex: 'status',
+        ...this.getColumnSearchProps('status'),
+        render: (status) => {
+          let color = 'green';
+          switch (status) {
+            case 'active':
+              color = 'green';
+              break;
+            case 'draft':
+              color = 'geekblue';
+              break;
+            case 'closed':
+              color = 'volcano';
+              break;
+            case 'archived':
+              color = 'red';
+              break;
+            default:
+              color = 'green';
+          }
+          return <Tag color={color}>{status.toUpperCase()}</Tag>;
+        },
       },
       {
         title: 'Action',

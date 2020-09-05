@@ -9,7 +9,68 @@
       "name": "user2"
     }
   ],
-  "tasks": [],
+  "tasks": [
+    {
+      "taskScore": 100,
+      "taskId": "109c3242-9fd4-4f3f-84eb-1971d63d3f1d",
+      "taskTitle": "hdghd",
+      "author": "ghdhnd",
+      "status": "open",
+      "description": "kgkjg",
+      "link": "jmgjum",
+      "id": 1
+    },
+    {
+      "taskScore": "100.3",
+      "taskId": "ac86073f-579a-4686-9ab8-434066068a79",
+      "taskTitle": "hhhgf",
+      "author": "ths",
+      "status": "open",
+      "description": "klh",
+      "link": "hg",
+      "crosscheck": true,
+      "draft": true,
+      "items": [
+        {
+          "title": "j",
+          "category": "basic",
+          "score": "20",
+          "description": "jklg"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "taskScore": "100.2",
+      "taskId": "409fd2c7-a14f-4c0c-894d-31c0efa1cac3",
+      "title": "qqqqqqqqqqq",
+      "author": "qqqqqqqqqqqqq",
+      "status": "open",
+      "description": "qqqqqqqqqq",
+      "link": "qqqqqqqq",
+      "crosscheck": true,
+      "draft": true,
+      "id": 3
+    },
+    {
+      "taskScore": "99.5",
+      "taskId": "80bad1ed-bed1-45b7-85a6-ba3d2e872b4e",
+      "title": "wwwwwwwwwwwwwwwwwwwww",
+      "author": "wwwwwwwwwwwwwwwwwww",
+      "status": "archived",
+      "description": "wwwwwwwwww",
+      "link": "wwwwwwwwwwwwww",
+      "items": [
+        {
+          "title": "wwwwwwwwww",
+          "category": "basic",
+          "score": "20",
+          "description": "wwwwwwww"
+        }
+      ],
+      "id": 4
+    }
+  ],
   "crossCheckSessions": [
     {
       "id": "id-1",
@@ -55,6 +116,21 @@
       "minReviewsAmount": 1,
       "desiredReviewersAmount": 2,
       "attendees": []
+    },
+    {
+      "id": "1409ca59-e9d8-4fd9-b433-d7697760d63e",
+      "title": "kljkl",
+      "author": "klk",
+      "state": "active",
+      "taskId": "id-1",
+      "coefficient": 1,
+      "startDate": "2020-09-01",
+      "endDate": "2020-10-08",
+      "discardMinScore": false,
+      "discardMaxScore": false,
+      "minReviewsAmount": 2,
+      "desiredReviewersAmount": 2,
+      "attendees": []
     }
   ],
   "reviews": [
@@ -81,38 +157,6 @@
       "task": "xcheck",
       "state": "draft",
       "grade": {}
-    }
-  ],
-  "tasksTableData": [
-    {
-      "key": "1",
-      "title": "Task1",
-      "author": "John Brown",
-      "description": "New York No. 1 Lake Park",
-      "taskId": "11",
-      "state": [
-        "closed"
-      ]
-    },
-    {
-      "key": "2",
-      "title": "Task2",
-      "author": "John Brown",
-      "description": "London No. 1 Lake Park",
-      "taskId": "22",
-      "state": [
-        "active"
-      ]
-    },
-    {
-      "key": "3",
-      "title": "Task3",
-      "author": "John Brown",
-      "description": "Sidney No. 1 Lake Park",
-      "taskId": "33",
-      "state": [
-        "archived"
-      ]
     }
   ]
 }
