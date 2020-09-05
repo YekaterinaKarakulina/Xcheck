@@ -1,52 +1,74 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
-import { getLoginStatus } from '../../store/selectors/login';
-import ReviewRequest from '../../pages/reviewRequest';
-import {
-  HomePage,
-  CartPage,
-  CrossCheckSessions,
-  TasksTable,
-  ReviewsListPage,
-  Check,
-  CrossCheckSession,
-  GithubLogin,
-  TaskForm,
-  Requests,
-} from '../../pages';
+import { Layout } from 'antd';
+import { getUsers, postUser } from '../../store/actions';
+import { logoutSuccess } from '../../store/actions/login';
+import { getLoginStatus, getUser, getUserRoles } from '../../store/selectors/login';
+import Sidebar from '../sidebar';
+import Routes from '../../routes';
 import './app.scss';
 
 interface Props {
   props?: any;
+  state: any;
   isLoggedIn: Boolean;
+  users: Array<Object>;
+  user: Object;
+  dispatch?: Dispatch;
+  getUsers(): Object;
+  postUser({ id: String, githubId: String, roles: Array }): Object;
+  logout(): Object;
+  roles: Array<String>;
 }
 
 class App extends React.PureComponent<Props, {}> {
+  componentDidMount() {
+    const { getUsers } = this.props;
+    getUsers();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { postUser, isLoggedIn, users, user, roles } = this.props;
+    if (!prevProps.users.length && users.length) {
+      if (isLoggedIn) {
+        const isUserExists = users.filter(({ githubId }) => githubId === user.login);
+        if (isUserExists.length) {
+          return;
+        }
+        const { login } = user;
+        const id = uuidv4();
+        postUser({ id, githubId: login, roles });
+      }
+    }
+  }
+
   render() {
-    const { isLoggedIn } = this.props;
+    const { isLoggedIn, logout } = this.props;
     return (
-      <>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/cart" component={CartPage} />
-          <Route path="/tasks" component={TasksTable} />
-          <Route path="/check" component={Check} />
-          <Route path="/requests/" component={Requests} />
-          <Route path="/crossCheckSessions/" component={CrossCheckSessions} />
-          <Route path="/reviewRequest" component={ReviewRequest} />
-          <Route path="/reviews" component={ReviewsListPage} />
-          {!isLoggedIn ? <Route path="/login" component={GithubLogin} /> : <Redirect to="/" />}
-          <Route path="/addCrossCheckSession/" component={CrossCheckSession} />
-          <Route path="/taskForm" component={TaskForm} />
-        </Switch>
-      </>
+      <Layout style={{ minHeight: '100vh' }}>
+        {isLoggedIn ? <Sidebar logout={logout} /> : null}
+        <main className="main">
+          <Routes isLoggedIn={isLoggedIn} />
+        </main>
+      </Layout>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
+  users: state.users,
   isLoggedIn: getLoginStatus(state),
+  user: getUser(state),
+  roles: getUserRoles(state),
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getUsers: () => dispatch(getUsers()),
+    postUser: (user) => dispatch(postUser(user)),
+    logout: () => dispatch(logoutSuccess()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

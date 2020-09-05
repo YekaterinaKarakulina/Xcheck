@@ -75,7 +75,7 @@ class GithubLogin extends React.PureComponent {
         >
           <Card.Meta
             title="Please login via GitHub"
-            description="In order to access the XCheck App, you need to login with your GitHub account"
+            description="In order to access the XCheck App, you need to login with your GitHub account. If you login first time, please choose your role(s)."
           />
           <br />
           <LoginSelect roles={roles} change={this.handleChooseRoles} />
