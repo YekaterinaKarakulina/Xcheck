@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getLoginStatus } from '../../store/selectors/login';
-import RequestListPage from '../request-list-page';
 import ReviewRequest from '../../pages/reviewRequest';
 import {
   HomePage,
