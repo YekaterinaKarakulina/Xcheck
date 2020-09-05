@@ -77,6 +77,7 @@ class HomePage extends React.Component<Props, {}> {
           <Link to="/login">Login</Link>
         )}
         <h1>Home page</h1>
+        <Link to="/crossCheckSessions/">crossCheckSessions</Link>
         <form onSubmit={(event) => this.handleSubmit(event)}>
           <label htmlFor="name">
             GithubId:
@@ -85,9 +86,9 @@ class HomePage extends React.Component<Props, {}> {
           <input type="submit" value="Отправить" />
         </form>
         <ul>
-          {users.map(({ id, githubId, roles }) => {
+          {users.map(({ githubId, roles }) => {
             return (
-              <li key={id}>
+              <li key={githubId}>
                 {githubId}: {roles.map((role) => `${role}, `)}
               </li>
             );

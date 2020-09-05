@@ -4,7 +4,7 @@
   "description": "RS School React - X check",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --open",
     "build-prod": "webpack --env.mode=production",
     "build-dev": "webpack --env.mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +24,8 @@
     "antd": "^4.6.1",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
+    "history": "^5.0.0",
+    "moment": "^2.27.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

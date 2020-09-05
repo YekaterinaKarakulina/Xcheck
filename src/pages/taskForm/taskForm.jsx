@@ -1,0 +1,15 @@
+/* eslint-disable react/prefer-stateless-function */
+import React from 'react';
+import { PageHeader } from 'antd';
+import TaskFormCreation from '../../components/taskForm/taskFormCreation';
+
+const TaskForm = () => {
+  return (
+    <div className="wrapper">
+      <PageHeader className="site-page-header" title="Task create/update" />
+      <TaskFormCreation />
+    </div>
+  );
+};
+
+export default TaskForm;

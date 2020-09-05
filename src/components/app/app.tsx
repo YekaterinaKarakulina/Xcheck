@@ -10,7 +10,11 @@ import {
   CrossCheckSessions,
   TasksTable,
   ReviewsListPage,
+  Check,
+  CrossCheckSession,
   GithubLogin,
+  TaskForm,
+  Requests,
 } from '../../pages';
 import './app.scss';
 
@@ -28,11 +32,14 @@ class App extends React.PureComponent<Props, {}> {
           <Route exact path="/" component={HomePage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/tasks" component={TasksTable} />
-          <Route path="/request" component={RequestListPage} />
-          <Route path="/crossCheckSessions" component={CrossCheckSessions} />
+          <Route path="/check" component={Check} />
+          <Route path="/requests/" component={Requests} />
+          <Route path="/crossCheckSessions/" component={CrossCheckSessions} />
           <Route path="/reviewRequest" component={ReviewRequest} />
           <Route path="/reviews" component={ReviewsListPage} />
           {!isLoggedIn ? <Route path="/login" component={GithubLogin} /> : <Redirect to="/" />}
+          <Route path="/addCrossCheckSession/" component={CrossCheckSession} />
+          <Route path="/taskForm" component={TaskForm} />
         </Switch>
       </>
     );
