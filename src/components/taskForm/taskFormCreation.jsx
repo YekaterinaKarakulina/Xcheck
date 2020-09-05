@@ -27,7 +27,7 @@ const TaskFormCreation = (props) => {
   const { handleSubmit, pristine, submitting } = props;
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Field
         label="Task title"
         name="taskTitle"
@@ -57,24 +57,17 @@ const TaskFormCreation = (props) => {
         validate={required}
       />
 
-      <Field
-        label="Status"
-        name="status"
-        component={ASelect}
-        hasFeedback
-        validate={required}
-        onBlur={(e) => e.preventDefault()}
-      >
-        <Option value="id-1">Open</Option>
-        <Option value="id-2">Closed</Option>
-        <Option value="id-3">Archived</Option>
+      <Field label="Status" name="status" component={ASelect} onBlur={(e) => e.preventDefault()}>
+        <Option value="open">Open</Option>
+        <Option value="closed">Closed</Option>
+        <Option value="archived">Archived</Option>
       </Field>
 
       <Field label="Description" name="description" component={ATextArea} hasFeedback />
 
       <Field
         label="Link to this task "
-        name="author"
+        name="link"
         component={AInput}
         placeholder="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/xcheck/xcheck.md"
         hasFeedback
@@ -97,7 +90,7 @@ const TaskFormCreation = (props) => {
           Create
         </Button>
       </FormItem>
-    </Form>
+    </form>
   );
 };
 
