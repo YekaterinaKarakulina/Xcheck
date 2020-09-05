@@ -1,18 +1,11 @@
 .login {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -65%);
   text-align: center;
-  &-image {
-    width: 100%;
-    max-width: 500px;
-    margin: 0px auto 50px;
-  }
-  &-card-img {
-    width: 100px;
-    margin: 30px auto 20px;
-  }
 }
 
 @media (max-width: 767px) {
