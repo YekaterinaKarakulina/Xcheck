@@ -1,7 +1,9 @@
-.sidebar__about {
-  margin-top: 10px;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.85);
+.sidebar {
+  &__about {
+    margin: 8px 0 24px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.85);
+  }
 }
 
 .ant-layout-sider-zero-width-trigger {
