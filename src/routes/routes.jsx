@@ -26,11 +26,11 @@ const Routes = ({ isLoggedIn }) => {
           <Route path="/tasks" component={TasksTable} />
           <Route path="/check" component={Check} />
           <Route path="/requests" component={Requests} />
-          <Route path="/crossCheckSessions" component={CrossCheckSessions} />
-          <Route path="/reviewRequest" component={ReviewRequest} />
+          <Route path="/cross-check-sessions" component={CrossCheckSessions} />
+          <Route path="/review-request" component={ReviewRequest} />
           <Route path="/reviews" component={ReviewsListPage} />
-          <Route path="/addCrossCheckSession" component={CrossCheckSession} />
-          <Route path="/taskForm" component={TaskForm} />
+          <Route path="/add-cross-check-sessions" component={CrossCheckSession} />
+          <Route path="/task-form" component={TaskForm} />
           <Redirect to="/reviews" />
         </>
       )}

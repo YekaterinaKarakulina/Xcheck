@@ -32,6 +32,7 @@ class App extends React.PureComponent<Props, {}> {
     const { postUser, isLoggedIn, users, user, roles } = this.props;
     if (!prevProps.users.length && users.length) {
       if (isLoggedIn) {
+        console.log(user);
         const isUserExists = users.filter(({ githubId }) => githubId === user.login);
         if (isUserExists.length) {
           return;
@@ -44,10 +45,19 @@ class App extends React.PureComponent<Props, {}> {
   }
 
   render() {
-    const { isLoggedIn, logout } = this.props;
+    const { isLoggedIn, users, user, logout } = this.props;
+    const currentUser = users.filter(({ githubId }) => githubId === user.login)[0];
+    let userInfo = {};
+    if (currentUser) {
+      userInfo = {
+        avatarUrl: user.avatar_url,
+        name: user.name,
+        roles: currentUser.roles,
+      };
+    }
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        {isLoggedIn ? <Sidebar logout={logout} /> : null}
+        {isLoggedIn ? <Sidebar user={userInfo} logout={logout} /> : null}
         <main className="main">
           <Routes isLoggedIn={isLoggedIn} />
         </main>

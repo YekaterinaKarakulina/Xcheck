@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Menu, Avatar } from 'antd';
+import { NavLink, withRouter } from 'react-router-dom';
+import { isEmpty } from 'lodash';
+import { Layout, Menu, Avatar, Tag } from 'antd';
 import {
-  FormOutlined,
   OrderedListOutlined,
-  EditOutlined,
   TeamOutlined,
   UserOutlined,
-  SolutionOutlined,
   FileDoneOutlined,
   FileSearchOutlined,
   LogoutOutlined,
@@ -18,50 +17,80 @@ import './sidebar.scss';
 const { Sider } = Layout;
 
 class Sidebar extends React.PureComponent {
+  state = {
+    menu: [
+      { href: '/tasks', label: 'Tasks', icon: <OrderedListOutlined /> },
+      { href: '/requests', label: 'Requests', icon: <TeamOutlined /> },
+      { href: '/reviews', label: 'Reviews', icon: <FileDoneOutlined /> },
+      { href: '/cross-check-sessions', label: 'xCheck', icon: <FileSearchOutlined /> },
+    ],
+  };
+
+  renderUserInfo = () => {
+    const {
+      user: { avatarUrl, name, roles },
+    } = this.props;
+    const userAvatar = avatarUrl ? (
+      <Avatar shape="square" size={64} src={avatarUrl} />
+    ) : (
+      <Avatar shape="square" size={64} icon={<UserOutlined />} />
+    );
+    const userRoles = !isEmpty(roles) ? (
+      <div role="listbox" className="sidebar__about-role">
+        {roles.map((role) => (
+          <Tag key={role} color="blue">
+            {role}
+          </Tag>
+        ))}
+      </div>
+    ) : null;
+    return (
+      <div role="banner" className="sidebar__about">
+        <div role="img" className="sidebar__logo">
+          {userAvatar}
+        </div>
+        <h3 className="sidebar__about-name">{name}</h3>
+        {userRoles}
+      </div>
+    );
+  };
+
+  renderMenu = () => {
+    const { menu } = this.state;
+    const { location, logout } = this.props;
+    const menuItems = menu.map(({ href, label, icon }) => (
+      <Menu.Item key={href} icon={icon}>
+        <NavLink to={href}>{label}</NavLink>
+      </Menu.Item>
+    ));
+    return (
+      <Menu mode="inline" selectedKeys={[location.pathname]}>
+        {menuItems}
+        <Menu.Item key="Logout" icon={<LogoutOutlined />} onClick={logout}>
+          Logout
+        </Menu.Item>
+      </Menu>
+    );
+  };
+
   render() {
-    const { logout } = this.props;
     return (
       <Sider theme="light" breakpoint="sm" collapsedWidth="0">
-        <div className="sidebar__about">
-          <div className="logo">
-            <Avatar shape="square" size={64} icon={<UserOutlined />} />
-          </div>
-          <div className="sidebar__about-name">Pavel Zakharov</div>
-          <div className="sidebar__about-role">Student</div>
-        </div>
-        <Menu mode="inline">
-          <Menu.Item key="1" icon={<OrderedListOutlined />}>
-            Tasks
-          </Menu.Item>
-          <Menu.Item key="2" icon={<EditOutlined />}>
-            Add/edit task
-          </Menu.Item>
-          <Menu.Item key="3" icon={<TeamOutlined />}>
-            Review Requests
-          </Menu.Item>
-          <Menu.Item key="4" icon={<SolutionOutlined />}>
-            From for Requests
-          </Menu.Item>
-          <Menu.Item key="5" icon={<FormOutlined />}>
-            Check
-          </Menu.Item>
-          <Menu.Item key="6" icon={<FileDoneOutlined />}>
-            Reviews
-          </Menu.Item>
-          <Menu.Item key="7" icon={<FileSearchOutlined />}>
-            xCheck
-          </Menu.Item>
-          <Menu.Item key="8" icon={<LogoutOutlined />} onClick={logout}>
-            Logout
-          </Menu.Item>
-        </Menu>
+        {this.renderUserInfo()}
+        {this.renderMenu()}
       </Sider>
     );
   }
 }
 
 Sidebar.propTypes = {
+  user: PropTypes.objectOf,
+  location: PropTypes.objectOf.isRequired,
   logout: PropTypes.func.isRequired,
 };
 
-export default Sidebar;
+Sidebar.defaultProps = {
+  user: null,
+};
+
+export default withRouter(Sidebar);
