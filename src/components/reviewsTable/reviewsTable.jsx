@@ -73,6 +73,9 @@ export default class ReviewsTable extends React.Component {
   };
 
   render() {
+    const { tableData } = this.props;
+    const { handleClick } = this.props;
+
     const columns = [
       {
         title: 'Name task',
@@ -98,6 +101,7 @@ export default class ReviewsTable extends React.Component {
         title: 'Status',
         dataIndex: 'state',
         key: 'state',
+        align: 'center',
         sorter: (a, b) => (a.state > b.state ? 1 : -1),
         render: (state) => {
           let color = 'green';
@@ -117,18 +121,43 @@ export default class ReviewsTable extends React.Component {
           return <Tag color={color}>{state.toUpperCase()}</Tag>;
         },
       },
+      {
+        title: 'Grade',
+        dataIndex: 'grade',
+        key: 'grade',
+        align: 'center',
+        sorter: (a, b) => (a.grade > b.grade ? 1 : -1),
+        ...this.getColumnSearchProps('grade'),
+      },
+      {
+        title: 'Action',
+        key: 'action',
+        align: 'center',
+        render: (record) => {
+          return (
+            <Button
+              onClick={() => handleClick(record)}
+              type="primary"
+              size="small"
+              style={{ width: 90 }}
+            >
+              Details
+            </Button>
+          );
+        },
+      },
     ];
 
-    const { tableData } = this.props;
-
-    return <Table columns={columns} dataSource={tableData} />;
+    return <Table bordered columns={columns} dataSource={tableData} />;
   }
 }
 
 ReviewsTable.propTypes = {
   tableData: PropTypes.arrayOf(PropTypes.object),
+  handleClick: PropTypes.func,
 };
 
 ReviewsTable.defaultProps = {
   tableData: [],
+  handleClick: PropTypes.func,
 };

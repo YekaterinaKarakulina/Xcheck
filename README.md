@@ -1,10 +1,21 @@
 # Xcheck
+RS School React - XCheck
 
-RS School React - X check
+## Installation
+```bash
+git clone https://github.com/YekaterinaKarakulina/Xcheck.git
+cd Xcheck
+make install
+```
 
-1 clone this repository
-2 cd Xcheck
-3 npm install
-4 npm run start - open app on http://localhost:8080/
-5 npm install -g json-server
-6 in another terminal start local database - json-server db.json
+## Run app
+```bash
+make db
+make server
+make start
+```
+
+## Usage
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

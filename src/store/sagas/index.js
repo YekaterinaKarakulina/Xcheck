@@ -4,6 +4,7 @@ import watchGetCrossCheckSessions from './crossCheckSessions';
 import watchGetTasksTable from './tasksTable';
 import watchGetReviewsList from './reviewsList';
 import watchTask from './task';
+import watchRequests from './requests';
 
 export default function* rootSaga() {
   yield all([
@@ -13,5 +14,6 @@ export default function* rootSaga() {
     watchGetTasksTable(),
     watchGetReviewsList(),
     watchTask(),
+    watchRequests(),
   ]);
 }
