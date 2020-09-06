@@ -7,14 +7,15 @@ import {
   POST_USER,
   POST_USER_SUCCESS,
   POST_USER_FAILURE,
-} from '../store/actions/types';
+} from '../actions/types';
 
 function* workerGetUsers() {
   const uri = 'http://localhost:3000/users';
   try {
     const result = yield call(Axios.get, uri);
     yield put({ type: GET_USERS_SUCCESS, payload: result.data });
-  } catch {
+  } catch (error) {
+    console.error('error', error);
     yield put({ type: GET_USERS_FAILURE, payload: `ERROR! Cannot get users at ${uri}` });
   }
 }

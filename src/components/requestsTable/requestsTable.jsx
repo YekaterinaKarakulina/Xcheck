@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
-import 'antd/dist/antd.css';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Table, Space, Button, Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { getRequests } from '../../store/actions/requests';
 
-import './request-list-page.scss';
-import request from './data';
+class RequestsTable extends React.Component {
+  componentDidMount() {
+    const { getRequests } = this.props;
+    getRequests();
+  }
 
-class RequestListPage extends Component {
   getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <div style={{ padding: 8 }}>
@@ -51,6 +55,8 @@ class RequestListPage extends Component {
   };
 
   render() {
+    const { requestsData } = this.props;
+
     const columns = [
       {
         title: 'Name task',
@@ -79,8 +85,23 @@ class RequestListPage extends Component {
         sorter: (a, b) => (a.state > b.state ? 1 : -1),
       },
     ];
-    return <Table dataSource={request} columns={columns} rowKey="id" />;
+    return <Table dataSource={requestsData} columns={columns} rowKey="id" />;
   }
 }
 
-export default RequestListPage;
+RequestsTable.propTypes = {
+  getRequests: PropTypes.func.isRequired,
+  requestsData: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+const mapStateToProps = ({ requestsData }) => {
+  return { requestsData };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getRequests: () => dispatch(getRequests()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RequestsTable);

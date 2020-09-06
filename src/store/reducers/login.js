@@ -1,28 +1,47 @@
-import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS } from '../actions/types';
+import {
+  LOGIN_START,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOGOUT_SUCCESS,
+  SET_USER_ROLES,
+} from '../actions/types';
 
 const initialState = {
   isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn')) || false,
   user: JSON.parse(localStorage.getItem('user')) || null,
   clientId: '3cdd93c64851d7e52a5d',
   redirectUri: 'http://localhost:8080/login',
-  clientSecret: '5e7c3eb366144c3855ecd06394de075dd5b72322',
   proxyUrl: 'http://localhost:5000/authenticate',
   loading: false,
   errorMessage: null,
+  roles: JSON.parse(localStorage.getItem('roles')) || [],
 };
 
 const login = (state = initialState, action) => {
   switch (action.type) {
+    case LOGIN_START: {
+      return {
+        ...state,
+        loading: true,
+        errorMessage: null,
+      };
+    }
     case LOGIN_SUCCESS: {
       localStorage.setItem('isLoggedIn', JSON.stringify(action.payload.isLoggedIn));
       localStorage.setItem('user', JSON.stringify(action.payload.user));
-      console.log(action.payload.user);
       return {
         ...state,
         isLoggedIn: action.payload.isLoggedIn,
         user: action.payload.user,
-        loading: false,
+        loading: true,
         errorMessage: null,
+      };
+    }
+    case SET_USER_ROLES: {
+      localStorage.setItem('roles', JSON.stringify(action.payload.roles));
+      return {
+        ...state,
+        roles: action.payload.roles,
       };
     }
     case LOGIN_FAILURE: {
@@ -40,6 +59,7 @@ const login = (state = initialState, action) => {
         user: null,
         loading: false,
         errorMessage: null,
+        roles: [],
       };
     }
     default:

@@ -1,18 +1,51 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "user1"
+      "id": "47fb03a6-b770-4e64-a533-e507cfa49020",
+      "githubId": "torvalds",
+      "roles": [
+        "author",
+        "student",
+        "supervisor",
+        "course_manager"
+      ]
     },
     {
-      "id": 2,
-      "name": "user2"
+      "id": "4dc0685c-df82-4db1-8d5b-ac31f954434e",
+      "githubId": "KatiaR",
+      "roles": []
     }
   ],
-  "tasks": [],
+  "tasks": [
+    {
+      "key": "1",
+      "title": "Task1",
+      "author": "John Brown",
+      "description": "New York No. 1 Lake Park",
+      "taskId": "11",
+      "status": "closed"
+    },
+    {
+      "key": "2",
+      "title": "Task2",
+      "author": "John Brown",
+      "description": "London No. 1 Lake Park",
+      "taskId": "22",
+      "status": "open"
+    },
+    {
+      "key": "3",
+      "title": "Task3",
+      "author": "John Brown",
+      "description": "Sidney No. 1 Lake Park",
+      "taskId": "33",
+      "status": "draft"
+    }
+  ],
   "crossCheckSessions": [
     {
-      "id": "rss2020Q3react-songbird",
+      "id": "id-1",
+      "title": "rss2020Q3react-songbird",
       "author": "author2",
       "state": "closed",
       "taskId": "react-task-songbird",
@@ -26,7 +59,8 @@
       "attendees": []
     },
     {
-      "id": "rss2020Q3react-xcheck",
+      "id": "id-2",
+      "title": "rss2020Q3react-xcheck",
       "author": "author1",
       "state": "active",
       "taskId": "react-task-xcheck",
@@ -40,7 +74,8 @@
       "attendees": []
     },
     {
-      "id": "rss2020Q3react-schedule",
+      "id": "id-3",
+      "title": "rss2020Q3react-schedule",
       "author": "author3",
       "state": "draft",
       "taskId": "react-task-schedule",
@@ -75,7 +110,22 @@
       "author": "author1",
       "task": "english fo kids",
       "state": "disputed",
-      "grade": {}
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 20,
+            "comment": "Well done!"
+          },
+          "extra_p1": {
+            "score": 15,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 0,
+            "comment": "No ticket today"
+          }
+        }
+      }
     },
     {
       "id": "rev-id-2",
@@ -83,7 +133,22 @@
       "author": "author2",
       "task": "movie search",
       "state": "published",
-      "grade": {}
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 25,
+            "comment": "Well done!"
+          },
+          "extra_p1": {
+            "score": 5,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 10,
+            "comment": "No ticket today"
+          }
+        }
+      }
     },
     {
       "id": "rev-id-3",
@@ -91,10 +156,25 @@
       "author": "author3",
       "task": "xcheck",
       "state": "draft",
-      "grade": {}
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 10,
+            "comment": "Well done!"
+          },
+          "extra_p1": {
+            "score": 15,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 5,
+            "comment": "No ticket today"
+          }
+        }
+      }
     }
   ],
-  "tasksTableData": [
+  "requests": [
     {
       "key": "1",
       "title": "Task1",
@@ -128,18 +208,44 @@
   ],
   "reviewRequest": [
     {
-      "id": "rss2020Q1-simple-task-v1",
-      "state": "draft",
-      "linkToDemo": "https://example.com",
-      "linkToPR": "https://example.com",
-      "selfGrade": "240"
+      "id": "rev-req-1",
+      "crossCheckSessionId": "rss2020Q3react-xcheck",
+      "author": "cardamo",
+      "task": "virtual keyboard",
+      "state": "PUBLISHED",
+      "selfGrade": {},
+      "urlTask": "#",
+      "urlAuthor": "#"
     },
     {
-      "id": "rss2020Q1-simple-task-v2",
-      "state": "published",
-      "linkToDemo": "https://example.com",
-      "linkToPR": "https://example.com",
-      "selfGrade": "230"
+      "id": "rev-req-2",
+      "crossCheckSessionId": "rss2020Q3react-xcheck",
+      "author": "adamo",
+      "task": "english fo kids",
+      "state": "COMPLETED",
+      "selfGrade": {},
+      "urlTask": "#",
+      "urlAuthor": "#"
+    },
+    {
+      "id": "rev-req-3",
+      "crossCheckSessionId": "rss2020Q3react-xcheck",
+      "author": "darmamo",
+      "task": "movie search",
+      "state": "DRAFT",
+      "selfGrade": {},
+      "urlTask": "#",
+      "urlAuthor": "#"
+    },
+    {
+      "id": "rev-req-4",
+      "crossCheckSessionId": "rss2020Q3react-xcheck",
+      "author": "bardamo",
+      "task": "songbird",
+      "state": "DRAFT",
+      "selfGrade": {},
+      "urlTask": "#",
+      "urlAuthor": "#"
     }
   ]
 }

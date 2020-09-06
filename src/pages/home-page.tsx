@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { Link } from 'react-router-dom';
-
+import { Link, Redirect } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import { getUsers, postUser } from '../store/actions';
-import { getLoginStatus, getUser } from '../store/selectors/login';
+import { logoutSuccess } from '../store/actions/login';
+import { getLoginStatus, getUser, getUserRoles } from '../store/selectors/login';
 
 interface Props {
   props?: any;
@@ -14,58 +15,65 @@ interface Props {
   user: Object;
   dispatch?: Dispatch;
   getUsers(): Object;
-  postUser({ id: Number, name: String }): Object;
+  postUser({ id: String, githubId: String, roles: Array }): Object;
+  logout(): Object;
+  roles: Array<String>;
 }
 
 class HomePage extends React.Component<Props, {}> {
-  state = { value: '' };
-
   componentDidMount() {
     const { getUsers } = this.props;
     getUsers();
   }
 
-  handleChange = (event) => {
-    this.setState({ value: event.target.value });
-  };
-
-  handleSubmit(event) {
-    event.preventDefault();
-    const { value } = this.state;
-    const { postUser } = this.props;
-    postUser({ id: value, name: value });
-    this.setState({ value: '' });
+  componentDidUpdate(prevProps) {
+    const { postUser, isLoggedIn, users, user, roles } = this.props;
+    if (!prevProps.users.length && users.length) {
+      if (isLoggedIn) {
+        const isUserExists = users.filter(({ githubId }) => githubId === user.login);
+        if (isUserExists.length) {
+          return;
+        }
+        const { login } = user;
+        const id = uuidv4();
+        postUser({ id, githubId: login, roles });
+      }
+    }
   }
 
+  handleLogout = () => {
+    const { logout } = this.props;
+    logout();
+  };
+
   render() {
-    const { value } = this.state;
     const { users, isLoggedIn, user } = this.props;
-    console.log(user);
     return (
       <div>
         {isLoggedIn ? (
           <>
             <img
-              style={{ width: '50px', height: '50%', borderRadius: '50%' }}
+              style={{ width: '50px', height: '50px', borderRadius: '50%' }}
               src={user.avatar_url}
               alt="Avatar"
             />
             <span>{user.login}</span>
+            <button type="button" onClick={this.handleLogout}>
+              Logout
+            </button>
           </>
         ) : (
-          <Link to="/login">Login</Link>
+          <Redirect to="/login" />
         )}
         <h1>Home page</h1>
-        <form onSubmit={(event) => this.handleSubmit(event)}>
-          <label htmlFor="name">
-            Имя:
-            <input id="name" onChange={(event) => this.handleChange(event)} value={value} />
-          </label>
-          <input type="submit" value="Отправить" />
-        </form>
+        <Link to="/crossCheckSessions/">crossCheckSessions</Link>
         <ul>
-          {users.map(({ id, name }) => {
-            return <li key={id}>{name}</li>;
+          {users.map(({ githubId, roles }) => {
+            return (
+              <li key={githubId}>
+                {githubId}: {roles.map((role) => `${role}, `)}
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -77,12 +85,14 @@ const mapStateToProps = (state) => ({
   users: state.users,
   isLoggedIn: getLoginStatus(state),
   user: getUser(state),
+  roles: getUserRoles(state),
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     postUser: (user) => dispatch(postUser(user)),
     getUsers: () => dispatch(getUsers()),
+    logout: () => dispatch(logoutSuccess()),
   };
 };
 

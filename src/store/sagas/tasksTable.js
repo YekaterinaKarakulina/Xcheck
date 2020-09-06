@@ -4,10 +4,10 @@ import {
   GET_TASKSTABLE_SESSIONS,
   GET_TASKSTABLE_SESSIONS_SUCCESS,
   GET_TASKSTABLE_SESSIONS_FAILURE,
-} from '../store/actions/types';
+} from '../actions/types';
 
 function* workerGetTasksTable() {
-  const uri = 'http://localhost:3000/tasksTableData';
+  const uri = 'http://localhost:3000/tasks';
   try {
     const result = yield call(Axios.get, uri);
     yield put({ type: GET_TASKSTABLE_SESSIONS_SUCCESS, payload: result.data });

@@ -1,11 +1,12 @@
 const mapData = (databaseData) => {
-  const { id, author, state, taskId, coefficient, startDate, endDate } = databaseData;
+  const { id, title, author, state, taskId, coefficient, startDate, endDate } = databaseData;
   return {
     key: id,
-    title: id,
+    id,
+    title,
     author,
     state,
-    task: taskId,
+    taskId,
     coefficient,
     startDate,
     endDate,
