@@ -18,28 +18,40 @@
   ],
   "tasks": [
     {
-      "key": "1",
-      "title": "Task1",
-      "author": "John Brown",
-      "description": "New York No. 1 Lake Park",
-      "taskId": "11",
-      "status": "closed"
-    },
-    {
-      "key": "2",
+      "taskScore": 100,
       "title": "Task2",
-      "author": "John Brown",
-      "description": "London No. 1 Lake Park",
-      "taskId": "22",
-      "status": "open"
+      "status": "closed",
+      "author": "Tim Tom Nim",
+      "description": "Test ",
+      "items": [
+        {
+          "title": "wwwwwwwwww",
+          "category": "basic",
+          "score": "20",
+          "description": "mjfhm"
+        }
+      ],
+      "mentorCheck": true,
+      "taskId": "6b22d4f5-5658-459e-8d9c-030ac8077835",
+      "id": 1
     },
     {
-      "key": "3",
-      "title": "Task3",
-      "author": "John Brown",
-      "description": "Sidney No. 1 Lake Park",
-      "taskId": "33",
-      "status": "draft"
+      "taskScore": 100,
+      "title": "qwert",
+      "author": "hgd  hert",
+      "status": "open",
+      "description": "njfjmf",
+      "items": [
+        {
+          "title": "оароа",
+          "category": "basic",
+          "score": "10",
+          "description": "jhfm"
+        }
+      ],
+      "fine": true,
+      "taskId": "6c09f612-5037-4291-9f28-6da8a75a42e1",
+      "id": 2
     }
   ],
   "crossCheckSessions": [

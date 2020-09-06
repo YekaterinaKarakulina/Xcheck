@@ -5,7 +5,7 @@ import { Form, Input, Button, InputNumber, Select } from 'antd';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import makeField from '../forms/makeField';
-import { required, minLength, maxLength, validUrl } from '../../utils';
+import { required, minLength, maxLength } from '../../utils';
 import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
 import FieldArraysForm from './FieldArraysForm';
 import { postTaskSession } from '../../store/actions/task';
@@ -16,7 +16,6 @@ const maxLength50 = maxLength(50);
 
 const { Option } = Select;
 const { TextArea } = Input;
-const taskId = uuidv4();
 const FormItem = Form.Item;
 
 const AInput = makeField(Input, formItemLayout);
@@ -28,7 +27,9 @@ let TaskFormCreation = (props) => {
   const { handleSubmit, pristine, submitting, postTaskSession } = props;
 
   const onSubmit = (values) => {
-    postTaskSession(values);
+    const taskId = uuidv4();
+    const fullObjectValues = { ...values, taskId };
+    postTaskSession(fullObjectValues);
   };
 
   return (
@@ -82,7 +83,6 @@ let TaskFormCreation = (props) => {
         name="link"
         component={AInput}
         placeholder="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/xcheck/xcheck.md"
-        validate={validUrl}
         hasFeedback
       />
 
@@ -118,7 +118,6 @@ TaskFormCreation = reduxForm({
   form: 'taskCreation',
   initialValues: {
     taskScore: 100,
-    taskId,
   },
 })(TaskFormCreation);
 
