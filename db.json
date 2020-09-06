@@ -1,13 +1,18 @@
 {
   "users": [
     {
-      "id": "47fb03a6-b770-4e64-a533-e507cfa49020",
-      "githubId": "torvalds",
+      "id": 1,
+      "name": "user1"
+    },
+    {
+      "id": 2,
+      "name": "user2"
+    },
+    {
+      "id": "3f33b146-da22-413d-a809-edbea99fba36",
+      "githubId": "KatiaR",
       "roles": [
-        "author",
-        "student",
-        "supervisor",
-        "course_manager"
+        "author"
       ]
     }
   ],
@@ -196,22 +201,7 @@
       "author": "author1",
       "task": "english fo kids",
       "state": "disputed",
-      "grade": {
-        "items": {
-          "basic_p1": {
-            "score": 20,
-            "comment": "Well done!"
-          },
-          "extra_p1": {
-            "score": 15,
-            "comment": "Some things are done, some are not"
-          },
-          "fines_p1": {
-            "score": 0,
-            "comment": "No ticket today"
-          }
-        }
-      }
+      "grade": {}
     },
     {
       "id": "rev-id-2",
@@ -219,22 +209,7 @@
       "author": "author2",
       "task": "movie search",
       "state": "published",
-      "grade": {
-        "items": {
-          "basic_p1": {
-            "score": 25,
-            "comment": "Well done!"
-          },
-          "extra_p1": {
-            "score": 5,
-            "comment": "Some things are done, some are not"
-          },
-          "fines_p1": {
-            "score": 10,
-            "comment": "No ticket today"
-          }
-        }
-      }
+      "grade": {}
     },
     {
       "id": "rev-id-3",
@@ -242,22 +217,7 @@
       "author": "author3",
       "task": "xcheck",
       "state": "draft",
-      "grade": {
-        "items": {
-          "basic_p1": {
-            "score": 10,
-            "comment": "Well done!"
-          },
-          "extra_p1": {
-            "score": 15,
-            "comment": "Some things are done, some are not"
-          },
-          "fines_p1": {
-            "score": 5,
-            "comment": "No ticket today"
-          }
-        }
-      }
+      "grade": {}
     }
   ],
   "tasksTableData": [
@@ -290,48 +250,6 @@
       "state": [
         "archived"
       ]
-    }
-  ],
-  "requests": [
-    {
-      "id": "rev-req-1",
-      "crossCheckSessionId": "rss2020Q3react-xcheck",
-      "author": "cardamo",
-      "task": "virtual keyboard",
-      "state": "PUBLISHED",
-      "selfGrade": {},
-      "urlTask": "#",
-      "urlAuthor": "#"
-    },
-    {
-      "id": "rev-req-2",
-      "crossCheckSessionId": "rss2020Q3react-xcheck",
-      "author": "adamo",
-      "task": "english fo kids",
-      "state": "COMPLETED",
-      "selfGrade": {},
-      "urlTask": "#",
-      "urlAuthor": "#"
-    },
-    {
-      "id": "rev-req-3",
-      "crossCheckSessionId": "rss2020Q3react-xcheck",
-      "author": "darmamo",
-      "task": "movie search",
-      "state": "DRAFT",
-      "selfGrade": {},
-      "urlTask": "#",
-      "urlAuthor": "#"
-    },
-    {
-      "id": "rev-req-4",
-      "crossCheckSessionId": "rss2020Q3react-xcheck",
-      "author": "bardamo",
-      "task": "songbird",
-      "state": "DRAFT",
-      "selfGrade": {},
-      "urlTask": "#",
-      "urlAuthor": "#"
     }
   ]
 }

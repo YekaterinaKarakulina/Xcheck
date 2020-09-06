@@ -1,6 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import { Layout } from 'antd';
 import { getUsers, postUser } from '../../store/actions';
 import { logoutSuccess } from '../../store/actions/login';
