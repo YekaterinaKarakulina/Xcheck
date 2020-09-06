@@ -1,6 +1,7 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 import { Layout } from 'antd';
 import { getUsers, postUser } from '../../store/actions';
 import { logoutSuccess } from '../../store/actions/login';
@@ -32,7 +33,6 @@ class App extends React.PureComponent<Props, {}> {
     const { postUser, isLoggedIn, users, user, roles } = this.props;
     if (!prevProps.users.length && users.length) {
       if (isLoggedIn) {
-        console.log(user);
         const isUserExists = users.filter(({ githubId }) => githubId === user.login);
         if (isUserExists.length) {
           return;
@@ -46,14 +46,17 @@ class App extends React.PureComponent<Props, {}> {
 
   render() {
     const { isLoggedIn, users, user, logout } = this.props;
-    const currentUser = users.filter(({ githubId }) => githubId === user.login)[0];
+    let currentUser = {};
     let userInfo = {};
-    if (currentUser) {
-      userInfo = {
-        avatarUrl: user.avatar_url,
-        name: user.name,
-        roles: currentUser.roles,
-      };
+    if (isLoggedIn) {
+      [currentUser] = users.filter(({ githubId }) => githubId === user.login);
+      if (currentUser) {
+        userInfo = {
+          avatarUrl: user.avatar_url,
+          name: user.name,
+          roles: currentUser.roles,
+        };
+      }
     }
     return (
       <Layout style={{ minHeight: '100vh' }}>
