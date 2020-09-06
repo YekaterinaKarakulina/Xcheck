@@ -1,11 +1,11 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Form, Input, Button, InputNumber, Select, Checkbox } from 'antd';
+import { Form, Input, Button, InputNumber, Select } from 'antd';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import makeField from '../forms/makeField';
-import { required, minLength, maxLength } from '../../utils';
+import { required, minLength, maxLength, validUrl } from '../../utils';
 import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
 import FieldArraysForm from './FieldArraysForm';
 import { postTaskSession } from '../../store/actions/task';
@@ -23,7 +23,6 @@ const AInput = makeField(Input, formItemLayout);
 const AInputNumber = makeField(InputNumber, formItemLayout);
 const ASelect = makeField(Select, formItemLayout);
 const ATextArea = makeField(TextArea, formItemLayout);
-const ACheckbox = makeField(Checkbox, formItemLayout);
 
 let TaskFormCreation = (props) => {
   const { handleSubmit, pristine, submitting, postTaskSession } = props;
@@ -83,14 +82,7 @@ let TaskFormCreation = (props) => {
         name="link"
         component={AInput}
         placeholder="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/xcheck/xcheck.md"
-        hasFeedback
-      />
-
-      <Field
-        label="Only cross-check"
-        name="crosscheck"
-        component={ACheckbox}
-        type="checkbox"
+        validate={validUrl}
         hasFeedback
       />
 

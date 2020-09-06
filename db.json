@@ -69,6 +69,60 @@
         }
       ],
       "id": 4
+    },
+    {
+      "taskScore": "200",
+      "taskId": "6c38cd9b-0d39-41ad-99b7-4698648618d0",
+      "title": "qwert",
+      "author": "erty",
+      "status": "draft",
+      "description": "regarega",
+      "items": [
+        {
+          "title": "j",
+          "category": "fines",
+          "score": "20",
+          "description": "gbdf"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "taskScore": 100,
+      "taskId": "86a043f9-cbb5-46f5-9d1f-54dfd21599d4",
+      "items": [
+        {
+          "title": "оароа",
+          "category": "basic",
+          "score": "30",
+          "description": "ароьаоь"
+        }
+      ],
+      "fine": true,
+      "mentorCheck": true,
+      "title": "пртвпрьтв",
+      "author": "рптвььрт",
+      "status": "archived",
+      "description": "рвптвпртвпрт",
+      "id": 6
+    },
+    {
+      "taskScore": 100,
+      "taskId": "caa624ea-410f-43d5-be00-8e534df59b1a",
+      "status": "open",
+      "title": "wwwwwwwwwwwwwwwwwwwww",
+      "author": "прптпртр",
+      "description": "пырап",
+      "items": [
+        {
+          "title": "oklyh",
+          "category": "extra",
+          "score": "30",
+          "description": "пвапр"
+        }
+      ],
+      "mentorCheck": true,
+      "id": 7
     }
   ],
   "crossCheckSessions": [
@@ -157,6 +211,38 @@
       "task": "xcheck",
       "state": "draft",
       "grade": {}
+    }
+  ],
+  "tasksTableData": [
+    {
+      "key": "1",
+      "title": "Task1",
+      "author": "John Brown",
+      "description": "New York No. 1 Lake Park",
+      "taskId": "11",
+      "state": [
+        "closed"
+      ]
+    },
+    {
+      "key": "2",
+      "title": "Task2",
+      "author": "John Brown",
+      "description": "London No. 1 Lake Park",
+      "taskId": "22",
+      "state": [
+        "active"
+      ]
+    },
+    {
+      "key": "3",
+      "title": "Task3",
+      "author": "John Brown",
+      "description": "Sidney No. 1 Lake Park",
+      "taskId": "33",
+      "state": [
+        "archived"
+      ]
     }
   ]
 }

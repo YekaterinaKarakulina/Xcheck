@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, FieldArray } from 'redux-form';
-import { Input, Button, InputNumber, Select } from 'antd';
+import { Input, Button, InputNumber, Select, Checkbox } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { required } from '../../utils';
 import { formItemLayout } from '../forms/formLayout';
@@ -13,6 +13,7 @@ const AInput = makeField(Input, formItemLayout);
 const AInputNumber = makeField(InputNumber, formItemLayout);
 const ATextArea = makeField(TextArea, formItemLayout);
 const ASelect = makeField(Select, formItemLayout);
+const ACheckbox = makeField(Checkbox, formItemLayout);
 
 const renderTaskItem = ({ fields }) => {
   return (
@@ -70,6 +71,16 @@ const renderTaskItem = ({ fields }) => {
             type="text"
             component={ATextArea}
           />
+
+          <Field
+            label="Only mentor check"
+            name="mentorCheck"
+            component={ACheckbox}
+            type="checkbox"
+            hasFeedback
+          />
+
+          <Field label="Fine" name="fine" component={ACheckbox} type="checkbox" hasFeedback />
         </li>
       ))}
     </ul>

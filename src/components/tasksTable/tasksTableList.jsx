@@ -2,8 +2,9 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import PropTypes from 'prop-types';
 import { Table, Tag, Space, Button, Input } from 'antd';
-import { DownloadOutlined, SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
+import { CloseCircleTwoTone, SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
+import checkStatus from '../../utils/status';
 
 class TasksTable extends React.Component {
   state = {
@@ -97,23 +98,7 @@ class TasksTable extends React.Component {
         dataIndex: 'status',
         ...this.getColumnSearchProps('status'),
         render: (status) => {
-          let color = 'green';
-          switch (status) {
-            case 'active':
-              color = 'green';
-              break;
-            case 'draft':
-              color = 'geekblue';
-              break;
-            case 'closed':
-              color = 'volcano';
-              break;
-            case 'archived':
-              color = 'red';
-              break;
-            default:
-              color = 'green';
-          }
+          const color = checkStatus(status);
           return <Tag color={color}>{status.toUpperCase()}</Tag>;
         },
       },
@@ -124,7 +109,7 @@ class TasksTable extends React.Component {
           <Space size="large">
             <Button type="text" icon={<EditTwoTone twoToneColor="#ffa940" />} size="small" />
             <Button type="text" icon={<EyeTwoTone twoToneColor="#9254de" />} size="small" />
-            <Button type="text" icon={<DownloadOutlined />} size="small" />
+            <Button type="text" icon={<CloseCircleTwoTone twoToneColor="#ff4d4f" />} size="small" />
           </Space>
         ),
       },

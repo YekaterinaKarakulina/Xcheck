@@ -1,3 +1,3 @@
-import { required, minLength, maxLength } from './formValidations';
+import { required, minLength, maxLength, validUrl } from './formValidations';
 
-export { required, minLength, maxLength };
+export { required, minLength, maxLength, validUrl };
