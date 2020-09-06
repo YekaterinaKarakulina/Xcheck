@@ -1,135 +1,45 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "user1"
-    },
-    {
-      "id": 2,
-      "name": "user2"
-    },
-    {
-      "id": "3f33b146-da22-413d-a809-edbea99fba36",
-      "githubId": "KatiaR",
+      "id": "47fb03a6-b770-4e64-a533-e507cfa49020",
+      "githubId": "torvalds",
       "roles": [
-        "author"
+        "author",
+        "student",
+        "supervisor",
+        "course_manager"
       ]
+    },
+    {
+      "id": "4dc0685c-df82-4db1-8d5b-ac31f954434e",
+      "githubId": "KatiaR",
+      "roles": []
     }
   ],
   "tasks": [
     {
-      "taskScore": 100,
-      "taskId": "109c3242-9fd4-4f3f-84eb-1971d63d3f1d",
-      "taskTitle": "hdghd",
-      "author": "ghdhnd",
-      "status": "open",
-      "description": "kgkjg",
-      "link": "jmgjum",
-      "id": 1
+      "key": "1",
+      "title": "Task1",
+      "author": "John Brown",
+      "description": "New York No. 1 Lake Park",
+      "taskId": "11",
+      "status": "closed"
     },
     {
-      "taskScore": "100.3",
-      "taskId": "ac86073f-579a-4686-9ab8-434066068a79",
-      "taskTitle": "hhhgf",
-      "author": "ths",
-      "status": "open",
-      "description": "klh",
-      "link": "hg",
-      "crosscheck": true,
-      "draft": true,
-      "items": [
-        {
-          "title": "j",
-          "category": "basic",
-          "score": "20",
-          "description": "jklg"
-        }
-      ],
-      "id": 2
+      "key": "2",
+      "title": "Task2",
+      "author": "John Brown",
+      "description": "London No. 1 Lake Park",
+      "taskId": "22",
+      "status": "open"
     },
     {
-      "taskScore": "100.2",
-      "taskId": "409fd2c7-a14f-4c0c-894d-31c0efa1cac3",
-      "title": "qqqqqqqqqqq",
-      "author": "qqqqqqqqqqqqq",
-      "status": "open",
-      "description": "qqqqqqqqqq",
-      "link": "qqqqqqqq",
-      "crosscheck": true,
-      "draft": true,
-      "id": 3
-    },
-    {
-      "taskScore": "99.5",
-      "taskId": "80bad1ed-bed1-45b7-85a6-ba3d2e872b4e",
-      "title": "wwwwwwwwwwwwwwwwwwwww",
-      "author": "wwwwwwwwwwwwwwwwwww",
-      "status": "archived",
-      "description": "wwwwwwwwww",
-      "link": "wwwwwwwwwwwwww",
-      "items": [
-        {
-          "title": "wwwwwwwwww",
-          "category": "basic",
-          "score": "20",
-          "description": "wwwwwwww"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "taskScore": "200",
-      "taskId": "6c38cd9b-0d39-41ad-99b7-4698648618d0",
-      "title": "qwert",
-      "author": "erty",
-      "status": "draft",
-      "description": "regarega",
-      "items": [
-        {
-          "title": "j",
-          "category": "fines",
-          "score": "20",
-          "description": "gbdf"
-        }
-      ],
-      "id": 5
-    },
-    {
-      "taskScore": 100,
-      "taskId": "86a043f9-cbb5-46f5-9d1f-54dfd21599d4",
-      "items": [
-        {
-          "title": "оароа",
-          "category": "basic",
-          "score": "30",
-          "description": "ароьаоь"
-        }
-      ],
-      "fine": true,
-      "mentorCheck": true,
-      "title": "пртвпрьтв",
-      "author": "рптвььрт",
-      "status": "archived",
-      "description": "рвптвпртвпрт",
-      "id": 6
-    },
-    {
-      "taskScore": 100,
-      "taskId": "caa624ea-410f-43d5-be00-8e534df59b1a",
-      "status": "open",
-      "title": "wwwwwwwwwwwwwwwwwwwww",
-      "author": "прптпртр",
-      "description": "пырап",
-      "items": [
-        {
-          "title": "oklyh",
-          "category": "extra",
-          "score": "30",
-          "description": "пвапр"
-        }
-      ],
-      "mentorCheck": true,
-      "id": 7
+      "key": "3",
+      "title": "Task3",
+      "author": "John Brown",
+      "description": "Sidney No. 1 Lake Park",
+      "taskId": "33",
+      "status": "draft"
     }
   ],
   "crossCheckSessions": [
@@ -177,21 +87,6 @@
       "minReviewsAmount": 1,
       "desiredReviewersAmount": 2,
       "attendees": []
-    },
-    {
-      "id": "1409ca59-e9d8-4fd9-b433-d7697760d63e",
-      "title": "kljkl",
-      "author": "klk",
-      "state": "active",
-      "taskId": "id-1",
-      "coefficient": 1,
-      "startDate": "2020-09-01",
-      "endDate": "2020-10-08",
-      "discardMinScore": false,
-      "discardMaxScore": false,
-      "minReviewsAmount": 2,
-      "desiredReviewersAmount": 2,
-      "attendees": []
     }
   ],
   "reviews": [
@@ -201,7 +96,22 @@
       "author": "author1",
       "task": "english fo kids",
       "state": "disputed",
-      "grade": {}
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 20,
+            "comment": "Well done!"
+          },
+          "extra_p1": {
+            "score": 15,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 0,
+            "comment": "No ticket today"
+          }
+        }
+      }
     },
     {
       "id": "rev-id-2",
@@ -209,7 +119,22 @@
       "author": "author2",
       "task": "movie search",
       "state": "published",
-      "grade": {}
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 25,
+            "comment": "Well done!"
+          },
+          "extra_p1": {
+            "score": 5,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 10,
+            "comment": "No ticket today"
+          }
+        }
+      }
     },
     {
       "id": "rev-id-3",
@@ -217,39 +142,64 @@
       "author": "author3",
       "task": "xcheck",
       "state": "draft",
-      "grade": {}
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 10,
+            "comment": "Well done!"
+          },
+          "extra_p1": {
+            "score": 15,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 5,
+            "comment": "No ticket today"
+          }
+        }
+      }
     }
   ],
-  "tasksTableData": [
+  "requests": [
     {
-      "key": "1",
-      "title": "Task1",
-      "author": "John Brown",
-      "description": "New York No. 1 Lake Park",
-      "taskId": "11",
-      "state": [
-        "closed"
-      ]
+      "id": "rev-req-1",
+      "crossCheckSessionId": "rss2020Q3react-xcheck",
+      "author": "cardamo",
+      "task": "virtual keyboard",
+      "state": "PUBLISHED",
+      "selfGrade": {},
+      "urlTask": "#",
+      "urlAuthor": "#"
     },
     {
-      "key": "2",
-      "title": "Task2",
-      "author": "John Brown",
-      "description": "London No. 1 Lake Park",
-      "taskId": "22",
-      "state": [
-        "active"
-      ]
+      "id": "rev-req-2",
+      "crossCheckSessionId": "rss2020Q3react-xcheck",
+      "author": "adamo",
+      "task": "english fo kids",
+      "state": "COMPLETED",
+      "selfGrade": {},
+      "urlTask": "#",
+      "urlAuthor": "#"
     },
     {
-      "key": "3",
-      "title": "Task3",
-      "author": "John Brown",
-      "description": "Sidney No. 1 Lake Park",
-      "taskId": "33",
-      "state": [
-        "archived"
-      ]
+      "id": "rev-req-3",
+      "crossCheckSessionId": "rss2020Q3react-xcheck",
+      "author": "darmamo",
+      "task": "movie search",
+      "state": "DRAFT",
+      "selfGrade": {},
+      "urlTask": "#",
+      "urlAuthor": "#"
+    },
+    {
+      "id": "rev-req-4",
+      "crossCheckSessionId": "rss2020Q3react-xcheck",
+      "author": "bardamo",
+      "task": "songbird",
+      "state": "DRAFT",
+      "selfGrade": {},
+      "urlTask": "#",
+      "urlAuthor": "#"
     }
   ]
 }
