@@ -52,6 +52,20 @@
       "minReviewsAmount": 1,
       "desiredReviewersAmount": 2,
       "attendees": []
+    },
+    {
+      "id": "rss2020Q3react-englishForKids",
+      "author": "author4",
+      "state": "draft",
+      "taskId": "id-1",
+      "coefficient": 1,
+      "startDate": "2020-09-06",
+      "endDate": "2020-10-13",
+      "discardMinScore": true,
+      "discardMaxScore": false,
+      "minReviewsAmount": 2,
+      "desiredReviewersAmount": 3,
+      "attendees": []
     }
   ],
   "reviews": [
@@ -87,7 +101,9 @@
       "author": "John Brown",
       "description": "New York No. 1 Lake Park",
       "taskId": "11",
-      "state": ["closed"]
+      "state": [
+        "closed"
+      ]
     },
     {
       "key": "2",
@@ -95,7 +111,9 @@
       "author": "John Brown",
       "description": "London No. 1 Lake Park",
       "taskId": "22",
-      "state": ["active"]
+      "state": [
+        "active"
+      ]
     },
     {
       "key": "3",
@@ -103,7 +121,25 @@
       "author": "John Brown",
       "description": "Sidney No. 1 Lake Park",
       "taskId": "33",
-      "state": ["archived"]
+      "state": [
+        "archived"
+      ]
+    }
+  ],
+  "reviewRequest": [
+    {
+      "id": "rss2020Q1-simple-task-v1",
+      "state": "draft",
+      "linkToDemo": "https://example.com",
+      "linkToPR": "https://example.com",
+      "selfGrade": "240"
+    },
+    {
+      "id": "rss2020Q1-simple-task-v2",
+      "state": "published",
+      "linkToDemo": "https://example.com",
+      "linkToPR": "https://example.com",
+      "selfGrade": "230"
     }
   ]
 }
