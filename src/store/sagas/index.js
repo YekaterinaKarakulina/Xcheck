@@ -3,6 +3,7 @@ import { watchGetUsers, watchPostUser } from './users';
 import watchGetCrossCheckSessions from './crossCheckSessions';
 import watchGetTasksTable from './tasksTable';
 import watchGetReviewsList from './reviewsList';
+import watchTask from '../../sagas/task';
 import watchRequests from './requests';
 
 export default function* rootSaga() {
@@ -12,6 +13,7 @@ export default function* rootSaga() {
     watchGetCrossCheckSessions(),
     watchGetTasksTable(),
     watchGetReviewsList(),
+    watchTask(),
     watchRequests(),
   ]);
 }

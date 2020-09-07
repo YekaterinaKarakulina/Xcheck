@@ -9,9 +9,39 @@
         "supervisor",
         "course_manager"
       ]
+    },
+    {
+      "id": "4dc0685c-df82-4db1-8d5b-ac31f954434e",
+      "githubId": "KatiaR",
+      "roles": []
     }
   ],
-  "tasks": [],
+  "tasks": [
+    {
+      "key": "1",
+      "title": "Task1",
+      "author": "John Brown",
+      "description": "New York No. 1 Lake Park",
+      "taskId": "11",
+      "status": "closed"
+    },
+    {
+      "key": "2",
+      "title": "Task2",
+      "author": "John Brown",
+      "description": "London No. 1 Lake Park",
+      "taskId": "22",
+      "status": "open"
+    },
+    {
+      "key": "3",
+      "title": "Task3",
+      "author": "John Brown",
+      "description": "Sidney No. 1 Lake Park",
+      "taskId": "33",
+      "status": "draft"
+    }
+  ],
   "crossCheckSessions": [
     {
       "id": "id-1",
@@ -128,38 +158,6 @@
           }
         }
       }
-    }
-  ],
-  "tasksTableData": [
-    {
-      "key": "1",
-      "title": "Task1",
-      "author": "John Brown",
-      "description": "New York No. 1 Lake Park",
-      "taskId": "11",
-      "state": [
-        "closed"
-      ]
-    },
-    {
-      "key": "2",
-      "title": "Task2",
-      "author": "John Brown",
-      "description": "London No. 1 Lake Park",
-      "taskId": "22",
-      "state": [
-        "active"
-      ]
-    },
-    {
-      "key": "3",
-      "title": "Task3",
-      "author": "John Brown",
-      "description": "Sidney No. 1 Lake Park",
-      "taskId": "33",
-      "state": [
-        "archived"
-      ]
     }
   ],
   "requests": [

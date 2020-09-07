@@ -1,10 +1,10 @@
 const mapDataTable = (databaseData) => {
-  const { key, author, title, state, taskId, description } = databaseData;
+  const { author, title, status, taskId, description } = databaseData;
   return {
-    key,
+    key: taskId,
     author,
     title,
-    state,
+    status,
     taskId,
     description,
   };

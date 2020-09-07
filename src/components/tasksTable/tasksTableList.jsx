@@ -2,8 +2,9 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import PropTypes from 'prop-types';
 import { Table, Tag, Space, Button, Input } from 'antd';
-import { DownloadOutlined, SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
+import { CloseCircleTwoTone, SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
+import checkStatus from '../../utils/status';
 
 class TasksTable extends React.Component {
   state = {
@@ -92,32 +93,14 @@ class TasksTable extends React.Component {
         key: 'description',
       },
       {
-        title: 'State',
-        key: 'state',
-        dataIndex: 'state',
-        ...this.getColumnSearchProps('state'),
-        render: (state) => (
-          <span>
-            {state.map((tag) => {
-              let color;
-              switch (tag) {
-                case 'active':
-                  color = 'green';
-                  break;
-                case 'closed':
-                  color = 'red';
-                  break;
-                default:
-                  color = 'blue';
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })}
-          </span>
-        ),
+        title: 'Status',
+        key: 'status',
+        dataIndex: 'status',
+        ...this.getColumnSearchProps('status'),
+        render: (status) => {
+          const color = checkStatus(status);
+          return <Tag color={color}>{status.toUpperCase()}</Tag>;
+        },
       },
       {
         title: 'Action',
@@ -126,7 +109,7 @@ class TasksTable extends React.Component {
           <Space size="large">
             <Button type="text" icon={<EditTwoTone twoToneColor="#ffa940" />} size="small" />
             <Button type="text" icon={<EyeTwoTone twoToneColor="#9254de" />} size="small" />
-            <Button type="text" icon={<DownloadOutlined />} size="small" />
+            <Button type="text" icon={<CloseCircleTwoTone twoToneColor="#ff4d4f" />} size="small" />
           </Space>
         ),
       },

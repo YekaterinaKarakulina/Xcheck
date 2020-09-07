@@ -33,7 +33,6 @@ class App extends React.PureComponent<Props, {}> {
     const { postUser, isLoggedIn, users, user, roles } = this.props;
     if (!prevProps.users.length && users.length) {
       if (isLoggedIn) {
-        console.log(user);
         const isUserExists = users.filter(({ githubId }) => githubId === user.login);
         if (isUserExists.length) {
           return;
@@ -50,7 +49,7 @@ class App extends React.PureComponent<Props, {}> {
     let currentUser = {};
     let userInfo = {};
     if (isLoggedIn) {
-      currentUser = users.filter(({ githubId }) => githubId === user.login)[0];
+      [currentUser] = users.filter(({ githubId }) => githubId === user.login);
       if (currentUser) {
         userInfo = {
           avatarUrl: user.avatar_url,

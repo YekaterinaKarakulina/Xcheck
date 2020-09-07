@@ -6,7 +6,6 @@ const tasksTableData = (state = [], action) => {
       return action.payload;
 
     case GET_TASKSTABLE_SESSIONS_FAILURE:
-      console.log(action.payload);
       return state;
 
     default:
