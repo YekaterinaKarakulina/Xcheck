@@ -1,15 +1,12 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { Form, Input, Button, InputNumber, Select } from 'antd';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
 import makeField from '../forms/makeField';
 import { required, minLength, maxLength } from '../../utils';
 import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
 import FieldArraysForm from './FieldArraysForm';
-import { postTaskSession, updateTaskSession } from '../../store/actions/task';
+
 import './taskForm.scss';
 
 const minLength3 = minLength(3);
@@ -25,32 +22,10 @@ const ASelect = makeField(Select, formItemLayout);
 const ATextArea = makeField(TextArea, formItemLayout);
 
 let TaskFormCreation = (props) => {
-  const {
-    handleSubmit,
-    pristine,
-    submitting,
-    postTaskSession,
-    updateTaskSession,
-    isRedirectToTableReady,
-    initialValues,
-  } = props;
-
-  const onSubmit = (values) => {
-    const taskId = uuidv4();
-    const fullObjectValues = { ...values, taskId };
-    if (initialValues && initialValues.id) {
-      updateTaskSession(fullObjectValues);
-    } else {
-      postTaskSession(fullObjectValues);
-    }
-  };
-
-  if (isRedirectToTableReady) {
-    return <Redirect to="/tasks" />;
-  }
+  const { handleSubmit, pristine, submitting } = props;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit}>
       <Field
         label="Task title"
         name="title"
@@ -118,25 +93,9 @@ TaskFormCreation.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
-  postTaskSession: PropTypes.func.isRequired,
-  updateTaskSession: PropTypes.func.isRequired,
-  isRedirectToTableReady: PropTypes.bool.isRequired,
   initialValues: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
-const mapStateToProps = ({ tasks }) => ({
-  isRedirectToTableReady: tasks.isRedirectToTableReady,
-});
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    postTaskSession: (tasks) => dispatch(postTaskSession(tasks)),
-    updateTaskSession: (tasks) => dispatch(updateTaskSession(tasks)),
-  };
-};
-
-TaskFormCreation = reduxForm({
+export default TaskFormCreation = reduxForm({
   form: 'taskCreation',
 })(TaskFormCreation);
-
-export default connect(mapStateToProps, mapDispatchToProps)(TaskFormCreation);

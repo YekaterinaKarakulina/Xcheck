@@ -127,7 +127,6 @@ class TasksTable extends React.Component {
     ];
 
     const { tableData, isRedirectToFormReady } = this.props;
-
     if (isRedirectToFormReady) {
       return <Redirect to="/task-edit-form" />;
     }
@@ -144,6 +143,7 @@ TasksTable.propTypes = {
 
 const mapStateToProps = ({ tasks }) => ({
   isRedirectToFormReady: tasks.isRedirectToFormReady,
+  tasks,
 });
 
 const mapDispatchToProps = (dispatch) => {
