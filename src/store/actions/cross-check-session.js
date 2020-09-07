@@ -3,7 +3,7 @@ import {
   GET_CROSSCHECK_SESSION_BY_ID,
   POST_CROSSCHECK_SESSION,
   UPDATE_CROSSCHECK_SESSION,
-} from './types/crossCheckSessions';
+} from './types/cross-check-sessions';
 
 const getCrossCheckSessions = () => {
   return {

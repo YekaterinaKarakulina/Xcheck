@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
 import watchUsers from './users';
-import watchCrossCheckSessions from './crossCheckSessions';
+import watchCrossCheckSessions from './cross-check-sessions';
 import watchGetTasksTable from './tasksTable';
 import watchGetReviewsList from './reviewsList';
 import watchTask from '../../sagas/task';

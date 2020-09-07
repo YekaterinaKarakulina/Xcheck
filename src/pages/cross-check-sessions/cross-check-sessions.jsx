@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { Button, PageHeader } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { getCrossCheckSessions } from '../../store/actions/crossCheckSession';
+import { getCrossCheckSessions } from '../../store/actions/cross-check-session';
 
 import CrossCheckSessionsTable from './table';
-import mapData from './mapData';
+import mapData from './map-data';
 
 class CrossCheckSessions extends React.Component {
   componentDidMount() {

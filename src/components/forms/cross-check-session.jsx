@@ -8,10 +8,10 @@ import PropTypes from 'prop-types';
 import {
   postCrossCheckSession,
   updateCrossCheckSession,
-} from '../../store/actions/crossCheckSession';
+} from '../../store/actions/cross-check-session';
 import { required, minLength, maxLength } from '../../utils';
 import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
-import makeField from './makeField';
+import makeField from './make-field';
 import { formItemLayout, tailFormItemLayout } from './formLayout';
 
 const minLength3 = minLength(3);

@@ -1,7 +1,7 @@
 import {
   GET_CROSSCHECK_SESSIONS_SUCCESS,
   GET_CROSSCHECK_SESSIONS_FAILURE,
-} from '../actions/types/crossCheckSessions';
+} from '../actions/types/cross-check-sessions';
 
 const crossCheckSessionsData = (state = [], action) => {
   switch (action.type) {

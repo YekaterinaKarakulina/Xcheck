@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
-import { getCrossCheckSessionById } from '../../store/actions/crossCheckSession';
+import { getCrossCheckSessionById } from '../../store/actions/cross-check-session';
 
 const CrossCheckSessionsTable = (props) => {
   const columns = [

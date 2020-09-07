@@ -1,7 +1,7 @@
 import React from 'react';
 import { CrossCheckSessionForm } from '../../components/forms';
 
-import './crossCheckSession.scss';
+import './cross-check-session.scss';
 
 const CrossCheckSession = () => {
   return (
