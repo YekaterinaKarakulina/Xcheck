@@ -2,7 +2,7 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 import Axios from 'axios';
 import { GET_REQUESTS, GET_REQUESTS_SUCCESS, GET_REQUESTS_FAILURE } from '../actions/types';
 
-function* workerGetRequets() {
+function* workerGetRequests() {
   const uri = 'http://localhost:3000/requests';
   try {
     const result = yield call(Axios.get, uri);
@@ -16,7 +16,7 @@ function* workerGetRequets() {
 }
 
 function* watchRequests() {
-  yield takeEvery(GET_REQUESTS, workerGetRequets);
+  yield takeEvery(GET_REQUESTS, workerGetRequests);
 }
 
 export default watchRequests;

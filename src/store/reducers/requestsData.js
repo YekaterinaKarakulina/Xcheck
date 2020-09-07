@@ -1,6 +1,6 @@
 import { GET_REQUESTS_SUCCESS, GET_REQUESTS_FAILURE } from '../actions/types';
 
-const requetsData = (state = [], action) => {
+const requestsData = (state = [], action) => {
   switch (action.type) {
     case GET_REQUESTS_SUCCESS:
       return action.payload;
@@ -14,4 +14,4 @@ const requetsData = (state = [], action) => {
   }
 };
 
-export default requetsData;
+export default requestsData;
