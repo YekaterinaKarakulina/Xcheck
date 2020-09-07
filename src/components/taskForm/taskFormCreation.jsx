@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { Form, Input, Button, InputNumber, Select } from 'antd';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
@@ -24,13 +25,17 @@ const ASelect = makeField(Select, formItemLayout);
 const ATextArea = makeField(TextArea, formItemLayout);
 
 let TaskFormCreation = (props) => {
-  const { handleSubmit, pristine, submitting, postTaskSession } = props;
+  const { handleSubmit, pristine, submitting, postTaskSession, isRedirectToTableReady } = props;
 
   const onSubmit = (values) => {
     const taskId = uuidv4();
     const fullObjectValues = { ...values, taskId };
     postTaskSession(fullObjectValues);
   };
+
+  if (isRedirectToTableReady) {
+    return <Redirect to="/tasks" />;
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -102,11 +107,12 @@ TaskFormCreation.propTypes = {
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
   postTaskSession: PropTypes.func.isRequired,
+  isRedirectToTableReady: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ values }) => {
-  return { values };
-};
+const mapStateToProps = ({ tasks }) => ({
+  isRedirectToTableReady: tasks.isRedirectToTableReady,
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {

@@ -4,15 +4,15 @@ import {
   POST_TASK_SESSIONS,
   POST_TASK_SESSIONS_SUCCESS,
   POST_TASK_SESSIONS_FAILURE,
+  REDIRECT_TO_TASK_SESSIONS,
 } from '../actions/types';
 
 function* workerPostTask(action) {
   const uri = 'http://localhost:3000/tasks';
   try {
-    console.log(3);
     yield call(Axios.post, uri, action.payload);
-    console.log(4);
     yield put({ type: POST_TASK_SESSIONS_SUCCESS });
+    yield put({ type: REDIRECT_TO_TASK_SESSIONS });
   } catch {
     yield put({
       type: POST_TASK_SESSIONS_FAILURE,

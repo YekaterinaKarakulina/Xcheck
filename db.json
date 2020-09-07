@@ -52,6 +52,43 @@
       "fine": true,
       "taskId": "6c09f612-5037-4291-9f28-6da8a75a42e1",
       "id": 2
+    },
+    {
+      "taskScore": 100,
+      "title": "Test 3",
+      "author": "Pot Tru Htre",
+      "status": "closed",
+      "description": "qwerty",
+      "items": [
+        {
+          "title": "Test",
+          "category": "basic",
+          "score": "10",
+          "description": "AAAAAAAAAA"
+        }
+      ],
+      "mentorCheck": true,
+      "taskId": "a217b342-3788-474c-8315-1a191d989387",
+      "id": 3
+    },
+    {
+      "taskScore": 100,
+      "title": "Task3",
+      "author": "Test-Y",
+      "status": "closed",
+      "description": "fvgava",
+      "items": [
+        {
+          "title": "Task3",
+          "category": "basic",
+          "score": "20",
+          "description": "dcD"
+        }
+      ],
+      "mentorCheck": true,
+      "fine": true,
+      "taskId": "85686f75-47c9-491e-b7ef-50455b5f566f",
+      "id": 4
     }
   ],
   "crossCheckSessions": [
