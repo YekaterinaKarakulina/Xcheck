@@ -54,6 +54,53 @@
       "id": 2
     }
   ],
+  "crossCheckSessions": [
+    {
+      "id": "id-1",
+      "title": "rss2020Q3react-songbird",
+      "author": "author2",
+      "state": "closed",
+      "taskId": "react-task-songbird",
+      "coefficient": 1,
+      "startDate": "2020-07-07",
+      "endDate": "2020-07-14",
+      "discardMinScore": true,
+      "discardMaxScore": false,
+      "minReviewsAmount": 1,
+      "desiredReviewersAmount": 2,
+      "attendees": []
+    },
+    {
+      "id": "id-2",
+      "title": "rss2020Q3react-xcheck",
+      "author": "author1",
+      "state": "active",
+      "taskId": "react-task-xcheck",
+      "coefficient": 0.7,
+      "startDate": "2020-08-22",
+      "endDate": "2020-09-22",
+      "discardMinScore": true,
+      "discardMaxScore": false,
+      "minReviewsAmount": 1,
+      "desiredReviewersAmount": 2,
+      "attendees": []
+    },
+    {
+      "id": "id-3",
+      "title": "rss2020Q3react-schedule",
+      "author": "author3",
+      "state": "draft",
+      "taskId": "react-task-schedule",
+      "coefficient": 0.7,
+      "startDate": "2020-08-22",
+      "endDate": "2020-09-22",
+      "discardMinScore": true,
+      "discardMaxScore": false,
+      "minReviewsAmount": 1,
+      "desiredReviewersAmount": 2,
+      "attendees": []
+    }
+  ],
   "reviews": [
     {
       "id": "rev-id-1",
