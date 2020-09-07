@@ -24,6 +24,9 @@ const rootReducer = combineReducers({
   }),
   login,
   requestsData,
+  taskCreation: reduxFormReducer.plugin({
+    tasks,
+  }),
 });
 
 export default rootReducer;
