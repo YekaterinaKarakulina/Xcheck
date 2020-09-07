@@ -30,12 +30,9 @@ function* workerPostUser(action) {
   }
 }
 
-function* watchGetUsers() {
+function* watchUsers() {
   yield takeEvery(GET_USERS, workerGetUsers);
-}
-
-function* watchPostUser() {
   yield takeEvery(POST_USER, workerPostUser);
 }
 
-export { watchGetUsers, watchPostUser };
+export default watchUsers;
