@@ -9,7 +9,7 @@ import makeField from '../forms/makeField';
 import { required, minLength, maxLength } from '../../utils';
 import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
 import FieldArraysForm from './FieldArraysForm';
-import { postTaskSession } from '../../store/actions/task';
+import { postTaskSession, updateTaskSession } from '../../store/actions/task';
 import './taskForm.scss';
 
 const minLength3 = minLength(3);
@@ -25,12 +25,24 @@ const ASelect = makeField(Select, formItemLayout);
 const ATextArea = makeField(TextArea, formItemLayout);
 
 let TaskFormCreation = (props) => {
-  const { handleSubmit, pristine, submitting, postTaskSession, isRedirectToTableReady } = props;
+  const {
+    handleSubmit,
+    pristine,
+    submitting,
+    postTaskSession,
+    updateTaskSession,
+    isRedirectToTableReady,
+    initialValues,
+  } = props;
 
   const onSubmit = (values) => {
     const taskId = uuidv4();
     const fullObjectValues = { ...values, taskId };
-    postTaskSession(fullObjectValues);
+    if (initialValues && initialValues.id) {
+      updateTaskSession(fullObjectValues);
+    } else {
+      postTaskSession(fullObjectValues);
+    }
   };
 
   if (isRedirectToTableReady) {
@@ -95,7 +107,7 @@ let TaskFormCreation = (props) => {
 
       <FormItem {...tailFormItemLayout}>
         <Button type="primary" htmlType="submit" disabled={pristine || submitting}>
-          Create
+          Save
         </Button>
       </FormItem>
     </form>
@@ -107,7 +119,9 @@ TaskFormCreation.propTypes = {
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
   postTaskSession: PropTypes.func.isRequired,
+  updateTaskSession: PropTypes.func.isRequired,
   isRedirectToTableReady: PropTypes.bool.isRequired,
+  initialValues: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 const mapStateToProps = ({ tasks }) => ({
@@ -116,15 +130,13 @@ const mapStateToProps = ({ tasks }) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    postTaskSession: (values) => dispatch(postTaskSession(values)),
+    postTaskSession: (tasks) => dispatch(postTaskSession(tasks)),
+    updateTaskSession: (tasks) => dispatch(updateTaskSession(tasks)),
   };
 };
 
 TaskFormCreation = reduxForm({
   form: 'taskCreation',
-  initialValues: {
-    taskScore: 100,
-  },
 })(TaskFormCreation);
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskFormCreation);

@@ -129,7 +129,7 @@ class TasksTable extends React.Component {
     const { tableData, isRedirectToFormReady } = this.props;
 
     if (isRedirectToFormReady) {
-      return <Redirect to="/task-form" />;
+      return <Redirect to="/task-edit-form" />;
     }
 
     return <Table columns={columns} dataSource={tableData} />;

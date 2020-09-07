@@ -5,6 +5,8 @@ import {
   GET_TASKSTABLE_SESSIONS_FAILURE,
   REDIRECT_TO_TASK_SESSIONS,
   REDIRECT_TO_TASK_SESSION_FORM,
+  UPDATE_TASK_SESSION_SUCCESS,
+  UPDATE_TASK_SESSION_FAILURE,
 } from '../actions/types';
 
 const initialState = {
@@ -26,11 +28,6 @@ const tasks = (state = initialState, action) => {
     case GET_TASKSTABLE_SESSIONS_FAILURE:
       return state;
 
-    case POST_TASK_SESSIONS_SUCCESS:
-      return {
-        ...state,
-      };
-
     case REDIRECT_TO_TASK_SESSIONS:
       return {
         ...state,
@@ -43,8 +40,25 @@ const tasks = (state = initialState, action) => {
         isRedirectToFormReady: true,
       };
 
+    case UPDATE_TASK_SESSION_SUCCESS:
+      return {
+        ...state,
+        isRedirectToTableReady: false,
+        isRedirectToFormReady: false,
+        formValues: {},
+      };
+
+    case UPDATE_TASK_SESSION_FAILURE:
+      return state;
+
+    case POST_TASK_SESSIONS_SUCCESS:
+      return {
+        ...state,
+      };
+
     case POST_TASK_SESSIONS_FAILURE:
       return state;
+
     default:
       return state;
   }

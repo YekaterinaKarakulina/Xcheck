@@ -11,6 +11,7 @@ import {
   GithubLogin,
   TaskForm,
   Requests,
+  TaskFormEdit,
 } from '../pages';
 
 const Routes = ({ isLoggedIn }) => {
@@ -31,6 +32,7 @@ const Routes = ({ isLoggedIn }) => {
           <Route path="/reviews" component={ReviewsListPage} />
           <Route path="/add-cross-check-sessions" component={CrossCheckSession} />
           <Route path="/task-form" component={TaskForm} />
+          <Route path="/task-edit-form" component={TaskFormEdit} />
           <Redirect to="/reviews" />
         </>
       )}
