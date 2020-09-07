@@ -15,7 +15,7 @@ import {
   UPDATE_CROSSCHECK_SESSION_FAILURE,
   REDIRECT_TO_CROSSCHECK_SESSION_FORM,
   REDIRECT_TO_CROSSCHECK_SESSIONS,
-} from '../actions/types';
+} from '../actions/types/crossCheckSessions';
 
 function* workerGetCrossCheckSessions() {
   const uri = 'http://localhost:3000/crossCheckSessions';

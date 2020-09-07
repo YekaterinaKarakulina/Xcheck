@@ -1,4 +1,7 @@
-import { GET_TASKSTABLE_SESSIONS_SUCCESS, GET_TASKSTABLE_SESSIONS_FAILURE } from '../actions/types';
+import {
+  GET_TASKSTABLE_SESSIONS_SUCCESS,
+  GET_TASKSTABLE_SESSIONS_FAILURE,
+} from '../actions/types-old';
 
 const tasksTableData = (state = [], action) => {
   switch (action.type) {

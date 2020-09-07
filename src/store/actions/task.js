@@ -1,4 +1,4 @@
-import { GET_TASK_SESSION_BY_ID, POST_TASK_SESSIONS, UPDATE_TASK_SESSION } from './types';
+import { GET_TASK_SESSION_BY_ID, POST_TASK_SESSIONS, UPDATE_TASK_SESSION } from './types-old';
 
 const getTaskSessionById = (id) => {
   return {

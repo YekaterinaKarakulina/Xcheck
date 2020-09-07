@@ -1,8 +1,15 @@
 import {
+  GET_CROSSCHECK_SESSIONS,
   GET_CROSSCHECK_SESSION_BY_ID,
   POST_CROSSCHECK_SESSION,
   UPDATE_CROSSCHECK_SESSION,
-} from './types';
+} from './types/crossCheckSessions';
+
+const getCrossCheckSessions = () => {
+  return {
+    type: GET_CROSSCHECK_SESSIONS,
+  };
+};
 
 const getCrossCheckSessionById = (id) => {
   return {
@@ -25,4 +32,9 @@ const updateCrossCheckSession = (crossCheckSession) => {
   };
 };
 
-export { getCrossCheckSessionById, postCrossCheckSession, updateCrossCheckSession };
+export {
+  getCrossCheckSessions,
+  getCrossCheckSessionById,
+  postCrossCheckSession,
+  updateCrossCheckSession,
+};

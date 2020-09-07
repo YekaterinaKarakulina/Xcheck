@@ -4,7 +4,7 @@ import {
   POST_TASK_SESSIONS,
   POST_TASK_SESSIONS_SUCCESS,
   POST_TASK_SESSIONS_FAILURE,
-} from '../store/actions/types';
+} from '../store/actions/types-old';
 
 function* workerPostTask(action) {
   const uri = 'http://localhost:3000/tasks';

@@ -4,7 +4,7 @@ import {
   GET_TASKSTABLE_SESSIONS,
   GET_TASKSTABLE_SESSIONS_SUCCESS,
   GET_TASKSTABLE_SESSIONS_FAILURE,
-} from '../actions/types';
+} from '../actions/types-old';
 
 function* workerGetTasksTable() {
   const uri = 'http://localhost:3000/tasks';

@@ -1,4 +1,4 @@
-import { POST_TASK_SESSIONS_SUCCESS, POST_TASK_SESSIONS_FAILURE } from '../actions/types';
+import { POST_TASK_SESSIONS_SUCCESS, POST_TASK_SESSIONS_FAILURE } from '../actions/types-old';
 
 const tasks = (state = [], action) => {
   switch (action.type) {
