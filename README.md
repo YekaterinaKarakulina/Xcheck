@@ -11,7 +11,7 @@ make install
 ## Run app
 ```bash
 make db
-make server
+make auth-server
 make start
 ```
 

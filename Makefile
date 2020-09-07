@@ -7,7 +7,7 @@ start:
 db:
 	json-server db.json
 
-server:
+auth-server:
 	node server/index.js
 
 lint:
