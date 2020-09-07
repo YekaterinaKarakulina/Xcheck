@@ -49,14 +49,14 @@ module.exports = (env = {}) => {
     module: {
       rules: [
         {
-          test: /\.(js|jsx|xts|tsx)$/,
+          test: /\.(js|jsx)$/,
           use: 'babel-loader',
           exclude: /node_modules/,
         },
 
         {
           enforce: 'pre',
-          test: /\.(js|jsx|ts|tsx)$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           loader: 'eslint-loader',
         },
@@ -82,7 +82,7 @@ module.exports = (env = {}) => {
       ],
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      extensions: ['.js', '.jsx'],
     },
     plugins: getPlugins(),
     devServer: {

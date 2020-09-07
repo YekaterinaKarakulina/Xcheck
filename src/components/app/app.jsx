@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 import { Layout } from 'antd';
 import { getUsers, postUser } from '../../store/actions';
 import { logoutSuccess } from '../../store/actions/login';
@@ -10,20 +10,7 @@ import Sidebar from '../sidebar';
 import Routes from '../../routes';
 import './app.scss';
 
-interface Props {
-  props?: any;
-  state: any;
-  isLoggedIn: Boolean;
-  users: Array<Object>;
-  user: Object;
-  dispatch?: Dispatch;
-  getUsers(): Object;
-  postUser({ id: String, githubId: String, roles: Array }): Object;
-  logout(): Object;
-  roles: Array<String>;
-}
-
-class App extends React.PureComponent<Props, {}> {
+class App extends React.PureComponent {
   componentDidMount() {
     const { getUsers } = this.props;
     getUsers();
