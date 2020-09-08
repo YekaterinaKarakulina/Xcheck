@@ -14,6 +14,14 @@
       "id": "4dc0685c-df82-4db1-8d5b-ac31f954434e",
       "githubId": "KatiaR",
       "roles": []
+    },
+    {
+      "id": "dc79022b-80b5-4200-bcd3-a739923818a3",
+      "githubId": "PavelZaharov1987",
+      "roles": [
+        "author",
+        "student"
+      ]
     }
   ],
   "tasks": [
@@ -99,6 +107,20 @@
       "minReviewsAmount": 1,
       "desiredReviewersAmount": 2,
       "attendees": []
+    },
+    {
+      "id": "rss2020Q3react-englishForKids",
+      "author": "author4",
+      "state": "draft",
+      "taskId": "id-1",
+      "coefficient": 1,
+      "startDate": "2020-09-06",
+      "endDate": "2020-10-13",
+      "discardMinScore": true,
+      "discardMaxScore": false,
+      "minReviewsAmount": 2,
+      "desiredReviewersAmount": 3,
+      "attendees": []
     }
   ],
   "reviews": [
@@ -173,6 +195,38 @@
     }
   ],
   "requests": [
+    {
+      "key": "1",
+      "title": "Task1",
+      "author": "John Brown",
+      "description": "New York No. 1 Lake Park",
+      "taskId": "11",
+      "state": [
+        "closed"
+      ]
+    },
+    {
+      "key": "2",
+      "title": "Task2",
+      "author": "John Brown",
+      "description": "London No. 1 Lake Park",
+      "taskId": "22",
+      "state": [
+        "active"
+      ]
+    },
+    {
+      "key": "3",
+      "title": "Task3",
+      "author": "John Brown",
+      "description": "Sidney No. 1 Lake Park",
+      "taskId": "33",
+      "state": [
+        "archived"
+      ]
+    }
+  ],
+  "reviewRequest": [
     {
       "id": "rev-req-1",
       "crossCheckSessionId": "rss2020Q3react-xcheck",

@@ -4,6 +4,7 @@ import {
   GET_CROSSCHECK_SESSIONS,
   GET_TASKSTABLE_SESSIONS,
   GET_REVIEWS_LIST,
+  POST_REVIEWS_REQUEST,
 } from './types';
 
 const getUsers = () => {
@@ -37,4 +38,18 @@ const getReviewsList = () => {
   };
 };
 
-export { getUsers, postUser, getCrossCheckSessions, getTasksTable, getReviewsList };
+const postReviewRequest = (newReviewRequest) => {
+  return {
+    type: POST_REVIEWS_REQUEST,
+    payload: newReviewRequest,
+  };
+};
+
+export {
+  getUsers,
+  postUser,
+  getCrossCheckSessions,
+  getTasksTable,
+  getReviewsList,
+  postReviewRequest,
+};

@@ -7,6 +7,7 @@ import tasks from './tasks';
 import tasksTableData from './tasksTable';
 import reviewsList from './reviewsList';
 import login from './login';
+import reviewRequest from './reviewRequest';
 import crossCheckSessionsData from './crossCheckSessionsData';
 import crossCheckSessions from './crossCheckSessions';
 import crossCheckSession from './crossCheckSession';
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   tasksTableData,
   form: reduxFormReducer.plugin({
     crossCheckSession,
+    reviewRequest,
   }),
   login,
   requestsData,
