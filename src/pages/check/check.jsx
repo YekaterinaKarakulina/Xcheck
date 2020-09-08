@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { Typography } from 'antd';
 import 'antd/dist/antd.css';
-import CheckForm from '../../components/forms/checkForm';
+import CheckForm from '../../components/check-form';
 import { tasks, reviewRequests } from './data';
 import './check.scss';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import { Typography, Form, Input, Button, Radio } from 'antd';
-import makeField from './make-field';
+import makeField from '../forms/make-field';
 
 const isObjectEmpty = (value) =>
   value && Object.keys(value).length === 0 && value.constructor === Object;
