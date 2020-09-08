@@ -11,6 +11,7 @@ import crossCheckSessionsData from './crossCheckSessionsData';
 import crossCheckSessions from './crossCheckSessions';
 import crossCheckSession from './crossCheckSession';
 import requestsData from './requestsData';
+import values from './values';
 
 const rootReducer = combineReducers({
   users,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   }),
   login,
   requestsData,
+  values,
 });
 
 export default rootReducer;

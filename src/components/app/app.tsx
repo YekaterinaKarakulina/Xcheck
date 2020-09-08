@@ -55,6 +55,7 @@ class App extends React.PureComponent<Props, {}> {
         roles: currentUser.roles,
       };
     }
+
     return (
       <Layout style={{ minHeight: '100vh' }}>
         {isLoggedIn ? <Sidebar user={userInfo} logout={logout} /> : null}
