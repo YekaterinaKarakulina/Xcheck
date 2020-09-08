@@ -4,7 +4,7 @@ import { Input, Button, InputNumber, Select, Checkbox } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import { required } from '../../utils';
 import { formItemLayout } from '../forms/formLayout';
-import makeField from '../forms/makeField';
+import makeField from '../forms/make-field';
 
 const { TextArea } = Input;
 const { Option } = Select;

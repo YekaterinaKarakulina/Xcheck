@@ -1,4 +1,4 @@
-import { POST_REVIEWS_REQUEST_SUCCESS, POST_REVIEWS_REQUEST_FAILURE } from '../actions/types';
+import { POST_REVIEWS_REQUEST_SUCCESS, POST_REVIEWS_REQUEST_FAILURE } from '../actions/types-old';
 
 const reviewRequest = (state = [], action) => {
   switch (action.type) {

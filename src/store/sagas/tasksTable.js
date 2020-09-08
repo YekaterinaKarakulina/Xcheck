@@ -6,7 +6,7 @@ import {
   GET_TASKSTABLE_SESSIONS_FAILURE,
   GET_TASK_SESSION_BY_ID,
   REDIRECT_TO_TASK_SESSION_FORM,
-} from '../actions/types';
+} from '../actions/types-old';
 
 function* workerGetTasksTable() {
   const uri = 'http://localhost:3000/tasks';

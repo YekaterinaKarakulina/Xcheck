@@ -4,7 +4,7 @@ import {
   LOGIN_FAILURE,
   LOGOUT_SUCCESS,
   SET_USER_ROLES,
-} from '../actions/types';
+} from '../actions/types-old';
 
 const initialState = {
   isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn')) || false,

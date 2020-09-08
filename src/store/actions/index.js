@@ -1,11 +1,10 @@
 import {
   GET_USERS,
   POST_USER,
-  GET_CROSSCHECK_SESSIONS,
   GET_TASKSTABLE_SESSIONS,
   GET_REVIEWS_LIST,
   POST_REVIEWS_REQUEST,
-} from './types';
+} from './types-old';
 
 const getUsers = () => {
   return {
@@ -26,12 +25,6 @@ const getTasksTable = () => {
   };
 };
 
-const getCrossCheckSessions = () => {
-  return {
-    type: GET_CROSSCHECK_SESSIONS,
-  };
-};
-
 const getReviewsList = () => {
   return {
     type: GET_REVIEWS_LIST,
@@ -45,11 +38,4 @@ const postReviewRequest = (newReviewRequest) => {
   };
 };
 
-export {
-  getUsers,
-  postUser,
-  getCrossCheckSessions,
-  getTasksTable,
-  getReviewsList,
-  postReviewRequest,
-};
+export { getUsers, postUser, getTasksTable, getReviewsList, postReviewRequest };

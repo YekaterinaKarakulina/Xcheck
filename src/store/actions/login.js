@@ -5,7 +5,7 @@ import {
   LOGIN_FAILURE,
   LOGOUT_SUCCESS,
   SET_USER_ROLES,
-} from './types';
+} from './types-old';
 
 export const login = (data, uri) => ({
   type: LOGIN,

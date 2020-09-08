@@ -8,11 +8,11 @@ import PropTypes from 'prop-types';
 import {
   postCrossCheckSession,
   updateCrossCheckSession,
-} from '../../store/actions/crossCheckSession';
+} from '../../store/actions/cross-check-session';
 import { required, minLength, maxLength } from '../../utils';
 import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
-import makeField from './makeField';
-import { formItemLayout, tailFormItemLayout } from './formLayout';
+import makeField from '../forms/make-field';
+import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
 
 const minLength3 = minLength(3);
 const maxLength50 = maxLength(50);
@@ -28,7 +28,7 @@ const ASelect = makeField(Select, formItemLayout);
 const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
-let CrossCheckSessionForm = (props) => {
+let CrossCheckSessionFormCreation = (props) => {
   const {
     handleSubmit,
     pristine,
@@ -50,7 +50,7 @@ let CrossCheckSessionForm = (props) => {
   };
 
   if (isRedirectToTableReady) {
-    return <Redirect to="/crossCheckSessions/" />;
+    return <Redirect to="/cross-check-sessions/" />;
   }
 
   return (
@@ -170,7 +170,7 @@ let CrossCheckSessionForm = (props) => {
   );
 };
 
-CrossCheckSessionForm.propTypes = {
+CrossCheckSessionFormCreation.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
@@ -193,9 +193,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-CrossCheckSessionForm = reduxForm({
+CrossCheckSessionFormCreation = reduxForm({
   form: 'crossCheckSession',
   enableReinitialize: true,
-})(CrossCheckSessionForm);
+})(CrossCheckSessionFormCreation);
 
-export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionFormCreation);

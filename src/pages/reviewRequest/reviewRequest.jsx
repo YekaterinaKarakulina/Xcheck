@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button } from 'antd';
 import PropTypes from 'prop-types';
-import makeField from '../../components/forms/makeField';
+import makeField from '../../components/forms/make-field';
 import { formItemLayout, tailFormItemLayout } from '../../components/forms/formLayout';
 import { postReviewRequest } from '../../store/actions/index';
 import { required } from '../../utils';

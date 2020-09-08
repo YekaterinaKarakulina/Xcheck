@@ -5,7 +5,7 @@ import {
   POST_REVIEWS_REQUEST,
   POST_REVIEWS_REQUEST_SUCCESS,
   POST_REVIEWS_REQUEST_FAILURE,
-} from '../actions/types';
+} from '../actions/types-old';
 
 function* workerPostReviewRequest(action) {
   const uri = 'http://localhost:3000/reviewRequest';

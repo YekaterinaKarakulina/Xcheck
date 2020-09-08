@@ -7,10 +7,10 @@ import tasks from './tasks';
 import tasksTableData from './tasksTable';
 import reviewsList from './reviewsList';
 import login from './login';
+import crossCheckSessionsData from './cross-check-sessions-data';
+import crossCheckSessions from './cross-check-sessions';
+import crossCheckSession from './cross-check-session';
 import reviewRequest from './reviewRequest';
-import crossCheckSessionsData from './crossCheckSessionsData';
-import crossCheckSessions from './crossCheckSessions';
-import crossCheckSession from './crossCheckSession';
 import requestsData from './requestsData';
 
 const rootReducer = combineReducers({

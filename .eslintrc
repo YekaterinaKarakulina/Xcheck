@@ -18,22 +18,20 @@
       "ignorePackages",
       {
         "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
+        "jsx": "never"
       }
     ],
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [".js", ".jsx"]
       }
     ]
   },
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        "extensions": [".js", ".jsx"]
       }
     }
   }

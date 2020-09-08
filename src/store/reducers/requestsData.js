@@ -1,4 +1,4 @@
-import { GET_REQUESTS_SUCCESS, GET_REQUESTS_FAILURE } from '../actions/types';
+import { GET_REQUESTS_SUCCESS, GET_REQUESTS_FAILURE } from '../actions/types-old';
 
 const requestsData = (state = [], action) => {
   switch (action.type) {

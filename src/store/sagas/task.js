@@ -8,7 +8,7 @@ import {
   UPDATE_TASK_SESSION_SUCCESS,
   UPDATE_TASK_SESSION_FAILURE,
   UPDATE_TASK_SESSION,
-} from '../actions/types';
+} from '../actions/types-old';
 
 function* workerPostTask(action) {
   const uri = 'http://localhost:3000/tasks';

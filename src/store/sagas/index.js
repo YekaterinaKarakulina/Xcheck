@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
-import { watchGetUsers, watchPostUser } from './users';
-import watchGetCrossCheckSessions from './crossCheckSessions';
+import watchUsers from './users';
+import watchCrossCheckSessions from './cross-check-sessions';
 import watchGetTasksTable from './tasksTable';
 import watchGetReviewsList from './reviewsList';
 import { watchPostReviewRequest } from './reviewRequest';
@@ -9,9 +9,8 @@ import watchRequests from './requests';
 
 export default function* rootSaga() {
   yield all([
-    watchGetUsers(),
-    watchPostUser(),
-    watchGetCrossCheckSessions(),
+    watchUsers(),
+    watchCrossCheckSessions(),
     watchGetTasksTable(),
     watchGetReviewsList(),
     watchPostReviewRequest(),

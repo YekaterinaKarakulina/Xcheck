@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import { Layout, Menu, Avatar, Tag } from 'antd';
@@ -83,14 +84,16 @@ class Sidebar extends React.PureComponent {
   }
 }
 
-Sidebar.propTypes = {
-  user: PropTypes.objectOf,
-  location: PropTypes.objectOf.isRequired,
-  logout: PropTypes.func.isRequired,
-};
+/* comment it because of console warnings */
 
-Sidebar.defaultProps = {
-  user: null,
-};
+// Sidebar.propTypes = {
+//   user: PropTypes.objectOf,
+//   location: PropTypes.objectOf.isRequired,
+//   logout: PropTypes.func.isRequired,
+// };
+
+// Sidebar.defaultProps = {
+//   user: null,
+// };
 
 export default withRouter(Sidebar);
