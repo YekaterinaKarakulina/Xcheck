@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Table, Space, Button, Input } from 'antd';
+import { Link } from 'react-router-dom';
+import { isEmpty } from 'lodash';
+import { Table, Space, Button, Input, Tag } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { getRequests } from '../../store/actions/requests';
 
@@ -82,7 +84,56 @@ class RequestsTable extends React.Component {
         title: 'Status',
         dataIndex: 'state',
         key: 'state',
+        align: 'center',
         sorter: (a, b) => (a.state > b.state ? 1 : -1),
+        ...this.getColumnSearchProps('author'),
+        render: (state) => {
+          let color = 'green';
+          switch (state) {
+            case 'PUBLISHED':
+              color = 'green';
+              break;
+            case 'DRAFT':
+              color = 'geekblue';
+              break;
+            case 'COMPLETED':
+              color = 'volcano';
+              break;
+            default:
+              color = 'green';
+          }
+          return <Tag color={color}>{state.toUpperCase()}</Tag>;
+        },
+      },
+      {
+        title: 'Action',
+        key: 'action',
+        align: 'center',
+        render: (record) => {
+          const isEmptySelfGrade = isEmpty(record.selfGrade);
+          const { state } = record;
+          
+          if (state === 'COMPLETED') {
+            return null;
+          }
+          if (isEmptySelfGrade) {
+            return (
+              <Link to="/check">
+                <Button type="primary" size="small" style={{ width: 90 }}>
+                  Self check
+                </Button>
+              </Link>
+            );
+          }
+
+          return (
+            <Link to="/check">
+              <Button type="primary" size="small" style={{ width: 90 }}>
+                Check
+              </Button>
+            </Link>
+          );
+        },
       },
     ];
     return <Table dataSource={requestsData} columns={columns} rowKey="id" />;
