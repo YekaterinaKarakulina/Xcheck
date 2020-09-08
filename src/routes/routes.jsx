@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, useRouteMatch } from 'react-router-dom';
 import ReviewRequest from '../pages/reviewRequest';
 import {
   CrossCheckSessions,
@@ -14,6 +15,7 @@ import {
 } from '../pages';
 
 const Routes = ({ isLoggedIn }) => {
+  const { path, url } = useRouteMatch();
   return (
     <Switch>
       {!isLoggedIn ? (
@@ -26,10 +28,13 @@ const Routes = ({ isLoggedIn }) => {
           <Route path="/tasks" component={TasksTable} />
           <Route path="/check" component={Check} />
           <Route path="/requests" component={Requests} />
-          <Route path="/cross-check-sessions" component={CrossCheckSessions} />
+          <Route exact path="/cross-check-sessions" component={CrossCheckSessions} />
+          <Route
+            path="/cross-check-sessions/cross-check-session-form"
+            component={CrossCheckSession}
+          />
           <Route path="/review-request" component={ReviewRequest} />
           <Route path="/reviews" component={ReviewsListPage} />
-          <Route path="/add-cross-check-sessions" component={CrossCheckSession} />
           <Route path="/task-form" component={TaskForm} />
           <Redirect to="/reviews" />
         </>

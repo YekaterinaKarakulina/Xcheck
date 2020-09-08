@@ -26,7 +26,7 @@ class CrossCheckSessions extends React.Component {
       <div className="wrapper">
         <PageHeader className="site-page-header" title="CrossCheck Sessions" />
         <Button type="primary">
-          <Link to="/addCrossCheckSession/">Add new session</Link>
+          <Link to="/cross-check-sessions/cross-check-session-form">Add new session</Link>
         </Button>
         <CrossCheckSessionsTable tableData={tableData} />
       </div>
