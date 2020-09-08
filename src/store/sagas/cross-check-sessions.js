@@ -15,7 +15,7 @@ import {
   UPDATE_CROSSCHECK_SESSION_FAILURE,
   REDIRECT_TO_CROSSCHECK_SESSION_FORM,
   REDIRECT_TO_CROSSCHECK_SESSIONS,
-} from '../actions/types';
+} from '../actions/types/cross-check-sessions';
 
 function* workerGetCrossCheckSessions() {
   const uri = 'http://localhost:3000/crossCheckSessions';
@@ -72,11 +72,11 @@ function* workerUpdateCrossCheckSession(action) {
   }
 }
 
-function* watchGetCrossCheckSessions() {
+function* watchCrossCheckSessions() {
   yield takeEvery(GET_CROSSCHECK_SESSIONS, workerGetCrossCheckSessions);
   yield takeEvery(GET_CROSSCHECK_SESSION_BY_ID, workerGetCrossCheckSessionById);
   yield takeEvery(POST_CROSSCHECK_SESSION, workerPostCrossCheckSession);
   yield takeEvery(UPDATE_CROSSCHECK_SESSION, workerUpdateCrossCheckSession);
 }
 
-export default watchGetCrossCheckSessions;
+export default watchCrossCheckSessions;

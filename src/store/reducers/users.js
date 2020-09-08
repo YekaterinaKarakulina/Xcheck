@@ -3,7 +3,7 @@ import {
   GET_USERS_FAILURE,
   POST_USER_SUCCESS,
   POST_USER_FAILURE,
-} from '../actions/types';
+} from '../actions/types-old';
 
 const users = (state = [], action) => {
   switch (action.type) {

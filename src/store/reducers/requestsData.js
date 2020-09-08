@@ -1,6 +1,6 @@
-import { GET_REQUESTS_SUCCESS, GET_REQUESTS_FAILURE } from '../actions/types';
+import { GET_REQUESTS_SUCCESS, GET_REQUESTS_FAILURE } from '../actions/types-old';
 
-const crossCheckSessionsData = (state = [], action) => {
+const requestsData = (state = [], action) => {
   switch (action.type) {
     case GET_REQUESTS_SUCCESS:
       return action.payload;
@@ -14,4 +14,4 @@ const crossCheckSessionsData = (state = [], action) => {
   }
 };
 
-export default crossCheckSessionsData;
+export default requestsData;

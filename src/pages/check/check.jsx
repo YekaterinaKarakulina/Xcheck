@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Typography } from 'antd';
 import 'antd/dist/antd.css';
-import CheckForm from '../../components/check-form/check-form';
+import CheckForm from '../../components/check-form';
 import { tasks, reviewRequests } from './data';
 import './check.scss';
 

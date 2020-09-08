@@ -1,4 +1,4 @@
-import { GET_REVIEWS_LIST_SUCCESS, GET_REVIEWS_LIST_FAILURE } from '../actions/types';
+import { GET_REVIEWS_LIST_SUCCESS, GET_REVIEWS_LIST_FAILURE } from '../actions/types-old';
 
 const reviewsList = (state = [], action) => {
   switch (action.type) {

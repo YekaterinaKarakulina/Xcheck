@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
@@ -9,7 +11,7 @@ import {
   PlusCircleOutlined,
   MinusCircleOutlined,
 } from '@ant-design/icons';
-import makeField from '../forms/makeField';
+import makeField from '../forms/make-field';
 
 const { Title } = Typography;
 // const FormItem = Form.Item;

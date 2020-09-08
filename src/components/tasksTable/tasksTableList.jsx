@@ -1,9 +1,13 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Table, Tag, Space, Button, Input } from 'antd';
-import { DownloadOutlined, SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
+import { CloseCircleTwoTone, SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
+import checkStatus from '../../utils/status';
+import { getTaskSessionById } from '../../store/actions/task';
 
 class TasksTable extends React.Component {
   state = {
@@ -92,53 +96,60 @@ class TasksTable extends React.Component {
         key: 'description',
       },
       {
-        title: 'State',
-        key: 'state',
-        dataIndex: 'state',
-        ...this.getColumnSearchProps('state'),
-        render: (state) => (
-          <span>
-            {state.map((tag) => {
-              let color;
-              switch (tag) {
-                case 'active':
-                  color = 'green';
-                  break;
-                case 'closed':
-                  color = 'red';
-                  break;
-                default:
-                  color = 'blue';
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })}
-          </span>
-        ),
+        title: 'Status',
+        key: 'status',
+        dataIndex: 'status',
+        ...this.getColumnSearchProps('status'),
+        render: (status) => {
+          const color = checkStatus(status);
+          return <Tag color={color}>{status.toUpperCase()}</Tag>;
+        },
       },
       {
         title: 'Action',
-        key: 'action',
-        render: () => (
+        key: 'taskId',
+        render: ({ taskId }) => (
           <Space size="large">
-            <Button type="text" icon={<EditTwoTone twoToneColor="#ffa940" />} size="small" />
-            <Button type="text" icon={<EyeTwoTone twoToneColor="#9254de" />} size="small" />
-            <Button type="text" icon={<DownloadOutlined />} size="small" />
+            <Button
+              type="link"
+              onClick={() => {
+                const { getTaskSessionById } = this.props;
+                getTaskSessionById(taskId);
+              }}
+              icon={<EditTwoTone twoToneColor="#ffa940" />}
+              size="small"
+            />
+            <Button type="link" icon={<EyeTwoTone twoToneColor="#9254de" />} size="small" />
+            <Button type="link" icon={<CloseCircleTwoTone twoToneColor="#ff4d4f" />} size="small" />
           </Space>
         ),
       },
     ];
 
-    const { tableData } = this.props;
+    const { tableData, isRedirectToFormReady } = this.props;
+    if (isRedirectToFormReady) {
+      return <Redirect to="/task-edit-form" />;
+    }
+
     return <Table columns={columns} dataSource={tableData} />;
   }
 }
 
 TasksTable.propTypes = {
   tableData: PropTypes.instanceOf(Array).isRequired,
+  getTaskSessionById: PropTypes.func.isRequired,
+  isRedirectToFormReady: PropTypes.bool.isRequired,
 };
 
-export default TasksTable;
+const mapStateToProps = ({ tasks }) => ({
+  isRedirectToFormReady: tasks.isRedirectToFormReady,
+  tasks,
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getTaskSessionById: (taskId) => dispatch(getTaskSessionById(taskId)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TasksTable);

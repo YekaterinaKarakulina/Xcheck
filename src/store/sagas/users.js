@@ -7,7 +7,7 @@ import {
   POST_USER,
   POST_USER_SUCCESS,
   POST_USER_FAILURE,
-} from '../actions/types';
+} from '../actions/types-old';
 
 function* workerGetUsers() {
   const uri = 'http://localhost:3000/users';
@@ -30,12 +30,9 @@ function* workerPostUser(action) {
   }
 }
 
-function* watchGetUsers() {
+function* watchUsers() {
   yield takeEvery(GET_USERS, workerGetUsers);
-}
-
-function* watchPostUser() {
   yield takeEvery(POST_USER, workerPostUser);
 }
 
-export { watchGetUsers, watchPostUser };
+export default watchUsers;

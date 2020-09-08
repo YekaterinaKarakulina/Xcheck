@@ -69,15 +69,15 @@ const reviewRequests = [
     task: 'rss2020Q3react-songbird',
     state: 'PUBLISHED', // enum [DRAFT, PUBLISHED, COMPLETED]
     selfGrade: {
-      // task: 'rss2020Q3react-songbird',
-      // items: {
-      //   basic_p1: { score: 30, comment: 'Well done!' },
-      //   basic_p2: { score: 30, comment: 'Well done!' },
-      //   extra_p1: { score: 15, comment: 'Some things are done, some are not' },
-      //   extra_p2: { score: 10, comment: 'Well done' },
-      //   fines_p1: { score: 0, comment: 'No ticket today' },
-      //   fines_p2: { score: -5, comment: 'No ticket today' },
-      // },
+      task: 'rss2020Q3react-songbird',
+      items: {
+        basic_p1: { score: 30, comment: 'Well done!' },
+        basic_p2: { score: 30, comment: 'Well done!' },
+        extra_p1: { score: 15, comment: 'Some things are done, some are not' },
+        extra_p2: { score: 10, comment: 'Well done' },
+        fines_p1: { score: 0, comment: 'No ticket today' },
+        fines_p2: { score: -5, comment: 'No ticket today' },
+      },
     },
   },
 ];

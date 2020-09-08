@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { Button, PageHeader } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { getCrossCheckSessions } from '../../store/actions';
+import { getCrossCheckSessions } from '../../../store/actions/cross-check-session';
 
-import CrossCheckSessionsTable from './table';
-import mapData from './mapData';
+import CrossCheckSessionsTableCreation from '../../../components/cross-check-sessions-table/cross-check-sessions-table-creation';
+import mapData from '../../../components/cross-check-sessions-table/map-data';
 
-class CrossCheckSessions extends React.Component {
+class CrossCheckSessionsTable extends React.Component {
   componentDidMount() {
     const { getCrossCheckSessions } = this.props;
     getCrossCheckSessions();
@@ -26,9 +26,9 @@ class CrossCheckSessions extends React.Component {
       <div className="wrapper">
         <PageHeader className="site-page-header" title="CrossCheck Sessions" />
         <Button type="primary">
-          <Link to="/addCrossCheckSession/">Add new session</Link>
+          <Link to="/cross-check-sessions/cross-check-session-form">Add new session</Link>
         </Button>
-        <CrossCheckSessionsTable tableData={tableData} />
+        <CrossCheckSessionsTableCreation tableData={tableData} />
       </div>
     );
   }
@@ -44,4 +44,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessions);
+export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionsTable);
