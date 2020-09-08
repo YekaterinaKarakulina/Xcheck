@@ -1,6 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { Form, Input, /* Radio, */ Select, /* Checkbox, */ Button /* , DatePicker */ } from 'antd';
+import { Form, Input, Select, Button } from 'antd';
+import PropTypes from 'prop-types';
+import makeField from '../../components/forms/make-field';
+import { formItemLayout, tailFormItemLayout } from '../../components/forms/formLayout';
+import { postReviewRequest } from '../../store/actions/index';
+import { required } from '../../utils';
+import transformFormValuesToReviewRequestObject from '../../utils/reviewRequest';
 
 import './reviewRequest.scss';
 
@@ -10,60 +17,29 @@ const crossCheckSessionData = ['rss2020Q1', 'rss2020Q3react', 'rss2020Q3angular'
 const tasks = ['simple-task-v1', 'simple-task-v2', 'simple-task-v3'];
 const states = ['draft', 'published', 'completed'];
 
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 6 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 14 },
-  },
-};
-
-const tailFormItemLayout = {
-  wrapperCol: {
-    xs: {
-      span: 24,
-      offset: 0,
-    },
-    sm: {
-      span: 14,
-      offset: 6,
-    },
-  },
-};
-
-const makeField = (Component) => ({ /* input, meta, children, hasFeedback, label, */ ...rest }) => {
-  // console.log(rest);
-  // const hasError = meta.touched && meta.invalid;
-  return (
-    <FormItem
-      {...formItemLayout}
-      label={rest.label}
-      // validateStatus={hasError ? 'error' : 'success'}
-      // hasFeedback={hasFeedback && hasError}
-      // help={hasError && meta.error}
-    >
-      <Component /* {...input} */ {...rest} /* children={children} */ />
-    </FormItem>
-  );
-};
-
-const AInput = makeField(Input);
-const ASelect = makeField(Select);
+const AInput = makeField(Input, formItemLayout);
+const ASelect = makeField(Select, formItemLayout);
 
 const ReviewRequest = (props) => {
-  //   const { handleSubmit, pristine, reset, submitting } = props;
-  console.log(props);
+  const { handleSubmit, pristine, reset, submitting, postReviewRequest } = props;
+
+  const onSubmit = (values) => {
+    const reviewRequest = transformFormValuesToReviewRequestObject(values);
+    postReviewRequest(reviewRequest);
+  };
+
   return (
     <div className="review__request">
-      <Form /* onSubmit={handleSubmit} */>
+      <h2>Create Review Request session</h2>
+      <Form onFinish={handleSubmit(onSubmit)}>
         <Field
           defaultValue={crossCheckSessionData[0]}
           label="crossCheckSession"
           name="crossCheckSession"
           component={ASelect}
+          hasFeedback
+          validate={required}
+          onBlur={(e) => e.preventDefault()}
         >
           {crossCheckSessionData.map((crossCheckSession) => (
             <Option key={crossCheckSession} value={crossCheckSession}>
@@ -77,10 +53,19 @@ const ReviewRequest = (props) => {
           name="Author"
           component={AInput}
           placeholder="Add your name"
-          // hasFeedback
+          hasFeedback
+          validate={required}
         />
 
-        <Field defaultValue={tasks[0]} label="task" name="task" component={ASelect}>
+        <Field
+          defaultValue={tasks[0]}
+          label="task"
+          name="task"
+          component={ASelect}
+          hasFeedback
+          validate={required}
+          onBlur={(e) => e.preventDefault()}
+        >
           {tasks.map((task) => (
             <Option key={task} value={task}>
               {task}
@@ -88,7 +73,15 @@ const ReviewRequest = (props) => {
           ))}
         </Field>
 
-        <Field defaultValue={states[0]} label="state" name="state" component={ASelect}>
+        <Field
+          defaultValue={states[0]}
+          label="state"
+          name="state"
+          component={ASelect}
+          hasFeedback
+          validate={required}
+          onBlur={(e) => e.preventDefault()}
+        >
           {states.map((state) => (
             <Option key={state} value={state}>
               {state}
@@ -101,6 +94,8 @@ const ReviewRequest = (props) => {
           name="linkToDemo"
           component={AInput}
           placeholder="Add link for demo"
+          hasFeedback
+          validate={required}
         />
 
         <Field
@@ -108,6 +103,8 @@ const ReviewRequest = (props) => {
           name="linkToPR"
           component={AInput}
           placeholder="Add link for Rull Request"
+          hasFeedback
+          validate={required}
         />
 
         <Field
@@ -115,16 +112,22 @@ const ReviewRequest = (props) => {
           name="selfGrade"
           component={AInput}
           placeholder="Add number of score"
+          hasFeedback
+          validate={required}
         />
 
         <FormItem {...tailFormItemLayout}>
           <Button
             type="primary"
-            //   disabled={pristine || submitting}
+            disabled={pristine || submitting}
             htmlType="submit"
-            style={{ marginRight: '10px' }}
+            style={{ marginRight: '1rem' }}
           >
             Submit
+          </Button>
+
+          <Button disabled={pristine || submitting} onClick={reset}>
+            Clear Values
           </Button>
         </FormItem>
       </Form>
@@ -132,16 +135,29 @@ const ReviewRequest = (props) => {
   );
 };
 
-const validate = (values) => {
-  const errors = {};
-  if (!values.Author) {
-    errors.Author = 'Required';
-  }
-
-  return errors;
+ReviewRequest.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  pristine: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool.isRequired,
+  reset: PropTypes.func.isRequired,
+  postReviewRequest: PropTypes.func.isRequired,
 };
 
-export default reduxForm({
-  form: 'simple', // a unique identifier for this form
-  validate,
+const mapStateToProps = (state) => {
+  return { state };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    postReviewRequest: (reviewRequest) => dispatch(postReviewRequest(reviewRequest)),
+  };
+};
+
+const form = reduxForm({
+  form: 'reviewRequest',
+  initialValues: {
+    state: true,
+  },
 })(ReviewRequest);
+
+export default connect(mapStateToProps, mapDispatchToProps)(form);

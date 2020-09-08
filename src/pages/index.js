@@ -5,6 +5,7 @@ import CrossCheckSessionForm from './cross-check-sessions/cross-check-session-fo
 import ReviewsListPage from './reviewsListPage';
 import GithubLogin from './github-login';
 import TaskForm from './taskForm/taskForm';
+import TaskFormEdit from './taskForm/taskFormEdit';
 import Requests from './requests';
 
 export {
@@ -16,4 +17,5 @@ export {
   TaskForm,
   Check,
   Requests,
+  TaskFormEdit,
 };

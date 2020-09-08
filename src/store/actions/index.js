@@ -1,4 +1,10 @@
-import { GET_USERS, POST_USER, GET_TASKSTABLE_SESSIONS, GET_REVIEWS_LIST } from './types-old';
+import {
+  GET_USERS,
+  POST_USER,
+  GET_TASKSTABLE_SESSIONS,
+  GET_REVIEWS_LIST,
+  POST_REVIEWS_REQUEST,
+} from './types-old';
 
 const getUsers = () => {
   return {
@@ -25,4 +31,11 @@ const getReviewsList = () => {
   };
 };
 
-export { getUsers, postUser, getTasksTable, getReviewsList };
+const postReviewRequest = (newReviewRequest) => {
+  return {
+    type: POST_REVIEWS_REQUEST,
+    payload: newReviewRequest,
+  };
+};
+
+export { getUsers, postUser, getTasksTable, getReviewsList, postReviewRequest };

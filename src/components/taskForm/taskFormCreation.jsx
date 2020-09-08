@@ -1,14 +1,12 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
 import { Form, Input, Button, InputNumber, Select } from 'antd';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
 import makeField from '../forms/make-field';
-import { required, minLength, maxLength, validUrl } from '../../utils';
+import { required, minLength, maxLength } from '../../utils';
 import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
 import FieldArraysForm from './FieldArraysForm';
-import { postTaskSession } from '../../store/actions/task';
+
 import './taskForm.scss';
 
 const minLength3 = minLength(3);
@@ -16,7 +14,6 @@ const maxLength50 = maxLength(50);
 
 const { Option } = Select;
 const { TextArea } = Input;
-const taskId = uuidv4();
 const FormItem = Form.Item;
 
 const AInput = makeField(Input, formItemLayout);
@@ -25,14 +22,10 @@ const ASelect = makeField(Select, formItemLayout);
 const ATextArea = makeField(TextArea, formItemLayout);
 
 let TaskFormCreation = (props) => {
-  const { handleSubmit, pristine, submitting, postTaskSession } = props;
-
-  const onSubmit = (values) => {
-    postTaskSession(values);
-  };
+  const { handleSubmit, pristine, submitting } = props;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit}>
       <Field
         label="Task title"
         name="title"
@@ -82,7 +75,6 @@ let TaskFormCreation = (props) => {
         name="link"
         component={AInput}
         placeholder="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/xcheck/xcheck.md"
-        validate={validUrl}
         hasFeedback
       />
 
@@ -90,7 +82,7 @@ let TaskFormCreation = (props) => {
 
       <FormItem {...tailFormItemLayout}>
         <Button type="primary" htmlType="submit" disabled={pristine || submitting}>
-          Create
+          Save
         </Button>
       </FormItem>
     </form>
@@ -101,25 +93,9 @@ TaskFormCreation.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
-  postTaskSession: PropTypes.func.isRequired,
+  initialValues: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
-const mapStateToProps = ({ values }) => {
-  return { values };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    postTaskSession: (values) => dispatch(postTaskSession(values)),
-  };
-};
-
-TaskFormCreation = reduxForm({
+export default TaskFormCreation = reduxForm({
   form: 'taskCreation',
-  initialValues: {
-    taskScore: 100,
-    taskId,
-  },
 })(TaskFormCreation);
-
-export default connect(mapStateToProps, mapDispatchToProps)(TaskFormCreation);

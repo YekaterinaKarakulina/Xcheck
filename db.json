@@ -24,32 +24,52 @@
         "supervisor",
         "course_manager"
       ]
+    },
+    {
+      "id": "dc79022b-80b5-4200-bcd3-a739923818a3",
+      "githubId": "PavelZaharov1987",
+      "roles": [
+        "author",
+        "student"
+      ]
     }
   ],
   "tasks": [
     {
-      "key": "1",
-      "title": "Task1",
-      "author": "John Brown",
-      "description": "New York No. 1 Lake Park",
-      "taskId": "11",
-      "status": "closed"
+      "taskScore": 100,
+      "title": "!!!!!!!!!!!!!++++++++",
+      "status": "closed",
+      "author": "2222",
+      "description": "Test ",
+      "items": [
+        {
+          "title": "4",
+          "category": "basic",
+          "score": "20",
+          "description": "mjfhm"
+        }
+      ],
+      "mentorCheck": true,
+      "taskId": "427c71eb-e81f-43db-8d15-c1629f0d758e",
+      "id": 1
     },
     {
-      "key": "2",
-      "title": "Task2",
-      "author": "John Brown",
-      "description": "London No. 1 Lake Park",
-      "taskId": "22",
-      "status": "open"
-    },
-    {
-      "key": "3",
-      "title": "Task3",
-      "author": "John Brown",
-      "description": "Sidney No. 1 Lake Park",
-      "taskId": "33",
-      "status": "draft"
+      "taskScore": 100,
+      "title": "qwert",
+      "author": "hgd  hert 1",
+      "status": "open",
+      "description": "njfjmf",
+      "items": [
+        {
+          "title": "оароа",
+          "category": "basic",
+          "score": "10",
+          "description": "jhfm"
+        }
+      ],
+      "fine": true,
+      "taskId": "6d8413f7-eee7-4fde-a259-d180a0413dd9",
+      "id": 2
     }
   ],
   "crossCheckSessions": [
@@ -96,6 +116,20 @@
       "discardMaxScore": false,
       "minReviewsAmount": 1,
       "desiredReviewersAmount": 2,
+      "attendees": []
+    },
+    {
+      "id": "rss2020Q3react-englishForKids",
+      "author": "author4",
+      "state": "draft",
+      "taskId": "id-1",
+      "coefficient": 1,
+      "startDate": "2020-09-06",
+      "endDate": "2020-10-13",
+      "discardMinScore": true,
+      "discardMaxScore": false,
+      "minReviewsAmount": 2,
+      "desiredReviewersAmount": 3,
       "attendees": []
     }
   ],
@@ -171,6 +205,38 @@
     }
   ],
   "requests": [
+    {
+      "key": "1",
+      "title": "Task1",
+      "author": "John Brown",
+      "description": "New York No. 1 Lake Park",
+      "taskId": "11",
+      "state": [
+        "closed"
+      ]
+    },
+    {
+      "key": "2",
+      "title": "Task2",
+      "author": "John Brown",
+      "description": "London No. 1 Lake Park",
+      "taskId": "22",
+      "state": [
+        "active"
+      ]
+    },
+    {
+      "key": "3",
+      "title": "Task3",
+      "author": "John Brown",
+      "description": "Sidney No. 1 Lake Park",
+      "taskId": "33",
+      "state": [
+        "archived"
+      ]
+    }
+  ],
+  "reviewRequest": [
     {
       "id": "rev-req-1",
       "crossCheckSessionId": "rss2020Q3react-xcheck",
