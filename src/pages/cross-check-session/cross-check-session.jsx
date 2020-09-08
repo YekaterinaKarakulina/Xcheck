@@ -1,5 +1,5 @@
 import React from 'react';
-import { CrossCheckSessionForm } from '../../components/forms';
+import CrossCheckSessionForm from '../../components/cross-check-session-form';
 
 import './cross-check-session.scss';
 

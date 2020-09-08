@@ -11,8 +11,8 @@ import {
 } from '../../store/actions/cross-check-session';
 import { required, minLength, maxLength } from '../../utils';
 import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
-import makeField from './make-field';
-import { formItemLayout, tailFormItemLayout } from './formLayout';
+import makeField from '../forms/make-field';
+import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
 
 const minLength3 = minLength(3);
 const maxLength50 = maxLength(50);
