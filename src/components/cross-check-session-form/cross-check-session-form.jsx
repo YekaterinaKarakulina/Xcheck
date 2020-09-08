@@ -28,7 +28,7 @@ const ASelect = makeField(Select, formItemLayout);
 const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
-let CrossCheckSessionForm = (props) => {
+let CrossCheckSessionFormCreation = (props) => {
   const {
     handleSubmit,
     pristine,
@@ -50,7 +50,7 @@ let CrossCheckSessionForm = (props) => {
   };
 
   if (isRedirectToTableReady) {
-    return <Redirect to="/crossCheckSessions/" />;
+    return <Redirect to="/cross-check-sessions/" />;
   }
 
   return (
@@ -170,7 +170,7 @@ let CrossCheckSessionForm = (props) => {
   );
 };
 
-CrossCheckSessionForm.propTypes = {
+CrossCheckSessionFormCreation.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
@@ -193,9 +193,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-CrossCheckSessionForm = reduxForm({
+CrossCheckSessionFormCreation = reduxForm({
   form: 'crossCheckSession',
   enableReinitialize: true,
-})(CrossCheckSessionForm);
+})(CrossCheckSessionFormCreation);
 
-export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionFormCreation);

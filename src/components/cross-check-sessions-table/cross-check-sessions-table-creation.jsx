@@ -8,7 +8,7 @@ import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
 import { getCrossCheckSessionById } from '../../store/actions/cross-check-session';
 
-const CrossCheckSessionsTable = (props) => {
+const CrossCheckSessionsTableCreation = (props) => {
   const columns = [
     {
       title: 'Title',
@@ -101,4 +101,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionsTable);
+export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionsTableCreation);
