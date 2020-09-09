@@ -5,7 +5,7 @@ import { reducer as reduxFormReducer } from 'redux-form';
 import users from './users';
 import tasks from './tasks';
 import tasksTableData from './tasksTable';
-import reviewsList from './reviewsList';
+import reviews from './reviews';
 import login from './login';
 import crossCheckSessionsData from './cross-check-sessions-data';
 import crossCheckSessions from './cross-check-sessions';
@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   tasks,
   crossCheckSessionsData,
   crossCheckSessions,
-  reviewsList,
+  reviews,
   tasksTableData,
   form: reduxFormReducer.plugin({
     crossCheckSession,

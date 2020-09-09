@@ -1,10 +1,4 @@
-import {
-  GET_USERS,
-  POST_USER,
-  GET_TASKSTABLE_SESSIONS,
-  GET_REVIEWS_LIST,
-  POST_REVIEWS_REQUEST,
-} from './types-old';
+import { GET_USERS, POST_USER, GET_TASKSTABLE_SESSIONS, POST_REVIEWS_REQUEST } from './types-old';
 
 const getUsers = () => {
   return {
@@ -25,12 +19,6 @@ const getTasksTable = () => {
   };
 };
 
-const getReviewsList = () => {
-  return {
-    type: GET_REVIEWS_LIST,
-  };
-};
-
 const postReviewRequest = (newReviewRequest) => {
   return {
     type: POST_REVIEWS_REQUEST,
@@ -38,4 +26,4 @@ const postReviewRequest = (newReviewRequest) => {
   };
 };
 
-export { getUsers, postUser, getTasksTable, getReviewsList, postReviewRequest };
+export { getUsers, postUser, getTasksTable, postReviewRequest };
