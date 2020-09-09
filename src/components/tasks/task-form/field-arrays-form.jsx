@@ -2,9 +2,9 @@ import React from 'react';
 import { Field, FieldArray } from 'redux-form';
 import { Input, Button, InputNumber, Select, Checkbox } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
-import { required } from '../../utils';
-import { formItemLayout } from '../forms/formLayout';
-import makeField from '../forms/make-field';
+import { required } from '../../../utils';
+import { formItemLayout } from '../../forms/form-layout';
+import makeField from '../../forms/make-field';
 
 const { TextArea } = Input;
 const { Option } = Select;

@@ -3,8 +3,8 @@ import { PageHeader } from 'antd';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import TaskFormCreation from '../../components/taskForm/taskFormCreation';
-import { updateTaskSession } from '../../store/actions/task';
+import TaskFormCreation from '../../../components/tasks/task-form/task-form-creation';
+import { updateTaskSession } from '../../../store/actions/task';
 
 const TaskFormEdit = (props) => {
   const { tasks, updateTaskSession, isRedirectToTableReady } = props;

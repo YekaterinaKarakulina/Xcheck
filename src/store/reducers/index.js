@@ -3,8 +3,8 @@ import { combineReducers } from 'redux';
 import { reducer as reduxFormReducer } from 'redux-form';
 
 import users from './users';
-import tasks from './tasks';
-import tasksTableData from './tasksTable';
+import tasks from './tasks/tasks';
+import tasksTableData from './tasks/tasks-table';
 import reviewsList from './reviewsList';
 import login from './login';
 import crossCheckSessionsData from './cross-check-sessions-data';

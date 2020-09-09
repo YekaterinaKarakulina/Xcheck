@@ -7,7 +7,7 @@ import {
   REDIRECT_TO_TASK_SESSION_FORM,
   UPDATE_TASK_SESSION_SUCCESS,
   UPDATE_TASK_SESSION_FAILURE,
-} from '../actions/types-old';
+} from '../../actions/types/task';
 
 const initialState = {
   isRedirectToTableReady: false,

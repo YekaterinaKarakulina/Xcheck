@@ -4,15 +4,15 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import ReviewRequest from '../pages/reviewRequest';
 import {
   CrossCheckSessionsTable,
-  TasksTable,
   ReviewsListPage,
   Check,
   CrossCheckSessionForm,
   GithubLogin,
-  TaskForm,
   Requests,
-  TaskFormEdit,
 } from '../pages';
+import TaskForm from '../pages/tasks/task-form/task-form';
+import TaskFormEdit from '../pages/tasks/task-form/task-form-edit';
+import TasksTable from '../pages/tasks/tasks-table/tasks-table';
 
 const Routes = ({ isLoggedIn }) => {
   return (
