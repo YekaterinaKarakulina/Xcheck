@@ -12,7 +12,7 @@ import {
 import { required, minLength, maxLength } from '../../utils';
 import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
 import makeField from '../forms/make-field';
-import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
+import { formItemLayout, tailFormItemLayout } from '../forms/form-layout';
 
 const minLength3 = minLength(3);
 const maxLength50 = maxLength(50);

@@ -5,14 +5,14 @@ import ReviewRequest from '../pages/reviewRequest';
 import Reviews from '../pages/reviews';
 import {
   CrossCheckSessionsTable,
-  TasksTable,
   Check,
   CrossCheckSessionForm,
   GithubLogin,
-  TaskForm,
   Requests,
-  TaskFormEdit,
 } from '../pages';
+import TaskForm from '../pages/tasks/task-form/task-form';
+import TaskFormEdit from '../pages/tasks/task-form/task-form-edit';
+import TasksTable from '../pages/tasks/tasks-table/tasks-table';
 
 const Routes = ({ isLoggedIn }) => {
   return (

@@ -1,11 +1,11 @@
-import TasksTable from './tasksTable/tasksTable';
+import TasksTable from './tasks/tasks-table/tasks-table';
 import Check from './check/check';
 import CrossCheckSessionsTable from './cross-check-sessions/cross-check-sessions-table';
 import CrossCheckSessionForm from './cross-check-sessions/cross-check-session-form';
 import Reviews from './reviews';
 import GithubLogin from './github-login';
-import TaskForm from './taskForm/taskForm';
-import TaskFormEdit from './taskForm/taskFormEdit';
+import TaskForm from './tasks/task-form/task-form';
+import TaskFormEdit from './tasks/task-form/task-form-edit';
 import Requests from './requests';
 
 export {

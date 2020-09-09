@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button } from 'antd';
 import PropTypes from 'prop-types';
 import makeField from '../../components/forms/make-field';
-import { formItemLayout, tailFormItemLayout } from '../../components/forms/formLayout';
+import { formItemLayout, tailFormItemLayout } from '../../components/forms/form-layout';
 import { postReviewRequest } from '../../store/actions/index';
 import { required } from '../../utils';
 import transformFormValuesToReviewRequestObject from '../../utils/reviewRequest';

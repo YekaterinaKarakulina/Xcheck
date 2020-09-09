@@ -2,12 +2,12 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Button, InputNumber, Select } from 'antd';
 import PropTypes from 'prop-types';
-import makeField from '../forms/make-field';
-import { required, minLength, maxLength } from '../../utils';
-import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
-import FieldArraysForm from './FieldArraysForm';
+import makeField from '../../forms/make-field';
+import { required, minLength, maxLength } from '../../../utils';
+import { formItemLayout, tailFormItemLayout } from '../../forms/form-layout';
+import FieldArraysForm from './field-arrays-form';
 
-import './taskForm.scss';
+import './task-form.scss';
 
 const minLength3 = minLength(3);
 const maxLength50 = maxLength(50);

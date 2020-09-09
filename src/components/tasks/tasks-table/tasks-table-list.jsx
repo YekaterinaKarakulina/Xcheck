@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import { Table, Tag, Space, Button, Input } from 'antd';
 import { CloseCircleTwoTone, SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
-import checkStatus from '../../utils/status';
-import { getTaskSessionById } from '../../store/actions/task';
+import checkStatus from '../../../utils/status';
+import { getTaskSessionById } from '../../../store/actions/task';
 
 class TasksTable extends React.Component {
   state = {
