@@ -124,35 +124,6 @@
       "minReviewsAmount": 1,
       "desiredReviewersAmount": 2,
       "attendees": []
-    },
-    {
-      "id": "rss2020Q3react-englishForKids",
-      "author": "author4",
-      "state": "draft",
-      "taskId": "id-1",
-      "coefficient": 1,
-      "startDate": "2020-09-06",
-      "endDate": "2020-10-13",
-      "discardMinScore": true,
-      "discardMaxScore": false,
-      "minReviewsAmount": 2,
-      "desiredReviewersAmount": 3,
-      "attendees": []
-    },
-    {
-      "id": "46c18e9b-d103-4671-8a81-c54613abe942",
-      "title": "fdsafsa",
-      "author": "sdasfa",
-      "state": "active",
-      "taskId": "id-2",
-      "coefficient": 1,
-      "startDate": "2020-09-09",
-      "endDate": "2020-09-30",
-      "discardMinScore": false,
-      "discardMaxScore": false,
-      "minReviewsAmount": 5,
-      "desiredReviewersAmount": 5,
-      "attendees": []
     }
   ],
   "reviews": [

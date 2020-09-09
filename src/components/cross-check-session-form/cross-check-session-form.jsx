@@ -1,16 +1,8 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {
-  postCrossCheckSession,
-  updateCrossCheckSession,
-} from '../../store/actions/cross-check-session';
 import { required, minLength, maxLength } from '../../utils';
-import transformFormValuesToCrossCheckSessionObject from '../../utils/crossCheckSession';
 import makeField from '../forms/make-field';
 import { formItemLayout, tailFormItemLayout } from '../forms/formLayout';
 
@@ -28,33 +20,11 @@ const ASelect = makeField(Select, formItemLayout);
 const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
-let CrossCheckSessionFormCreation = (props) => {
-  const {
-    handleSubmit,
-    pristine,
-    submitting,
-    reset,
-    postCrossCheckSession,
-    updateCrossCheckSession,
-    initialValues,
-    isRedirectToTableReady,
-  } = props;
-
-  const onSubmit = (values) => {
-    const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
-    if (initialValues.id) {
-      updateCrossCheckSession(crossCheckSession);
-    } else {
-      postCrossCheckSession(crossCheckSession);
-    }
-  };
-
-  if (isRedirectToTableReady) {
-    return <Redirect to="/cross-check-sessions/" />;
-  }
+const CrossCheckSessionFormCreation = (props) => {
+  const { handleSubmit, pristine, submitting, reset, submitButtonName } = props;
 
   return (
-    <Form onFinish={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit}>
       <Field
         label="Title"
         name="title"
@@ -159,14 +129,14 @@ let CrossCheckSessionFormCreation = (props) => {
           disabled={pristine || submitting}
           style={{ marginRight: '1rem' }}
         >
-          Create
+          {submitButtonName}
         </Button>
 
         <Button disabled={pristine || submitting} onClick={reset}>
           Clear Values
         </Button>
       </FormItem>
-    </Form>
+    </form>
   );
 };
 
@@ -175,27 +145,12 @@ CrossCheckSessionFormCreation.propTypes = {
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
   reset: PropTypes.func.isRequired,
-  postCrossCheckSession: PropTypes.func.isRequired,
-  isRedirectToTableReady: PropTypes.bool.isRequired,
+  submitButtonName: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({ crossCheckSessions }) => ({
-  initialValues: crossCheckSessions.formValues,
-  isRedirectToTableReady: crossCheckSessions.isRedirectToTableReady,
-});
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    postCrossCheckSession: (crossCheckSession) =>
-      dispatch(postCrossCheckSession(crossCheckSession)),
-    updateCrossCheckSession: (crossCheckSession) =>
-      dispatch(updateCrossCheckSession(crossCheckSession)),
-  };
-};
-
-CrossCheckSessionFormCreation = reduxForm({
+const form = reduxForm({
   form: 'crossCheckSession',
   enableReinitialize: true,
 })(CrossCheckSessionFormCreation);
 
-export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionFormCreation);
+export default form;

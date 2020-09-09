@@ -4,10 +4,11 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import ReviewRequest from '../pages/reviewRequest';
 import {
   CrossCheckSessionsTable,
+  CrossCheckSessionForm,
+  CrossCheckSessionEditForm,
   TasksTable,
   ReviewsListPage,
   Check,
-  CrossCheckSessionForm,
   GithubLogin,
   TaskForm,
   Requests,
@@ -31,11 +32,15 @@ const Routes = ({ isLoggedIn }) => {
           <Route path="/reviews" component={ReviewsListPage} />
           <Route path="/task-form" component={TaskForm} />
           <Route path="/task-edit-form" component={TaskFormEdit} />
-          <Redirect to="/reviews" />
+          {/* <Redirect to="/reviews" /> */}
           <Route exact path="/cross-check-sessions" component={CrossCheckSessionsTable} />
           <Route
             path="/cross-check-sessions/cross-check-session-form"
             component={CrossCheckSessionForm}
+          />
+          <Route
+            path="/cross-check-sessions/cross-check-session-edit-form"
+            component={CrossCheckSessionEditForm}
           />
         </>
       )}

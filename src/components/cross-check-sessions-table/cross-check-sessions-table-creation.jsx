@@ -85,7 +85,7 @@ const CrossCheckSessionsTableCreation = (props) => {
   const { tableData, isRedirectToFormReady } = props;
 
   if (isRedirectToFormReady) {
-    return <Redirect to="/addCrossCheckSession/" />;
+    return <Redirect to="/cross-check-sessions/cross-check-session-edit-form" />;
   }
 
   return <Table columns={columns} dataSource={tableData} />;
