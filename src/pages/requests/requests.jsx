@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageHeader } from 'antd';
-import RequestsTable from '../../components/requestsTable/requestsTable';
+import RequestsTable from '../../components/requests-table/requestsTable';
 
 import './requests.scss';
 
