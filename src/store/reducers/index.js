@@ -12,6 +12,7 @@ import crossCheckSessions from './cross-check-sessions';
 import crossCheckSession from './cross-check-session';
 import reviewRequest from './reviewRequest';
 import requestsData from './requestsData';
+import values from './values';
 
 const rootReducer = combineReducers({
   users,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
   }),
   login,
   requestsData,
+  values,
   taskCreation: reduxFormReducer.plugin({
     tasks,
   }),

@@ -1,6 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { reduxForm } from 'redux-form';
 import { Typography } from 'antd';
 import 'antd/dist/antd.css';
 import CheckForm from '../../components/check-form';
@@ -16,6 +15,9 @@ class Check extends Component {
     this.state = {
       task: {},
       reviewRequest: {},
+      detailIds: {},
+      commentFieldIds: {},
+      commentIds: {},
     };
   }
 
@@ -26,9 +28,41 @@ class Check extends Component {
     });
   }
 
+  toggleMore = (id) => {
+    this.setState((prevState) => {
+      const detailIds = { ...prevState.detailIds };
+      detailIds[id] = !detailIds[id];
+
+      return {
+        detailIds,
+      };
+    });
+  };
+
+  toggleAdd = (id) => {
+    this.setState((prevState) => {
+      const commentFieldIds = { ...prevState.commentFieldIds };
+      commentFieldIds[id] = !commentFieldIds[id];
+
+      return {
+        commentFieldIds,
+      };
+    });
+  };
+
+  toggleShow = (id) => {
+    this.setState((prevState) => {
+      const commentIds = { ...prevState.commentIds };
+      commentIds[id] = !commentIds[id];
+
+      return {
+        commentIds,
+      };
+    });
+  };
+
   render() {
-    const { handleSubmit } = this.props;
-    const { task, reviewRequest } = this.state;
+    const { task, reviewRequest, detailIds, commentFieldIds, commentIds } = this.state;
     const items = task.items || [];
     const basics = {
       id: 1,
@@ -63,6 +97,8 @@ class Check extends Component {
       }
     });
 
+    const groups = [basics, extras, fines];
+
     return (
       <>
         <div className="check">
@@ -71,9 +107,14 @@ class Check extends Component {
               Check Form
             </Title>
             <CheckForm
-              groups={[basics, extras, fines]}
-              reviewRequest={reviewRequest || {}}
-              handleSubmit={handleSubmit}
+              scopes={groups}
+              reviewRequest={reviewRequest}
+              detailIds={detailIds}
+              commentFieldIds={commentFieldIds}
+              commentIds={commentIds}
+              toggleMore={this.toggleMore}
+              toggleAdd={this.toggleAdd}
+              toggleShow={this.toggleShow}
             />
           </div>
         </div>
@@ -82,10 +123,4 @@ class Check extends Component {
   }
 }
 
-Check.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-};
-
-export default reduxForm({
-  form: 'check',
-})(Check);
+export default Check;
