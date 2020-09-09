@@ -2,7 +2,7 @@ import { all } from 'redux-saga/effects';
 import watchUsers from './users';
 import watchCrossCheckSessions from './cross-check-sessions';
 import watchGetTasksTable from './tasksTable';
-import watchGetReviewsList from './reviewsList';
+import watchReviews from './reviews';
 import { watchPostReviewRequest } from './reviewRequest';
 import watchTask from './task';
 import watchRequests from './requests';
@@ -12,7 +12,7 @@ export default function* rootSaga() {
     watchUsers(),
     watchCrossCheckSessions(),
     watchGetTasksTable(),
-    watchGetReviewsList(),
+    watchReviews(),
     watchPostReviewRequest(),
     watchTask(),
     watchRequests(),
