@@ -6,11 +6,11 @@ import { PageHeader, Button } from 'antd';
 import history from '../../history/history';
 
 import mapData from './mapData';
-import { getReviewsList } from '../../store/actions';
-import ReviewsTable from '../../components/reviewsTable';
-import GradesTable from '../../components/gradesTable';
+import getReviews from '../../store/actions/reviews';
+import ReviewsTable from '../../components/reviews-table';
+import GradesTable from '../../components/grades-table';
 
-class ReviewsListPage extends React.Component {
+class Reviews extends React.Component {
   state = {
     isReview: false,
     nameTask: '',
@@ -18,12 +18,12 @@ class ReviewsListPage extends React.Component {
   };
 
   componentDidMount() {
-    const { getReviewsList } = this.props;
-    getReviewsList();
+    const { getReviews } = this.props;
+    getReviews();
   }
 
   showReview = (record) => {
-    history.push(`/reviews/${record.task}`);
+    history.push(`/reviews/${record.task.trim()}`);
     const data = this.getDataReview(record.key);
     this.setState({
       isReview: true,
@@ -38,9 +38,9 @@ class ReviewsListPage extends React.Component {
   };
 
   getDataReview = (id) => {
-    const { reviewsList } = this.props;
+    const { reviews } = this.props;
     const gradesData = [];
-    reviewsList.forEach((item) => {
+    reviews.forEach((item) => {
       if (item.id === id) {
         gradesData.push(item.grade.items);
       }
@@ -49,9 +49,9 @@ class ReviewsListPage extends React.Component {
   };
 
   render() {
-    const { reviewsList } = this.props;
+    const { reviews } = this.props;
     const reviewsData = [];
-    reviewsList.forEach((review) => reviewsData.push(mapData(review)));
+    reviews.forEach((review) => reviewsData.push(mapData(review)));
 
     const { isReview } = this.state;
     const { nameTask } = this.state;
@@ -82,24 +82,24 @@ class ReviewsListPage extends React.Component {
   }
 }
 
-const mapStateToProps = ({ reviewsList }) => {
-  return { reviewsList };
+const mapStateToProps = ({ reviews }) => {
+  return { reviews };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getReviewsList: () => dispatch(getReviewsList()),
+    getReviews: () => dispatch(getReviews()),
   };
 };
 
-ReviewsListPage.propTypes = {
-  reviewsList: PropTypes.arrayOf(PropTypes.object),
-  getReviewsList: PropTypes.func,
+Reviews.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.object),
+  getReviews: PropTypes.func,
 };
 
-ReviewsListPage.defaultProps = {
-  reviewsList: PropTypes.array,
-  getReviewsList: PropTypes.func,
+Reviews.defaultProps = {
+  reviews: PropTypes.array,
+  getReviews: PropTypes.func,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewsListPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Reviews);

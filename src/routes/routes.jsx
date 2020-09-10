@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import ReviewRequest from '../pages/reviewRequest';
 import {
   CrossCheckSessionsTable,
   CrossCheckSessionForm,
   CrossCheckSessionEditForm,
   TasksTable,
-  ReviewsListPage,
+  TaskForm,
+  TaskFormEdit,
   Check,
   GithubLogin,
-  TaskForm,
   Requests,
-  TaskFormEdit,
+  ReviewRequest,
+  Reviews,
 } from '../pages';
 
 const Routes = ({ isLoggedIn }) => {
@@ -29,7 +29,7 @@ const Routes = ({ isLoggedIn }) => {
           <Route path="/check" component={Check} />
           <Route path="/requests" component={Requests} />
           <Route path="/review-request" component={ReviewRequest} />
-          <Route path="/reviews" component={ReviewsListPage} />
+          <Route path="/reviews" component={Reviews} />
           <Route path="/task-form" component={TaskForm} />
           <Route path="/task-edit-form" component={TaskFormEdit} />
           {/* <Redirect to="/reviews" /> */}

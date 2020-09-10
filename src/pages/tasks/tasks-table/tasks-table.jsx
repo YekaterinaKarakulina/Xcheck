@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { Button, PageHeader } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { getTasksTable } from '../../store/actions/index';
-import TasksTableList from '../../components/tasksTable/tasksTableList';
-import mapDataTable from '../../components/tasksTable/mapDataTable';
+import { getTasksTable } from '../../../store/actions/task';
+import TasksTableList from '../../../components/tasks/tasks-table/tasks-table-list';
+import mapDataTable from '../../../components/tasks/tasks-table/map-data-table';
 
 class TasksTable extends React.Component {
   componentDidMount() {

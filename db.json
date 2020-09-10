@@ -203,38 +203,6 @@
       }
     }
   ],
-  "requests": [
-    {
-      "key": "1",
-      "title": "Task1",
-      "author": "John Brown",
-      "description": "New York No. 1 Lake Park",
-      "taskId": "11",
-      "state": [
-        "closed"
-      ]
-    },
-    {
-      "key": "2",
-      "title": "Task2",
-      "author": "John Brown",
-      "description": "London No. 1 Lake Park",
-      "taskId": "22",
-      "state": [
-        "active"
-      ]
-    },
-    {
-      "key": "3",
-      "title": "Task3",
-      "author": "John Brown",
-      "description": "Sidney No. 1 Lake Park",
-      "taskId": "33",
-      "state": [
-        "archived"
-      ]
-    }
-  ],
   "reviewRequest": [
     {
       "id": "rev-req-1",

@@ -4,8 +4,8 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { postTaskSession } from '../../store/actions/task';
-import TaskFormCreation from '../../components/taskForm/taskFormCreation';
+import { postTaskSession } from '../../../store/actions/task';
+import TaskFormCreation from '../../../components/tasks/task-form/task-form-creation';
 
 const TaskForm = (props) => {
   const { isRedirectToTableReady, postTaskSession } = props;
