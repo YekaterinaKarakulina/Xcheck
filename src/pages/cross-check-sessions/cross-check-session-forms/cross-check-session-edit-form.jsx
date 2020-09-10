@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { PageHeader } from 'antd';
 import CrossCheckSessionFormCreation from '../../../components/cross-check-session-form';
 import { updateCrossCheckSession } from '../../../store/actions/cross-check-session';
-import transformFormValuesToCrossCheckSessionObject from '../../../utils/crossCheckSession';
+import transformFormValuesToCrossCheckSessionObject from '../../../utils/cross-check-sessions';
 
 const CrossCheckSessionEditForm = (props) => {
   const { initialValues, isRedirectToTableReady, updateCrossCheckSession } = props;

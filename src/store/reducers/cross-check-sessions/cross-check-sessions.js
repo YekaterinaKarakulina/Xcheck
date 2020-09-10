@@ -8,7 +8,7 @@ import {
   UPDATE_CROSSCHECK_SESSION_FAILURE,
   REDIRECT_TO_CROSSCHECK_SESSIONS,
   REDIRECT_TO_CROSSCHECK_SESSION_FORM,
-} from '../actions/types/cross-check-sessions';
+} from '../../actions/types/cross-check-sessions';
 
 const initialState = {
   isRedirectToTableReady: false,
