@@ -1,3 +1,3 @@
-import ReviewRequest from './reviewRequest';
+import ReviewRequestForm from './review-request-form';
 
-export default ReviewRequest;
+export default ReviewRequestForm;

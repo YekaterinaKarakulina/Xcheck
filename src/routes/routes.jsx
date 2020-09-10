@@ -12,6 +12,7 @@ import {
   GithubLogin,
   Reviews,
   ReviewRequestsTable,
+  ReviewRequestForm,
 } from '../pages';
 
 const Routes = ({ isLoggedIn }) => {
@@ -27,11 +28,10 @@ const Routes = ({ isLoggedIn }) => {
           <Route path="/tasks" component={TasksTable} />
           <Route path="/check" component={Check} />
           <Route path="/review-requests" component={ReviewRequestsTable} />
-          {/* <Route path="/review-request" component={ReviewRequest} /> */}
+          <Route path="/review-request-form" component={ReviewRequestForm} />
           <Route path="/reviews" component={Reviews} />
           <Route path="/task-form" component={TaskForm} />
           <Route path="/task-edit-form" component={TaskFormEdit} />
-          {/* <Redirect to="/reviews" /> */}
           <Route exact path="/cross-check-sessions" component={CrossCheckSessionsTable} />
           <Route
             path="/cross-check-sessions/cross-check-session-form"
@@ -41,6 +41,7 @@ const Routes = ({ isLoggedIn }) => {
             path="/cross-check-sessions/cross-check-session-edit-form"
             component={CrossCheckSessionEditForm}
           />
+          {/* <Redirect to="/reviews" /> */}
         </>
       )}
     </Switch>

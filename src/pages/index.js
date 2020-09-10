@@ -10,6 +10,7 @@ import GithubLogin from './github-login';
 import TaskForm from './tasks/task-form/task-form';
 import TaskFormEdit from './tasks/task-form/task-form-edit';
 import ReviewRequestsTable from './review-requests/review-requests-table';
+import ReviewRequestForm from './review-requests/review-requests-form';
 
 export {
   CrossCheckSessionsTable,
@@ -22,4 +23,5 @@ export {
   GithubLogin,
   Check,
   ReviewRequestsTable,
+  ReviewRequestForm,
 };
