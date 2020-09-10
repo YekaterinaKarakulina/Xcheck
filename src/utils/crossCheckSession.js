@@ -6,13 +6,13 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
     title,
     author,
     taskId,
-    crossCheckSessionPeriod,
-    taskCoefficient,
+    coefficient,
     minReviewsAmount,
     desiredReviewsAmount,
     discardMinScore = false,
     discardMaxScore = false,
     draft = false,
+    crossCheckSessionPeriod,
   } = values;
 
   let { id } = values;
@@ -23,8 +23,11 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
 
   const dateField = '_d';
   const dateFormat = 'YYYY-MM-DD';
-  const startDate = moment(crossCheckSessionPeriod[0][dateField]).format(dateFormat);
-  const endDate = moment(crossCheckSessionPeriod[1][dateField]).format(dateFormat);
+  const crossCheckSessionPeriodFormatted = [
+    moment(crossCheckSessionPeriod[0][dateField]).format(dateFormat),
+    moment(crossCheckSessionPeriod[1][dateField]).format(dateFormat),
+  ];
+
   const state = draft ? 'draft' : 'active';
 
   return {
@@ -33,13 +36,12 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
     author,
     state,
     taskId,
-    coefficient: Number(taskCoefficient),
-    startDate,
-    endDate,
+    crossCheckSessionPeriod: crossCheckSessionPeriodFormatted,
+    coefficient: Number(coefficient),
     discardMinScore,
     discardMaxScore,
     minReviewsAmount: Number(minReviewsAmount),
-    desiredReviewersAmount: Number(desiredReviewsAmount),
+    desiredReviewsAmount: Number(desiredReviewsAmount),
     attendees: [],
   };
 };
