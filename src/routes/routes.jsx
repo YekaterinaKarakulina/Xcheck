@@ -10,9 +10,8 @@ import {
   TaskFormEdit,
   Check,
   GithubLogin,
-  Requests,
-  ReviewRequest,
   Reviews,
+  ReviewRequestsTable,
 } from '../pages';
 
 const Routes = ({ isLoggedIn }) => {
@@ -27,8 +26,8 @@ const Routes = ({ isLoggedIn }) => {
         <>
           <Route path="/tasks" component={TasksTable} />
           <Route path="/check" component={Check} />
-          <Route path="/requests" component={Requests} />
-          <Route path="/review-request" component={ReviewRequest} />
+          <Route path="/review-requests" component={ReviewRequestsTable} />
+          {/* <Route path="/review-request" component={ReviewRequest} /> */}
           <Route path="/reviews" component={Reviews} />
           <Route path="/task-form" component={TaskForm} />
           <Route path="/task-edit-form" component={TaskFormEdit} />

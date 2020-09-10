@@ -203,7 +203,7 @@
       }
     }
   ],
-  "reviewRequest": [
+  "reviewRequests": [
     {
       "id": "rev-req-1",
       "crossCheckSessionId": "rss2020Q3react-xcheck",

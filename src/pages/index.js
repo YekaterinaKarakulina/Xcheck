@@ -9,8 +9,7 @@ import Reviews from './reviews';
 import GithubLogin from './github-login';
 import TaskForm from './tasks/task-form/task-form';
 import TaskFormEdit from './tasks/task-form/task-form-edit';
-import Requests from './requests';
-import ReviewRequest from './reviewRequest';
+import ReviewRequestsTable from './review-requests/review-requests-table';
 
 export {
   CrossCheckSessionsTable,
@@ -22,6 +21,5 @@ export {
   Reviews,
   GithubLogin,
   Check,
-  Requests,
-  ReviewRequest,
+  ReviewRequestsTable,
 };

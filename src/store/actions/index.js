@@ -1,4 +1,4 @@
-import { GET_USERS, POST_USER, GET_REVIEWS_LIST, POST_REVIEWS_REQUEST } from './types-old';
+import { GET_USERS, POST_USER } from './types-old';
 
 const getUsers = () => {
   return {
@@ -13,17 +13,4 @@ const postUser = (newUser) => {
   };
 };
 
-const getReviewsList = () => {
-  return {
-    type: GET_REVIEWS_LIST,
-  };
-};
-
-const postReviewRequest = (newReviewRequest) => {
-  return {
-    type: POST_REVIEWS_REQUEST,
-    payload: newReviewRequest,
-  };
-};
-
-export { getUsers, postUser, getReviewsList, postReviewRequest };
+export { getUsers, postUser };

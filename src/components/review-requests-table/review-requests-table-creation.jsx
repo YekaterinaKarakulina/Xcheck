@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import { Table, Space, Button, Input, Tag } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { getRequests } from '../../store/actions/requests';
+import { getReviewRequests } from '../../store/actions/review-requests';
 
-class RequestsTable extends React.Component {
+class ReviewRequestsTableCreation extends React.Component {
   componentDidMount() {
-    const { getRequests } = this.props;
-    getRequests();
+    const { getReviewRequests } = this.props;
+    getReviewRequests();
   }
 
   getColumnSearchProps = (dataIndex) => ({
@@ -57,7 +57,7 @@ class RequestsTable extends React.Component {
   };
 
   render() {
-    const { requestsData } = this.props;
+    const { reviewRequestsData } = this.props;
 
     const columns = [
       {
@@ -136,23 +136,23 @@ class RequestsTable extends React.Component {
         },
       },
     ];
-    return <Table dataSource={requestsData} columns={columns} rowKey="id" />;
+    return <Table dataSource={reviewRequestsData} columns={columns} rowKey="id" />;
   }
 }
 
-RequestsTable.propTypes = {
-  getRequests: PropTypes.func.isRequired,
-  requestsData: PropTypes.arrayOf(PropTypes.object).isRequired,
+ReviewRequestsTableCreation.propTypes = {
+  getReviewRequests: PropTypes.func.isRequired,
+  reviewRequestsData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-const mapStateToProps = ({ requestsData }) => {
-  return { requestsData };
+const mapStateToProps = ({ reviewRequestsData }) => {
+  return { reviewRequestsData };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getRequests: () => dispatch(getRequests()),
+    getReviewRequests: () => dispatch(getReviewRequests()),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RequestsTable);
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewRequestsTableCreation);
