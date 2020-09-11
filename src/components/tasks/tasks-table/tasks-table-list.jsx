@@ -119,7 +119,15 @@ class TasksTable extends React.Component {
               icon={<EditTwoTone twoToneColor="#ffa940" />}
               size="small"
             />
-            <Button type="link" icon={<EyeTwoTone twoToneColor="#9254de" />} size="small" />
+            <Button
+              type="link"
+              onClick={() => {
+                const { getTaskSessionById } = this.props;
+                getTaskSessionById(taskId);
+              }}
+              icon={<EyeTwoTone twoToneColor="#9254de" />}
+              size="small"
+            />
             <Button type="link" icon={<CloseCircleTwoTone twoToneColor="#ff4d4f" />} size="small" />
           </Space>
         ),
@@ -128,7 +136,7 @@ class TasksTable extends React.Component {
 
     const { tableData, isRedirectToFormReady } = this.props;
     if (isRedirectToFormReady) {
-      return <Redirect to="/task-edit-form" />;
+      return <Redirect to="/tasks-description" />;
     }
 
     return <Table columns={columns} dataSource={tableData} />;

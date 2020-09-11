@@ -13,6 +13,7 @@ import {
   Reviews,
   ReviewRequestsTable,
   ReviewRequestForm,
+  TaskDetails,
 } from '../pages';
 
 const Routes = ({ isLoggedIn }) => {
@@ -41,6 +42,7 @@ const Routes = ({ isLoggedIn }) => {
             path="/cross-check-sessions/cross-check-session-edit-form"
             component={CrossCheckSessionEditForm}
           />
+          <Route path="/tasks-description" component={TaskDetails} />
           {/* <Redirect to="/reviews" /> */}
         </>
       )}
