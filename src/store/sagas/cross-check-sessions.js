@@ -1,10 +1,11 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
-import Axios from 'axios';
+import axios from 'axios';
+
 import {
   GET_CROSSCHECK_SESSIONS,
   GET_CROSSCHECK_SESSIONS_SUCCESS,
   GET_CROSSCHECK_SESSIONS_FAILURE,
-  GET_CROSSCHECK_SESSION_BY_ID,
+  GET_CROSSCHECK_SESSION,
   GET_CROSSCHECK_SESSION_SUCCESS,
   GET_CROSSCHECK_SESSION_FAILURE,
   POST_CROSSCHECK_SESSION,
@@ -13,6 +14,9 @@ import {
   UPDATE_CROSSCHECK_SESSION,
   UPDATE_CROSSCHECK_SESSION_SUCCESS,
   UPDATE_CROSSCHECK_SESSION_FAILURE,
+  DELETE_CROSSCHECK_SESSION,
+  DELETE_CROSSCHECK_SESSION_SUCCESS,
+  DELETE_CROSSCHECK_SESSION_FAILURE,
   REDIRECT_TO_CROSSCHECK_SESSION_FORM,
   REDIRECT_TO_CROSSCHECK_SESSIONS,
 } from '../actions/types/cross-check-sessions';
@@ -20,7 +24,7 @@ import {
 function* workerGetCrossCheckSessions() {
   const uri = 'http://localhost:3000/crossCheckSessions';
   try {
-    const result = yield call(Axios.get, uri);
+    const result = yield call(axios.get, uri);
     yield put({ type: GET_CROSSCHECK_SESSIONS_SUCCESS, payload: result.data });
   } catch {
     yield put({
@@ -33,7 +37,7 @@ function* workerGetCrossCheckSessions() {
 function* workerGetCrossCheckSessionById(action) {
   try {
     const uri = `http://localhost:3000/crossCheckSessions/${action.payload}`;
-    const result = yield call(Axios.get, uri);
+    const result = yield call(axios.get, uri);
     yield put({ type: GET_CROSSCHECK_SESSION_SUCCESS, payload: result.data });
     yield put({ type: REDIRECT_TO_CROSSCHECK_SESSION_FORM });
   } catch {
@@ -47,7 +51,7 @@ function* workerGetCrossCheckSessionById(action) {
 function* workerPostCrossCheckSession(action) {
   const uri = 'http://localhost:3000/crossCheckSessions';
   try {
-    yield call(Axios.post, uri, action.payload);
+    yield call(axios.post, uri, action.payload);
     yield put({ type: POST_CROSSCHECK_SESSION_SUCCESS });
     yield put({ type: REDIRECT_TO_CROSSCHECK_SESSIONS });
   } catch {
@@ -59,24 +63,41 @@ function* workerPostCrossCheckSession(action) {
 }
 
 function* workerUpdateCrossCheckSession(action) {
+  const { id } = action.payload;
   try {
-    const uri = `http://localhost:3000/crossCheckSessions/${action.payload.id}`;
-    yield call(Axios.put, uri, action.payload);
+    const uri = `http://localhost:3000/crossCheckSessions/${id}`;
+    yield call(axios.put, uri, action.payload);
     yield put({ type: UPDATE_CROSSCHECK_SESSION_SUCCESS });
     yield put({ type: REDIRECT_TO_CROSSCHECK_SESSIONS });
   } catch {
     yield put({
       type: UPDATE_CROSSCHECK_SESSION_FAILURE,
-      payload: `ERROR! Cannot update crossCheck session with this ID`,
+      payload: `ERROR! Cannot update crossCheck session with id ${id}`,
+    });
+  }
+}
+
+function* workerDeleteCrossCheckSession(action) {
+  const id = action.payload;
+  const uri = `http://localhost:3000/crossCheckSessions/${id}`;
+  try {
+    yield call(axios.delete, uri);
+    yield put({ type: DELETE_CROSSCHECK_SESSION_SUCCESS });
+    yield put({ type: GET_CROSSCHECK_SESSIONS });
+  } catch {
+    yield put({
+      type: DELETE_CROSSCHECK_SESSION_FAILURE,
+      payload: `ERROR! Cannot delete crossCheck session with id ${id}`,
     });
   }
 }
 
 function* watchCrossCheckSessions() {
   yield takeEvery(GET_CROSSCHECK_SESSIONS, workerGetCrossCheckSessions);
-  yield takeEvery(GET_CROSSCHECK_SESSION_BY_ID, workerGetCrossCheckSessionById);
+  yield takeEvery(GET_CROSSCHECK_SESSION, workerGetCrossCheckSessionById);
   yield takeEvery(POST_CROSSCHECK_SESSION, workerPostCrossCheckSession);
   yield takeEvery(UPDATE_CROSSCHECK_SESSION, workerUpdateCrossCheckSession);
+  yield takeEvery(DELETE_CROSSCHECK_SESSION, workerDeleteCrossCheckSession);
 }
 
 export default watchCrossCheckSessions;

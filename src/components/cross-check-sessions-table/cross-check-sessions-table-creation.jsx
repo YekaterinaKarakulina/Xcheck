@@ -6,7 +6,10 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
-import { getCrossCheckSessionById } from '../../store/actions/cross-check-session';
+import {
+  getCrossCheckSession,
+  deleteCrossCheckSession,
+} from '../../store/actions/cross-check-session';
 
 const CrossCheckSessionsTableCreation = (props) => {
   const columns = [
@@ -72,11 +75,17 @@ const CrossCheckSessionsTableCreation = (props) => {
           <EditTwoTone
             twoToneColor="#ffa940"
             onClick={() => {
-              const { getCrossCheckSessionById } = props;
-              getCrossCheckSessionById(row.key);
+              const { getCrossCheckSession } = props;
+              getCrossCheckSession(row.key);
             }}
           />
-          <CloseCircleTwoTone twoToneColor="#ff4d4f" />
+          <CloseCircleTwoTone
+            twoToneColor="#ff4d4f"
+            onClick={() => {
+              const { deleteCrossCheckSession } = props;
+              deleteCrossCheckSession(row.key);
+            }}
+          />
         </Space>
       ),
     },
@@ -97,7 +106,8 @@ const mapStateToProps = ({ crossCheckSessions }) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCrossCheckSessionById: (id) => dispatch(getCrossCheckSessionById(id)),
+    getCrossCheckSession: (id) => dispatch(getCrossCheckSession(id)),
+    deleteCrossCheckSession: (id) => dispatch(deleteCrossCheckSession(id)),
   };
 };
 
