@@ -6,6 +6,8 @@ import {
   POST_CROSSCHECK_SESSION_FAILURE,
   UPDATE_CROSSCHECK_SESSION_SUCCESS,
   UPDATE_CROSSCHECK_SESSION_FAILURE,
+  DELETE_CROSSCHECK_SESSION_SUCCESS,
+  DELETE_CROSSCHECK_SESSION_FAILURE,
   REDIRECT_TO_CROSSCHECK_SESSIONS,
   REDIRECT_TO_CROSSCHECK_SESSION_FORM,
 } from '../../actions/types/cross-check-sessions';
@@ -57,6 +59,17 @@ const crossCheckSessions = (state = initialState, action) => {
       };
 
     case UPDATE_CROSSCHECK_SESSION_FAILURE:
+      console.log(action.payload);
+      return state;
+
+    case DELETE_CROSSCHECK_SESSION_SUCCESS:
+      return {
+        ...state,
+        isRedirectToTableReady: false,
+        isRedirectToFormReady: false,
+      };
+
+    case DELETE_CROSSCHECK_SESSION_FAILURE:
       console.log(action.payload);
       return state;
 
