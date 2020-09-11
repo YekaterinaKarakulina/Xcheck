@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import 'antd/dist/antd.css';
@@ -6,12 +5,15 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
+import PropTypes from 'prop-types';
 import {
   getCrossCheckSession,
   deleteCrossCheckSession,
 } from '../../store/actions/cross-check-session';
 
 const CrossCheckSessionsTableCreation = (props) => {
+  const { getCrossCheckSession, deleteCrossCheckSession } = props;
+
   const columns = [
     {
       title: 'Title',
@@ -75,14 +77,12 @@ const CrossCheckSessionsTableCreation = (props) => {
           <EditTwoTone
             twoToneColor="#ffa940"
             onClick={() => {
-              const { getCrossCheckSession } = props;
               getCrossCheckSession(row.key);
             }}
           />
           <CloseCircleTwoTone
             twoToneColor="#ff4d4f"
             onClick={() => {
-              const { deleteCrossCheckSession } = props;
               deleteCrossCheckSession(row.key);
             }}
           />
@@ -98,6 +98,13 @@ const CrossCheckSessionsTableCreation = (props) => {
   }
 
   return <Table columns={columns} dataSource={tableData} />;
+};
+
+CrossCheckSessionsTableCreation.propTypes = {
+  isRedirectToFormReady: PropTypes.bool.isRequired,
+  tableData: PropTypes.instanceOf(Array).isRequired,
+  getCrossCheckSession: PropTypes.func.isRequired,
+  deleteCrossCheckSession: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ crossCheckSessions }) => ({
