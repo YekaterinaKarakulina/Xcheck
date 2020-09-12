@@ -15,7 +15,7 @@ import {
 const initialState = {
   isRedirectToTableReady: false,
   isRedirectToFormReady: false,
-  formValues: {},
+  currentSessionInfo: {},
 };
 
 const crossCheckSessions = (state = initialState, action) => {
@@ -24,7 +24,7 @@ const crossCheckSessions = (state = initialState, action) => {
     case GET_CROSSCHECK_SESSION_SUCCESS:
       return {
         ...state,
-        formValues: {
+        currentSessionInfo: {
           ...action.payload,
           crossCheckSessionPeriod: [
             moment(action.payload.crossCheckSessionPeriod[0], dateFormat),
@@ -55,7 +55,7 @@ const crossCheckSessions = (state = initialState, action) => {
         ...state,
         isRedirectToTableReady: false,
         isRedirectToFormReady: false,
-        formValues: {},
+        currentSessionInfo: {},
       };
 
     case UPDATE_CROSSCHECK_SESSION_FAILURE:

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import {
   CrossCheckSessionsTable,
-  CrossCheckSessionForm,
-  CrossCheckSessionEditForm,
+  CrossCheckSessionLayout,
   TasksTable,
   TaskForm,
   TaskFormEdit,
@@ -32,15 +31,8 @@ const Routes = ({ isLoggedIn }) => {
           <Route path="/reviews" component={Reviews} />
           <Route path="/task-form" component={TaskForm} />
           <Route path="/task-edit-form" component={TaskFormEdit} />
-          <Route exact path="/cross-check-sessions" component={CrossCheckSessionsTable} />
-          <Route
-            path="/cross-check-sessions/cross-check-session-form"
-            component={CrossCheckSessionForm}
-          />
-          <Route
-            path="/cross-check-sessions/cross-check-session-edit-form"
-            component={CrossCheckSessionEditForm}
-          />
+          <Route exact path="/cross-check-sessions/" component={CrossCheckSessionsTable} />
+          <Route path="/cross-check-sessions/:id" component={CrossCheckSessionLayout} />
           {/* <Redirect to="/reviews" /> */}
         </>
       )}

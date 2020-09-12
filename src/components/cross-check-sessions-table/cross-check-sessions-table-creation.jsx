@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
 import PropTypes from 'prop-types';
@@ -12,7 +13,7 @@ import {
 } from '../../store/actions/cross-check-session';
 
 const CrossCheckSessionsTableCreation = (props) => {
-  const { getCrossCheckSession, deleteCrossCheckSession } = props;
+  const { getCrossCheckSession, deleteCrossCheckSession, history } = props;
 
   const columns = [
     {
@@ -73,11 +74,16 @@ const CrossCheckSessionsTableCreation = (props) => {
       key: 'action',
       render: (action, row) => (
         <Space size="middle" data-id={row.id}>
-          <EyeTwoTone twoToneColor="#9254de" />
+          <EyeTwoTone
+            twoToneColor="#9254de"
+            onClick={() => {
+              history.push(row.id);
+            }}
+          />
           <EditTwoTone
             twoToneColor="#ffa940"
             onClick={() => {
-              getCrossCheckSession(row.key);
+              getCrossCheckSession({ id: row.key, editMode: true });
             }}
           />
           <CloseCircleTwoTone
@@ -113,9 +119,11 @@ const mapStateToProps = ({ crossCheckSessions }) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCrossCheckSession: (id) => dispatch(getCrossCheckSession(id)),
+    getCrossCheckSession: ({ id, editMode }) => dispatch(getCrossCheckSession({ id, editMode })),
     deleteCrossCheckSession: (id) => dispatch(deleteCrossCheckSession(id)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionsTableCreation);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionsTableCreation)
+);
