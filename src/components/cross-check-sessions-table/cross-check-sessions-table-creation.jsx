@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import 'antd/dist/antd.css';
@@ -99,6 +98,7 @@ CrossCheckSessionsTableCreation.propTypes = {
   tableData: PropTypes.instanceOf(Array).isRequired,
   getCrossCheckSession: PropTypes.func.isRequired,
   deleteCrossCheckSession: PropTypes.func.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = ({ crossCheckSessions }) => ({

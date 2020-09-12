@@ -1,9 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, PageHeader, Tag, Space } from 'antd';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { getCrossCheckSession } from '../../../store/actions/cross-check-session';
 import CrossCheckSessionDescriptionCreation from '../../../components/cross-check-session-description';
 import checkStatus from '../../../utils/status';
@@ -18,11 +17,12 @@ class CrossCheckSessionDescription extends React.Component {
     const { initialValues } = this.props;
 
     if (initialValues.title) {
-      const color = checkStatus(initialValues.state);
+      const { title, state } = initialValues;
+      const color = checkStatus(state);
       return (
         <div className="wrapper">
-          <PageHeader className="site-page-header" title={initialValues.title}>
-            <Tag color={color}>{initialValues.state.toUpperCase()}</Tag>
+          <PageHeader className="site-page-header" title={title}>
+            <Tag color={color}>{state.toUpperCase()}</Tag>
           </PageHeader>
           <Button type="primary">
             <Link to="/cross-check-sessions/">Back</Link>
@@ -39,6 +39,12 @@ class CrossCheckSessionDescription extends React.Component {
     return null;
   }
 }
+
+CrossCheckSessionDescription.propTypes = {
+  id: PropTypes.string.isRequired,
+  initialValues: PropTypes.instanceOf(Object).isRequired,
+  getCrossCheckSession: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ crossCheckSessions }) => ({
   initialValues: crossCheckSessions.currentSessionInfo,

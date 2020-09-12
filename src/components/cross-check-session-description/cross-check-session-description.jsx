@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-
 import { Descriptions } from 'antd';
+import PropTypes from 'prop-types';
 
 const CrossCheckSessionDescriptionCreation = ({ descriptionValues }) => {
   const { author, coefficient, crossCheckSessionPeriod, taskId } = descriptionValues;
@@ -17,6 +16,10 @@ const CrossCheckSessionDescriptionCreation = ({ descriptionValues }) => {
       <Descriptions.Item label="Attendees" span={2} />
     </Descriptions>
   );
+};
+
+CrossCheckSessionDescriptionCreation.propTypes = {
+  descriptionValues: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default CrossCheckSessionDescriptionCreation;

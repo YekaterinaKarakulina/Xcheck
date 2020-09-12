@@ -2,7 +2,6 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
 import PropTypes from 'prop-types';
-
 import { required, minLength, maxLength } from '../../utils';
 import makeField from '../forms/make-field';
 import { formItemLayout, tailFormItemLayout } from '../forms/form-layout';
