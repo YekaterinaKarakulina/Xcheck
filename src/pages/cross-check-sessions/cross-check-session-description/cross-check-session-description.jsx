@@ -2,29 +2,41 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, PageHeader } from 'antd';
+import { Button, PageHeader, Tag, Space } from 'antd';
 import { Link } from 'react-router-dom';
 import { getCrossCheckSession } from '../../../store/actions/cross-check-session';
+import CrossCheckSessionDescriptionCreation from '../../../components/cross-check-session-description';
+import checkStatus from '../../../utils/status';
 
 class CrossCheckSessionDescription extends React.Component {
   componentDidMount() {
     const { id, getCrossCheckSession } = this.props;
-    console.log(id);
     getCrossCheckSession({ id, editMode: false });
   }
 
   render() {
     const { initialValues } = this.props;
-    console.log(initialValues);
-    return (
-      <div className="wrapper">
-        <PageHeader className="site-page-header" title="CrossCheck Sessions" />
-        <Button type="primary">
-          <Link to="/cross-check-sessions/">Back</Link>
-        </Button>
-        <h1>Hi</h1>
-      </div>
-    );
+
+    if (initialValues.title) {
+      const color = checkStatus(initialValues.state);
+      return (
+        <div className="wrapper">
+          <PageHeader className="site-page-header" title={initialValues.title}>
+            <Tag color={color}>{initialValues.state.toUpperCase()}</Tag>
+          </PageHeader>
+          <Button type="primary">
+            <Link to="/cross-check-sessions/">Back</Link>
+          </Button>
+          <CrossCheckSessionDescriptionCreation descriptionValues={initialValues} />
+          <Space size="middle">
+            <Button type="primary">Finish requests collection</Button>
+            <Button type="primary">Assign reviewers</Button>
+            <Button type="primary">Stop cross-check session</Button>
+          </Space>
+        </div>
+      );
+    }
+    return null;
   }
 }
 

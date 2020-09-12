@@ -11,6 +11,7 @@ import {
   getCrossCheckSession,
   deleteCrossCheckSession,
 } from '../../store/actions/cross-check-session';
+import checkStatus from '../../utils/status';
 
 const CrossCheckSessionsTableCreation = (props) => {
   const { getCrossCheckSession, deleteCrossCheckSession, history } = props;
@@ -31,20 +32,7 @@ const CrossCheckSessionsTableCreation = (props) => {
       key: 'state',
       dataIndex: 'state',
       render: (state) => {
-        let color = 'green';
-        switch (state) {
-          case 'active':
-            color = 'green';
-            break;
-          case 'draft':
-            color = 'geekblue';
-            break;
-          case 'closed':
-            color = 'volcano';
-            break;
-          default:
-            color = 'green';
-        }
+        const color = checkStatus(state);
         return <Tag color={color}>{state.toUpperCase()}</Tag>;
       },
     },
