@@ -21,7 +21,19 @@ const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
 const CrossCheckSessionFormCreation = (props) => {
-  const { handleSubmit, pristine, submitting, reset, submitButtonName, tasks } = props;
+  const {
+    handleSubmit,
+    pristine,
+    submitting,
+    reset,
+    submitButtonName,
+    tasks,
+    initialValues,
+  } = props;
+
+  const draftCheckbox = initialValues.draft ? (
+    <Field label="Create as DRAFT" name="draft" component={ACheckbox} type="checkbox" hasFeedback />
+  ) : null;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -118,13 +130,7 @@ const CrossCheckSessionFormCreation = (props) => {
         hasFeedback
       />
 
-      <Field
-        label="Create as DRAFT"
-        name="draft"
-        component={ACheckbox}
-        type="checkbox"
-        hasFeedback
-      />
+      {draftCheckbox}
 
       <FormItem {...tailFormItemLayout}>
         <Button
@@ -151,6 +157,7 @@ CrossCheckSessionFormCreation.propTypes = {
   reset: PropTypes.func.isRequired,
   submitButtonName: PropTypes.string.isRequired,
   tasks: PropTypes.instanceOf(Array).isRequired,
+  initialValues: PropTypes.instanceOf(Object).isRequired,
 };
 
 const form = reduxForm({
