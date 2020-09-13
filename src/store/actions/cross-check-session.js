@@ -1,8 +1,9 @@
 import {
   GET_CROSSCHECK_SESSIONS,
-  GET_CROSSCHECK_SESSION_BY_ID,
+  GET_CROSSCHECK_SESSION,
   POST_CROSSCHECK_SESSION,
   UPDATE_CROSSCHECK_SESSION,
+  DELETE_CROSSCHECK_SESSION,
 } from './types/cross-check-sessions';
 
 const getCrossCheckSessions = () => {
@@ -11,9 +12,9 @@ const getCrossCheckSessions = () => {
   };
 };
 
-const getCrossCheckSessionById = (id) => {
+const getCrossCheckSession = (id) => {
   return {
-    type: GET_CROSSCHECK_SESSION_BY_ID,
+    type: GET_CROSSCHECK_SESSION,
     payload: id,
   };
 };
@@ -25,16 +26,24 @@ const postCrossCheckSession = (crossCheckSession) => {
   };
 };
 
-const updateCrossCheckSession = (crossCheckSession) => {
+const updateCrossCheckSession = (id) => {
   return {
     type: UPDATE_CROSSCHECK_SESSION,
-    payload: crossCheckSession,
+    payload: id,
+  };
+};
+
+const deleteCrossCheckSession = (id) => {
+  return {
+    type: DELETE_CROSSCHECK_SESSION,
+    payload: id,
   };
 };
 
 export {
   getCrossCheckSessions,
-  getCrossCheckSessionById,
+  getCrossCheckSession,
   postCrossCheckSession,
   updateCrossCheckSession,
+  deleteCrossCheckSession,
 };

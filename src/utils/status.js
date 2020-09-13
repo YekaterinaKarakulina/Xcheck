@@ -1,5 +1,7 @@
 const checkStatus = (status) => {
   switch (status) {
+    case 'active':
+      return 'green';
     case 'open':
       return 'green';
     case 'draft':

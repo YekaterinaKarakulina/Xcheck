@@ -1,14 +1,20 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
-import { getCrossCheckSessionById } from '../../store/actions/cross-check-session';
+import PropTypes from 'prop-types';
+import {
+  getCrossCheckSession,
+  deleteCrossCheckSession,
+} from '../../store/actions/cross-check-session';
+import checkStatus from '../../utils/status';
 
 const CrossCheckSessionsTableCreation = (props) => {
+  const { getCrossCheckSession, deleteCrossCheckSession, history } = props;
+
   const columns = [
     {
       title: 'Title',
@@ -25,20 +31,7 @@ const CrossCheckSessionsTableCreation = (props) => {
       key: 'state',
       dataIndex: 'state',
       render: (state) => {
-        let color = 'green';
-        switch (state) {
-          case 'active':
-            color = 'green';
-            break;
-          case 'draft':
-            color = 'geekblue';
-            break;
-          case 'closed':
-            color = 'volcano';
-            break;
-          default:
-            color = 'green';
-        }
+        const color = checkStatus(state);
         return <Tag color={color}>{state.toUpperCase()}</Tag>;
       },
     },
@@ -68,15 +61,24 @@ const CrossCheckSessionsTableCreation = (props) => {
       key: 'action',
       render: (action, row) => (
         <Space size="middle" data-id={row.id}>
-          <EyeTwoTone twoToneColor="#9254de" />
+          <EyeTwoTone
+            twoToneColor="#9254de"
+            onClick={() => {
+              history.push(row.id);
+            }}
+          />
           <EditTwoTone
             twoToneColor="#ffa940"
             onClick={() => {
-              const { getCrossCheckSessionById } = props;
-              getCrossCheckSessionById(row.key);
+              getCrossCheckSession({ id: row.key, editMode: true });
             }}
           />
-          <CloseCircleTwoTone twoToneColor="#ff4d4f" />
+          <CloseCircleTwoTone
+            twoToneColor="#ff4d4f"
+            onClick={() => {
+              deleteCrossCheckSession(row.key);
+            }}
+          />
         </Space>
       ),
     },
@@ -85,10 +87,18 @@ const CrossCheckSessionsTableCreation = (props) => {
   const { tableData, isRedirectToFormReady } = props;
 
   if (isRedirectToFormReady) {
-    return <Redirect to="/addCrossCheckSession/" />;
+    return <Redirect to="/cross-check-sessions/cross-check-session-edit-form" />;
   }
 
   return <Table columns={columns} dataSource={tableData} />;
+};
+
+CrossCheckSessionsTableCreation.propTypes = {
+  isRedirectToFormReady: PropTypes.bool.isRequired,
+  tableData: PropTypes.instanceOf(Array).isRequired,
+  getCrossCheckSession: PropTypes.func.isRequired,
+  deleteCrossCheckSession: PropTypes.func.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = ({ crossCheckSessions }) => ({
@@ -97,8 +107,11 @@ const mapStateToProps = ({ crossCheckSessions }) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCrossCheckSessionById: (id) => dispatch(getCrossCheckSessionById(id)),
+    getCrossCheckSession: ({ id, editMode }) => dispatch(getCrossCheckSession({ id, editMode })),
+    deleteCrossCheckSession: (id) => dispatch(deleteCrossCheckSession(id)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionsTableCreation);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionsTableCreation)
+);

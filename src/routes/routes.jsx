@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import ReviewRequest from '../pages/reviewRequest';
 import {
   CrossCheckSessionsTable,
+  CrossCheckSessionLayout,
   TasksTable,
-  ReviewsListPage,
-  Check,
-  CrossCheckSessionForm,
-  GithubLogin,
   TaskForm,
-  Requests,
   TaskFormEdit,
+  Check,
+  GithubLogin,
+  Reviews,
+  ReviewRequestsTable,
+  ReviewRequestForm,
 } from '../pages';
 
 const Routes = ({ isLoggedIn }) => {
@@ -27,17 +27,14 @@ const Routes = ({ isLoggedIn }) => {
         <>
           <Route path="/tasks" component={TasksTable} />
           <Route path="/check" component={Check} />
-          <Route path="/requests" component={Requests} />
-          <Route path="/review-request" component={ReviewRequest} />
-          <Route path="/reviews" component={ReviewsListPage} />
+          <Route path="/review-requests" component={ReviewRequestsTable} />
+          <Route path="/review-request-form" component={ReviewRequestForm} />
+          <Route path="/reviews" component={Reviews} />
           <Route path="/task-form" component={TaskForm} />
           <Route path="/task-edit-form" component={TaskFormEdit} />
+          <Route exact path="/cross-check-sessions/" component={CrossCheckSessionsTable} />
+          <Route path="/cross-check-sessions/:id" component={CrossCheckSessionLayout} />
           {/* <Redirect to="/reviews" /> */}
-          <Route exact path="/cross-check-sessions" component={CrossCheckSessionsTable} />
-          <Route
-            path="/cross-check-sessions/cross-check-session-form"
-            component={CrossCheckSessionForm}
-          />
         </>
       )}
     </Switch>

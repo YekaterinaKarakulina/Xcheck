@@ -1,5 +1,5 @@
 const mapData = (databaseData) => {
-  const { id, title, author, state, taskId, coefficient, startDate, endDate } = databaseData;
+  const { id, title, author, state, taskId, coefficient, crossCheckSessionPeriod } = databaseData;
   return {
     key: id,
     id,
@@ -8,8 +8,8 @@ const mapData = (databaseData) => {
     state,
     taskId,
     coefficient,
-    startDate,
-    endDate,
+    startDate: crossCheckSessionPeriod[0],
+    endDate: crossCheckSessionPeriod[1],
   };
 };
 
