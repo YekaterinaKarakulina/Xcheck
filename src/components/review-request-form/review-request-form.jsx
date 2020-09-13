@@ -1,139 +1,184 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { Form, Input, Select, Button } from 'antd';
+import { connect } from 'react-redux';
+
+import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { Form, Input, Select, Button, Checkbox, Modal } from 'antd';
 import PropTypes from 'prop-types';
 import makeField from '../forms/make-field';
 import { formItemLayout, tailFormItemLayout } from '../forms/form-layout';
 import { required } from '../../utils';
+import { closeModal } from '../../store/actions/review-requests';
 
 const FormItem = Form.Item;
 const { Option } = Select;
 const crossCheckSessionData = ['rss2020Q1', 'rss2020Q3react', 'rss2020Q3angular'];
 const tasks = ['simple-task-v1', 'simple-task-v2', 'simple-task-v3'];
-const states = ['draft', 'published', 'completed'];
 
 const AInput = makeField(Input, formItemLayout);
 const ASelect = makeField(Select, formItemLayout);
+const ACheckbox = makeField(Checkbox, formItemLayout);
 
-const ReviewRequestFormCreation = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+class ReviewRequestFormCreation extends React.Component {
+  handleOk = () => {
+    const { closeModal } = this.props;
+    closeModal();
+  };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <Field
-        defaultValue={crossCheckSessionData[0]}
-        label="crossCheckSession"
-        name="crossCheckSession"
-        component={ASelect}
-        hasFeedback
-        validate={required}
-        onBlur={(e) => e.preventDefault()}
-      >
-        {crossCheckSessionData.map((crossCheckSession) => (
-          <Option key={crossCheckSession} value={crossCheckSession}>
-            {crossCheckSession}
-          </Option>
-        ))}
-      </Field>
+  handleCancel = () => {
+    const { closeModal } = this.props;
+    closeModal();
+  };
 
-      <Field
-        label="Author"
-        name="Author"
-        component={AInput}
-        placeholder="Add your name"
-        hasFeedback
-        validate={required}
-      />
+  render() {
+    const {
+      handleSubmit,
+      pristine,
+      reset,
+      submitting,
+      hasChoiceCrossCheckSession,
+      isModalVisible,
+    } = this.props;
 
-      <Field
-        defaultValue={tasks[0]}
-        label="task"
-        name="task"
-        component={ASelect}
-        hasFeedback
-        validate={required}
-        onBlur={(e) => e.preventDefault()}
-      >
-        {tasks.map((task) => (
-          <Option key={task} value={task}>
-            {task}
-          </Option>
-        ))}
-      </Field>
+    return (
+      <>
+        <form onSubmit={handleSubmit}>
+          <Field
+            label="Author"
+            name="Author"
+            component={AInput}
+            placeholder="Add your name"
+            hasFeedback
+            validate={required}
+          />
 
-      <Field
-        defaultValue={states[0]}
-        label="state"
-        name="state"
-        component={ASelect}
-        hasFeedback
-        validate={required}
-        onBlur={(e) => e.preventDefault()}
-      >
-        {states.map((state) => (
-          <Option key={state} value={state}>
-            {state}
-          </Option>
-        ))}
-      </Field>
+          <Field
+            defaultValue={tasks[0]}
+            label="task"
+            name="task"
+            component={ASelect}
+            hasFeedback
+            validate={required}
+            onBlur={(e) => e.preventDefault()}
+          >
+            {tasks.map((task) => (
+              <Option key={task} value={task}>
+                {task}
+              </Option>
+            ))}
+          </Field>
 
-      <Field
-        label="linkToDemo"
-        name="linkToDemo"
-        component={AInput}
-        placeholder="Add link for demo"
-        hasFeedback
-        validate={required}
-      />
+          <Field
+            label="linkToDemo"
+            name="linkToDemo"
+            component={AInput}
+            placeholder="Add link for demo"
+            hasFeedback
+            validate={required}
+          />
 
-      <Field
-        label="linkToPR"
-        name="linkToPR"
-        component={AInput}
-        placeholder="Add link for Rull Request"
-        hasFeedback
-        validate={required}
-      />
+          <Field
+            label="linkToPR"
+            name="linkToPR"
+            component={AInput}
+            placeholder="Add link for Rull Request"
+            hasFeedback
+            validate={required}
+          />
 
-      <Field
-        label="selfGrade"
-        name="selfGrade"
-        component={AInput}
-        placeholder="Add number of score"
-        hasFeedback
-        validate={required}
-      />
+          <Field
+            label="Сhoice сross check session"
+            name="hasChoiceCrossCheckSession"
+            component={ACheckbox}
+            type="checkbox"
+            hasFeedback
+          />
 
-      <FormItem {...tailFormItemLayout}>
-        <Button
-          type="primary"
-          disabled={pristine || submitting}
-          htmlType="submit"
-          style={{ marginRight: '1rem' }}
+          {hasChoiceCrossCheckSession && (
+            <Field
+              defaultValue={crossCheckSessionData[0]}
+              label="Cross check session"
+              name="crossCheckSession"
+              component={ASelect}
+              hasFeedback
+              validate={required}
+              onBlur={(e) => e.preventDefault()}
+            >
+              {crossCheckSessionData.map((crossCheckSession) => (
+                <Option key={crossCheckSession} value={crossCheckSession}>
+                  {crossCheckSession}
+                </Option>
+              ))}
+            </Field>
+          )}
+
+          <FormItem {...tailFormItemLayout}>
+            <Button
+              type="primary"
+              disabled={pristine || submitting}
+              htmlType="submit"
+              style={{ marginRight: '1rem' }}
+            >
+              Submit
+            </Button>
+
+            <Button disabled={pristine || submitting} onClick={reset}>
+              Clear Values
+            </Button>
+          </FormItem>
+        </form>
+
+        <Modal
+          visible={isModalVisible}
+          title="Self grade"
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+          footer={[
+            <Button key="back" onClick={this.handleCancel}>
+              self grade later
+            </Button>,
+            <Button key="submit" type="primary" onClick={this.handleOk}>
+              self grade check
+            </Button>,
+          ]}
         >
-          Submit
-        </Button>
-
-        <Button disabled={pristine || submitting} onClick={reset}>
-          Clear Values
-        </Button>
-      </FormItem>
-    </form>
-  );
-};
+          <p>Review Request success</p>
+          <p>Go to self grade?</p>
+        </Modal>
+      </>
+    );
+  }
+}
 
 ReviewRequestFormCreation.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
   reset: PropTypes.func.isRequired,
+  hasChoiceCrossCheckSession: PropTypes.bool,
+  isModalVisible: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};
+
+ReviewRequestFormCreation.defaultProps = {
+  hasChoiceCrossCheckSession: false,
 };
 
 const form = reduxForm({
   form: 'reviewRequest',
-  initialValues: {
-    state: true,
-  },
 })(ReviewRequestFormCreation);
 
-export default form;
+const mapStateToProps = (state) => {
+  const selector = formValueSelector('reviewRequest');
+  return {
+    isModalVisible: state.reviewRequests.isModalVisible,
+    hasChoiceCrossCheckSession: selector(state, 'hasChoiceCrossCheckSession'),
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    closeModal: () => dispatch(closeModal()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(form);

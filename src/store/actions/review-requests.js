@@ -1,4 +1,9 @@
-import { GET_REVIEW_REQUESTS, POST_REVIEW_REQUEST } from './types/review-requests';
+import {
+  GET_REVIEW_REQUESTS,
+  POST_REVIEW_REQUEST,
+  OPEN_MODAL,
+  CLOSE_MODAL,
+} from './types/review-requests';
 
 const getReviewRequests = () => {
   return {
@@ -13,4 +18,16 @@ const postReviewRequest = (newReviewRequest) => {
   };
 };
 
-export { getReviewRequests, postReviewRequest };
+const openModal = () => {
+  return {
+    type: OPEN_MODAL,
+  };
+};
+
+const closeModal = () => {
+  return {
+    type: CLOSE_MODAL,
+  };
+};
+
+export { getReviewRequests, postReviewRequest, openModal, closeModal };
