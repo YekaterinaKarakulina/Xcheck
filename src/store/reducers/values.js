@@ -1,4 +1,4 @@
-import { reviewRequests } from '../../pages/check/data';
+import { reviewRequests, tasks } from '../../pages/check/data';
 
 const isObjectEmpty = (value) =>
   value && Object.keys(value).length === 0 && value.constructor === Object;
@@ -14,6 +14,10 @@ if (!isObjectEmpty(selfGrade)) {
   for (const item of Object.keys(selfGrade.items)) {
     initialValues[item] = selfGrade.items[item].score;
   }
+} else {
+  tasks[0].items.forEach((item) => {
+    initialValues[item.id] = 0;
+  });
 }
 
 const values = (state = initialValues, action) => {

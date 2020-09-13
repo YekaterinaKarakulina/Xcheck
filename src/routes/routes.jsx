@@ -15,6 +15,7 @@ import {
 } from '../pages';
 
 const Routes = ({ isLoggedIn }) => {
+  // const isLoggedIn = true;
   return (
     <Switch>
       {!isLoggedIn ? (
@@ -31,7 +32,7 @@ const Routes = ({ isLoggedIn }) => {
           <Route path="/reviews" component={ReviewsListPage} />
           <Route path="/task-form" component={TaskForm} />
           <Route path="/task-edit-form" component={TaskFormEdit} />
-          <Redirect to="/reviews" />
+          {/* <Redirect to="/reviews" /> */}
           <Route exact path="/cross-check-sessions" component={CrossCheckSessionsTable} />
           <Route
             path="/cross-check-sessions/cross-check-session-form"

@@ -107,7 +107,7 @@ class Check extends Component {
               Check Form
             </Title>
             <CheckForm
-              scopes={groups}
+              scopes={groups || {}}
               reviewRequest={reviewRequest}
               detailIds={detailIds}
               commentFieldIds={commentFieldIds}
