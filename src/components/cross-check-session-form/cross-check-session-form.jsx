@@ -21,7 +21,7 @@ const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
 const CrossCheckSessionFormCreation = (props) => {
-  const { handleSubmit, pristine, submitting, reset, submitButtonName } = props;
+  const { handleSubmit, pristine, submitting, reset, submitButtonName, tasks } = props;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -51,9 +51,13 @@ const CrossCheckSessionFormCreation = (props) => {
         validate={required}
         onBlur={(e) => e.preventDefault()}
       >
-        <Option value="id-1">id-1</Option>
-        <Option value="id-2">id-2</Option>
-        <Option value="id-3">id-3</Option>
+        {tasks.map(({ title, id }) => {
+          return (
+            <Option value={id} key={id}>
+              {title}
+            </Option>
+          );
+        })}
       </Field>
 
       <Field
@@ -146,6 +150,7 @@ CrossCheckSessionFormCreation.propTypes = {
   submitting: PropTypes.bool.isRequired,
   reset: PropTypes.func.isRequired,
   submitButtonName: PropTypes.string.isRequired,
+  tasks: PropTypes.instanceOf(Array).isRequired,
 };
 
 const form = reduxForm({

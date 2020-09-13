@@ -6,56 +6,79 @@ import { PageHeader } from 'antd';
 import moment from 'moment';
 import CrossCheckSessionFormCreation from '../../../components/cross-check-session-form';
 import { updateCrossCheckSession } from '../../../store/actions/cross-check-session';
-import transformFormValuesToCrossCheckSessionObject from '../../../utils/cross-check-sessions';
+import { getTasksTable } from '../../../store/actions/task';
+import {
+  transformFormValuesToCrossCheckSessionObject,
+  getTasksInfoForCrossCheckSessionForm,
+} from '../../../utils/cross-check-sessions';
 
-const CrossCheckSessionEditForm = (props) => {
-  const { initialValues, isRedirectToTableReady, updateCrossCheckSession } = props;
-  const dateFormat = 'YYYY-MM-DD';
-
-  const initialValuesTransformed = {
-    ...initialValues,
-    crossCheckSessionPeriod: [
-      moment(initialValues.crossCheckSessionPeriod[0], dateFormat),
-      moment(initialValues.crossCheckSessionPeriod[1], dateFormat),
-    ],
-  };
-
-  const onSubmit = (values) => {
-    const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
-    updateCrossCheckSession(crossCheckSession);
-  };
-
-  if (isRedirectToTableReady) {
-    return <Redirect to="/cross-check-sessions/" />;
+class CrossCheckSessionEditForm extends React.Component {
+  componentDidMount() {
+    const { getTasksTable } = this.props;
+    getTasksTable();
   }
 
-  return (
-    <div className="wrapper">
-      <PageHeader className="site-page-header" title="Edit CrossCheck session" />
-      <CrossCheckSessionFormCreation
-        onSubmit={onSubmit}
-        initialValues={initialValuesTransformed}
-        submitButtonName="Edit"
-      />
-    </div>
-  );
-};
+  render() {
+    const {
+      initialValues,
+      isRedirectToTableReady,
+      updateCrossCheckSession,
+      tasksTableData,
+    } = this.props;
+    const dateFormat = 'YYYY-MM-DD';
+
+    const initialValuesTransformed = {
+      ...initialValues,
+      crossCheckSessionPeriod: [
+        moment(initialValues.crossCheckSessionPeriod[0], dateFormat),
+        moment(initialValues.crossCheckSessionPeriod[1], dateFormat),
+      ],
+    };
+
+    const tasks = getTasksInfoForCrossCheckSessionForm(tasksTableData);
+
+    const onSubmit = (values) => {
+      const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
+      updateCrossCheckSession(crossCheckSession);
+    };
+
+    if (isRedirectToTableReady) {
+      return <Redirect to="/cross-check-sessions/" />;
+    }
+
+    return (
+      <div className="wrapper">
+        <PageHeader className="site-page-header" title="Edit CrossCheck session" />
+        <CrossCheckSessionFormCreation
+          onSubmit={onSubmit}
+          initialValues={initialValuesTransformed}
+          submitButtonName="Edit"
+          tasks={tasks}
+        />
+      </div>
+    );
+  }
+}
 
 CrossCheckSessionEditForm.propTypes = {
   initialValues: PropTypes.oneOfType([PropTypes.object]).isRequired,
   isRedirectToTableReady: PropTypes.bool.isRequired,
   updateCrossCheckSession: PropTypes.func.isRequired,
+  tasksTableData: PropTypes.instanceOf(Array).isRequired,
+  getTasksTable: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ crossCheckSessions }) => ({
+const mapStateToProps = ({ crossCheckSessions, tasksTableData }) => ({
   initialValues: crossCheckSessions.currentSessionInfo,
   isRedirectToTableReady: crossCheckSessions.isRedirectToTableReady,
+  tasksTableData,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     updateCrossCheckSession: (crossCheckSession) =>
       dispatch(updateCrossCheckSession(crossCheckSession)),
+    getTasksTable: () => dispatch(getTasksTable()),
   };
 };
 
