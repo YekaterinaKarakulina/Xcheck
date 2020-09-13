@@ -1,11 +1,9 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button, PageHeader } from 'antd';
 import { Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import { getCrossCheckSessions } from '../../../store/actions/cross-check-session';
-
 import CrossCheckSessionsTableCreation from '../../../components/cross-check-sessions-table/cross-check-sessions-table-creation';
 import mapData from '../../../components/cross-check-sessions-table/map-data';
 
@@ -33,6 +31,11 @@ class CrossCheckSessionsTable extends React.Component {
     );
   }
 }
+
+CrossCheckSessionsTable.propTypes = {
+  crossCheckSessionsData: PropTypes.instanceOf(Array).isRequired,
+  getCrossCheckSessions: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ crossCheckSessionsData }) => {
   return { crossCheckSessionsData };

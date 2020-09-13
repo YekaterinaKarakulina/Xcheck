@@ -33,7 +33,6 @@ CrossCheckSessionForm.propTypes = {
 };
 
 const mapStateToProps = ({ crossCheckSessions }) => ({
-  initialValues: crossCheckSessions.formValues,
   isRedirectToTableReady: crossCheckSessions.isRedirectToTableReady,
 });
 
