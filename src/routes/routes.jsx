@@ -15,7 +15,6 @@ import {
 } from '../pages';
 
 const Routes = ({ isLoggedIn }) => {
-  // const isLoggedIn = true;
   return (
     <Switch>
       {!isLoggedIn ? (

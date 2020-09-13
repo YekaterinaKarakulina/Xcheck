@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
@@ -21,7 +22,9 @@ const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
 const CrossCheckSessionFormCreation = (props) => {
-  const { handleSubmit, pristine, submitting, reset, submitButtonName } = props;
+  const { handleSubmit, pristine, submitting, reset, submitButtonName, values } = props;
+  console.log(props);
+  console.log(values);
 
   return (
     <form onSubmit={handleSubmit}>

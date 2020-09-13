@@ -1,19 +1,14 @@
-import {
-  POST_REVIEW_REQUEST_SUCCESS,
-  POST_REVIEW_REQUEST_FAILURE,
-} from '../../actions/types/review-requests';
+import { formValueSelector } from 'redux-form';
 
-const reviewRequest = (state = [], action) => {
+const selector = formValueSelector('reviewRequest');
+
+const reviewRequest = (state = {}, action) => {
   switch (action.type) {
-    case POST_REVIEW_REQUEST_SUCCESS:
-      return action.payload;
-
-    case POST_REVIEW_REQUEST_FAILURE:
-      console.log(action.payload);
-      return state;
-
     default:
-      return state;
+      return {
+        ...state,
+        hasChoiceCrossCheckSession: selector(state, 'hasChoiceCrossCheckSession'),
+      };
   }
 };
 
