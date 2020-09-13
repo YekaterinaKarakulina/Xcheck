@@ -32,104 +32,121 @@
         "author",
         "student"
       ]
+    },
+    {
+      "id": "59b7f101-3462-4cd2-a418-e210f4fb8149",
+      "githubId": "Ghuseynova",
+      "roles": [
+        "author"
+      ]
     }
   ],
   "tasks": [
     {
       "taskScore": 100,
-      "title": "!!!!!!!!!!!!!++++++++",
+      "title": "Task #1",
       "status": "closed",
-      "author": "2222",
-      "description": "Test ",
+      "author": "author1",
+      "description": "Task #1 description",
       "items": [
         {
-          "title": "4",
+          "title": "basic1",
           "category": "basic",
           "score": "20",
-          "description": "mjfhm"
+          "description": "You need to do some things"
         }
       ],
       "mentorCheck": true,
-      "taskId": "427c71eb-e81f-43db-8d15-c1629f0d758e",
-      "id": 1
+      "taskId": "task-1",
+      "id": "task-1"
     },
     {
       "taskScore": 100,
-      "title": "qwert",
-      "author": "hgd  hert 1",
+      "title": "Task #2",
+      "author": "author 2",
       "status": "open",
-      "description": "njfjmf",
+      "description": "Task #2 description",
       "items": [
         {
-          "title": "оароа",
+          "title": "basic1",
           "category": "basic",
           "score": "10",
-          "description": "jhfm"
+          "description": "You need to do some things"
         }
       ],
       "fine": true,
-      "taskId": "6d8413f7-eee7-4fde-a259-d180a0413dd9",
-      "id": 2
+      "taskId": "task-2",
+      "id": "task-2"
+    },
+    {
+      "taskScore": 100,
+      "title": "Task #3",
+      "author": "author 3",
+      "status": "open",
+      "description": "Task #3 description",
+      "items": [
+        {
+          "title": "basic1",
+          "category": "basic",
+          "score": "10",
+          "description": "You need to do some things"
+        }
+      ],
+      "fine": true,
+      "taskId": "task-3",
+      "id": "task-3"
     }
   ],
   "crossCheckSessions": [
     {
-      "id": "id-1",
+      "id": "xcheck-1",
       "title": "rss2020Q3react-songbird",
-      "author": "author2",
-      "state": "closed",
-      "taskId": "react-task-songbird",
-      "coefficient": 1,
-      "startDate": "2020-07-07",
-      "endDate": "2020-07-14",
-      "discardMinScore": true,
-      "discardMaxScore": false,
-      "minReviewsAmount": 1,
-      "desiredReviewersAmount": 2,
-      "attendees": []
-    },
-    {
-      "id": "id-2",
-      "title": "rss2020Q3react-xcheck",
       "author": "author1",
       "state": "active",
-      "taskId": "react-task-xcheck",
-      "coefficient": 0.7,
-      "startDate": "2020-08-22",
-      "endDate": "2020-09-22",
+      "taskId": "task-1",
+      "crossCheckSessionPeriod": [
+        "2020-07-08",
+        "2020-07-14"
+      ],
+      "coefficient": 0.2,
       "discardMinScore": true,
-      "discardMaxScore": false,
+      "discardMaxScore": true,
       "minReviewsAmount": 1,
-      "desiredReviewersAmount": 2,
+      "desiredReviewsAmount": 2,
       "attendees": []
     },
     {
-      "id": "id-3",
+      "id": "xcheck-2",
+      "title": "rss2020Q3react-xcheck",
+      "author": "author1",
+      "state": "closed",
+      "taskId": "task-2",
+      "crossCheckSessionPeriod": [
+        "2020-09-15",
+        "2020-09-17"
+      ],
+      "coefficient": 0.7,
+      "discardMinScore": true,
+      "discardMaxScore": true,
+      "minReviewsAmount": 1,
+      "desiredReviewsAmount": 2,
+      "attendees": []
+    },
+    {
+      "id": "xcheck-3",
       "title": "rss2020Q3react-schedule",
       "author": "author3",
       "state": "draft",
-      "taskId": "react-task-schedule",
+      "taskId": "task-3",
+      "crossCheckSessionPeriod": [
+        "2020-08-22",
+        "2020-09-22"
+      ],
       "coefficient": 0.7,
-      "startDate": "2020-08-22",
-      "endDate": "2020-09-22",
       "discardMinScore": true,
       "discardMaxScore": false,
       "minReviewsAmount": 1,
-      "desiredReviewersAmount": 2,
-      "attendees": []
-    },
-    {
-      "id": "rss2020Q3react-englishForKids",
-      "author": "author4",
-      "state": "draft",
-      "taskId": "id-1",
-      "coefficient": 1,
-      "startDate": "2020-09-06",
-      "endDate": "2020-10-13",
-      "discardMinScore": true,
-      "discardMaxScore": false,
-      "minReviewsAmount": 2,
-      "desiredReviewersAmount": 3,
+      "desiredReviewsAmount": 2,
       "attendees": []
     }
   ],
@@ -179,67 +196,11 @@
           }
         }
       }
-    },
-    {
-      "id": "rev-id-3",
-      "requestId": "rev-req-2",
-      "author": "author3",
-      "task": "xcheck",
-      "state": "draft",
-      "grade": {
-        "items": {
-          "basic_p1": {
-            "score": 10,
-            "comment": "Well done!"
-          },
-          "extra_p1": {
-            "score": 15,
-            "comment": "Some things are done, some are not"
-          },
-          "fines_p1": {
-            "score": 5,
-            "comment": "No ticket today"
-          }
-        }
-      }
     }
   ],
-  "requests": [
-    {
-      "key": "1",
-      "title": "Task1",
-      "author": "John Brown",
-      "description": "New York No. 1 Lake Park",
-      "taskId": "11",
-      "state": [
-        "closed"
-      ]
-    },
-    {
-      "key": "2",
-      "title": "Task2",
-      "author": "John Brown",
-      "description": "London No. 1 Lake Park",
-      "taskId": "22",
-      "state": [
-        "active"
-      ]
-    },
-    {
-      "key": "3",
-      "title": "Task3",
-      "author": "John Brown",
-      "description": "Sidney No. 1 Lake Park",
-      "taskId": "33",
-      "state": [
-        "archived"
-      ]
-    }
-  ],
-  "reviewRequest": [
+  "reviewRequests": [
     {
       "id": "rev-req-1",
-      "crossCheckSessionId": "rss2020Q3react-xcheck",
       "author": "cardamo",
       "task": "virtual keyboard",
       "state": "PUBLISHED",
@@ -249,7 +210,6 @@
     },
     {
       "id": "rev-req-2",
-      "crossCheckSessionId": "rss2020Q3react-xcheck",
       "author": "adamo",
       "task": "english fo kids",
       "state": "COMPLETED",
@@ -259,7 +219,6 @@
     },
     {
       "id": "rev-req-3",
-      "crossCheckSessionId": "rss2020Q3react-xcheck",
       "author": "darmamo",
       "task": "movie search",
       "state": "DRAFT",
@@ -269,7 +228,6 @@
     },
     {
       "id": "rev-req-4",
-      "crossCheckSessionId": "rss2020Q3react-xcheck",
       "author": "bardamo",
       "task": "songbird",
       "state": "DRAFT",

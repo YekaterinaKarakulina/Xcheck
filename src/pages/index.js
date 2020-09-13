@@ -1,21 +1,23 @@
-import TasksTable from './tasksTable/tasksTable';
+import TasksTable from './tasks/tasks-table/tasks-table';
 import Check from './check/check';
 import CrossCheckSessionsTable from './cross-check-sessions/cross-check-sessions-table';
-import CrossCheckSessionForm from './cross-check-sessions/cross-check-session-form';
-import ReviewsListPage from './reviewsListPage';
+import CrossCheckSessionLayout from './cross-check-sessions/cross-check-session-layout';
+import Reviews from './reviews';
 import GithubLogin from './github-login';
-import TaskForm from './taskForm/taskForm';
-import TaskFormEdit from './taskForm/taskFormEdit';
-import Requests from './requests';
+import TaskForm from './tasks/task-form/task-form';
+import TaskFormEdit from './tasks/task-form/task-form-edit';
+import ReviewRequestsTable from './review-requests/review-requests-table';
+import ReviewRequestForm from './review-requests/review-requests-form';
 
 export {
   CrossCheckSessionsTable,
+  CrossCheckSessionLayout,
   TasksTable,
-  ReviewsListPage,
-  GithubLogin,
-  CrossCheckSessionForm,
   TaskForm,
-  Check,
-  Requests,
   TaskFormEdit,
+  Reviews,
+  GithubLogin,
+  Check,
+  ReviewRequestsTable,
+  ReviewRequestForm,
 };

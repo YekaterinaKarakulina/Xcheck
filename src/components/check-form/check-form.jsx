@@ -1,99 +1,73 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable react/prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Field } from 'redux-form';
-import { Typography, Form, Input, Button, Radio } from 'antd';
-import makeField from '../forms/make-field';
+import { connect } from 'react-redux';
+import { reduxForm } from 'redux-form';
+import { Form, Button, Typography } from 'antd';
+import SelfGradeFields from './selfgrade-fields';
+import GradeFields from './grade-fields';
+
+const { Title } = Typography;
 
 const isObjectEmpty = (value) =>
   value && Object.keys(value).length === 0 && value.constructor === Object;
 
-const { Title } = Typography;
-const { TextArea } = Input;
-const RadioGroup = Radio.Group;
-
-const AInput = makeField(Input);
-const ATextarea = makeField(TextArea);
-const ARadioGroup = makeField(RadioGroup);
-
-const CheckForm = ({ groups, reviewRequest, handleSubmit }) => {
+// eslint-disable-next-line import/no-mutable-exports
+let CheckForm = ({
+  scopes,
+  reviewRequest,
+  handleSubmit,
+  submitting,
+  pristine,
+  toggleMore,
+  toggleAdd,
+  toggleShow,
+  detailIds,
+  commentFieldIds,
+  commentIds,
+}) => {
   const { selfGrade } = reviewRequest;
   const isSelfGradeEmpty = isObjectEmpty(selfGrade);
 
-  const formFields = groups.map((groupsItem) => {
+  const renderScopes = scopes.map((scope) => {
     return (
-      <div className="check__form-row" key={groupsItem.id}>
-        <Title level={3} className="check__form-row-title">
-          {groupsItem.title}
+      <div className="check__form-row" key={scope.id}>
+        <Title level={4} className="check__form-row-title">
+          {scope.title}
         </Title>
+
         <div className="check__form-row-body">
-          {isSelfGradeEmpty
-            ? groupsItem.items.map((gItem) => {
-                return (
-                  <div key={gItem.id} className="check__form-item">
-                    <div className="check__form-item-group">
-                      <Title level={4} className="check__form-item-title">
-                        {gItem.title}
-                      </Title>
-
-                      <p className="check__form-item-desc">{gItem.description}</p>
-                    </div>
-
-                    <div className="check__form-item-group">
-                      <Field name="rate" label="Your Rate" component={AInput} />
-
-                      <Field name="comment" label="Your Comment" component={ATextarea} />
-                    </div>
-                  </div>
-                );
-              })
-            : groupsItem.items.map((gItem) => {
-                const { comment } = selfGrade.items[gItem.id];
-
-                return (
-                  <div key={gItem.id} className="check__form-item">
-                    <div className="check__form-item-row">
-                      <div className="check__form-item-group">
-                        <Title level={4} className="check__form-item-title">
-                          {gItem.title}
-                        </Title>
-                        <div className="check__form-item-desc">{gItem.description}</div>
-                      </div>
-
-                      <div className="check__form-item-group">
-                        <Field name="rate" label="Student rate" component={AInput} />
-                        <div className="check__form-item-group-desc">
-                          <span>Student comment: </span>
-                          <span>{comment}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="check__form-item-row">
-                      <Field
-                        label="Performed"
-                        name={`performans-group-${gItem.id}`}
-                        component={ARadioGroup}
-                        value="0"
-                      >
-                        <Radio value="0">Not performed</Radio>
-                        <Radio value="50%">50% Performed </Radio>
-                        <Radio value="100%">100% Performed</Radio>
-                      </Field>
-
-                      <Field name="comment" label="Add feedback" component={ATextarea} />
-                    </div>
-                  </div>
-                );
-              })}
+          {isSelfGradeEmpty ? (
+            <SelfGradeFields
+              fields={scope.items}
+              detailIds={detailIds}
+              commentFieldIds={commentFieldIds}
+              toggleMore={toggleMore}
+              toggleAdd={toggleAdd}
+            />
+          ) : (
+            <GradeFields
+              fields={scope.items}
+              detailIds={detailIds}
+              commentIds={commentIds}
+              commentFieldIds={commentFieldIds}
+              toggleMore={toggleMore}
+              toggleAdd={toggleAdd}
+              toggleShow={toggleShow}
+              selfGrade={selfGrade}
+            />
+          )}
         </div>
       </div>
     );
   });
 
   return (
-    <Form onSubmit={handleSubmit} className="check__form">
-      <div className="check__form-inner"> {formFields}</div>
+    <Form onFinish={handleSubmit} className="check__form">
+      <div className="check__form-inner"> {renderScopes}</div>
       <div className="check__form-bottom">
-        <Button type="primary" htmlType="submit" size="large">
+        <Button type="primary" htmlType="submit" size="large" disabled={pristine || submitting}>
           Submit
         </Button>
       </div>
@@ -101,14 +75,12 @@ const CheckForm = ({ groups, reviewRequest, handleSubmit }) => {
   );
 };
 
-CheckForm.defaultProps = {
-  reviewRequest: {},
-};
+CheckForm = reduxForm({
+  form: 'checkForm',
+})(CheckForm);
 
-CheckForm.propTypes = {
-  groups: PropTypes.arrayOf(PropTypes.object).isRequired,
-  reviewRequest: PropTypes.objectOf(PropTypes.object),
-  handleSubmit: PropTypes.func.isRequired,
-};
+CheckForm = connect((state) => ({
+  initialValues: state.values,
+}))(CheckForm);
 
 export default CheckForm;
