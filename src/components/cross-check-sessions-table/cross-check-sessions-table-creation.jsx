@@ -12,8 +12,10 @@ import {
 } from '../../store/actions/cross-check-session';
 import checkStatus from '../../utils/status';
 
+import './cross-check-sessions-table-creation.scss';
+
 const CrossCheckSessionsTableCreation = (props) => {
-  const { getCrossCheckSession, deleteCrossCheckSession, history } = props;
+  const { getCrossCheckSession, deleteCrossCheckSession, history, reviewRequestsData } = props;
 
   const columns = [
     {
@@ -37,8 +39,8 @@ const CrossCheckSessionsTableCreation = (props) => {
     },
     {
       title: 'Task',
-      dataIndex: 'taskId',
-      key: 'taskId',
+      dataIndex: 'taskTitle',
+      key: 'taskTitle',
       render: (task) => <a>{task}</a>,
     },
     {
@@ -59,28 +61,46 @@ const CrossCheckSessionsTableCreation = (props) => {
     {
       title: 'Action',
       key: 'action',
-      render: (action, row) => (
-        <Space size="middle" data-id={row.id}>
-          <EyeTwoTone
-            twoToneColor="#9254de"
-            onClick={() => {
-              history.push(row.id);
-            }}
-          />
-          <EditTwoTone
-            twoToneColor="#ffa940"
-            onClick={() => {
-              getCrossCheckSession({ id: row.key, editMode: true });
-            }}
-          />
-          <CloseCircleTwoTone
-            twoToneColor="#ff4d4f"
-            onClick={() => {
-              deleteCrossCheckSession(row.key);
-            }}
-          />
-        </Space>
-      ),
+      render: (action, row) => {
+        return (
+          <Space size="middle" data-id={row.id}>
+            <EyeTwoTone
+              twoToneColor="#9254de"
+              onClick={() => {
+                history.push(row.id);
+              }}
+            />
+
+            <EditTwoTone
+              twoToneColor="#ffa940"
+              className={row.state === 'closed' ? 'disabled' : ''}
+              onClick={
+                row.state === 'closed'
+                  ? () => {}
+                  : () => {
+                      getCrossCheckSession({ id: row.key, editMode: true });
+                    }
+              }
+            />
+            <CloseCircleTwoTone
+              twoToneColor="#ff4d4f"
+              onClick={() => {
+                let isAbleToDelete = true;
+                reviewRequestsData.forEach((reviewRequest) => {
+                  if (reviewRequest.crossCheckSessionId === row.key) {
+                    isAbleToDelete = false;
+                  }
+                });
+                if (isAbleToDelete) {
+                  deleteCrossCheckSession(row.key);
+                } else {
+                  console.log('SHOW MODAL - CANNOT DELETE THIS SESSION');
+                }
+              }}
+            />
+          </Space>
+        );
+      },
     },
   ];
 
@@ -99,10 +119,12 @@ CrossCheckSessionsTableCreation.propTypes = {
   getCrossCheckSession: PropTypes.func.isRequired,
   deleteCrossCheckSession: PropTypes.func.isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
+  reviewRequestsData: PropTypes.instanceOf(Object).isRequired,
 };
 
-const mapStateToProps = ({ crossCheckSessions }) => ({
+const mapStateToProps = ({ crossCheckSessions, reviewRequestsData }) => ({
   isRedirectToFormReady: crossCheckSessions.isRedirectToFormReady,
+  reviewRequestsData,
 });
 
 const mapDispatchToProps = (dispatch) => {

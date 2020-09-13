@@ -22,9 +22,19 @@ const ACheckbox = makeField(Checkbox, formItemLayout);
 const ARangePicker = makeField(RangePicker, formItemLayout);
 
 const CrossCheckSessionFormCreation = (props) => {
-  const { handleSubmit, pristine, submitting, reset, submitButtonName, values } = props;
-  console.log(props);
-  console.log(values);
+  const {
+    handleSubmit,
+    pristine,
+    submitting,
+    reset,
+    submitButtonName,
+    tasks,
+    initialValues,
+  } = props;
+
+  const draftCheckbox = initialValues.draft ? (
+    <Field label="Create as DRAFT" name="draft" component={ACheckbox} type="checkbox" hasFeedback />
+  ) : null;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -47,16 +57,20 @@ const CrossCheckSessionFormCreation = (props) => {
       />
 
       <Field
-        label="Task id"
-        name="taskId"
+        label="Task title"
+        name="taskTitle"
         component={ASelect}
         hasFeedback
         validate={required}
         onBlur={(e) => e.preventDefault()}
       >
-        <Option value="id-1">id-1</Option>
-        <Option value="id-2">id-2</Option>
-        <Option value="id-3">id-3</Option>
+        {tasks.map(({ title, id }) => {
+          return (
+            <Option value={id} key={id}>
+              {title}
+            </Option>
+          );
+        })}
       </Field>
 
       <Field
@@ -117,13 +131,7 @@ const CrossCheckSessionFormCreation = (props) => {
         hasFeedback
       />
 
-      <Field
-        label="Create as DRAFT"
-        name="draft"
-        component={ACheckbox}
-        type="checkbox"
-        hasFeedback
-      />
+      {draftCheckbox}
 
       <FormItem {...tailFormItemLayout}>
         <Button
@@ -149,6 +157,8 @@ CrossCheckSessionFormCreation.propTypes = {
   submitting: PropTypes.bool.isRequired,
   reset: PropTypes.func.isRequired,
   submitButtonName: PropTypes.string.isRequired,
+  tasks: PropTypes.instanceOf(Array).isRequired,
+  initialValues: PropTypes.instanceOf(Object).isRequired,
 };
 
 const form = reduxForm({

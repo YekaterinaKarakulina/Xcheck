@@ -46,4 +46,16 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
   };
 };
 
-export default transformFormValuesToCrossCheckSessionObject;
+const getTasksInfoForCrossCheckSessionForm = (tasksTableData) => {
+  const tasks = [];
+  tasksTableData.forEach((task) => {
+    const { title, id } = task;
+    tasks.push({
+      title,
+      id,
+    });
+  });
+  return tasks;
+};
+
+export { transformFormValuesToCrossCheckSessionObject, getTasksInfoForCrossCheckSessionForm };
