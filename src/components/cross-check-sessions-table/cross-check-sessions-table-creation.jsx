@@ -15,7 +15,7 @@ import checkStatus from '../../utils/status';
 import './cross-check-sessions-table-creation.scss';
 
 const CrossCheckSessionsTableCreation = (props) => {
-  const { getCrossCheckSession, deleteCrossCheckSession, history } = props;
+  const { getCrossCheckSession, deleteCrossCheckSession, history, reviewRequestsData } = props;
 
   const columns = [
     {
@@ -85,7 +85,17 @@ const CrossCheckSessionsTableCreation = (props) => {
             <CloseCircleTwoTone
               twoToneColor="#ff4d4f"
               onClick={() => {
-                deleteCrossCheckSession(row.key);
+                let isAbleToDelete = true;
+                reviewRequestsData.forEach((reviewRequest) => {
+                  if (reviewRequest.crossCheckSessionId === row.key) {
+                    isAbleToDelete = false;
+                  }
+                });
+                if (isAbleToDelete) {
+                  deleteCrossCheckSession(row.key);
+                } else {
+                  console.log('SHOW MODAL - CANNOT DELETE THIS SESSION');
+                }
               }}
             />
           </Space>
@@ -109,10 +119,12 @@ CrossCheckSessionsTableCreation.propTypes = {
   getCrossCheckSession: PropTypes.func.isRequired,
   deleteCrossCheckSession: PropTypes.func.isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
+  reviewRequestsData: PropTypes.instanceOf(Object).isRequired,
 };
 
-const mapStateToProps = ({ crossCheckSessions }) => ({
+const mapStateToProps = ({ crossCheckSessions, reviewRequestsData }) => ({
   isRedirectToFormReady: crossCheckSessions.isRedirectToFormReady,
+  reviewRequestsData,
 });
 
 const mapDispatchToProps = (dispatch) => {

@@ -82,9 +82,10 @@ function* workerUpdateCrossCheckSession(action) {
 
 function* workerDeleteCrossCheckSession(action) {
   const id = action.payload;
-  const uri = `http://localhost:3000/crossCheckSessions/${id}`;
+  // const uri = `http://localhost:3000/crossCheckSessions/${id}`;
   try {
-    yield call(axios.delete, uri);
+    // yield call(axios.delete, uri);
+    // yield put({ type: GET_REVIEW_REQUESTS });
     yield put({ type: DELETE_CROSSCHECK_SESSION_SUCCESS });
     yield put({ type: GET_CROSSCHECK_SESSIONS });
   } catch {

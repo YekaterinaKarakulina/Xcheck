@@ -103,7 +103,7 @@
       "title": "rss2020Q3react-songbird",
       "author": "author1",
       "state": "active",
-      "taskId": "task-1",
+      "taskTitle": "Task #1",
       "crossCheckSessionPeriod": [
         "2020-07-08",
         "2020-07-14"
@@ -120,7 +120,7 @@
       "title": "rss2020Q3react-xcheck",
       "author": "author1",
       "state": "closed",
-      "taskId": "task-2",
+      "taskTitle": "Task #2",
       "crossCheckSessionPeriod": [
         "2020-09-15",
         "2020-09-17"
@@ -137,7 +137,7 @@
       "title": "rss2020Q3react-schedule",
       "author": "author3",
       "state": "draft",
-      "taskId": "task-3",
+      "taskTitle": "Task #3",
       "crossCheckSessionPeriod": [
         "2020-08-22",
         "2020-09-22"
@@ -233,7 +233,8 @@
       "state": "DRAFT",
       "selfGrade": {},
       "urlTask": "#",
-      "urlAuthor": "#"
+      "urlAuthor": "#",
+      "crossCheckSessionId": "xcheck-3"
     }
   ]
 }
