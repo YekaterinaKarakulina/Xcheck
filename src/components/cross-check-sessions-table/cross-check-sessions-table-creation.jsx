@@ -39,8 +39,8 @@ const CrossCheckSessionsTableCreation = (props) => {
     },
     {
       title: 'Task',
-      dataIndex: 'taskId',
-      key: 'taskId',
+      dataIndex: 'taskTitle',
+      key: 'taskTitle',
       render: (task) => <a>{task}</a>,
     },
     {

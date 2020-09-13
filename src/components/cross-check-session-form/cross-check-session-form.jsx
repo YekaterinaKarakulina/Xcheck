@@ -56,8 +56,8 @@ const CrossCheckSessionFormCreation = (props) => {
       />
 
       <Field
-        label="Task id"
-        name="taskId"
+        label="Task title"
+        name="taskTitle"
         component={ASelect}
         hasFeedback
         validate={required}
