@@ -33,6 +33,7 @@ class CrossCheckSessionEditForm extends React.Component {
         moment(initialValues.crossCheckSessionPeriod[0], dateFormat),
         moment(initialValues.crossCheckSessionPeriod[1], dateFormat),
       ],
+      draft: initialValues.state === 'draft',
     };
 
     const tasks = getTasksInfoForCrossCheckSessionForm(tasksTableData);
