@@ -15,7 +15,7 @@ function* workerPostReviewRequest(action) {
   } catch {
     yield put({
       type: POST_REVIEWS_REQUEST_FAILURE,
-      payload: `ERROR! Cannot post crossCheck session at ${uri}`,
+      payload: `ERROR! Cannot post reviewRequest at ${uri}`,
     });
   }
 }

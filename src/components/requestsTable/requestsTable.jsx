@@ -112,7 +112,7 @@ class RequestsTable extends React.Component {
         render: (record) => {
           const isEmptySelfGrade = isEmpty(record.selfGrade);
           const { state } = record;
-          
+
           if (state === 'COMPLETED') {
             return null;
           }
