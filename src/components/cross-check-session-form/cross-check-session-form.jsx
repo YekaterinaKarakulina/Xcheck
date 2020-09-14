@@ -158,7 +158,11 @@ CrossCheckSessionFormCreation.propTypes = {
   reset: PropTypes.func.isRequired,
   submitButtonName: PropTypes.string.isRequired,
   tasks: PropTypes.instanceOf(Array).isRequired,
-  initialValues: PropTypes.instanceOf(Object).isRequired,
+  initialValues: PropTypes.instanceOf(Object),
+};
+
+CrossCheckSessionFormCreation.defaultProps = {
+  initialValues: {},
 };
 
 const form = reduxForm({
