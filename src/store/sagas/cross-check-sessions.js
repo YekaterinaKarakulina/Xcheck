@@ -34,12 +34,15 @@ function* workerGetCrossCheckSessions() {
   }
 }
 
-function* workerGetCrossCheckSessionById(action) {
+function* workerGetCrossCheckSession(action) {
+  const { id, editMode } = action.payload;
   try {
-    const uri = `http://localhost:3000/crossCheckSessions/${action.payload}`;
+    const uri = `http://localhost:3000/crossCheckSessions/${id}`;
     const result = yield call(axios.get, uri);
     yield put({ type: GET_CROSSCHECK_SESSION_SUCCESS, payload: result.data });
-    yield put({ type: REDIRECT_TO_CROSSCHECK_SESSION_FORM });
+    if (editMode) {
+      yield put({ type: REDIRECT_TO_CROSSCHECK_SESSION_FORM });
+    }
   } catch {
     yield put({
       type: GET_CROSSCHECK_SESSION_FAILURE,
@@ -94,7 +97,7 @@ function* workerDeleteCrossCheckSession(action) {
 
 function* watchCrossCheckSessions() {
   yield takeEvery(GET_CROSSCHECK_SESSIONS, workerGetCrossCheckSessions);
-  yield takeEvery(GET_CROSSCHECK_SESSION, workerGetCrossCheckSessionById);
+  yield takeEvery(GET_CROSSCHECK_SESSION, workerGetCrossCheckSession);
   yield takeEvery(POST_CROSSCHECK_SESSION, workerPostCrossCheckSession);
   yield takeEvery(UPDATE_CROSSCHECK_SESSION, workerUpdateCrossCheckSession);
   yield takeEvery(DELETE_CROSSCHECK_SESSION, workerDeleteCrossCheckSession);

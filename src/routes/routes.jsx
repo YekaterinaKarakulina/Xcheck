@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import {
   CrossCheckSessionsTable,
-  CrossCheckSessionForm,
-  CrossCheckSessionEditForm,
+  CrossCheckSessionLayout,
   TasksTable,
   TaskForm,
   TaskFormEdit,
@@ -25,27 +24,19 @@ const Routes = ({ isLoggedIn }) => {
           <Redirect to="/login" />
         </>
       ) : (
-        <>
-          <Route path="/tasks" component={TasksTable} />
-          <Route path="/check" component={Check} />
-          <Route path="/review-requests" component={ReviewRequestsTable} />
-          <Route path="/review-request-form" component={ReviewRequestForm} />
-          <Route path="/reviews" component={Reviews} />
-          <Route path="/task-form" component={TaskForm} />
-          <Route path="/task-edit-form" component={TaskFormEdit} />
-          <Route exact path="/cross-check-sessions" component={CrossCheckSessionsTable} />
-          <Route
-            path="/cross-check-sessions/cross-check-session-form"
-            component={CrossCheckSessionForm}
-          />
-          <Route
-            path="/cross-check-sessions/cross-check-session-edit-form"
-            component={CrossCheckSessionEditForm}
-          />
-          <Route path="/tasks-description" component={TaskDetails} />
-          {/* <Redirect to="/reviews" /> */}
-        </>
-      )}
+          <>
+            <Route path="/tasks" component={TasksTable} />
+            <Route path="/check" component={Check} />
+            <Route path="/review-requests" component={ReviewRequestsTable} />
+            <Route path="/review-request-form" component={ReviewRequestForm} />
+            <Route path="/reviews" component={Reviews} />
+            <Route path="/task-form" component={TaskForm} />
+            <Route path="/task-edit-form" component={TaskFormEdit} />
+            <Route exact path="/cross-check-sessions/" component={CrossCheckSessionsTable} />
+            <Route path="/cross-check-sessions/:id" component={CrossCheckSessionLayout} />
+            {/* <Redirect to="/reviews" /> */}
+          </>
+        )}
     </Switch>
   );
 };

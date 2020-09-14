@@ -1,4 +1,3 @@
-import moment from 'moment';
 import {
   GET_CROSSCHECK_SESSION_SUCCESS,
   GET_CROSSCHECK_SESSION_FAILURE,
@@ -15,21 +14,16 @@ import {
 const initialState = {
   isRedirectToTableReady: false,
   isRedirectToFormReady: false,
-  formValues: {},
+  currentSessionInfo: {},
 };
 
 const crossCheckSessions = (state = initialState, action) => {
-  const dateFormat = 'YYYY-MM-DD';
   switch (action.type) {
     case GET_CROSSCHECK_SESSION_SUCCESS:
       return {
         ...state,
-        formValues: {
+        currentSessionInfo: {
           ...action.payload,
-          crossCheckSessionPeriod: [
-            moment(action.payload.crossCheckSessionPeriod[0], dateFormat),
-            moment(action.payload.crossCheckSessionPeriod[1], dateFormat),
-          ],
         },
         isRedirectToTableReady: false,
         isRedirectToFormReady: false,
@@ -55,7 +49,7 @@ const crossCheckSessions = (state = initialState, action) => {
         ...state,
         isRedirectToTableReady: false,
         isRedirectToFormReady: false,
-        formValues: {},
+        currentSessionInfo: {},
       };
 
     case UPDATE_CROSSCHECK_SESSION_FAILURE:

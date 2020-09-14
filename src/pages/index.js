@@ -1,10 +1,7 @@
 import TasksTable from './tasks/tasks-table/tasks-table';
 import Check from './check/check';
 import CrossCheckSessionsTable from './cross-check-sessions/cross-check-sessions-table';
-import {
-  CrossCheckSessionForm,
-  CrossCheckSessionEditForm,
-} from './cross-check-sessions/cross-check-session-forms';
+import CrossCheckSessionLayout from './cross-check-sessions/cross-check-session-layout';
 import Reviews from './reviews';
 import GithubLogin from './github-login';
 import TaskForm from './tasks/task-form/task-form';
@@ -15,8 +12,7 @@ import TaskDetails from './tasks/task-details';
 
 export {
   CrossCheckSessionsTable,
-  CrossCheckSessionForm,
-  CrossCheckSessionEditForm,
+  CrossCheckSessionLayout,
   TasksTable,
   TaskForm,
   TaskFormEdit,
