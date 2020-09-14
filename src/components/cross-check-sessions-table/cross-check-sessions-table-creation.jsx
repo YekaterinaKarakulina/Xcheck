@@ -9,13 +9,24 @@ import PropTypes from 'prop-types';
 import {
   getCrossCheckSession,
   deleteCrossCheckSession,
+  openModal,
+  closeModal,
 } from '../../store/actions/cross-check-session';
 import checkStatus from '../../utils/status';
+import { CrossCheckSessionModal } from '../modals';
 
 import './cross-check-sessions-table-creation.scss';
 
 const CrossCheckSessionsTableCreation = (props) => {
-  const { getCrossCheckSession, deleteCrossCheckSession, history, reviewRequestsData } = props;
+  const {
+    getCrossCheckSession,
+    deleteCrossCheckSession,
+    history,
+    reviewRequestsData,
+    isModalVisible,
+    openModal,
+    closeModal,
+  } = props;
 
   const columns = [
     {
@@ -63,42 +74,45 @@ const CrossCheckSessionsTableCreation = (props) => {
       key: 'action',
       render: (action, row) => {
         return (
-          <Space size="middle" data-id={row.id}>
-            <EyeTwoTone
-              twoToneColor="#9254de"
-              onClick={() => {
-                history.push(row.id);
-              }}
-            />
+          <>
+            <Space size="middle" data-id={row.id}>
+              <EyeTwoTone
+                twoToneColor="#9254de"
+                onClick={() => {
+                  history.push(row.id);
+                }}
+              />
 
-            <EditTwoTone
-              twoToneColor="#ffa940"
-              className={row.state === 'closed' ? 'disabled' : ''}
-              onClick={
-                row.state === 'closed'
-                  ? () => {}
-                  : () => {
-                      getCrossCheckSession({ id: row.key, editMode: true });
-                    }
-              }
-            />
-            <CloseCircleTwoTone
-              twoToneColor="#ff4d4f"
-              onClick={() => {
-                let isAbleToDelete = true;
-                reviewRequestsData.forEach((reviewRequest) => {
-                  if (reviewRequest.crossCheckSessionId === row.key) {
-                    isAbleToDelete = false;
-                  }
-                });
-                if (isAbleToDelete) {
-                  deleteCrossCheckSession(row.key);
-                } else {
-                  console.log('SHOW MODAL - CANNOT DELETE THIS SESSION');
+              <EditTwoTone
+                twoToneColor="#ffa940"
+                className={row.state === 'closed' ? 'disabled' : ''}
+                onClick={
+                  row.state === 'closed'
+                    ? () => {}
+                    : () => {
+                        getCrossCheckSession({ id: row.key, editMode: true });
+                      }
                 }
-              }}
-            />
-          </Space>
+              />
+              <CloseCircleTwoTone
+                twoToneColor="#ff4d4f"
+                onClick={() => {
+                  let isAbleToDelete = true;
+                  reviewRequestsData.forEach((reviewRequest) => {
+                    if (reviewRequest.crossCheckSessionId === row.key) {
+                      isAbleToDelete = false;
+                    }
+                  });
+                  if (isAbleToDelete) {
+                    deleteCrossCheckSession(row.key);
+                  } else {
+                    openModal();
+                  }
+                }}
+              />
+            </Space>
+            <CrossCheckSessionModal isModalVisible={isModalVisible} closeModal={closeModal} />
+          </>
         );
       },
     },
@@ -120,10 +134,14 @@ CrossCheckSessionsTableCreation.propTypes = {
   deleteCrossCheckSession: PropTypes.func.isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
   reviewRequestsData: PropTypes.instanceOf(Object).isRequired,
+  isModalVisible: PropTypes.bool.isRequired,
+  openModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ crossCheckSessions, reviewRequestsData }) => ({
   isRedirectToFormReady: crossCheckSessions.isRedirectToFormReady,
+  isModalVisible: crossCheckSessions.isModalVisible,
   reviewRequestsData,
 });
 
@@ -131,6 +149,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getCrossCheckSession: ({ id, editMode }) => dispatch(getCrossCheckSession({ id, editMode })),
     deleteCrossCheckSession: (id) => dispatch(deleteCrossCheckSession(id)),
+    openModal: () => dispatch(openModal()),
+    closeModal: () => dispatch(closeModal()),
   };
 };
 
