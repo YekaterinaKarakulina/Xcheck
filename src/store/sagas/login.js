@@ -32,7 +32,6 @@ function* workerLogin(action) {
         yield put({ type: SET_USER_ROLES_SUCCESS, payload: result.data[0].roles });
       } else {
         // post a user
-        // TODO: post only if user doesn't exist in db.json
         const url = 'http://localhost:3000/users';
         const user = {
           id: uuidv4(),

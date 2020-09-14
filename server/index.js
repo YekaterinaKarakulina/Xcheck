@@ -19,10 +19,10 @@ app.post("/authenticate", (req, res) => {
   const { code } = req.body;
 
   const data = new FormData();
-  data.append("client_id", process.env.CLIENT_ID);
-  data.append("client_secret", process.env.CLIENT_SECRET);
+  data.append("client_id", '3cdd93c64851d7e52a5d');
+  data.append("client_secret", '5e7c3eb366144c3855ecd06394de075dd5b72322');
   data.append("code", code);
-  data.append("redirect_uri", process.env.REDIRECT_URI);
+  data.append("redirect_uri", 'http://localhost:8080/login');
 
   fetch(`https://github.com/login/oauth/access_token`, {
     method: "POST",
