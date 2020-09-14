@@ -2,7 +2,6 @@ import { combineReducers } from 'redux';
 
 import { reducer as reduxFormReducer } from 'redux-form';
 
-import users from './users';
 import tasks from './tasks/tasks';
 import tasksTableData from './tasks/tasks-table';
 import reviews from './reviews';
@@ -16,7 +15,6 @@ import values from './values';
 import reviewRequests from './review-requests/review-requests';
 
 const rootReducer = combineReducers({
-  users,
   tasks,
   crossCheckSessionsData,
   crossCheckSessions,

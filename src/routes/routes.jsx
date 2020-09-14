@@ -8,7 +8,7 @@ import {
   TaskForm,
   TaskFormEdit,
   Check,
-  GithubLogin,
+  Login,
   Reviews,
   ReviewRequestsTable,
   ReviewRequestForm,
@@ -19,7 +19,7 @@ const Routes = ({ isLoggedIn }) => {
     <Switch>
       {!isLoggedIn ? (
         <>
-          <Route path="/login" component={GithubLogin} />
+          <Route path="/login" component={Login} />
           <Redirect to="/login" />
         </>
       ) : (

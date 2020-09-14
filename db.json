@@ -39,6 +39,16 @@
       "roles": [
         "author"
       ]
+    },
+    {
+      "id": "b08a13d8-5df2-4953-be60-0ed72617c58f",
+      "githubId": "Kipris",
+      "roles": [
+        "author",
+        "student",
+        "supervisor",
+        "course_manager"
+      ]
     }
   ],
   "tasks": [

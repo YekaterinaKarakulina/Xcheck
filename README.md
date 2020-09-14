@@ -44,7 +44,7 @@ node server/index.js
 ## Run app with make
 ```bash
 make db
-make server
+make auth-server
 make start
 ```
 

@@ -3,8 +3,10 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT_SUCCESS,
-  SET_USER_ROLES,
-} from '../actions/types-old';
+  SET_USER_ROLES_SUCCESS,
+  GET_USER_BY_GITHUBID_SUCCESS,
+} from '../actions/types/login';
+import { getRoles } from '../../utils';
 
 const initialState = {
   isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn')) || false,
@@ -14,7 +16,7 @@ const initialState = {
   proxyUrl: 'http://localhost:5000/authenticate',
   loading: false,
   errorMessage: null,
-  roles: JSON.parse(localStorage.getItem('roles')) || [],
+  roles: getRoles(),
 };
 
 const login = (state = initialState, action) => {
@@ -27,29 +29,33 @@ const login = (state = initialState, action) => {
       };
     }
     case LOGIN_SUCCESS: {
-      localStorage.setItem('isLoggedIn', JSON.stringify(action.payload.isLoggedIn));
-      localStorage.setItem('user', JSON.stringify(action.payload.user));
+      localStorage.setItem('isLoggedIn', JSON.stringify(true));
+      localStorage.setItem('user', JSON.stringify(action.payload));
       return {
         ...state,
-        isLoggedIn: action.payload.isLoggedIn,
-        user: action.payload.user,
+        isLoggedIn: true,
+        user: action.payload,
         loading: true,
         errorMessage: null,
-      };
-    }
-    case SET_USER_ROLES: {
-      localStorage.setItem('roles', JSON.stringify(action.payload.roles));
-      return {
-        ...state,
-        roles: action.payload.roles,
       };
     }
     case LOGIN_FAILURE: {
       return {
         ...state,
         loading: false,
-        errorMessage: action.payload.errorMessage,
+        errorMessage: action.payload,
       };
+    }
+    case SET_USER_ROLES_SUCCESS: {
+      const roles = [...action.payload].join(',');
+      localStorage.setItem('roles', JSON.stringify(roles));
+      return {
+        ...state,
+        roles: action.payload,
+      };
+    }
+    case GET_USER_BY_GITHUBID_SUCCESS: {
+      return state;
     }
     case LOGOUT_SUCCESS: {
       localStorage.clear();

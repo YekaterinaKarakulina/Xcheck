@@ -3,7 +3,7 @@ import Check from './check/check';
 import CrossCheckSessionsTable from './cross-check-sessions/cross-check-sessions-table';
 import CrossCheckSessionLayout from './cross-check-sessions/cross-check-session-layout';
 import Reviews from './reviews';
-import GithubLogin from './github-login';
+import Login from './login';
 import TaskForm from './tasks/task-form/task-form';
 import TaskFormEdit from './tasks/task-form/task-form-edit';
 import ReviewRequestsTable from './review-requests/review-requests-table';
@@ -16,7 +16,7 @@ export {
   TaskForm,
   TaskFormEdit,
   Reviews,
-  GithubLogin,
+  Login,
   Check,
   ReviewRequestsTable,
   ReviewRequestForm,
