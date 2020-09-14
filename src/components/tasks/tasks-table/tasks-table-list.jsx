@@ -1,10 +1,10 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Table, Tag, Space, Button, Input } from 'antd';
-import { CloseCircleTwoTone, SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
+import { SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
 import checkStatus from '../../../utils/status';
 import { getTaskSessionById } from '../../../store/actions/task';
@@ -76,7 +76,16 @@ class TasksTable extends React.Component {
     this.setState({ searchText: '' });
   };
 
+  handleClick = (taskId, editMode) => {
+    const { getTaskSessionById, history } = this.props;
+    getTaskSessionById(taskId);
+    return editMode
+      ? history.push(`/task-edit-form/${taskId}`)
+      : history.push(`/tasks-description/${taskId}`);
+  };
+
   render() {
+    const editMode = false;
     const columns = [
       {
         title: 'Title',
@@ -112,25 +121,22 @@ class TasksTable extends React.Component {
           <Space size="large">
             <Button
               type="link"
-              onClick={() => {
-                const { getTaskSessionById } = this.props;
-                getTaskSessionById(taskId);
-              }}
+              onClick={() => this.handleClick(taskId, !editMode)}
               icon={<EditTwoTone twoToneColor="#ffa940" />}
               size="small"
             />
-            <Button type="link" icon={<EyeTwoTone twoToneColor="#9254de" />} size="small" />
-            <Button type="link" icon={<CloseCircleTwoTone twoToneColor="#ff4d4f" />} size="small" />
+            <Button
+              type="link"
+              onClick={() => this.handleClick(taskId, editMode)}
+              icon={<EyeTwoTone twoToneColor="#9254de" />}
+              size="small"
+            />
           </Space>
         ),
       },
     ];
 
-    const { tableData, isRedirectToFormReady } = this.props;
-    if (isRedirectToFormReady) {
-      return <Redirect to="/task-edit-form" />;
-    }
-
+    const { tableData } = this.props;
     return <Table columns={columns} dataSource={tableData} />;
   }
 }
@@ -138,11 +144,10 @@ class TasksTable extends React.Component {
 TasksTable.propTypes = {
   tableData: PropTypes.instanceOf(Array).isRequired,
   getTaskSessionById: PropTypes.func.isRequired,
-  isRedirectToFormReady: PropTypes.bool.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = ({ tasks }) => ({
-  isRedirectToFormReady: tasks.isRedirectToFormReady,
   tasks,
 });
 
@@ -152,4 +157,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TasksTable);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TasksTable));
