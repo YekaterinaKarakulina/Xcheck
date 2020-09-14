@@ -1,8 +1,17 @@
 .check {
   margin: 2rem 0 5rem;
+  padding: 0 5rem;
+
   &__container {
-    max-width: 1140px;
     margin: 0 auto;
+
+    @media only screen and (min-width: 992px) {
+      max-width: 960px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      max-width: 720px;
+    }
   }
 
   &__title {
@@ -24,6 +33,10 @@
     &-item {
       margin-bottom: 4rem;
 
+      &-top {
+        display: flex;
+      }
+
       &-row {
         margin-bottom: 2rem;
       }
@@ -37,7 +50,6 @@
       }
 
       &-desc {
-        margin-left: 2rem;
       }
 
       .ant-form-item-control-input {

@@ -3,7 +3,7 @@ const getRoles = () => {
   if (!roles) {
     return ['student'];
   }
-  return roles.search(/,/) !== -1 ? roles : roles.replace(/"/g, '').split(',');
+  return roles.replace(/"/g, '').split(',');
 };
 
 export default getRoles;

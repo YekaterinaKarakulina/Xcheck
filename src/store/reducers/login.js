@@ -4,7 +4,8 @@ import {
   LOGIN_FAILURE,
   LOGOUT_SUCCESS,
   SET_USER_ROLES_SUCCESS,
-} from '../actions/types';
+  GET_USER_BY_GITHUBID_SUCCESS,
+} from '../actions/types/login';
 import { getRoles } from '../../utils';
 
 const initialState = {
@@ -52,6 +53,9 @@ const login = (state = initialState, action) => {
         ...state,
         roles: action.payload,
       };
+    }
+    case GET_USER_BY_GITHUBID_SUCCESS: {
+      return state;
     }
     case LOGOUT_SUCCESS: {
       localStorage.clear();

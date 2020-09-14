@@ -1,4 +1,9 @@
-import { GET_TASK_SESSION_BY_ID, POST_TASK_SESSIONS, UPDATE_TASK_SESSION } from './types';
+import {
+  GET_TASK_SESSION_BY_ID,
+  POST_TASK_SESSIONS,
+  UPDATE_TASK_SESSION,
+  GET_TASKSTABLE_SESSIONS,
+} from './types/task';
 
 const getTaskSessionById = (id) => {
   return {
@@ -21,4 +26,10 @@ const updateTaskSession = (values) => {
   };
 };
 
-export { getTaskSessionById, postTaskSession, updateTaskSession };
+const getTasksTable = () => {
+  return {
+    type: GET_TASKSTABLE_SESSIONS,
+  };
+};
+
+export { getTaskSessionById, postTaskSession, updateTaskSession, getTasksTable };
