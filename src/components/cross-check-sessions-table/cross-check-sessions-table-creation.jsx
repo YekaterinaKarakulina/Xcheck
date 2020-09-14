@@ -28,8 +28,6 @@ const CrossCheckSessionsTableCreation = (props) => {
     closeModal,
   } = props;
 
-  console.log(`isModalVisible ${isModalVisible}`);
-
   const columns = [
     {
       title: 'Title',
@@ -108,7 +106,6 @@ const CrossCheckSessionsTableCreation = (props) => {
                   if (isAbleToDelete) {
                     deleteCrossCheckSession(row.key);
                   } else {
-                    console.log('SHOW MODAL - CANNOT DELETE THIS SESSION');
                     openModal();
                   }
                 }}

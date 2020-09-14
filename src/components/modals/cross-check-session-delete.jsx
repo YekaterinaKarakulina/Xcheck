@@ -19,7 +19,7 @@ const CrossCheckSessionModal = (props) => {
     >
       <>
         <FrownTwoTone twoToneColor="#ff4d4f" style={{ marginRight: '1rem' }} />
-        <span>This crossCheck session has linked review request!!!</span>
+        <span>This crossCheck session has linked review request!</span>
       </>
     </Modal>
   );
