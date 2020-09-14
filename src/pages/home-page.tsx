@@ -4,7 +4,7 @@ import { Dispatch } from 'redux';
 import { Link, Redirect } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { getUsers, postUser } from '../store/actions';
-import { logoutSuccess } from '../store/actions/login';
+import { logout } from '../store/actions/login';
 import { getLoginStatus, getUser, getUserRoles } from '../store/selectors/login';
 
 interface Props {
@@ -92,7 +92,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     postUser: (user) => dispatch(postUser(user)),
     getUsers: () => dispatch(getUsers()),
-    logout: () => dispatch(logoutSuccess()),
+    logout: () => dispatch(logout()),
   };
 };
 

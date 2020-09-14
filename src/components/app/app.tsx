@@ -1,10 +1,8 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
-import { getUsers, postUser } from '../../store/actions';
-import { logoutSuccess } from '../../store/actions/login';
+import { logout } from '../../store/actions/login';
 import { getLoginStatus, getUser, getUserRoles } from '../../store/selectors/login';
 import Sidebar from '../sidebar';
 import Routes from '../../routes';
@@ -14,49 +12,22 @@ interface Props {
   props?: any;
   state: any;
   isLoggedIn: Boolean;
-  users: Array<Object>;
   user: Object;
-  dispatch?: Dispatch;
-  getUsers(): Object;
-  postUser({ id: String, githubId: String, roles: Array }): Object;
-  logout(): Object;
   roles: Array<String>;
+  dispatch?: Dispatch;
+  logout(): Object;
 }
 
 class App extends React.PureComponent<Props, {}> {
-  componentDidMount() {
-    const { getUsers } = this.props;
-    getUsers();
-  }
-
-  componentDidUpdate(prevProps) {
-    const { postUser, isLoggedIn, users, user, roles } = this.props;
-    if (!prevProps.users.length && users.length) {
-      if (isLoggedIn) {
-        const isUserExists = users.filter(({ githubId }) => githubId === user.login);
-        if (isUserExists.length) {
-          return;
-        }
-        const { login } = user;
-        const id = uuidv4();
-        postUser({ id, githubId: login, roles });
-      }
-    }
-  }
-
   render() {
-    const { isLoggedIn, users, user, logout } = this.props;
-    let currentUser = {};
+    const { isLoggedIn, user, roles, logout } = this.props;
     let userInfo = {};
-    if (isLoggedIn) {
-      [currentUser] = users.filter(({ githubId }) => githubId === user.login);
-      if (currentUser) {
-        userInfo = {
-          avatarUrl: user.avatar_url,
-          name: user.name,
-          roles: currentUser.roles,
-        };
-      }
+    if (user) {
+      userInfo = {
+        avatarUrl: user.avatar_url,
+        name: user.name,
+        roles,
+      };
     }
     return (
       <Layout style={{ minHeight: '100vh' }}>
@@ -70,7 +41,6 @@ class App extends React.PureComponent<Props, {}> {
 }
 
 const mapStateToProps = (state) => ({
-  users: state.users,
   isLoggedIn: getLoginStatus(state),
   user: getUser(state),
   roles: getUserRoles(state),
@@ -78,9 +48,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getUsers: () => dispatch(getUsers()),
-    postUser: (user) => dispatch(postUser(user)),
-    logout: () => dispatch(logoutSuccess()),
+    logout: () => dispatch(logout()),
   };
 };
 

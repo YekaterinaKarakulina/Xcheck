@@ -11,37 +11,196 @@
       ]
     },
     {
-      "id": "4dc0685c-df82-4db1-8d5b-ac31f954434e",
-      "githubId": "KatiaR",
+      "id": "1b3847c1-2b0a-46e3-b4cc-3b1fcef006b1",
+      "githubId": "Kipris",
+      "roles": [
+        "student",
+        "supervisor"
+      ]
+    },
+    {
+      "id": "e520c0c9-3f61-443a-a9bc-316a9eed5fc5",
+      "githubId": "Kipris",
       "roles": []
-    }
-  ],
-  "tasks": [
-    {
-      "key": "1",
-      "title": "Task1",
-      "author": "John Brown",
-      "description": "New York No. 1 Lake Park",
-      "taskId": "11",
-      "status": "closed"
     },
     {
-      "key": "2",
-      "title": "Task2",
-      "author": "John Brown",
-      "description": "London No. 1 Lake Park",
-      "taskId": "22",
-      "status": "open"
+      "id": "a0137bdc-bc98-4f05-842c-6ee4f56642aa",
+      "githubId": "Kipris",
+      "roles": []
     },
     {
-      "key": "3",
-      "title": "Task3",
-      "author": "John Brown",
-      "description": "Sidney No. 1 Lake Park",
-      "taskId": "33",
-      "status": "draft"
+      "id": "779705ad-f22d-4efd-b5ae-64a800d4deef",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "eefb5b9a-8f4f-4477-b78d-60dfbd8245de",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "2e758064-590b-4857-9194-4549d44fef2a",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "c8aba56f-8b08-4c14-8543-627f35bb87d8",
+      "githubId": "Kipris",
+      "roles": null
+    },
+    {
+      "id": "b1886e39-da65-491b-800f-286f37ba34f1",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "cd36580c-dfa2-4297-84fc-ca28c981dc1b",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "6518245d-7f31-4e76-a1ea-63f125d146d8",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "0a49fdc2-07a7-4c25-825d-967db99ff673",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "d1a258cd-6d25-4230-93c3-4e353a871f85",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "cd5005a6-023d-454b-85f4-a1349a7b4493",
+      "githubId": "Kipris",
+      "roles": "[\"supervisor\",\"course_manager\",\"student\",\"author\"]"
+    },
+    {
+      "id": "e78fe97e-0d0c-4d99-b36e-cd5cf1160733",
+      "githubId": "Kipris",
+      "roles": "[\"author\",\"student\"]"
+    },
+    {
+      "id": "0ac738f4-5faf-417c-b05a-4be1aaf15c6e",
+      "githubId": "Kipris",
+      "roles": [
+        "\"author",
+        "student",
+        "supervisor\""
+      ]
+    },
+    {
+      "id": "28796e6c-2092-4106-b4dc-183312763713",
+      "githubId": "Kipris",
+      "roles": [
+        "\"author",
+        "student\""
+      ]
+    },
+    {
+      "id": "56347b15-d197-40ee-a171-66ea09192107",
+      "githubId": "Kipris",
+      "roles": [
+        "\"supervisor",
+        "student\""
+      ]
+    },
+    {
+      "id": "5e395722-177a-4289-a9b7-378f16fab70d",
+      "githubId": "Kipris",
+      "roles": [
+        "\"authorstudentsupervisorcourse_manager\""
+      ]
+    },
+    {
+      "id": "0ccbc6b8-fbc6-4ffd-8b99-e984441a5e79",
+      "githubId": "Kipris",
+      "roles": [
+        "author",
+        "student",
+        "supervisor"
+      ]
+    },
+    {
+      "id": "7dc1eee1-8175-4fe9-9cf4-1420b3e358a4",
+      "githubId": "Kipris",
+      "roles": [
+        "student",
+        "supervisor"
+      ]
+    },
+    {
+      "id": "7c555da7-096d-4ddb-b036-1a09bc6dec46",
+      "githubId": "Kipris",
+      "roles": [
+        "author",
+        "student"
+      ]
+    },
+    {
+      "id": "5ed8711d-7f1e-435e-938c-e52e71bce664",
+      "githubId": "Kipris",
+      "roles": [
+        "author",
+        "student"
+      ]
+    },
+    {
+      "id": "cf8095e5-0e2a-4b70-8be6-3a1acb61a906",
+      "githubId": "Kipris",
+      "roles": [
+        "author",
+        "student"
+      ]
+    },
+    {
+      "id": "21fa0a37-6633-4408-8db3-00a5e344cf06",
+      "githubId": "Kipris",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "id": "cc70a29c-0ca5-488e-89d7-b15f83d6885f",
+      "githubId": "Kipris",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "id": "3c767036-4be0-4d70-9d78-465c4413fa80",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "61d77088-e466-453c-a74e-576236608c68",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "83c9cca4-e203-4f23-a35a-01e266b9f78a",
+      "githubId": "Kipris",
+      "roles": []
+    },
+    {
+      "id": "701b65c9-676e-4ddf-b775-39c19cf9d115",
+      "githubId": "Kipris",
+      "roles": [
+        "student"
+      ]
+    },
+    {
+      "id": "009a5b75-07ac-4ba7-8916-e47c125e70e3",
+      "githubId": "Kipris",
+      "roles": [
+        "author"
+      ]
     }
   ],
+  "tasks": [],
   "crossCheckSessions": [
     {
       "id": "id-1",
@@ -158,6 +317,38 @@
           }
         }
       }
+    }
+  ],
+  "tasksTableData": [
+    {
+      "key": "1",
+      "title": "Task1",
+      "author": "John Brown",
+      "description": "New York No. 1 Lake Park",
+      "taskId": "11",
+      "state": [
+        "closed"
+      ]
+    },
+    {
+      "key": "2",
+      "title": "Task2",
+      "author": "John Brown",
+      "description": "London No. 1 Lake Park",
+      "taskId": "22",
+      "state": [
+        "active"
+      ]
+    },
+    {
+      "key": "3",
+      "title": "Task3",
+      "author": "John Brown",
+      "description": "Sidney No. 1 Lake Park",
+      "taskId": "33",
+      "state": [
+        "archived"
+      ]
     }
   ],
   "requests": [

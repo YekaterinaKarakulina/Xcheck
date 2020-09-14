@@ -1,29 +1,8 @@
-import {
-  LOGIN,
-  LOGIN_START,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-  LOGOUT_SUCCESS,
-  SET_USER_ROLES,
-} from './types';
+import { LOGIN, SET_USER_ROLES, LOGOUT } from './types';
 
 export const login = (data, uri) => ({
   type: LOGIN,
   payload: { data, uri },
-});
-
-export const loginStart = () => ({
-  type: LOGIN_START,
-});
-
-export const loginSuccess = (isLoggedIn, user) => ({
-  type: LOGIN_SUCCESS,
-  payload: { isLoggedIn, user },
-});
-
-export const loginFailure = (errorMessage) => ({
-  type: LOGIN_FAILURE,
-  payload: { errorMessage },
 });
 
 export const setUserRoles = (roles) => {
@@ -33,6 +12,6 @@ export const setUserRoles = (roles) => {
   };
 };
 
-export const logoutSuccess = () => ({
-  type: LOGOUT_SUCCESS,
+export const logout = () => ({
+  type: LOGOUT,
 });

@@ -9,36 +9,35 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: "text/*" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Enabled Access-Control-Allow-Origin", "*" in the header so as to by-pass the CORS error.
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Accept, Accept-Language, Content-Language, Content-Type");
   next();
 });
 
 app.post("/authenticate", (req, res) => {
-  const { client_id, redirect_uri, code } = req.body;
+  const { code } = req.body;
 
   const data = new FormData();
-  data.append("client_id", client_id);
-  data.append("client_secret", "5e7c3eb366144c3855ecd06394de075dd5b72322");
+  data.append("client_id", process.env.CLIENT_ID);
+  data.append("client_secret", process.env.CLIENT_SECRET);
   data.append("code", code);
-  data.append("redirect_uri", redirect_uri);
+  data.append("redirect_uri", process.env.REDIRECT_URI);
 
-  // Request to exchange code for an access token
   fetch(`https://github.com/login/oauth/access_token`, {
     method: "POST",
     body: data
   })
     .then(response => response.text())
     .then(paramsString => {
-      let params = new URLSearchParams(paramsString);
-      const access_token = params.get("access_token");
+      const params = new URLSearchParams(paramsString);
+      const accessToken = params.get("access_token");
       const scope = params.get("scope");
-      const token_type = params.get("token_type");
+      const tokenType = params.get("token_type");
 
       // Request to return data of a user that has been authenticated
       return fetch(
-        `https://api.github.com/user?access_token=${access_token}&scope=${scope}&token_type=${token_type}`
+        `https://api.github.com/user?access_token=${accessToken}&scope=${scope}&token_type=${tokenType}`
       );
     })
     .then(response => response.json())

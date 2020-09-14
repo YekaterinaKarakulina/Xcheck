@@ -5,7 +5,7 @@ import Check from './check/check';
 import CrossCheckSessions from './crossCheckSessions';
 import ReviewsListPage from './reviewsListPage';
 import CrossCheckSession from './crossCheckSession';
-import GithubLogin from './github-login';
+import GithubLogin from './login';
 import TaskForm from './taskForm/taskForm';
 import Requests from './requests';
 

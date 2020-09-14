@@ -9,14 +9,14 @@ import {
   getProxyUrl,
   getLoginError,
 } from '../../store/selectors/login';
-import { loginStart, loginSuccess, loginFailure, setUserRoles } from '../../store/actions/login';
+import { login, setUserRoles } from '../../store/actions/login';
 import LoginCover from './login-cover';
 import LoginSelect from './login-select';
 import LoginButton from './login-button';
 import { Loader, Logo, ErrorMessage } from '../../components/ui';
-import './github-login.scss';
+import './login.scss';
 
-class GithubLogin extends React.PureComponent {
+class Login extends React.PureComponent {
   state = {
     roles: ['author', 'student', 'supervisor', 'course_manager'],
   };
@@ -27,32 +27,14 @@ class GithubLogin extends React.PureComponent {
 
     if (hasCode) {
       const newUrl = url.split('?code=');
-      const {
-        clientId,
-        redirectUri,
-        proxyUrl,
-        loginStart,
-        loginSuccess,
-        loginFailure,
-      } = this.props;
+      const { clientId, redirectUri, proxyUrl, login } = this.props;
       const requestData = {
         client_id: clientId,
         redirect_uri: redirectUri,
         code: newUrl[1],
       };
       window.history.pushState({}, null, newUrl[0]);
-      loginStart();
-      fetch(proxyUrl, {
-        method: 'POST',
-        body: JSON.stringify(requestData),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          loginSuccess(true, data);
-        })
-        .catch((error) => {
-          loginFailure(error.message);
-        });
+      login(requestData, proxyUrl);
     }
   }
 
@@ -102,26 +84,22 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  loginStart: () => dispatch(loginStart()),
-  loginSuccess: (isLoggedIn, user) => dispatch(loginSuccess(isLoggedIn, user)),
-  loginFailure: (error) => dispatch(loginFailure(error)),
+  login: (requestData, proxyUrl) => dispatch(login(requestData, proxyUrl)),
   setUserRoles: (roles) => dispatch(setUserRoles(roles)),
 });
 
-GithubLogin.propTypes = {
+Login.propTypes = {
   loading: PropTypes.bool.isRequired,
   clientId: PropTypes.string.isRequired,
   redirectUri: PropTypes.string.isRequired,
   proxyUrl: PropTypes.string.isRequired,
   error: PropTypes.string,
-  loginStart: PropTypes.func.isRequired,
-  loginSuccess: PropTypes.func.isRequired,
-  loginFailure: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
   setUserRoles: PropTypes.func.isRequired,
 };
 
-GithubLogin.defaultProps = {
+Login.defaultProps = {
   error: null,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GithubLogin);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
