@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Input, Select, Button, DatePicker, InputNumber, Checkbox } from 'antd';
@@ -32,6 +31,7 @@ const CrossCheckSessionFormCreation = (props) => {
     initialValues,
   } = props;
 
+  console.log(initialValues);
   const draftCheckbox = initialValues.draft ? (
     <Field label="Create as DRAFT" name="draft" component={ACheckbox} type="checkbox" hasFeedback />
   ) : null;
@@ -158,7 +158,13 @@ CrossCheckSessionFormCreation.propTypes = {
   reset: PropTypes.func.isRequired,
   submitButtonName: PropTypes.string.isRequired,
   tasks: PropTypes.instanceOf(Array).isRequired,
-  initialValues: PropTypes.instanceOf(Object).isRequired,
+  initialValues: PropTypes.instanceOf(Object),
+};
+
+CrossCheckSessionFormCreation.defaultProps = {
+  initialValues: {
+    draft: true,
+  },
 };
 
 const form = reduxForm({

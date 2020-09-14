@@ -4,6 +4,8 @@ import {
   POST_CROSSCHECK_SESSION,
   UPDATE_CROSSCHECK_SESSION,
   DELETE_CROSSCHECK_SESSION,
+  OPEN_MODAL,
+  CLOSE_MODAL,
 } from './types/cross-check-sessions';
 
 const getCrossCheckSessions = () => {
@@ -40,10 +42,24 @@ const deleteCrossCheckSession = (id) => {
   };
 };
 
+const openModal = () => {
+  return {
+    type: OPEN_MODAL,
+  };
+};
+
+const closeModal = () => {
+  return {
+    type: CLOSE_MODAL,
+  };
+};
+
 export {
   getCrossCheckSessions,
   getCrossCheckSession,
   postCrossCheckSession,
   updateCrossCheckSession,
   deleteCrossCheckSession,
+  openModal,
+  closeModal,
 };
