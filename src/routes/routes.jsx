@@ -24,19 +24,21 @@ const Routes = ({ isLoggedIn }) => {
           <Redirect to="/login" />
         </>
       ) : (
-          <>
-            <Route path="/tasks" component={TasksTable} />
-            <Route path="/check" component={Check} />
-            <Route path="/review-requests" component={ReviewRequestsTable} />
-            <Route path="/review-request-form" component={ReviewRequestForm} />
-            <Route path="/reviews" component={Reviews} />
-            <Route path="/task-form" component={TaskForm} />
-            <Route path="/task-edit-form" component={TaskFormEdit} />
-            <Route exact path="/cross-check-sessions/" component={CrossCheckSessionsTable} />
-            <Route path="/cross-check-sessions/:id" component={CrossCheckSessionLayout} />
-            {/* <Redirect to="/reviews" /> */}
-          </>
-        )}
+        <>
+          <Route path="/tasks" component={TasksTable} />
+          <Route path="/task-form" component={TaskForm} />
+          <Route path="/task-edit-form/:id" component={TaskFormEdit} />
+          <Route path="/tasks-description/:id" component={TaskDetails} />
+          <Route path="/check" component={Check} />
+          <Route path="/review-requests" component={ReviewRequestsTable} />
+          <Route path="/review-request-form" component={ReviewRequestForm} />
+          <Route path="/reviews" component={Reviews} />
+          <Route exact path="/cross-check-sessions/" component={CrossCheckSessionsTable} />
+          <Route path="/cross-check-sessions/:id" component={CrossCheckSessionLayout} />
+
+          {/* <Redirect to="/reviews" /> */}
+        </>
+      )}
     </Switch>
   );
 };

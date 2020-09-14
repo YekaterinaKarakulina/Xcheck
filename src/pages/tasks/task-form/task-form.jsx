@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageHeader } from 'antd';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -8,17 +8,14 @@ import { postTaskSession } from '../../../store/actions/task';
 import TaskFormCreation from '../../../components/tasks/task-form/task-form-creation';
 
 const TaskForm = (props) => {
-  const { isRedirectToTableReady, postTaskSession } = props;
+  const { postTaskSession, history } = props;
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     const taskId = uuidv4();
     const fullObjectValues = { ...values, taskId };
-    postTaskSession(fullObjectValues);
+    await postTaskSession(fullObjectValues);
+    history.push(`/tasks`);
   };
-
-  if (isRedirectToTableReady) {
-    return <Redirect to="/tasks" />;
-  }
 
   return (
     <div className="wrapper">
@@ -29,8 +26,8 @@ const TaskForm = (props) => {
 };
 
 TaskForm.propTypes = {
-  isRedirectToTableReady: PropTypes.bool.isRequired,
   postTaskSession: PropTypes.func.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = ({ tasks }) => ({
@@ -43,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TaskForm));
