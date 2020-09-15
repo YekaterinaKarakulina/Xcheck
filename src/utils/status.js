@@ -10,6 +10,8 @@ const checkStatus = (status) => {
       return 'volcano';
     case 'archived':
       return 'red';
+    case 'onReview':
+      return 'cyan';
     default:
       return 'green';
   }

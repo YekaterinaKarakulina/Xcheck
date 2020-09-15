@@ -1,0 +1,374 @@
+{
+    "users": [
+      {
+        "id": "47fb03a6-b770-4e64-a533-e507cfa49020",
+        "githubId": "torvalds",
+        "roles": [
+          "author",
+          "student",
+          "supervisor",
+          "course_manager"
+        ]
+      },
+      {
+        "id": "4dc0685c-df82-4db1-8d5b-ac31f954434e",
+        "githubId": "KatiaR",
+        "roles": []
+      },
+      {
+        "id": "f8044829-0a33-4c68-81eb-7849a0cb0e18",
+        "githubId": "YekaterinaKarakulina",
+        "roles": [
+          "author",
+          "student",
+          "supervisor",
+          "course_manager"
+        ]
+      },
+      {
+        "id": "dc79022b-80b5-4200-bcd3-a739923818a3",
+        "githubId": "PavelZaharov1987",
+        "roles": [
+          "author",
+          "student"
+        ]
+      },
+      {
+        "id": "59b7f101-3462-4cd2-a418-e210f4fb8149",
+        "githubId": "Ghuseynova",
+        "roles": [
+          "author"
+        ]
+      },
+      {
+        "id": "b08a13d8-5df2-4953-be60-0ed72617c58f",
+        "githubId": "Kipris",
+        "roles": [
+          "author",
+          "student",
+          "supervisor",
+          "course_manager"
+        ]
+      }
+    ],
+    "tasks": [
+      {
+        "taskScore": 100,
+        "title": "Task #1",
+        "state": "open",
+        "author": "author1",
+        "description": "Task #1 description",
+        "items": [
+          {
+            "id": "task-1-bp1",
+            "title": "basic_p1",
+            "category": "basic",
+            "score": "10",
+            "description": "basic_p1 - You need to do some things",
+            "mentorCheck": true
+          },
+          {
+            "id": "task-1-bp2",
+            "title": "basic_p2",
+            "category": "basic",
+            "score": "20",
+            "description": "basic_p2 - You need to do some things",
+            "mentorCheck": false
+          },
+          {
+            "id": "task-1-ep1",
+            "title": "extra_p1",
+            "category": "extra",
+            "score": "30",
+            "description": "extra_p1 - You need to do some things",
+            "mentorCheck": true
+          },
+          {
+            "id": "task-1-ep2",
+            "title": "extra_p2",
+            "category": "extra",
+            "score": "50",
+            "description": "extra_p2 - You need to do some things",
+            "mentorCheck": false
+          },
+          {
+            "id": "task-1-f1",
+            "title": "fines_p1",
+            "category": "fines",
+            "score": "-10",
+            "description": "fines_p1 - You need to do some things",
+            "mentorCheck": true
+          },
+          {
+            "id": "task-1-f2",
+            "title": "fines_p2",
+            "category": "fines",
+            "score": "-10",
+            "description": "fines_p2 - You need to do some things",
+            "mentorCheck": false
+          }
+
+        ],
+        "taskId": "task-1",
+        "id": "task-1"
+      },
+      {
+        "taskScore": 100,
+        "title": "Task #2",
+        "state": "draft",
+        "author": "author2",
+        "description": "Task #2 description",
+        "items": [
+          {
+            "id": "task-2-bp1",
+            "title": "basic_p1",
+            "category": "basic",
+            "score": "10",
+            "description": "basic_p1 - You need to do some things",
+            "mentorCheck": true
+          },
+          {
+            "id": "task-2-ep1",
+            "title": "extra_p1",
+            "category": "extra",
+            "score": "30",
+            "description": "extra_p1 - You need to do some things",
+            "mentorCheck": true
+          },
+          {
+            "id": "task-2-f1",
+            "title": "fines_p1",
+            "category": "fines",
+            "score": "-10",
+            "description": "fines_p1 - You need to do some things",
+            "mentorCheck": true
+          }
+        ],
+        "taskId": "task-2",
+        "id": "task-2"
+      },
+      {
+        "taskScore": 100,
+        "title": "Task #3",
+        "state": "closed",
+        "author": "author3",
+        "description": "Task #3 description",
+        "items": [
+          {
+            "id": "task-3-bp1",
+            "title": "basic_p1",
+            "category": "basic",
+            "score": "10",
+            "description": "basic_p1 - You need to do some things",
+            "mentorCheck": true
+          },
+          {
+            "id": "task-3-ep1",
+            "title": "extra_p1",
+            "category": "extra",
+            "score": "30",
+            "description": "extra_p1 - You need to do some things",
+            "mentorCheck": true
+          },
+          {
+            "id": "task-3-f1",
+            "title": "fines_p1",
+            "category": "fines",
+            "score": "-10",
+            "description": "fines_p1 - You need to do some things",
+            "mentorCheck": true
+          }
+        ],
+        "taskId": "task-3",
+        "id": "task-3"
+      },
+      {
+        "taskScore": 100,
+        "title": "Task #4",
+        "state": "archived",
+        "author": "author4",
+        "description": "Task #4 description",
+        "items": [
+          {
+            "id": "task-4-bp1",
+            "title": "title-basic_p1",
+            "category": "basic",
+            "score": "10",
+            "description": "basic_p1 - You need to do some things",
+            "mentorCheck": true
+          },
+          {
+            "id": "task-4-ep1",
+            "title": "extra_p1",
+            "category": "extra",
+            "score": "30",
+            "description": "extra_p1 - You need to do some things",
+            "mentorCheck": true
+          }
+        ],
+        "taskId": "task-4",
+        "id": "task-4"
+      }
+    ],
+    "crossCheckSessions": [
+      {
+        "id": "xcheck-1",
+        "title": "rss2020Q3react-songbird",
+        "author": "author1",
+        "state": "active",
+        "taskTitle": "Task #1",
+        "crossCheckSessionPeriod": [
+          "2020-07-08",
+          "2020-07-14"
+        ],
+        "coefficient": 0.2,
+        "discardMinScore": true,
+        "discardMaxScore": true,
+        "minReviewsAmount": 1,
+        "desiredReviewsAmount": 2,
+        "attendees": []
+      },
+      {
+        "id": "xcheck-2",
+        "title": "rss2020Q3react-xcheck",
+        "author": "author1",
+        "state": "closed",
+        "taskTitle": "Task #2",
+        "crossCheckSessionPeriod": [
+          "2020-09-15",
+          "2020-09-17"
+        ],
+        "coefficient": 0.7,
+        "discardMinScore": true,
+        "discardMaxScore": true,
+        "minReviewsAmount": 1,
+        "desiredReviewsAmount": 2,
+        "attendees": []
+      },
+      {
+        "id": "xcheck-3",
+        "title": "rss2020Q3react-schedule",
+        "author": "author3",
+        "state": "draft",
+        "taskTitle": "Task #3",
+        "crossCheckSessionPeriod": [
+          "2020-08-22",
+          "2020-09-22"
+        ],
+        "coefficient": 0.7,
+        "discardMinScore": true,
+        "discardMaxScore": false,
+        "minReviewsAmount": 1,
+        "desiredReviewsAmount": 2,
+        "attendees": []
+      }
+    ],
+    "reviews": [
+      {
+        "id": "rev-id-1",
+        "requestId": "rev-req-1",
+        "author": "author1",
+        "taskTitle": "english fo kids",
+        "state": "draft",
+        "comment": "",
+        "grade": {
+          "items": {
+            "basic_p1": {
+              "score": 20,
+              "comment": "Well done!"
+            },
+            "basic_p2": {
+                "score": 20,
+                "comment": "Good"
+              },
+            "extra_p1": {
+              "score": 15,
+              "comment": "Some things are done, some are not"
+            },
+            "extra_p2": {
+                "score": 30,
+                "comment": "Some things are done, some are not"
+              },
+            "fines_p1": {
+              "score": 0,
+              "comment": "No ticket today"
+            },
+            "fines_p2": {
+                "score": -10,
+                "comment": "No ticket today"
+              }
+          }
+        }
+      },
+      {
+        "id": "rev-id-2",
+        "requestId": "rev-req-2",
+        "author": "author2",
+        "task": "movie search",
+        "state": "published",
+        "comment": "",
+        "grade": {
+          "items": {
+            "basic_p1": {
+              "score": 25,
+              "comment": "Well done!"
+            },
+            "basic_p2": {
+                "score": 20,
+                "comment": "Good"
+              },
+            "extra_p1": {
+              "score": 5,
+              "comment": "Some things are done, some are not"
+            },
+            "fines_p1": {
+              "score": -5,
+              "comment": "No ticket today"
+            }
+          }
+        }
+      }
+    ],
+    "reviewRequests": [
+      {
+        "id": "rev-req-1",
+        "author": "cardamo",
+        "taskTitle": "Task #1",
+        "state": "published",
+        "selfGrade": {},
+        "linkToDemo": "#",
+        "linkToPR": "#",
+        "crossCheckSessionId": ""
+      },
+      {
+        "id": "rev-req-2",
+        "author": "adamo",
+        "taskTitle": "Task #2",
+        "state": "completed",
+        "selfGrade": {},
+        "linkToDemo": "#",
+        "linkToPR": "#",
+        "crossCheckSessionId": "xcheck-3"
+      },
+      {
+        "id": "rev-req-3",
+        "author": "darmamo",
+        "taskTitle": "Task #1",
+        "state": "draft",
+        "selfGrade": {},
+        "linkToDemo": "#",
+        "linkToPR": "#",
+        "crossCheckSessionId": ""
+      },
+      {
+        "id": "rev-req-4",
+        "author": "bardamo",
+        "taskTitle": "Task #3",
+        "state": "DRAFT",
+        "selfGrade": {},
+        "linkToDemo": "#",
+        "linkToPR": "#",
+        "crossCheckSessionId": "xcheck-3"
+      }
+    ]
+  }

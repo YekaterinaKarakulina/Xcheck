@@ -1,6 +1,7 @@
 import {
   GET_REVIEW_REQUESTS,
   POST_REVIEW_REQUEST,
+  UPDATE_REVIEW_REQUEST,
   OPEN_MODAL,
   CLOSE_MODAL,
 } from './types/review-requests';
@@ -18,6 +19,13 @@ const postReviewRequest = (newReviewRequest) => {
   };
 };
 
+const updateReviewRequest = (newReviewRequest) => {
+  return {
+    type: UPDATE_REVIEW_REQUEST,
+    payload: newReviewRequest,
+  };
+};
+
 const openModal = () => {
   return {
     type: OPEN_MODAL,
@@ -30,4 +38,4 @@ const closeModal = () => {
   };
 };
 
-export { getReviewRequests, postReviewRequest, openModal, closeModal };
+export { getReviewRequests, postReviewRequest, updateReviewRequest, openModal, closeModal };
