@@ -9,6 +9,8 @@ import {
   getCrossCheckSession,
   updateCrossCheckSession,
 } from '../../../store/actions/cross-check-session';
+import { updateReviewRequest } from '../../../store/actions/review-requests';
+
 import CrossCheckSessionDescriptionCreation from '../../../components/cross-check-session-description';
 import checkStatus from '../../../utils/status';
 
@@ -25,12 +27,13 @@ class CrossCheckSessionDescription extends React.Component {
       reviewRequestsData,
       initialValues,
       updateCrossCheckSession,
+      updateReviewRequest,
     } = this.props;
 
     const attendees = [];
 
     const publishedReviewRequests = reviewRequestsData.filter(
-      (request) => request.state === 'published'
+      (request) => request.state === 'readyToXCheck'
     );
 
     publishedReviewRequests.forEach((item, index) => {
@@ -66,7 +69,13 @@ class CrossCheckSessionDescription extends React.Component {
     });
     const crossCheckSessionUpdated = initialValues;
     crossCheckSessionUpdated.attendees = attendees;
+    crossCheckSessionUpdated.state = 'onReview';
     await updateCrossCheckSession(crossCheckSessionUpdated);
+    publishedReviewRequests.forEach(async (request) => {
+      const newRequest = request;
+      newRequest.state = 'published';
+      await updateReviewRequest(newRequest);
+    });
     getCrossCheckSession(id);
   };
 
@@ -78,7 +87,7 @@ class CrossCheckSessionDescription extends React.Component {
       const color = checkStatus(state);
 
       const extraButtons =
-        state === 'active' ? (
+        state === 'active' || state === 'onReview' ? (
           <Space size="middle">
             <Button type="primary" onClick={this.finishRequestsCollection}>
               Finish requests collection
@@ -119,6 +128,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getCrossCheckSession: (id) => dispatch(getCrossCheckSession(id)),
     updateCrossCheckSession: (attendees) => dispatch(updateCrossCheckSession(attendees)),
+    updateReviewRequest: (newReviewRequest) => dispatch(updateReviewRequest(newReviewRequest)),
   };
 };
 

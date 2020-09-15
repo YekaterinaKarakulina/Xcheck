@@ -259,7 +259,8 @@
       "discardMaxScore": false,
       "minReviewsAmount": 1,
       "desiredReviewsAmount": 2,
-      "attendees": []
+      "attendees": [
+      ]
     }
   ],
   "reviews": [
@@ -312,6 +313,16 @@
   ],
   "reviewRequests": [
     {
+      "id": "rev-req-1",
+      "author": "cardamo",
+      "taskTitle": "Task #1",
+      "state": "draft",
+      "selfGrade": {},
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": ""
+    },
+    {
       "id": "rev-req-2",
       "author": "author2",
       "taskTitle": "Task #2",
@@ -322,10 +333,20 @@
       "crossCheckSessionId": "xcheck-3"
     },
     {
+      "id": "rev-req-3",
+      "author": "darmamo",
+      "taskTitle": "Task #1",
+      "state": "draft",
+      "selfGrade": {},
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": ""
+    },
+    {
       "id": "rev-req-4",
       "author": "author4",
       "taskTitle": "Task #3",
-      "state": "published",
+      "state": "readyToXCheck",
       "selfGrade": {
         "basic_p1": {
           "score": 20,
@@ -348,7 +369,7 @@
       "id": "rev-req-5",
       "author": "author5",
       "taskTitle": "Task #3",
-      "state": "published",
+      "state": "readyToXCheck",
       "selfGrade": {
         "basic_p1": {
           "score": 20,
@@ -371,7 +392,7 @@
       "id": "rev-req-6",
       "author": "author6",
       "taskTitle": "Task #3",
-      "state": "published",
+      "state": "readyToXCheck",
       "selfGrade": {
         "basic_p1": {
           "score": 20,
@@ -394,7 +415,7 @@
       "id": "rev-req-7",
       "author": "author7",
       "taskTitle": "Task #3",
-      "state": "published",
+      "state": "readyToXCheck",
       "selfGrade": {
         "basic_p1": {
           "score": 20,
@@ -417,7 +438,7 @@
       "id": "rev-req-8",
       "author": "author8",
       "taskTitle": "Task #3",
-      "state": "published",
+      "state": "readyToXCheck",
       "selfGrade": {
         "basic_p1": {
           "score": 20,

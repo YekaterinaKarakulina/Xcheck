@@ -31,7 +31,6 @@ const CrossCheckSessionFormCreation = (props) => {
     initialValues,
   } = props;
 
-  console.log(initialValues);
   const draftCheckbox = initialValues.draft ? (
     <Field label="Create as DRAFT" name="draft" component={ACheckbox} type="checkbox" hasFeedback />
   ) : null;
