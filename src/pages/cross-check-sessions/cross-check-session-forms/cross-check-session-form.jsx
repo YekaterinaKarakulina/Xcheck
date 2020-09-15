@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { PageHeader } from 'antd';
 import CrossCheckSessionFormCreation from '../../../components/cross-check-session-form';
 import { postCrossCheckSession } from '../../../store/actions/cross-check-session';
@@ -18,17 +19,14 @@ class CrossCheckSessionForm extends React.Component {
   }
 
   render() {
-    const { isRedirectToTableReady, tasksTableData, postCrossCheckSession } = this.props;
+    const { tasksTableData, postCrossCheckSession, history } = this.props;
     const tasks = getTasksInfoForCrossCheckSessionForm(tasksTableData);
 
-    const onSubmit = (values) => {
+    const onSubmit = async (values) => {
       const crossCheckSession = transformFormValuesToCrossCheckSessionObject(values);
-      postCrossCheckSession(crossCheckSession);
+      await postCrossCheckSession(crossCheckSession);
+      history.go(-1);
     };
-
-    if (isRedirectToTableReady) {
-      return <Redirect to="/cross-check-sessions/" />;
-    }
 
     return (
       <div className="wrapper">
@@ -44,14 +42,12 @@ class CrossCheckSessionForm extends React.Component {
 }
 
 CrossCheckSessionForm.propTypes = {
-  isRedirectToTableReady: PropTypes.bool.isRequired,
   postCrossCheckSession: PropTypes.func.isRequired,
   tasksTableData: PropTypes.instanceOf(Array).isRequired,
   getTasksTable: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ crossCheckSessions, tasksTableData }) => ({
-  isRedirectToTableReady: crossCheckSessions.isRedirectToTableReady,
+const mapStateToProps = ({ tasksTableData }) => ({
   tasksTableData,
 });
 
@@ -63,4 +59,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CrossCheckSessionForm));

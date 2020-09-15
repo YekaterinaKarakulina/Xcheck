@@ -2,7 +2,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone } from '@ant-design/icons';
 import PropTypes from 'prop-types';
@@ -26,6 +26,7 @@ const CrossCheckSessionsTableCreation = (props) => {
     isModalVisible,
     openModal,
     closeModal,
+    tableData,
   } = props;
 
   const columns = [
@@ -89,8 +90,9 @@ const CrossCheckSessionsTableCreation = (props) => {
                 onClick={
                   row.state === 'closed'
                     ? () => {}
-                    : () => {
-                        getCrossCheckSession({ id: row.key, editMode: true });
+                    : async () => {
+                        await getCrossCheckSession(row.key);
+                        history.push('cross-check-session-edit-form');
                       }
                 }
               />
@@ -118,17 +120,10 @@ const CrossCheckSessionsTableCreation = (props) => {
     },
   ];
 
-  const { tableData, isRedirectToFormReady } = props;
-
-  if (isRedirectToFormReady) {
-    return <Redirect to="/cross-check-sessions/cross-check-session-edit-form" />;
-  }
-
   return <Table columns={columns} dataSource={tableData} />;
 };
 
 CrossCheckSessionsTableCreation.propTypes = {
-  isRedirectToFormReady: PropTypes.bool.isRequired,
   tableData: PropTypes.instanceOf(Array).isRequired,
   getCrossCheckSession: PropTypes.func.isRequired,
   deleteCrossCheckSession: PropTypes.func.isRequired,
@@ -140,14 +135,13 @@ CrossCheckSessionsTableCreation.propTypes = {
 };
 
 const mapStateToProps = ({ crossCheckSessions, reviewRequestsData }) => ({
-  isRedirectToFormReady: crossCheckSessions.isRedirectToFormReady,
   isModalVisible: crossCheckSessions.isModalVisible,
   reviewRequestsData,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCrossCheckSession: ({ id, editMode }) => dispatch(getCrossCheckSession({ id, editMode })),
+    getCrossCheckSession: (id) => dispatch(getCrossCheckSession(id)),
     deleteCrossCheckSession: (id) => dispatch(deleteCrossCheckSession(id)),
     openModal: () => dispatch(openModal()),
     closeModal: () => dispatch(closeModal()),
