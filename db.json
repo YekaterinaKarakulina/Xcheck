@@ -282,7 +282,8 @@
           "fines_p1": {
             "score": 0,
             "comment": "No ticket today"
-          }
+          },
+          "total": 35
         }
       }
     },
@@ -303,9 +304,10 @@
             "comment": "Some things are done, some are not"
           },
           "fines_p1": {
-            "score": 10,
+            "score": -10,
             "comment": "No ticket today"
-          }
+          },
+          "total": 30
         }
       }
     }
