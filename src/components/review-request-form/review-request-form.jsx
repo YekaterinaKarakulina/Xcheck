@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { Form, Input, Select, Button, Checkbox, Modal } from 'antd';
@@ -20,13 +21,15 @@ const ACheckbox = makeField(Checkbox, formItemLayout);
 
 class ReviewRequestFormCreation extends React.Component {
   handleOk = () => {
-    const { closeModal } = this.props;
+    const { closeModal, history } = this.props;
     closeModal();
+    history.push(`/check`);
   };
 
   handleCancel = () => {
-    const { closeModal } = this.props;
+    const { closeModal, history } = this.props;
     closeModal();
+    history.push(`/review-requests`);
   };
 
   render() {
@@ -43,8 +46,8 @@ class ReviewRequestFormCreation extends React.Component {
       <>
         <form onSubmit={handleSubmit}>
           <Field
-            label="Author"
-            name="Author"
+            label="author"
+            name="author"
             component={AInput}
             placeholder="Add your name"
             hasFeedback
@@ -157,6 +160,7 @@ ReviewRequestFormCreation.propTypes = {
   hasChoiceCrossCheckSession: PropTypes.bool,
   isModalVisible: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 ReviewRequestFormCreation.defaultProps = {
@@ -181,4 +185,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(form);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(form));
