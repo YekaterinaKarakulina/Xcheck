@@ -259,8 +259,7 @@
       "discardMaxScore": false,
       "minReviewsAmount": 1,
       "desiredReviewsAmount": 2,
-      "attendees": [
-      ]
+      "attendees": []
     }
   ],
   "reviews": [
