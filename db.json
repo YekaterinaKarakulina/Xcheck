@@ -312,16 +312,6 @@
   ],
   "reviewRequests": [
     {
-      "id": "rev-req-1",
-      "author": "cardamo",
-      "taskTitle": "Task #1",
-      "state": "closed",
-      "selfGrade": {},
-      "linkToDemo": "#",
-      "linkToPR": "#",
-      "crossCheckSessionId": ""
-    },
-    {
       "id": "rev-req-2",
       "author": "author2",
       "taskTitle": "Task #2",
@@ -330,16 +320,6 @@
       "linkToDemo": "#",
       "linkToPR": "#",
       "crossCheckSessionId": "xcheck-3"
-    },
-    {
-      "id": "rev-req-3",
-      "author": "author3",
-      "taskTitle": "Task #1",
-      "state": "draft",
-      "selfGrade": {},
-      "linkToDemo": "#",
-      "linkToPR": "#",
-      "crossCheckSessionId": ""
     },
     {
       "id": "rev-req-4",

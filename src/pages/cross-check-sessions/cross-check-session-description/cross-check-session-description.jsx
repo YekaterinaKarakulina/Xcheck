@@ -15,7 +15,7 @@ import checkStatus from '../../../utils/status';
 class CrossCheckSessionDescription extends React.Component {
   componentDidMount() {
     const { id, getCrossCheckSession } = this.props;
-    getCrossCheckSession({ id, editMode: false });
+    getCrossCheckSession(id);
   }
 
   finishRequestsCollection = async () => {
@@ -67,7 +67,7 @@ class CrossCheckSessionDescription extends React.Component {
     const crossCheckSessionUpdated = initialValues;
     crossCheckSessionUpdated.attendees = attendees;
     await updateCrossCheckSession(crossCheckSessionUpdated);
-    getCrossCheckSession({ id, editMode: false });
+    getCrossCheckSession(id);
   };
 
   render() {
@@ -117,7 +117,7 @@ const mapStateToProps = ({ crossCheckSessions, reviewRequestsData }) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCrossCheckSession: ({ id, editMode }) => dispatch(getCrossCheckSession({ id, editMode })),
+    getCrossCheckSession: (id) => dispatch(getCrossCheckSession(id)),
     updateCrossCheckSession: (attendees) => dispatch(updateCrossCheckSession(attendees)),
   };
 };

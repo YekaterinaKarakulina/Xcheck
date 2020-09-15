@@ -17,8 +17,6 @@ import {
   DELETE_CROSSCHECK_SESSION,
   DELETE_CROSSCHECK_SESSION_SUCCESS,
   DELETE_CROSSCHECK_SESSION_FAILURE,
-  REDIRECT_TO_CROSSCHECK_SESSION_FORM,
-  REDIRECT_TO_CROSSCHECK_SESSIONS,
 } from '../actions/types/cross-check-sessions';
 
 function* workerGetCrossCheckSessions() {
@@ -35,14 +33,10 @@ function* workerGetCrossCheckSessions() {
 }
 
 function* workerGetCrossCheckSession(action) {
-  const { id, editMode } = action.payload;
   try {
-    const uri = `http://localhost:3000/crossCheckSessions/${id}`;
+    const uri = `http://localhost:3000/crossCheckSessions/${action.payload}`;
     const result = yield call(axios.get, uri);
     yield put({ type: GET_CROSSCHECK_SESSION_SUCCESS, payload: result.data });
-    if (editMode) {
-      yield put({ type: REDIRECT_TO_CROSSCHECK_SESSION_FORM });
-    }
   } catch {
     yield put({
       type: GET_CROSSCHECK_SESSION_FAILURE,
@@ -56,7 +50,6 @@ function* workerPostCrossCheckSession(action) {
   try {
     yield call(axios.post, uri, action.payload);
     yield put({ type: POST_CROSSCHECK_SESSION_SUCCESS });
-    yield put({ type: REDIRECT_TO_CROSSCHECK_SESSIONS });
   } catch {
     yield put({
       type: POST_CROSSCHECK_SESSION_FAILURE,
@@ -71,7 +64,6 @@ function* workerUpdateCrossCheckSession(action) {
     const uri = `http://localhost:3000/crossCheckSessions/${id}`;
     yield call(axios.put, uri, action.payload);
     yield put({ type: UPDATE_CROSSCHECK_SESSION_SUCCESS });
-    // yield put({ type: REDIRECT_TO_CROSSCHECK_SESSIONS });
   } catch {
     yield put({
       type: UPDATE_CROSSCHECK_SESSION_FAILURE,
