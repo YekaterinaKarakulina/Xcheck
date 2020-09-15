@@ -52,7 +52,7 @@ const crossCheckSessions = (state = initialState, action) => {
         ...state,
         isRedirectToTableReady: false,
         isRedirectToFormReady: false,
-        currentSessionInfo: {},
+        // currentSessionInfo: {},
       };
 
     case UPDATE_CROSSCHECK_SESSION_FAILURE:

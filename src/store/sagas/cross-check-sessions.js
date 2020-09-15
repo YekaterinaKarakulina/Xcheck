@@ -71,7 +71,7 @@ function* workerUpdateCrossCheckSession(action) {
     const uri = `http://localhost:3000/crossCheckSessions/${id}`;
     yield call(axios.put, uri, action.payload);
     yield put({ type: UPDATE_CROSSCHECK_SESSION_SUCCESS });
-    yield put({ type: REDIRECT_TO_CROSSCHECK_SESSIONS });
+    // yield put({ type: REDIRECT_TO_CROSSCHECK_SESSIONS });
   } catch {
     yield put({
       type: UPDATE_CROSSCHECK_SESSION_FAILURE,
