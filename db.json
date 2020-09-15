@@ -269,8 +269,8 @@
       "author": "author1",
       "task": "english fo kids",
       "state": "disputed",
-      "grade": [
-         {
+      "grade": {
+        "items": {
           "basic_p1": {
             "score": 20,
             "comment": "Well done!"
@@ -285,7 +285,7 @@
           },
           "total": 35
         }
-      ]
+      }
     },
     {
       "id": "rev-id-2",
@@ -293,8 +293,8 @@
       "author": "author2",
       "task": "movie search",
       "state": "published",
-      "grade": [
-        {
+      "grade": {
+        "items": {
           "basic_p1": {
             "score": 25,
             "comment": "Well done!"
@@ -309,7 +309,7 @@
           },
           "total": 30
         }
-      ]
+      }
     }
   ],
   "reviewRequests": [
