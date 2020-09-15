@@ -1,7 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import { Typography } from 'antd';
 import 'antd/dist/antd.css';
+import { connect } from 'react-redux';
+import { getReviewRequest } from '../../store/actions/review-requests';
 import CheckForm from '../../components/check-form';
 import { tasks, reviewRequests } from './data';
 import './check.scss';
@@ -22,6 +25,15 @@ class Check extends Component {
   }
 
   componentDidMount() {
+    const { location, getReviewRequest } = this.props;
+
+    const url = location.pathname;
+    const splitedUrl = url.split('/');
+    const lastPath = splitedUrl[splitedUrl.length - 1];
+    console.log(lastPath);
+
+    getReviewRequest(lastPath);
+
     this.setState({
       task: tasks[0],
       reviewRequest: reviewRequests[0], // reviewRequests[0] || { selfGrade: {} }
@@ -63,6 +75,8 @@ class Check extends Component {
 
   render() {
     const { task, reviewRequest, detailIds, commentFieldIds, commentIds } = this.state;
+    const { currentReviewRequest } = this.props;
+    console.log(currentReviewRequest);
     const items = task.items || [];
     const basics = {
       id: 1,
@@ -123,4 +137,14 @@ class Check extends Component {
   }
 }
 
-export default Check;
+const mapStateToProps = ({ reviewRequests }) => ({
+  currentReviewRequest: reviewRequests.currentReviewRequest,
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getReviewRequest: (id) => dispatch(getReviewRequest(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Check);

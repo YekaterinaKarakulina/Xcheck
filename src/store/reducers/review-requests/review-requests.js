@@ -3,12 +3,15 @@ import {
   POST_REVIEW_REQUEST_FAILURE,
   OPEN_MODAL,
   CLOSE_MODAL,
+  GET_REVIEW_REQUEST_SUCCESS,
+  GET_REVIEW_REQUEST_FAILURE,
 } from '../../actions/types/review-requests';
 
 const initialState = {
   // isRedirectToTableReady: false,
   // isRedirectToFormReady: false,
   isModalVisible: false,
+  currentReviewRequest: {},
 };
 
 const reviewRequests = (state = initialState, action) => {
@@ -34,6 +37,18 @@ const reviewRequests = (state = initialState, action) => {
       return {
         ...state,
         isModalVisible: false,
+      };
+
+    case GET_REVIEW_REQUEST_SUCCESS:
+      return {
+        ...state,
+        currentReviewRequest: action.payload,
+      };
+
+    case GET_REVIEW_REQUEST_FAILURE:
+      console.log(action.payload);
+      return {
+        ...state,
       };
 
     default:
