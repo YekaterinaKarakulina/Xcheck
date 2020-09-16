@@ -7,6 +7,7 @@ export const axiosDB = axios.create({
 
 export const axiosAuth = axios.create({
   baseURL: 'http://localhost:5000/',
+  // baseURL: 'https://xcheck-team11-auth.herokuapp.com/',
 });
 
 export const axiosApp = axios.create({
