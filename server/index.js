@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const express = require("express");
 const bodyParser = require("body-parser");
 const FormData = require("form-data");
@@ -16,13 +17,13 @@ app.use((req, res, next) => {
 });
 
 app.post("/authenticate", (req, res) => {
-  const { code } = req.body;
+  const { redirect_uri, code } = req.body;
 
   const data = new FormData();
   data.append("client_id", '3cdd93c64851d7e52a5d');
   data.append("client_secret", '5e7c3eb366144c3855ecd06394de075dd5b72322');
   data.append("code", code);
-  data.append("redirect_uri", 'http://localhost:8080/login');
+  data.append("redirect_uri", redirect_uri);
 
   fetch(`https://github.com/login/oauth/access_token`, {
     method: "POST",
@@ -35,7 +36,6 @@ app.post("/authenticate", (req, res) => {
       const scope = params.get("scope");
       const tokenType = params.get("token_type");
 
-      // Request to return data of a user that has been authenticated
       return fetch(
         `https://api.github.com/user?access_token=${accessToken}&scope=${scope}&token_type=${tokenType}`
       );
