@@ -6,14 +6,16 @@ import { PageHeader, Button } from 'antd';
 import history from '../../history/history';
 
 import mapData from './mapData';
-import getReviews from '../../store/actions/reviews';
+import { getReviews } from '../../store/actions/reviews';
 import ReviewsTable from '../../components/reviews-table';
 import GradesTable from '../../components/grades-table';
+import Feedback from '../../components/review-feedback';
 
 class Reviews extends React.Component {
   state = {
     isReview: false,
     nameTask: '',
+    review: {},
     dataGrades: [],
   };
 
@@ -23,12 +25,14 @@ class Reviews extends React.Component {
   }
 
   showReview = (record) => {
-    history.push(`/reviews/${record.task.trim()}`);
-    const data = this.getDataReview(record.key);
+    history.push(`/reviews/${record.taskTitle.trim()}`);
+    const dataGrades = this.getDataGrades(record.key);
+    const review = this.getReview(record.key);
     this.setState({
       isReview: true,
-      nameTask: record.task,
-      dataGrades: [...data],
+      nameTask: record.taskTitle,
+      dataGrades: [...dataGrades],
+      review,
     });
   };
 
@@ -37,10 +41,10 @@ class Reviews extends React.Component {
     this.setState({ isReview: false });
   };
 
-  getDataReview = (id) => {
-    const { reviews } = this.props;
+  getDataGrades = (id) => {
+    const { reviewsData } = this.props;
     const gradesData = [];
-    reviews.forEach((item) => {
+    reviewsData.forEach((item) => {
       if (item.id === id) {
         gradesData.push(item.grade.items);
       }
@@ -48,42 +52,47 @@ class Reviews extends React.Component {
     return gradesData;
   };
 
-  render() {
-    const { reviews } = this.props;
-    const reviewsData = [];
-    reviews.forEach((review) => reviewsData.push(mapData(review)));
+  getReview = (id) => {
+    const { reviewsData } = this.props;
+    let review;
+    reviewsData.forEach((item) => {
+      if (item.id === id) {
+        review = item;
+      }
+    });
+    return review;
+  };
 
-    const { isReview } = this.state;
-    const { nameTask } = this.state;
-    const { dataGrades } = this.state;
+  render() {
+    const { reviewsData } = this.props;
+    const reviews = [];
+    reviewsData.forEach((review) => reviews.push(mapData(review)));
+
+    const { isReview, nameTask, dataGrades, review } = this.state;
 
     if (isReview) {
       return (
         <div className="wrapper">
           <PageHeader className="site-page-header" title={`${nameTask}`} />
-          <Button
-            onClick={() => this.hideReview()}
-            type="primary"
-            size="small"
-            style={{ width: 90 }}
-          >
+          <Button onClick={() => this.hideReview()} type="primary">
             Back
           </Button>
           <GradesTable tableData={dataGrades} />
+          <Feedback review={review} />
         </div>
       );
     }
     return (
       <div className="wrapper">
         <PageHeader className="site-page-header" title="Reviews" />
-        <ReviewsTable tableData={reviewsData} handleClick={this.showReview} />
+        <ReviewsTable tableData={reviews} handleClick={this.showReview} />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ reviews }) => {
-  return { reviews };
+const mapStateToProps = ({ reviewsData, login }) => {
+  return { reviewsData, login };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -93,12 +102,12 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 Reviews.propTypes = {
-  reviews: PropTypes.arrayOf(PropTypes.object),
+  reviewsData: PropTypes.arrayOf(PropTypes.object),
   getReviews: PropTypes.func,
 };
 
 Reviews.defaultProps = {
-  reviews: PropTypes.array,
+  reviewsData: PropTypes.array,
   getReviews: PropTypes.func,
 };
 
