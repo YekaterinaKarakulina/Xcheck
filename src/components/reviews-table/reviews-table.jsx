@@ -79,8 +79,8 @@ export default class ReviewsTable extends React.Component {
     const columns = [
       {
         title: 'Name task',
-        dataIndex: 'task',
-        key: 'task',
+        dataIndex: 'taskTitle',
+        key: 'taskTitle',
         render: (text, record) => {
           return <a href={record.urlTask}>{text}</a>;
         },
