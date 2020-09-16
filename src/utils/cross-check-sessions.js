@@ -5,7 +5,7 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
   const {
     title,
     author,
-    taskId,
+    taskTitle,
     coefficient,
     minReviewsAmount,
     desiredReviewsAmount,
@@ -35,7 +35,7 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
     title,
     author,
     state,
-    taskId,
+    taskTitle,
     crossCheckSessionPeriod: crossCheckSessionPeriodFormatted,
     coefficient: Number(coefficient),
     discardMinScore,
@@ -48,7 +48,8 @@ const transformFormValuesToCrossCheckSessionObject = (values) => {
 
 const getTasksInfoForCrossCheckSessionForm = (tasksTableData) => {
   const tasks = [];
-  tasksTableData.forEach((task) => {
+  const tasksOpened = tasksTableData.filter((task) => task.state === 'open');
+  tasksOpened.forEach((task) => {
     const { title, id } = task;
     tasks.push({
       title,

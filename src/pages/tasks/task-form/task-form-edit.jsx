@@ -1,21 +1,18 @@
 import React from 'react';
 import { PageHeader } from 'antd';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TaskFormCreation from '../../../components/tasks/task-form/task-form-creation';
 import { updateTaskSession } from '../../../store/actions/task';
 
 const TaskFormEdit = (props) => {
-  const { tasks, updateTaskSession, isRedirectToTableReady } = props;
+  const { tasks, updateTaskSession, history } = props;
 
   const onSubmit = (values) => {
     updateTaskSession(values);
+    history.push(`/tasks`);
   };
-
-  if (isRedirectToTableReady) {
-    return <Redirect to="/tasks" />;
-  }
 
   return (
     <div className="wrapper">
@@ -29,8 +26,8 @@ const TaskFormEdit = (props) => {
 
 TaskFormEdit.propTypes = {
   tasks: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  isRedirectToTableReady: PropTypes.bool.isRequired,
   updateTaskSession: PropTypes.func.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = ({ tasks }) => ({
@@ -44,4 +41,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskFormEdit);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TaskFormEdit));
