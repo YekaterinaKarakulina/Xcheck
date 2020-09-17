@@ -8,6 +8,7 @@ import {
   PlusCircleOutlined,
   MinusCircleOutlined,
 } from '@ant-design/icons';
+import { isEmpty } from 'lodash';
 import makeField from '../forms/make-field';
 import { required, maxLength, minLength } from '../../utils/formValidations';
 
@@ -29,8 +30,7 @@ const GradeField = (props) => {
     id,
     title,
     description,
-    maxScore,
-    minScore,
+    score,
     selfGrade,
     detailIds,
     commentIds,
@@ -39,18 +39,29 @@ const GradeField = (props) => {
     toggleShow,
     toggleAdd,
   } = props;
-  const { comment } = selfGrade.items[id];
+  const { comment } = !isEmpty(selfGrade[title]) ? selfGrade[title] : '';
   const isDetailViewed = detailIds[id];
   const isCommentViewed = commentIds[id];
   const isCommentFieldOpened = commentFieldIds[id];
 
+  let maxScore;
+  let minScore;
+
+  if (Number(score) < 0) {
+    maxScore = 0;
+    minScore = score;
+  } else {
+    maxScore = score;
+    minScore = 0;
+  }
+
   const maxValue = useMemo(
-    () => (value) => (value > maxScore ? `Must be at most ${maxScore}` : undefined),
+    () => (value) => (Number(value) > maxScore ? `Must be at most ${maxScore}` : undefined),
     [maxScore]
   );
 
   const minValue = useMemo(
-    () => (value) => (value < minScore ? `Must be at least ${minScore}` : undefined),
+    () => (value) => (Number(value) < minScore ? `Must be at least ${minScore}` : undefined),
     [minScore]
   );
 
@@ -72,7 +83,7 @@ const GradeField = (props) => {
           </Space>
           <Space size="small" align="start">
             <Field
-              name={id}
+              name={title}
               placeholder="Score"
               component={AInputNumber}
               validate={[required, maxValue, minValue, maxLength3, minLength1]}

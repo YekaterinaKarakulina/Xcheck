@@ -3,6 +3,8 @@ import {
   POST_TASK_SESSIONS_FAILURE,
   GET_TASKSTABLE_SESSIONS_SUCCESS,
   GET_TASKSTABLE_SESSIONS_FAILURE,
+  GET_TASK_BY_TITLE_SUCCESS,
+  GET_TASK_BY_TITLE_FAILURE,
   REDIRECT_TO_TASK_SESSIONS,
   REDIRECT_TO_TASK_SESSION_FORM,
   UPDATE_TASK_SESSION_SUCCESS,
@@ -13,6 +15,7 @@ const initialState = {
   isRedirectToTableReady: false,
   isRedirectToFormReady: false,
   formValues: {},
+  currentTask: {},
 };
 
 const tasks = (state = initialState, action) => {
@@ -28,6 +31,16 @@ const tasks = (state = initialState, action) => {
     case GET_TASKSTABLE_SESSIONS_FAILURE:
       return state;
 
+    case GET_TASK_BY_TITLE_SUCCESS:
+      return {
+        ...state,
+        currentTask: action.payload,
+      };
+    case GET_TASK_BY_TITLE_FAILURE:
+      console.log(action.payload, 'inside task reducer');
+      return {
+        ...state,
+      };
     case REDIRECT_TO_TASK_SESSIONS:
       return {
         ...state,

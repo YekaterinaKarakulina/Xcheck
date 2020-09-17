@@ -25,23 +25,33 @@ const SelfGradeField = (props) => {
     id,
     title,
     description,
-    maxScore,
-    minScore,
+    score,
     detailIds,
     commentFieldIds,
     toggleMore,
     toggleAdd,
   } = props;
   const isDetailViewed = detailIds[id];
-  const isCommentFieldOpened = commentFieldIds[id];
+  const isCommentFieldOpened = commentFieldIds[id]; // 10, -10
+
+  let maxScore;
+  let minScore;
+
+  if (Number(score) < 0) {
+    maxScore = 0;
+    minScore = score;
+  } else {
+    maxScore = score;
+    minScore = 0;
+  }
 
   const maxValue = useMemo(
-    () => (value) => (value > maxScore ? `Must be at most ${maxScore}` : undefined),
+    () => (value) => (Number(value) > maxScore ? `Must be at most ${maxScore}` : undefined),
     [maxScore]
   );
 
   const minValue = useMemo(
-    () => (value) => (value < minScore ? `Must be at least ${minScore}` : undefined),
+    () => (value) => (Number(value) < minScore ? `Must be at least ${minScore}` : undefined),
     [minScore]
   );
 
@@ -61,7 +71,7 @@ const SelfGradeField = (props) => {
             More info {!isDetailViewed ? <CaretDownOutlined /> : <CaretUpOutlined />}
           </Button>
           <Field
-            name={id}
+            name={title}
             placeholder="Score"
             component={AInputNumber}
             validate={[required, maxValue, minValue, maxLength3, minLength1]}

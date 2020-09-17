@@ -3,12 +3,7 @@
     {
       "id": "47fb03a6-b770-4e64-a533-e507cfa49020",
       "githubId": "torvalds",
-      "roles": [
-        "author",
-        "student",
-        "supervisor",
-        "course_manager"
-      ]
+      "roles": ["author", "student", "supervisor", "course_manager"]
     },
     {
       "id": "4dc0685c-df82-4db1-8d5b-ac31f954434e",
@@ -18,43 +13,28 @@
     {
       "id": "f8044829-0a33-4c68-81eb-7849a0cb0e18",
       "githubId": "YekaterinaKarakulina",
-      "roles": [
-        "author",
-        "student",
-        "supervisor",
-        "course_manager"
-      ]
+      "roles": ["author", "student", "supervisor", "course_manager"]
     },
     {
       "id": "dc79022b-80b5-4200-bcd3-a739923818a3",
       "githubId": "PavelZaharov1987",
-      "roles": [
-        "author",
-        "student"
-      ]
+      "roles": ["author", "student"]
     },
     {
       "id": "59b7f101-3462-4cd2-a418-e210f4fb8149",
       "githubId": "Ghuseynova",
-      "roles": [
-        "author"
-      ]
+      "roles": ["author"]
     },
     {
       "id": "b08a13d8-5df2-4953-be60-0ed72617c58f",
       "githubId": "Kipris",
-      "roles": [
-        "author",
-        "student",
-        "supervisor",
-        "course_manager"
-      ]
+      "roles": ["author", "student", "supervisor", "course_manager"]
     }
   ],
   "tasks": [
     {
       "taskScore": 100,
-      "title": "Task #1",
+      "title": "Task 1",
       "state": "closed",
       "author": "author1",
       "description": "Task #1 description",
@@ -113,7 +93,7 @@
     },
     {
       "taskScore": 100,
-      "title": "Task #2",
+      "title": "Task 2",
       "state": "draft",
       "author": "author2",
       "description": "Task #2 description",
@@ -148,7 +128,7 @@
     },
     {
       "taskScore": 100,
-      "title": "Task #3",
+      "title": "Task 3",
       "state": "open",
       "author": "author3",
       "description": "Task #3 description",
@@ -183,14 +163,14 @@
     },
     {
       "taskScore": 100,
-      "title": "Task #4",
+      "title": "Task 4",
       "state": "archived",
       "author": "author4",
       "description": "Task #4 description",
       "items": [
         {
           "id": "task-4-bp1",
-          "title": "title-basic_p1",
+          "title": "basic_p1",
           "category": "basic",
           "score": "10",
           "description": "basic_p1 - You need to do some things",
@@ -203,10 +183,193 @@
           "score": "30",
           "description": "extra_p1 - You need to do some things",
           "mentorCheck": true
+        },
+        {
+          "id": "task-4-ep1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "-20",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
         }
       ],
       "taskId": "task-4",
       "id": "task-4"
+    },
+    {
+      "taskScore": 100,
+      "title": "Task 5",
+      "state": "archived",
+      "author": "author4",
+      "description": "Task #4 description",
+      "items": [
+        {
+          "id": "task-5-bp1",
+          "title": "basic_p1",
+          "category": "basic",
+          "score": "10",
+          "description": "basic_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-5-ep1",
+          "title": "extra_p1",
+          "category": "extra",
+          "score": "30",
+          "description": "extra_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-5-ep1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "-20",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
+        }
+      ],
+      "taskId": "task-5",
+      "id": "task-5"
+    },
+    {
+      "taskScore": 100,
+      "title": "Task 6",
+      "state": "archived",
+      "author": "author4",
+      "description": "Task #4 description",
+      "items": [
+        {
+          "id": "task-6-bp1",
+          "title": "basic_p1",
+          "category": "basic",
+          "score": "10",
+          "description": "basic_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-6-ep1",
+          "title": "extra_p1",
+          "category": "extra",
+          "score": "30",
+          "description": "extra_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-6-ep1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "-20",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
+        }
+      ],
+      "taskId": "task-6",
+      "id": "task-6"
+    },
+    {
+      "taskScore": 100,
+      "title": "Task 7",
+      "state": "archived",
+      "author": "author4",
+      "description": "Task #4 description",
+      "items": [
+        {
+          "id": "task-7-bp1",
+          "title": "basic_p1",
+          "category": "basic",
+          "score": "10",
+          "description": "basic_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-7-ep1",
+          "title": "extra_p1",
+          "category": "extra",
+          "score": "30",
+          "description": "extra_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-7-ep1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "-20",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
+        }
+      ],
+      "taskId": "task-7",
+      "id": "task-7"
+    },
+    {
+      "taskScore": 100,
+      "title": "Task 8",
+      "state": "archived",
+      "author": "author4",
+      "description": "Task #4 description",
+      "items": [
+        {
+          "id": "task-8-bp1",
+          "title": "basic_p1",
+          "category": "basic",
+          "score": "10",
+          "description": "basic_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-8-ep1",
+          "title": "extra_p1",
+          "category": "extra",
+          "score": "30",
+          "description": "extra_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-8-ep1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "-20",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
+        }
+      ],
+      "taskId": "task-8",
+      "id": "task-8"
+    },
+    {
+      "taskScore": 100,
+      "title": "Task 9",
+      "state": "archived",
+      "author": "author4",
+      "description": "Task #4 description",
+      "items": [
+        {
+          "id": "task-9-bp1",
+          "title": "basic_p1",
+          "category": "basic",
+          "score": "10",
+          "description": "basic_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-9-ep1",
+          "title": "extra_p1",
+          "category": "extra",
+          "score": "30",
+          "description": "extra_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-9-ep1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "-20",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
+        }
+      ],
+      "taskId": "task-8",
+      "id": "task-9"
     }
   ],
   "crossCheckSessions": [
@@ -216,10 +379,7 @@
       "author": "author1",
       "state": "draft",
       "taskTitle": "Task #1",
-      "crossCheckSessionPeriod": [
-        "2020-07-08",
-        "2020-07-14"
-      ],
+      "crossCheckSessionPeriod": ["2020-07-08", "2020-07-14"],
       "coefficient": 0.2,
       "discardMinScore": true,
       "discardMaxScore": true,
@@ -233,10 +393,7 @@
       "author": "author1",
       "state": "closed",
       "taskTitle": "Task #2",
-      "crossCheckSessionPeriod": [
-        "2020-09-15",
-        "2020-09-17"
-      ],
+      "crossCheckSessionPeriod": ["2020-09-15", "2020-09-17"],
       "coefficient": 0.7,
       "discardMinScore": true,
       "discardMaxScore": true,
@@ -250,10 +407,7 @@
       "author": "author3",
       "state": "active",
       "taskTitle": "Task #3",
-      "crossCheckSessionPeriod": [
-        "2020-08-22",
-        "2020-09-22"
-      ],
+      "crossCheckSessionPeriod": ["2020-08-22", "2020-09-22"],
       "coefficient": 0.7,
       "discardMinScore": true,
       "discardMaxScore": false,
@@ -316,7 +470,7 @@
     {
       "id": "rev-req-1",
       "author": "cardamo",
-      "taskTitle": "Task #1",
+      "taskTitle": "Task 1",
       "state": "draft",
       "selfGrade": {},
       "linkToDemo": "#",
@@ -326,7 +480,7 @@
     {
       "id": "rev-req-2",
       "author": "author2",
-      "taskTitle": "Task #2",
+      "taskTitle": "Task 2",
       "state": "draft",
       "selfGrade": {},
       "linkToDemo": "#",
@@ -336,7 +490,7 @@
     {
       "id": "rev-req-3",
       "author": "darmamo",
-      "taskTitle": "Task #1",
+      "taskTitle": "Task 3",
       "state": "draft",
       "selfGrade": {},
       "linkToDemo": "#",
@@ -346,7 +500,7 @@
     {
       "id": "rev-req-4",
       "author": "author4",
-      "taskTitle": "Task #3",
+      "taskTitle": "Task 4",
       "state": "readyToXCheck",
       "selfGrade": {
         "basic_p1": {
@@ -369,7 +523,7 @@
     {
       "id": "rev-req-5",
       "author": "author5",
-      "taskTitle": "Task #3",
+      "taskTitle": "Task 5",
       "state": "readyToXCheck",
       "selfGrade": {
         "basic_p1": {
@@ -392,7 +546,7 @@
     {
       "id": "rev-req-6",
       "author": "author6",
-      "taskTitle": "Task #3",
+      "taskTitle": "Task 6",
       "state": "readyToXCheck",
       "selfGrade": {
         "basic_p1": {
@@ -415,7 +569,7 @@
     {
       "id": "rev-req-7",
       "author": "author7",
-      "taskTitle": "Task #3",
+      "taskTitle": "Task 7",
       "state": "readyToXCheck",
       "selfGrade": {
         "basic_p1": {
@@ -438,7 +592,7 @@
     {
       "id": "rev-req-8",
       "author": "author8",
-      "taskTitle": "Task #3",
+      "taskTitle": "Task 8",
       "state": "readyToXCheck",
       "selfGrade": {
         "basic_p1": {

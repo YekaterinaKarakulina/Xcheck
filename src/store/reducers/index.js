@@ -11,7 +11,7 @@ import crossCheckSessions from './cross-check-sessions/cross-check-sessions';
 import crossCheckSession from './cross-check-sessions/cross-check-session';
 import reviewRequestsData from './review-requests/review-requests-data';
 import reviewRequest from './review-requests/review-request';
-import values from './values';
+// import values from './values';
 import reviewRequests from './review-requests/review-requests';
 
 const rootReducer = combineReducers({
@@ -27,7 +27,7 @@ const rootReducer = combineReducers({
   login,
   reviewRequestsData,
   reviewRequests,
-  values,
+  // values,
   taskCreation: reduxFormReducer.plugin({
     tasks,
   }),
