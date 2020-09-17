@@ -4,7 +4,6 @@ import {
   POST_TASK_SESSIONS,
   POST_TASK_SESSIONS_SUCCESS,
   POST_TASK_SESSIONS_FAILURE,
-  REDIRECT_TO_TASK_SESSIONS,
   UPDATE_TASK_SESSION_SUCCESS,
   UPDATE_TASK_SESSION_FAILURE,
   UPDATE_TASK_SESSION,
@@ -12,7 +11,6 @@ import {
   GET_TASKSTABLE_SESSIONS_SUCCESS,
   GET_TASKSTABLE_SESSIONS_FAILURE,
   GET_TASK_SESSION_BY_ID,
-  REDIRECT_TO_TASK_SESSION_FORM,
 } from '../actions/types/task';
 
 function* workerPostTask(action) {
@@ -20,7 +18,6 @@ function* workerPostTask(action) {
   try {
     yield call(Axios.post, uri, action.payload);
     yield put({ type: POST_TASK_SESSIONS_SUCCESS });
-    yield put({ type: REDIRECT_TO_TASK_SESSIONS });
   } catch {
     yield put({
       type: POST_TASK_SESSIONS_FAILURE,
@@ -34,7 +31,6 @@ function* workerUpdateTaskSession(action) {
     const uri = `http://localhost:3000/tasks/${action.payload.id}`;
     yield call(Axios.put, uri, action.payload);
     yield put({ type: UPDATE_TASK_SESSION_SUCCESS });
-    yield put({ type: REDIRECT_TO_TASK_SESSIONS });
   } catch {
     yield put({
       type: UPDATE_TASK_SESSION_FAILURE,
@@ -61,7 +57,6 @@ function* workerGetTaskTableById(action) {
   try {
     const result = yield call(Axios.get, uri);
     yield put({ type: GET_TASKSTABLE_SESSIONS_SUCCESS, payload: result.data });
-    yield put({ type: REDIRECT_TO_TASK_SESSION_FORM });
   } catch {
     yield put({
       type: GET_TASKSTABLE_SESSIONS_FAILURE,

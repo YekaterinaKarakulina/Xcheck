@@ -4,22 +4,27 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TaskFormCreation from '../../../components/tasks/task-form/task-form-creation';
-import { updateTaskSession } from '../../../store/actions/task';
+import { updateTaskSession, getTasksTable } from '../../../store/actions/task';
 
 const TaskFormEdit = (props) => {
-  const { tasks, updateTaskSession, history } = props;
-
-  const onSubmit = (values) => {
-    updateTaskSession(values);
+  const {
+    tasks: { formValues },
+    match: { params: id },
+    updateTaskSession,
+    history,
+    getTasksTable,
+  } = props;
+  const taskformValue = formValues.find((elem) => elem.taskId === id.id);
+  const onSubmit = async (values) => {
+    await updateTaskSession(values);
+    getTasksTable();
     history.push(`/tasks`);
   };
 
   return (
     <div className="wrapper">
       <PageHeader className="site-page-header" title="Task edit" />
-      {tasks?.formValues && tasks.formValues[0] && (
-        <TaskFormCreation initialValues={tasks.formValues[0]} onSubmit={onSubmit} />
-      )}
+      {formValues && <TaskFormCreation initialValues={taskformValue} onSubmit={onSubmit} />}
     </div>
   );
 };
@@ -28,16 +33,18 @@ TaskFormEdit.propTypes = {
   tasks: PropTypes.oneOfType([PropTypes.object]).isRequired,
   updateTaskSession: PropTypes.func.isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
+  match: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  getTasksTable: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ tasks }) => ({
-  isRedirectToTableReady: tasks.isRedirectToTableReady,
   tasks,
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     updateTaskSession: (tasks) => dispatch(updateTaskSession(tasks)),
+    getTasksTable: () => dispatch(getTasksTable()),
   };
 };
 

@@ -74,13 +74,11 @@ const renderTaskItem = ({ fields }) => {
 
           <Field
             label="Only mentor check"
-            name="mentorCheck"
+            name={`${point}.mentorCheck`}
             component={ACheckbox}
             type="checkbox"
             hasFeedback
           />
-
-          <Field label="Fine" name="fine" component={ACheckbox} type="checkbox" hasFeedback />
         </li>
       ))}
     </ul>
