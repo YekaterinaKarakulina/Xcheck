@@ -10,10 +10,7 @@ const mapDataValues = (values) => {
       item.mentorCheck = item.mentorCheck || false;
       item.description = item.description || '';
       item.score = parseInt(item.score, 10);
-      if (item.category === 'fines') {
-        item.score = -item.score;
-      }
-      if (item.score > 0) {
+      if (item.category !== 'fines') {
         fullScore += item.score;
       }
     });

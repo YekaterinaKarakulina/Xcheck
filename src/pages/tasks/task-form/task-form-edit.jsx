@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TaskFormCreation from '../../../components/tasks/task-form/task-form-creation';
 import { updateTaskSession, getTasksTable } from '../../../store/actions/task';
+import mapDataValues from './map-data-form';
 
 const TaskFormEdit = (props) => {
   const {
@@ -16,7 +17,8 @@ const TaskFormEdit = (props) => {
   } = props;
   const taskformValue = formValues.find((elem) => elem.taskId === id.id);
   const onSubmit = async (values) => {
-    await updateTaskSession(values);
+    const changedObjectValues = mapDataValues(values);
+    await updateTaskSession(changedObjectValues);
     getTasksTable();
     history.push(`/tasks`);
   };
