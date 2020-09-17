@@ -1,4 +1,4 @@
-import { GET_REVIEWS } from './types/reviews';
+import { GET_REVIEWS, POST_REVIEW, UPDATE_REVIEW } from './types/reviews';
 
 const getReviews = () => {
   return {
@@ -6,4 +6,18 @@ const getReviews = () => {
   };
 };
 
-export default getReviews;
+const postReview = (newReview) => {
+  return {
+    type: POST_REVIEW,
+    payload: newReview,
+  };
+};
+
+const updateReview = (id) => {
+  return {
+    type: UPDATE_REVIEW,
+    payload: id,
+  };
+};
+
+export { getReviews, postReview, updateReview };

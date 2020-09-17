@@ -5,17 +5,26 @@ import {
   CLOSE_MODAL,
   GET_REVIEW_REQUEST_SUCCESS,
   GET_REVIEW_REQUEST_FAILURE,
+  GET_REVIEW_REQUESTS_SUCCESS,
+  GET_REVIEW_REQUESTS_FAILURE,
 } from '../../actions/types/review-requests';
 
 const initialState = {
-  // isRedirectToTableReady: false,
-  // isRedirectToFormReady: false,
   isModalVisible: false,
   currentReviewRequest: {},
 };
 
 const reviewRequests = (state = initialState, action) => {
   switch (action.type) {
+    case GET_REVIEW_REQUESTS_SUCCESS:
+      return {
+        ...state,
+      };
+
+    case GET_REVIEW_REQUESTS_FAILURE:
+      console.log(action.payload);
+      return state;
+
     case POST_REVIEW_REQUEST_SUCCESS:
       return {
         ...state,

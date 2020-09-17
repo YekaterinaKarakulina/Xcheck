@@ -421,32 +421,61 @@
       "id": "rev-id-1",
       "requestId": "rev-req-1",
       "author": "author1",
-      "task": "english fo kids",
+      "taskTitle": "english fo kids",
       "state": "disputed",
+      "comments": [
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Yes!"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Well done!"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Good!"
+        }
+      ],
       "grade": {
         "items": {
           "basic_p1": {
-            "score": 20,
+            "score": 15,
             "comment": "Well done!"
           },
           "extra_p1": {
-            "score": 15,
+            "score": 0,
             "comment": "Some things are done, some are not"
           },
           "fines_p1": {
-            "score": 0,
+            "score": -20,
             "comment": "No ticket today"
-          },
-          "total": 35
-        }
+          }
+        },
+        "total": -5
       }
     },
     {
       "id": "rev-id-2",
       "requestId": "rev-req-2",
       "author": "author2",
-      "task": "movie search",
+      "taskTitle": "movie search",
       "state": "published",
+      "comments": [
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Well!"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Good Job!"
+        }
+      ],
       "grade": {
         "items": {
           "basic_p1": {
@@ -460,9 +489,9 @@
           "fines_p1": {
             "score": -10,
             "comment": "No ticket today"
-          },
-          "total": 30
-        }
+          }
+        },
+        "total": 40
       }
     }
   ],
