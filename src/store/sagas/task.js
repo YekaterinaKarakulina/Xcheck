@@ -1,5 +1,5 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
-import Axios from 'axios';
+import { axiosDB } from '../../axios';
 import {
   POST_TASK_SESSIONS,
   POST_TASK_SESSIONS_SUCCESS,
@@ -16,7 +16,7 @@ import {
 function* workerPostTask(action) {
   const uri = 'http://localhost:3000/tasks';
   try {
-    yield call(Axios.post, uri, action.payload);
+    yield axiosDB.post('tasks', action.payload);
     yield put({ type: POST_TASK_SESSIONS_SUCCESS });
   } catch {
     yield put({
@@ -28,8 +28,7 @@ function* workerPostTask(action) {
 
 function* workerUpdateTaskSession(action) {
   try {
-    const uri = `http://localhost:3000/tasks/${action.payload.id}`;
-    yield call(Axios.put, uri, action.payload);
+    yield axiosDB.put(`/tasks/${action.payload.id}`, action.payload);
     yield put({ type: UPDATE_TASK_SESSION_SUCCESS });
   } catch {
     yield put({
@@ -42,7 +41,7 @@ function* workerUpdateTaskSession(action) {
 function* workerGetTasksTable() {
   const uri = 'http://localhost:3000/tasks';
   try {
-    const result = yield call(Axios.get, uri);
+    const result = yield axiosDB.get('tasks');
     yield put({ type: GET_TASKSTABLE_SESSIONS_SUCCESS, payload: result.data });
   } catch {
     yield put({
@@ -55,7 +54,7 @@ function* workerGetTasksTable() {
 function* workerGetTaskTableById(action) {
   const uri = `http://localhost:3000/tasks?taskId=${action.payload}`;
   try {
-    const result = yield call(Axios.get, uri);
+    const result = yield axiosDB.get(`/tasks?taskId=${action.payload}`);
     yield put({ type: GET_TASKSTABLE_SESSIONS_SUCCESS, payload: result.data });
   } catch {
     yield put({
