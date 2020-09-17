@@ -7,13 +7,13 @@ import {
   GET_USER_BY_GITHUBID_SUCCESS,
 } from '../actions/types/login';
 import { getRoles } from '../../utils';
+import env from '../../env';
 
 const initialState = {
   isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn')) || false,
   user: JSON.parse(localStorage.getItem('user')) || null,
-  clientId: '3cdd93c64851d7e52a5d',
-  redirectUri: 'http://localhost:8080/login',
-  proxyUrl: 'http://localhost:5000/authenticate',
+  clientId: env.clientId,
+  redirectUri: `${env.appBaseURL}login`,
   loading: false,
   errorMessage: null,
   roles: getRoles(),

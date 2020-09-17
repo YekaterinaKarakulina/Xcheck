@@ -24,13 +24,13 @@ app.use((req, res, next) => {
 });
 
 app.post("/authenticate", (req, res) => {
-  const { redirect_uri, code } = req.body;
+  const { redirectUri, code } = req.body;
 
   const data = new FormData();
   data.append("client_id", "3cdd93c64851d7e52a5d");
   data.append("client_secret", "5e7c3eb366144c3855ecd06394de075dd5b72322");
   data.append("code", code);
-  data.append("redirect_uri", redirect_uri);
+  data.append("redirect_uri", redirectUri);
 
   fetch("https://github.com/login/oauth/access_token", {
     method: "POST",

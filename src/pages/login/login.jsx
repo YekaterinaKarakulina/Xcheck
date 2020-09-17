@@ -6,7 +6,6 @@ import {
   getLoadingStatus,
   getClientId,
   getRedirectUri,
-  getProxyUrl,
   getLoginError,
 } from '../../store/selectors/login';
 import { login, setUserRoles } from '../../store/actions/login';
@@ -27,14 +26,14 @@ class Login extends React.PureComponent {
 
     if (hasCode) {
       const newUrl = url.split('?code=');
-      const { clientId, redirectUri, proxyUrl, login } = this.props;
+      const { clientId, redirectUri, login } = this.props;
       const requestData = {
-        client_id: clientId,
-        redirect_uri: redirectUri,
+        clientId,
+        redirectUri,
         code: newUrl[1],
       };
       window.history.pushState({}, null, newUrl[0]);
-      login(requestData, proxyUrl);
+      login(requestData);
     }
   }
 
@@ -79,7 +78,6 @@ const mapStateToProps = (state) => ({
   loading: getLoadingStatus(state),
   clientId: getClientId(state),
   redirectUri: getRedirectUri(state),
-  proxyUrl: getProxyUrl(state),
   error: getLoginError(state),
 });
 
@@ -92,7 +90,6 @@ Login.propTypes = {
   loading: PropTypes.bool.isRequired,
   clientId: PropTypes.string.isRequired,
   redirectUri: PropTypes.string.isRequired,
-  proxyUrl: PropTypes.string.isRequired,
   error: PropTypes.string,
   login: PropTypes.func.isRequired,
   setUserRoles: PropTypes.func.isRequired,

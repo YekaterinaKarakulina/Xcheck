@@ -1,8 +1,8 @@
 import { LOGIN, POST_USER, SET_USER_ROLES, LOGOUT } from './types/login';
 
-export const login = (data, uri) => ({
+export const login = (data) => ({
   type: LOGIN,
-  payload: { data, uri },
+  payload: { data },
 });
 
 export const postUser = (newUser) => {
