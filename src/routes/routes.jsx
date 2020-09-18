@@ -26,8 +26,8 @@ const Routes = ({ isLoggedIn }) => {
           <Route exact path="/tasks/" component={TasksTable} />
           <Route path="/tasks/:id" component={TaskLayout} />
           <Route path="/check" component={Check} />
-          <Route path="/review-requests" component={ReviewRequestsTable} />
-          <Route path="/review-request-form" component={ReviewRequestForm} />
+          <Route exact path="/review-requests/" component={ReviewRequestsTable} />
+          <Route path="/review-requests/review-request-form" component={ReviewRequestForm} />
           <Route path="/reviews/" component={Reviews} />
           <Route exact path="/cross-check-sessions/" component={CrossCheckSessionsTable} />
           <Route path="/cross-check-sessions/:id" component={CrossCheckSessionLayout} />

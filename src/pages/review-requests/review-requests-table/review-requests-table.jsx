@@ -13,7 +13,7 @@ const ReviewRequestsTable = () => {
         type="primary"
         icon={<PlusOutlined style={{ marginRight: '1rem' }} />}
       >
-        <Link style={{ color: 'white' }} to="/review-request-form">
+        <Link style={{ color: 'white' }} to="/review-requests/review-request-form">
           Add new request
         </Link>
       </Button>
