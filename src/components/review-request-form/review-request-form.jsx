@@ -11,8 +11,6 @@ import { closeModal } from '../../store/actions/review-requests';
 
 const FormItem = Form.Item;
 const { Option } = Select;
-const crossCheckSessionData = ['rss2020Q1', 'rss2020Q3react', 'rss2020Q3angular'];
-const tasks = ['simple-task-v1', 'simple-task-v2', 'simple-task-v3'];
 
 const AInput = makeField(Input, formItemLayout);
 const ASelect = makeField(Select, formItemLayout);
@@ -39,13 +37,15 @@ class ReviewRequestFormCreation extends React.Component {
       submitting,
       hasChoiceCrossCheckSession,
       isModalVisible,
+      crossCheckSessions,
+      tasks,
     } = this.props;
 
     return (
       <>
         <form onSubmit={handleSubmit}>
           <Field
-            label="author"
+            label="Author"
             name="author"
             component={AInput}
             placeholder="Add your name"
@@ -54,23 +54,22 @@ class ReviewRequestFormCreation extends React.Component {
           />
 
           <Field
-            defaultValue={tasks[0]}
-            label="task"
-            name="task"
+            label="Task title"
+            name="taskTitle"
             component={ASelect}
             hasFeedback
             validate={required}
             onBlur={(e) => e.preventDefault()}
           >
-            {tasks.map((task) => (
-              <Option key={task} value={task}>
-                {task}
+            {tasks.map(({ title, id }) => (
+              <Option key={id} value={title}>
+                {title}
               </Option>
             ))}
           </Field>
 
           <Field
-            label="linkToDemo"
+            label="Link to demo"
             name="linkToDemo"
             component={AInput}
             placeholder="Add link for demo"
@@ -79,7 +78,7 @@ class ReviewRequestFormCreation extends React.Component {
           />
 
           <Field
-            label="linkToPR"
+            label="Link to PR"
             name="linkToPR"
             component={AInput}
             placeholder="Add link for Rull Request"
@@ -97,19 +96,20 @@ class ReviewRequestFormCreation extends React.Component {
 
           {hasChoiceCrossCheckSession && (
             <Field
-              defaultValue={crossCheckSessionData[0]}
               label="Cross check session"
-              name="crossCheckSession"
+              name="crossCheckSessionId"
               component={ASelect}
               hasFeedback
               validate={required}
               onBlur={(e) => e.preventDefault()}
             >
-              {crossCheckSessionData.map((crossCheckSession) => (
-                <Option key={crossCheckSession} value={crossCheckSession}>
-                  {crossCheckSession}
-                </Option>
-              ))}
+              {crossCheckSessions.map(({ id }) => {
+                return (
+                  <Option value={id} key={id}>
+                    {id}
+                  </Option>
+                );
+              })}
             </Field>
           )}
 
@@ -160,6 +160,8 @@ ReviewRequestFormCreation.propTypes = {
   isModalVisible: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
+  crossCheckSessions: PropTypes.instanceOf(Array).isRequired,
+  tasks: PropTypes.instanceOf(Array).isRequired,
 };
 
 ReviewRequestFormCreation.defaultProps = {
