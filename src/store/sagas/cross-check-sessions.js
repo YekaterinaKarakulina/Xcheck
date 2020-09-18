@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeEvery, put } from 'redux-saga/effects';
 import { axiosDB } from '../../axios';
 
 import {
@@ -21,13 +21,13 @@ import {
 
 function* workerGetCrossCheckSessions() {
   try {
-    const result = yield call(axiosDB.get, 'crossCheckSessions');
+    const result = yield axiosDB.get('crossCheckSessions');
     yield put({ type: GET_CROSSCHECK_SESSIONS_SUCCESS, payload: result.data });
   } catch (error) {
     console.error(error);
     yield put({
       type: GET_CROSSCHECK_SESSIONS_FAILURE,
-      payload: `ERROR! Cannot get crossCheck sessions`,
+      payload: 'ERROR! Cannot get crossCheck sessions',
     });
   }
 }
@@ -35,7 +35,7 @@ function* workerGetCrossCheckSessions() {
 function* workerGetCrossCheckSession(action) {
   const id = action.payload;
   try {
-    const result = yield call(axiosDB.get, `crossCheckSessions/${id}`);
+    const result = yield axiosDB.get(`crossCheckSessions/${id}`);
     yield put({ type: GET_CROSSCHECK_SESSION_SUCCESS, payload: result.data });
   } catch (error) {
     console.error(error);
@@ -48,13 +48,13 @@ function* workerGetCrossCheckSession(action) {
 
 function* workerPostCrossCheckSession(action) {
   try {
-    yield call(axiosDB.post, 'crossCheckSessions', action.payload);
+    yield axiosDB.post('crossCheckSessions', action.payload);
     yield put({ type: POST_CROSSCHECK_SESSION_SUCCESS });
   } catch (error) {
     console.error(error);
     yield put({
       type: POST_CROSSCHECK_SESSION_FAILURE,
-      payload: `ERROR! Cannot post crossCheck session`,
+      payload: 'ERROR! Cannot post crossCheck session',
     });
   }
 }
@@ -62,7 +62,7 @@ function* workerPostCrossCheckSession(action) {
 function* workerUpdateCrossCheckSession(action) {
   const { id } = action.payload;
   try {
-    yield call(axiosDB.put, `crossCheckSessions/${id}`, action.payload);
+    yield axiosDB.put(`crossCheckSessions/${id}`, action.payload);
     yield put({ type: UPDATE_CROSSCHECK_SESSION_SUCCESS });
   } catch (error) {
     console.error(error);
@@ -76,7 +76,7 @@ function* workerUpdateCrossCheckSession(action) {
 function* workerDeleteCrossCheckSession(action) {
   const id = action.payload;
   try {
-    yield call(axiosDB.delete, `crossCheckSessions/${id}`);
+    yield axiosDB.delete(`crossCheckSessions/${id}`);
     yield put({ type: DELETE_CROSSCHECK_SESSION_SUCCESS });
     yield put({ type: GET_CROSSCHECK_SESSIONS });
   } catch (error) {
