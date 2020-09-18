@@ -1,5 +1,5 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
-import axios from 'axios';
+import { axiosDB } from '../../axios';
 
 import {
   GET_CROSSCHECK_SESSIONS,
@@ -20,40 +20,41 @@ import {
 } from '../actions/types/cross-check-sessions';
 
 function* workerGetCrossCheckSessions() {
-  const uri = 'http://localhost:3000/crossCheckSessions';
   try {
-    const result = yield call(axios.get, uri);
+    const result = yield call(axiosDB.get, 'crossCheckSessions');
     yield put({ type: GET_CROSSCHECK_SESSIONS_SUCCESS, payload: result.data });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: GET_CROSSCHECK_SESSIONS_FAILURE,
-      payload: `ERROR! Cannot get crossCheck sessions at ${uri}`,
+      payload: `ERROR! Cannot get crossCheck sessions`,
     });
   }
 }
 
 function* workerGetCrossCheckSession(action) {
+  const id = action.payload;
   try {
-    const uri = `http://localhost:3000/crossCheckSessions/${action.payload}`;
-    const result = yield call(axios.get, uri);
+    const result = yield call(axiosDB.get, `crossCheckSessions/${id}`);
     yield put({ type: GET_CROSSCHECK_SESSION_SUCCESS, payload: result.data });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: GET_CROSSCHECK_SESSION_FAILURE,
-      payload: `ERROR! Cannot get crossCheck session with this ID`,
+      payload: `ERROR! Cannot get crossCheck session with ID ${id}`,
     });
   }
 }
 
 function* workerPostCrossCheckSession(action) {
-  const uri = 'http://localhost:3000/crossCheckSessions';
   try {
-    yield call(axios.post, uri, action.payload);
+    yield call(axiosDB.post, 'crossCheckSessions', action.payload);
     yield put({ type: POST_CROSSCHECK_SESSION_SUCCESS });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: POST_CROSSCHECK_SESSION_FAILURE,
-      payload: `ERROR! Cannot post crossCheck session at ${uri}`,
+      payload: `ERROR! Cannot post crossCheck session`,
     });
   }
 }
@@ -61,25 +62,25 @@ function* workerPostCrossCheckSession(action) {
 function* workerUpdateCrossCheckSession(action) {
   const { id } = action.payload;
   try {
-    const uri = `http://localhost:3000/crossCheckSessions/${id}`;
-    yield call(axios.put, uri, action.payload);
+    yield call(axiosDB.put, `crossCheckSessions/${id}`, action.payload);
     yield put({ type: UPDATE_CROSSCHECK_SESSION_SUCCESS });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: UPDATE_CROSSCHECK_SESSION_FAILURE,
-      payload: `ERROR! Cannot update crossCheck session with id ${id}`,
+      payload: `ERROR! Cannot update crossCheck session with ID ${id}`,
     });
   }
 }
 
 function* workerDeleteCrossCheckSession(action) {
   const id = action.payload;
-  const uri = `http://localhost:3000/crossCheckSessions/${id}`;
   try {
-    yield call(axios.delete, uri);
+    yield call(axiosDB.delete, `crossCheckSessions/${id}`);
     yield put({ type: DELETE_CROSSCHECK_SESSION_SUCCESS });
     yield put({ type: GET_CROSSCHECK_SESSIONS });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: DELETE_CROSSCHECK_SESSION_FAILURE,
       payload: `ERROR! Cannot delete crossCheck session with id ${id}`,
