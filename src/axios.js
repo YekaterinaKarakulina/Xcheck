@@ -1,15 +1,14 @@
 import axios from 'axios';
+import env from './env';
 
 export const axiosDB = axios.create({
-  baseURL: 'http://localhost:3000/',
-  // baseURL: 'http://xcheck-team11-db.herokuapp.com/',
+  baseURL: env.dbBaseURL,
 });
 
 export const axiosAuth = axios.create({
-  baseURL: 'http://localhost:5000/',
-  // baseURL: 'https://xcheck-team11-auth.herokuapp.com/',
+  baseURL: env.authBaseURL,
 });
 
 export const axiosApp = axios.create({
-  baseURL: 'http://localhost:8080/',
+  baseURL: env.appBaseURL,
 });
