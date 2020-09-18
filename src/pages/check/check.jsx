@@ -127,7 +127,7 @@ class Check extends Component {
       }
     } else {
       items.forEach((item) => {
-        initialValues[item.title] = 0;
+        initialValues[item.id] = 0;
       });
     }
 

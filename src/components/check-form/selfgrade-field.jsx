@@ -25,6 +25,7 @@ const SelfGradeField = (props) => {
     id,
     title,
     description,
+    category,
     score,
     detailIds,
     commentFieldIds,
@@ -37,9 +38,9 @@ const SelfGradeField = (props) => {
   let maxScore;
   let minScore;
 
-  if (Number(score) < 0) {
+  if (category === 'fines') {
     maxScore = 0;
-    minScore = score;
+    minScore = -Math.abs(score);
   } else {
     maxScore = score;
     minScore = 0;
@@ -71,7 +72,7 @@ const SelfGradeField = (props) => {
             More info {!isDetailViewed ? <CaretDownOutlined /> : <CaretUpOutlined />}
           </Button>
           <Field
-            name={title}
+            name={id}
             placeholder="Score"
             component={AInputNumber}
             validate={[required, maxValue, minValue, maxLength3, minLength1]}

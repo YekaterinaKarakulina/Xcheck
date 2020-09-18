@@ -30,6 +30,7 @@ const GradeField = (props) => {
     id,
     title,
     description,
+    category,
     score,
     selfGrade,
     detailIds,
@@ -47,11 +48,11 @@ const GradeField = (props) => {
   let maxScore;
   let minScore;
 
-  if (Number(score) < 0) {
+  if (category === 'fines') {
     maxScore = 0;
-    minScore = score;
+    minScore = -Math.abs(score);
   } else {
-    maxScore = score;
+    maxScore = Number(score);
     minScore = 0;
   }
 
@@ -83,7 +84,7 @@ const GradeField = (props) => {
           </Space>
           <Space size="small" align="start">
             <Field
-              name={title}
+              name={id}
               placeholder="Score"
               component={AInputNumber}
               validate={[required, maxValue, minValue, maxLength3, minLength1]}

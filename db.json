@@ -37,7 +37,7 @@
       "title": "Task 1",
       "state": "closed",
       "author": "author1",
-      "description": "Task #1 description",
+      "description": "Task 1 description",
       "items": [
         {
           "id": "task-1-bp1",
@@ -72,18 +72,18 @@
           "mentorCheck": false
         },
         {
-          "id": "task-1-f1",
+          "id": "task-1-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-10",
+          "score": "10",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         },
         {
-          "id": "task-1-f2",
+          "id": "task-1-fp2",
           "title": "fines_p2",
           "category": "fines",
-          "score": "-10",
+          "score": "10",
           "description": "fines_p2 - You need to do some things",
           "mentorCheck": false
         }
@@ -96,7 +96,7 @@
       "title": "Task 2",
       "state": "draft",
       "author": "author2",
-      "description": "Task #2 description",
+      "description": "Task 2 description",
       "items": [
         {
           "id": "task-2-bp1",
@@ -115,10 +115,10 @@
           "mentorCheck": true
         },
         {
-          "id": "task-2-f1",
+          "id": "task-2-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-10",
+          "score": "10",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         }
@@ -131,7 +131,7 @@
       "title": "Task 3",
       "state": "open",
       "author": "author3",
-      "description": "Task #3 description",
+      "description": "Task 3 description",
       "items": [
         {
           "id": "task-3-bp1",
@@ -150,10 +150,10 @@
           "mentorCheck": true
         },
         {
-          "id": "task-3-f1",
+          "id": "task-3-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-10",
+          "score": "10",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         }
@@ -166,7 +166,7 @@
       "title": "Task 4",
       "state": "archived",
       "author": "author4",
-      "description": "Task #4 description",
+      "description": "Task 4 description",
       "items": [
         {
           "id": "task-4-bp1",
@@ -185,10 +185,10 @@
           "mentorCheck": true
         },
         {
-          "id": "task-4-ep1",
+          "id": "task-4-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-20",
+          "score": "20",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         }
@@ -200,8 +200,8 @@
       "taskScore": 100,
       "title": "Task 5",
       "state": "archived",
-      "author": "author4",
-      "description": "Task #4 description",
+      "author": "author5",
+      "description": "Task 5 description",
       "items": [
         {
           "id": "task-5-bp1",
@@ -220,10 +220,10 @@
           "mentorCheck": true
         },
         {
-          "id": "task-5-ep1",
+          "id": "task-5-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-20",
+          "score": "20",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         }
@@ -235,8 +235,8 @@
       "taskScore": 100,
       "title": "Task 6",
       "state": "archived",
-      "author": "author4",
-      "description": "Task #4 description",
+      "author": "author6",
+      "description": "Task 6 description",
       "items": [
         {
           "id": "task-6-bp1",
@@ -255,10 +255,10 @@
           "mentorCheck": true
         },
         {
-          "id": "task-6-ep1",
+          "id": "task-6-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-20",
+          "score": "20",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         }
@@ -270,8 +270,8 @@
       "taskScore": 100,
       "title": "Task 7",
       "state": "archived",
-      "author": "author4",
-      "description": "Task #4 description",
+      "author": "author7",
+      "description": "Task 7 description",
       "items": [
         {
           "id": "task-7-bp1",
@@ -290,10 +290,10 @@
           "mentorCheck": true
         },
         {
-          "id": "task-7-ep1",
+          "id": "task-7-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-20",
+          "score": "20",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         }
@@ -305,8 +305,8 @@
       "taskScore": 100,
       "title": "Task 8",
       "state": "archived",
-      "author": "author4",
-      "description": "Task #4 description",
+      "author": "author8",
+      "description": "Task 8 description",
       "items": [
         {
           "id": "task-8-bp1",
@@ -325,10 +325,10 @@
           "mentorCheck": true
         },
         {
-          "id": "task-8-ep1",
+          "id": "task-8-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-20",
+          "score": "20",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         }
@@ -340,8 +340,8 @@
       "taskScore": 100,
       "title": "Task 9",
       "state": "archived",
-      "author": "author4",
-      "description": "Task #4 description",
+      "author": "author9",
+      "description": "Task 9 description",
       "items": [
         {
           "id": "task-9-bp1",
@@ -360,15 +360,15 @@
           "mentorCheck": true
         },
         {
-          "id": "task-9-ep1",
+          "id": "task-9-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-20",
+          "score": "20",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         }
       ],
-      "taskId": "task-8",
+      "taskId": "task-9",
       "id": "task-9"
     }
   ],
@@ -378,7 +378,7 @@
       "title": "rss2020Q3react-songbird",
       "author": "author1",
       "state": "draft",
-      "taskTitle": "Task #1",
+      "taskTitle": "Task 1",
       "crossCheckSessionPeriod": ["2020-07-08", "2020-07-14"],
       "coefficient": 0.2,
       "discardMinScore": true,
@@ -392,7 +392,7 @@
       "title": "rss2020Q3react-xcheck",
       "author": "author1",
       "state": "closed",
-      "taskTitle": "Task #2",
+      "taskTitle": "Task 2",
       "crossCheckSessionPeriod": ["2020-09-15", "2020-09-17"],
       "coefficient": 0.7,
       "discardMinScore": true,
@@ -406,7 +406,7 @@
       "title": "rss2020Q3react-schedule",
       "author": "author3",
       "state": "active",
-      "taskTitle": "Task #3",
+      "taskTitle": "Task 3",
       "crossCheckSessionPeriod": ["2020-08-22", "2020-09-22"],
       "coefficient": 0.7,
       "discardMinScore": true,
@@ -442,15 +442,15 @@
       ],
       "grade": {
         "items": {
-          "basic_p1": {
+          "task-1-bp1": {
             "score": 15,
             "comment": "Well done!"
           },
-          "extra_p1": {
+          "task-1-ep1": {
             "score": 0,
             "comment": "Some things are done, some are not"
           },
-          "fines_p1": {
+          "task-1-fp1": {
             "score": -20,
             "comment": "No ticket today"
           }
@@ -478,15 +478,15 @@
       ],
       "grade": {
         "items": {
-          "basic_p1": {
+          "task-2-bp1": {
             "score": 25,
             "comment": "Well done!"
           },
-          "extra_p1": {
+          "task-2-ep1": {
             "score": 5,
             "comment": "Some things are done, some are not"
           },
-          "fines_p1": {
+          "task-2-fp1": {
             "score": -10,
             "comment": "No ticket today"
           }
@@ -532,15 +532,15 @@
       "taskTitle": "Task 4",
       "state": "readyToXCheck",
       "selfGrade": {
-        "basic_p1": {
+        "task-4-bp1": {
           "score": 20,
           "comment": "Well done!"
         },
-        "extra_p1": {
+        "task-4-ep1": {
           "score": 15,
           "comment": "Some things are done, some are not"
         },
-        "fines_p1": {
+        "task-4-fp1": {
           "score": 0,
           "comment": "No ticket today"
         }
@@ -555,15 +555,15 @@
       "taskTitle": "Task 5",
       "state": "readyToXCheck",
       "selfGrade": {
-        "basic_p1": {
+        "task-5-bp1": {
           "score": 20,
           "comment": "Well done!"
         },
-        "extra_p1": {
+        "task-5-ep1": {
           "score": 15,
           "comment": "Some things are done, some are not"
         },
-        "fines_p1": {
+        "task-5-fp1": {
           "score": 0,
           "comment": "No ticket today"
         }
@@ -578,15 +578,15 @@
       "taskTitle": "Task 6",
       "state": "readyToXCheck",
       "selfGrade": {
-        "basic_p1": {
+        "task-6-bp1": {
           "score": 20,
           "comment": "Well done!"
         },
-        "extra_p1": {
+        "task-6-ep1": {
           "score": 15,
           "comment": "Some things are done, some are not"
         },
-        "fines_p1": {
+        "task-6-fp1": {
           "score": 0,
           "comment": "No ticket today"
         }
@@ -601,15 +601,15 @@
       "taskTitle": "Task 7",
       "state": "readyToXCheck",
       "selfGrade": {
-        "basic_p1": {
+        "task-7-bp1": {
           "score": 20,
           "comment": "Well done!"
         },
-        "extra_p1": {
+        "task-7-ep1": {
           "score": 15,
           "comment": "Some things are done, some are not"
         },
-        "fines_p1": {
+        "task-7-fp1": {
           "score": 0,
           "comment": "No ticket today"
         }
@@ -624,15 +624,15 @@
       "taskTitle": "Task 8",
       "state": "readyToXCheck",
       "selfGrade": {
-        "basic_p1": {
+        "task-8-bp1": {
           "score": 20,
           "comment": "Well done!"
         },
-        "extra_p1": {
+        "task-8-ep1": {
           "score": 15,
           "comment": "Some things are done, some are not"
         },
-        "fines_p1": {
+        "task-8-fp1": {
           "score": 0,
           "comment": "No ticket today"
         }
