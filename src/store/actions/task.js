@@ -1,5 +1,6 @@
 import {
   GET_TASK_SESSION_BY_ID,
+  GET_TASK_BY_TITLE,
   POST_TASK_SESSIONS,
   UPDATE_TASK_SESSION,
   GET_TASKSTABLE_SESSIONS,
@@ -9,6 +10,13 @@ const getTaskSessionById = (id) => {
   return {
     type: GET_TASK_SESSION_BY_ID,
     payload: id,
+  };
+};
+
+const getTaskByTitle = (title) => {
+  return {
+    type: GET_TASK_BY_TITLE,
+    payload: title,
   };
 };
 
@@ -32,4 +40,4 @@ const getTasksTable = () => {
   };
 };
 
-export { getTaskSessionById, postTaskSession, updateTaskSession, getTasksTable };
+export { getTaskSessionById, getTaskByTitle, postTaskSession, updateTaskSession, getTasksTable };

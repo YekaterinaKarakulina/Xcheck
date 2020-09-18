@@ -4,6 +4,9 @@ import {
   GET_REVIEW_REQUESTS,
   GET_REVIEW_REQUESTS_SUCCESS,
   GET_REVIEW_REQUESTS_FAILURE,
+  GET_REVIEW_REQUEST,
+  GET_REVIEW_REQUEST_SUCCESS,
+  GET_REVIEW_REQUEST_FAILURE,
   POST_REVIEW_REQUEST,
   POST_REVIEW_REQUEST_SUCCESS,
   POST_REVIEW_REQUEST_FAILURE,
@@ -25,11 +28,24 @@ function* workerGetReviewRequests() {
   }
 }
 
+function* workerGetReviewRequest(action) {
+  const uri = `http://localhost:3000/reviewRequests/${action.payload}`;
+  try {
+    const result = yield call(Axios.get, uri);
+    yield put({ type: GET_REVIEW_REQUEST_SUCCESS, payload: result.data });
+  } catch {
+    yield put({
+      type: GET_REVIEW_REQUEST_FAILURE,
+      payload: `ERROR! Cannot get review request with this ID`,
+    });
+  }
+}
+
 function* workerPostReviewRequest(action) {
   const uri = 'http://localhost:3000/reviewRequests';
   try {
-    const result = yield call(Axios.post, uri, action.payload);
-    yield put({ type: POST_REVIEW_REQUEST_SUCCESS, payload: result.data });
+    yield call(Axios.post, uri, action.payload);
+    yield put({ type: POST_REVIEW_REQUEST_SUCCESS });
   } catch {
     yield put({
       type: POST_REVIEW_REQUEST_FAILURE,
@@ -42,8 +58,8 @@ function* workerUpdateReviewRequest(action) {
   const { id } = action.payload;
   const uri = `http://localhost:3000/reviewRequests/${id}`;
   try {
-    const result = yield call(Axios.put, uri, action.payload);
-    yield put({ type: UPDATE_REVIEW_REQUEST_SUCCESS, payload: result.data });
+    yield call(Axios.put, uri, action.payload);
+    yield put({ type: UPDATE_REVIEW_REQUEST_SUCCESS });
   } catch {
     yield put({
       type: UPDATE_REVIEW_REQUEST_FAILURE,
@@ -54,6 +70,7 @@ function* workerUpdateReviewRequest(action) {
 
 function* watchRequests() {
   yield takeEvery(GET_REVIEW_REQUESTS, workerGetReviewRequests);
+  yield takeEvery(GET_REVIEW_REQUEST, workerGetReviewRequest);
   yield takeEvery(POST_REVIEW_REQUEST, workerPostReviewRequest);
   yield takeEvery(UPDATE_REVIEW_REQUEST, workerUpdateReviewRequest);
 }

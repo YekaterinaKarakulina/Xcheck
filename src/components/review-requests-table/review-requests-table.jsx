@@ -61,8 +61,8 @@ class ReviewRequestsTableCreation extends React.Component {
 
     const columns = [
       {
-        title: 'Name task',
-        dataIndex: 'task',
+        title: 'Task title',
+        dataIndex: 'taskTitle',
         key: 'task',
         render: (text, record) => {
           return <a href={record.urlTask}>{text}</a>;
@@ -109,7 +109,7 @@ class ReviewRequestsTableCreation extends React.Component {
         title: 'Action',
         key: 'action',
         align: 'center',
-        render: (record) => {
+        render: (record, row) => {
           const isEmptySelfGrade = isEmpty(record.selfGrade);
           const { state } = record;
 
@@ -118,7 +118,7 @@ class ReviewRequestsTableCreation extends React.Component {
           }
           if (isEmptySelfGrade) {
             return (
-              <Link to="/check">
+              <Link to={`/check/${row.id}`}>
                 <Button type="primary" size="small" style={{ width: 90 }}>
                   Self check
                 </Button>
@@ -127,7 +127,7 @@ class ReviewRequestsTableCreation extends React.Component {
           }
 
           return (
-            <Link to="/check">
+            <Link to={`/check/${row.id}`}>
               <Button type="primary" size="small" style={{ width: 90 }}>
                 Check
               </Button>

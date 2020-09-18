@@ -4,17 +4,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import { Form, Button, Typography } from 'antd';
+import { isEmpty } from 'lodash';
+import { Button, Typography } from 'antd';
 import SelfGradeFields from './selfgrade-fields';
 import GradeFields from './grade-fields';
 
 const { Title } = Typography;
 
-const isObjectEmpty = (value) =>
-  value && Object.keys(value).length === 0 && value.constructor === Object;
-
 // eslint-disable-next-line import/no-mutable-exports
-let CheckForm = ({
+const CheckForm = ({
   scopes,
   reviewRequest,
   handleSubmit,
@@ -28,7 +26,7 @@ let CheckForm = ({
   commentIds,
 }) => {
   const { selfGrade } = reviewRequest;
-  const isSelfGradeEmpty = isObjectEmpty(selfGrade);
+  const isSelfGradeEmpty = isEmpty(selfGrade);
 
   const renderScopes = scopes.map((scope) => {
     return (
@@ -64,23 +62,24 @@ let CheckForm = ({
   });
 
   return (
-    <Form onFinish={handleSubmit} className="check__form">
+    <form onSubmit={handleSubmit} className="check__form">
       <div className="check__form-inner"> {renderScopes}</div>
       <div className="check__form-bottom">
         <Button type="primary" htmlType="submit" size="large" disabled={pristine || submitting}>
           Submit
         </Button>
       </div>
-    </Form>
+    </form>
   );
 };
 
-CheckForm = reduxForm({
-  form: 'checkForm',
-})(CheckForm);
+const mapStateToProps = (state, ownProps) => {
+  return { initialValues: ownProps.initialValues };
+};
 
-CheckForm = connect((state) => ({
-  initialValues: state.values,
-}))(CheckForm);
-
-export default CheckForm;
+export default connect(mapStateToProps)(
+  reduxForm({
+    form: 'checkForm',
+    enableReinitialize: true,
+  })(CheckForm)
+);
