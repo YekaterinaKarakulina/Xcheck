@@ -40,7 +40,6 @@ class ReviewRequestFormCreation extends React.Component {
       crossCheckSessions,
       tasks,
     } = this.props;
-    console.log(crossCheckSessions);
 
     return (
       <>

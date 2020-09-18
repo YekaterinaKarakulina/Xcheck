@@ -25,7 +25,6 @@ class ReviewRequestForm extends React.Component {
       crossCheckSessionsData
     );
     const tasks = getTasksInfoForCrossCheckSessionForm(tasksTableData);
-    console.log(tasks);
 
     const onSubmit = (values) => {
       const reviewRequest = transformFormValuesToReviewRequestObject(values);
