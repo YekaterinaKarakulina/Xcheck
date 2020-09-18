@@ -17,7 +17,7 @@ const transformFormValuesToReviewRequestObject = (values) => {
     selfGrade: {},
     linkToDemo,
     linkToPR,
-    crossCheckSessionId,
+    crossCheckSessionId: crossCheckSessionId === undefined ? '' : crossCheckSessionId,
   };
 };
 

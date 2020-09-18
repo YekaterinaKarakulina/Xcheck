@@ -4,25 +4,28 @@ import { PageHeader } from 'antd';
 import PropTypes from 'prop-types';
 import { postReviewRequest, openModal } from '../../../store/actions/review-requests';
 import { getCrossCheckSessions } from '../../../store/actions/cross-check-session';
+import { getTasksTable } from '../../../store/actions/task';
 import {
   transformFormValuesToReviewRequestObject,
   getCrossCheckSessionsInfoForReviewRequestForm,
 } from '../../../utils/review-requests';
 import ReviewRequestFormCreation from '../../../components/review-request-form';
+import { getTasksInfoForCrossCheckSessionForm } from '../../../utils/cross-check-sessions';
 
 class ReviewRequestForm extends React.Component {
   componentDidMount() {
-    // console.log('Hello');
-    const { getCrossCheckSessions } = this.props;
+    const { getCrossCheckSessions, getTasksTable } = this.props;
     getCrossCheckSessions();
+    getTasksTable();
   }
 
   render() {
-    const { crossCheckSessionsData, postReviewRequest, openModal } = this.props;
+    const { crossCheckSessionsData, tasksTableData, postReviewRequest, openModal } = this.props;
     const crossCheckSessionsActive = getCrossCheckSessionsInfoForReviewRequestForm(
       crossCheckSessionsData
     );
-    console.log(crossCheckSessionsData);
+    const tasks = getTasksInfoForCrossCheckSessionForm(tasksTableData);
+    console.log(tasks);
 
     const onSubmit = (values) => {
       const reviewRequest = transformFormValuesToReviewRequestObject(values);
@@ -36,6 +39,7 @@ class ReviewRequestForm extends React.Component {
         <ReviewRequestFormCreation
           onSubmit={onSubmit}
           crossCheckSessions={crossCheckSessionsActive}
+          tasks={tasks}
         />
       </div>
     );
@@ -47,10 +51,12 @@ ReviewRequestForm.propTypes = {
   openModal: PropTypes.func.isRequired,
   getCrossCheckSessions: PropTypes.func.isRequired,
   crossCheckSessionsData: PropTypes.instanceOf(Array).isRequired,
+  tasksTableData: PropTypes.instanceOf(Array).isRequired,
+  getTasksTable: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ crossCheckSessionsData }) => {
-  return { crossCheckSessionsData };
+const mapStateToProps = ({ crossCheckSessionsData, tasksTableData }) => {
+  return { crossCheckSessionsData, tasksTableData };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -58,6 +64,7 @@ const mapDispatchToProps = (dispatch) => {
     postReviewRequest: (reviewRequest) => dispatch(postReviewRequest(reviewRequest)),
     openModal: () => dispatch(openModal()),
     getCrossCheckSessions: () => dispatch(getCrossCheckSessions()),
+    getTasksTable: () => dispatch(getTasksTable()),
   };
 };
 
