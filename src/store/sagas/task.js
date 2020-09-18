@@ -11,6 +11,9 @@ import {
   GET_TASKSTABLE_SESSIONS_SUCCESS,
   GET_TASKSTABLE_SESSIONS_FAILURE,
   GET_TASK_SESSION_BY_ID,
+  GET_TASK_BY_TITLE,
+  GET_TASK_BY_TITLE_SUCCESS,
+  GET_TASK_BY_TITLE_FAILURE,
 } from '../actions/types/task';
 
 function* workerPostTask(action) {
@@ -64,11 +67,24 @@ function* workerGetTaskTableById(action) {
   }
 }
 
+function* workerGetTaskByTitle(action) {
+  try {
+    const result = yield axiosDB.get(`tasks?title=${action.payload}`);
+    yield put({ type: GET_TASK_BY_TITLE_SUCCESS, payload: result.data });
+  } catch {
+    yield put({
+      type: GET_TASK_BY_TITLE_FAILURE,
+      payload: 'ERROR! Cannot get task',
+    });
+  }
+}
+
 function* watchTask() {
   yield takeEvery(POST_TASK_SESSIONS, workerPostTask);
   yield takeEvery(UPDATE_TASK_SESSION, workerUpdateTaskSession);
   yield takeEvery(GET_TASKSTABLE_SESSIONS, workerGetTasksTable);
   yield takeEvery(GET_TASK_SESSION_BY_ID, workerGetTaskTableById);
+  yield takeEvery(GET_TASK_BY_TITLE, workerGetTaskByTitle);
 }
 
 export default watchTask;
