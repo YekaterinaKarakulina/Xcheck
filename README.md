@@ -61,9 +61,9 @@ make start
  - /login
 
  - /tasks
- - /task-form
- - /task-edit-form/:id
- - /tasks-description/:id
+ - /tasks/task-form
+ - /tasks/task-edit-form
+ - /tasks/:id
 
  - /cross-check-sessions
  - /cross-check-sessions/cross-check-session-form

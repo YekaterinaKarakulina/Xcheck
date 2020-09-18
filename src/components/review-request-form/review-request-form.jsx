@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { Form, Input, Select, Button, Checkbox, Modal } from 'antd';
 import PropTypes from 'prop-types';
@@ -29,7 +28,7 @@ class ReviewRequestFormCreation extends React.Component {
   handleCancel = () => {
     const { closeModal, history } = this.props;
     closeModal();
-    history.push(`/review-requests`);
+    history.go(-1);
   };
 
   render() {

@@ -7,7 +7,7 @@ import { Table, Tag, Space, Button, Input } from 'antd';
 import { SearchOutlined, EyeTwoTone, EditTwoTone } from '@ant-design/icons';
 import Highlighter from 'react-highlight-words';
 import checkStatus from '../../../utils/status';
-import { getTaskSessionById } from '../../../store/actions/task';
+import { getTask } from '../../../store/actions/task';
 
 class TasksTable extends React.Component {
   state = {
@@ -76,12 +76,10 @@ class TasksTable extends React.Component {
     this.setState({ searchText: '' });
   };
 
-  handleClick = (taskId, editMode) => {
-    const { getTaskSessionById, history } = this.props;
-    getTaskSessionById(taskId);
-    return editMode
-      ? history.push(`task-edit-form/${taskId}`)
-      : history.push(`tasks-description/${taskId}`);
+  handleClick = async (taskId, editMode) => {
+    const { getTask, history } = this.props;
+    await getTask(taskId);
+    return editMode ? history.push('task-edit-form') : history.push(`${taskId}`);
   };
 
   render() {
@@ -143,7 +141,7 @@ class TasksTable extends React.Component {
 
 TasksTable.propTypes = {
   tableData: PropTypes.instanceOf(Array).isRequired,
-  getTaskSessionById: PropTypes.func.isRequired,
+  getTask: PropTypes.func.isRequired,
   history: PropTypes.instanceOf(Object).isRequired,
 };
 
@@ -153,7 +151,7 @@ const mapStateToProps = ({ tasks }) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getTaskSessionById: (taskId) => dispatch(getTaskSessionById(taskId)),
+    getTask: (taskId) => dispatch(getTask(taskId)),
   };
 };
 

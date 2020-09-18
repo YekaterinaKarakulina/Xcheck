@@ -14,7 +14,7 @@ const TaskForm = (props) => {
     const fullObjectValues = mapDataValues(values);
     await postTaskSession(fullObjectValues);
     getTasksTable();
-    history.push(`/tasks`);
+    history.go(-1);
   };
 
   return (
