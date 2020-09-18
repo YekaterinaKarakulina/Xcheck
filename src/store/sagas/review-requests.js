@@ -30,14 +30,14 @@ function* workerGetReviewRequests() {
 }
 
 function* workerGetReviewRequest(action) {
-  const uri = `http://localhost:3000/reviewRequests/${action.payload}`;
+  const id = action.payload;
   try {
-    const result = yield call(Axios.get, uri);
+    const result = yield axiosDB.get(`reviewRequests/${id}`);
     yield put({ type: GET_REVIEW_REQUEST_SUCCESS, payload: result.data });
   } catch {
     yield put({
       type: GET_REVIEW_REQUEST_FAILURE,
-      payload: `ERROR! Cannot get review request with this ID`,
+      payload: `ERROR! Cannot get review request with ID ${id}`,
     });
   }
 }
