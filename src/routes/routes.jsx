@@ -35,8 +35,7 @@ const Routes = ({ isLoggedIn }) => {
           <Route path="/reviews" component={Reviews} />
           <Route exact path="/cross-check-sessions/" component={CrossCheckSessionsTable} />
           <Route path="/cross-check-sessions/:id" component={CrossCheckSessionLayout} />
-
-          {/* <Redirect to="/reviews" /> */}
+          <Redirect to="/reviews" />
         </>
       )}
     </Switch>
