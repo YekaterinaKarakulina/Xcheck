@@ -29,7 +29,7 @@ class TasksTable extends React.Component {
           type="primary"
           icon={<PlusOutlined style={{ marginRight: '1rem' }} />}
         >
-          <Link style={{ color: 'white' }} to="/task-form">
+          <Link style={{ color: 'white' }} to="/tasks/task-form">
             Add new task
           </Link>
         </Button>

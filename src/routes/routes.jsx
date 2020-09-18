@@ -5,14 +5,12 @@ import {
   CrossCheckSessionsTable,
   CrossCheckSessionLayout,
   TasksTable,
-  TaskForm,
-  TaskFormEdit,
+  TaskLayout,
   Check,
   Login,
   Reviews,
   ReviewRequestsTable,
   ReviewRequestForm,
-  TaskDetails,
 } from '../pages';
 
 const Routes = ({ isLoggedIn }) => {
@@ -25,10 +23,8 @@ const Routes = ({ isLoggedIn }) => {
         </>
       ) : (
         <>
-          <Route path="/tasks" component={TasksTable} />
-          <Route path="/task-form" component={TaskForm} />
-          <Route path="/task-edit-form/:id" component={TaskFormEdit} />
-          <Route path="/tasks-description/:id" component={TaskDetails} />
+          <Route exact path="/tasks/" component={TasksTable} />
+          <Route path="/tasks/:id" component={TaskLayout} />
           <Route path="/check" component={Check} />
           <Route path="/review-requests" component={ReviewRequestsTable} />
           <Route path="/review-request-form" component={ReviewRequestForm} />

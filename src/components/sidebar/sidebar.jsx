@@ -20,9 +20,9 @@ const { Sider } = Layout;
 class Sidebar extends React.PureComponent {
   state = {
     menu: [
-      { href: '/tasks', label: 'Tasks', icon: <OrderedListOutlined /> },
-      { href: '/review-requests', label: 'Review requests', icon: <TeamOutlined /> },
-      { href: '/reviews', label: 'Reviews', icon: <FileDoneOutlined /> },
+      { href: '/tasks/', label: 'Tasks', icon: <OrderedListOutlined /> },
+      { href: '/review-requests/', label: 'Review requests', icon: <TeamOutlined /> },
+      { href: '/reviews/', label: 'Reviews', icon: <FileDoneOutlined /> },
       { href: '/cross-check-sessions/', label: 'xCheck', icon: <FileSearchOutlined /> },
     ],
   };

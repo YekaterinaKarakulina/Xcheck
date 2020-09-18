@@ -10,7 +10,9 @@ import {
   GET_TASKSTABLE_SESSIONS,
   GET_TASKSTABLE_SESSIONS_SUCCESS,
   GET_TASKSTABLE_SESSIONS_FAILURE,
-  GET_TASK_SESSION_BY_ID,
+  GET_TASK,
+  GET_TASK_SUCCESS,
+  GET_TASK_FAILURE,
 } from '../actions/types/task';
 
 function* workerPostTask(action) {
@@ -57,11 +59,11 @@ function* workerGetTaskTableById(action) {
   const id = action.payload;
   try {
     const result = yield axiosDB.get(`/tasks?taskId=${id}`);
-    yield put({ type: GET_TASKSTABLE_SESSIONS_SUCCESS, payload: result.data });
+    yield put({ type: GET_TASK_SUCCESS, payload: result.data });
   } catch (error) {
     console.error(error);
     yield put({
-      type: GET_TASKSTABLE_SESSIONS_FAILURE,
+      type: GET_TASK_FAILURE,
       payload: `ERROR! Cannot get task with ID ${id}`,
     });
   }
@@ -71,7 +73,7 @@ function* watchTask() {
   yield takeEvery(POST_TASK_SESSIONS, workerPostTask);
   yield takeEvery(UPDATE_TASK_SESSION, workerUpdateTaskSession);
   yield takeEvery(GET_TASKSTABLE_SESSIONS, workerGetTasksTable);
-  yield takeEvery(GET_TASK_SESSION_BY_ID, workerGetTaskTableById);
+  yield takeEvery(GET_TASK, workerGetTaskTableById);
 }
 
 export default watchTask;
