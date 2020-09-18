@@ -8,7 +8,11 @@ const ReviewRequestsTable = () => {
   return (
     <div className="wrapper">
       <PageHeader className="site-page-header" title="Review requests" />
-      <Button style={{ margin: '1rem' }} type="primary" icon={<PlusOutlined />} size="small">
+      <Button
+        style={{ margin: '1rem' }}
+        type="primary"
+        icon={<PlusOutlined style={{ marginRight: '1rem' }} />}
+      >
         <Link style={{ color: 'white' }} to="/review-request-form">
           Add new request
         </Link>
