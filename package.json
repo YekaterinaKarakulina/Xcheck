@@ -6,7 +6,7 @@
   "scripts": {
     "dev-server": "webpack-dev-server --open",
     "start": "node server/index.js",
-    "build": "webpack -p",
+    "build": "webpack --env.mode=production",
     "heroku-postbuild": "npm run build",
     "build-prod": "webpack --env.mode=production",
     "build-dev": "webpack --env.mode=development",
