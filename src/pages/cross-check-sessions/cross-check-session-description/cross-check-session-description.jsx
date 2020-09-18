@@ -10,9 +10,11 @@ import {
   updateCrossCheckSession,
 } from '../../../store/actions/cross-check-session';
 import { updateReviewRequest } from '../../../store/actions/review-requests';
-
+import { updateReview } from '../../../store/actions/reviews';
 import CrossCheckSessionDescriptionCreation from '../../../components/cross-check-session-description';
 import checkStatus from '../../../utils/status';
+
+import './cross-check-session-description.scss';
 
 class CrossCheckSessionDescription extends React.Component {
   componentDidMount() {
@@ -53,7 +55,7 @@ class CrossCheckSessionDescription extends React.Component {
       } else if (anotherRequests.length > minReviewsAmount) {
         anotherRequests.splice(minReviewsAmount);
       } else {
-        console.log('not enought requests!');
+        console.log('not enough requests!');
       }
 
       const reviewerOf = [];
@@ -79,6 +81,37 @@ class CrossCheckSessionDescription extends React.Component {
     getCrossCheckSession(id);
   };
 
+  stopSession = async () => {
+    const {
+      reviewRequestsData,
+      initialValues,
+      updateCrossCheckSession,
+      updateReviewRequest,
+      reviewsData,
+      updateReview,
+    } = this.props;
+
+    const publishedReviewRequests = reviewRequestsData.filter(
+      (request) => request.state === 'published'
+    );
+
+    const crossCheckSessionUpdated = initialValues;
+    crossCheckSessionUpdated.state = 'closed';
+    await updateCrossCheckSession(crossCheckSessionUpdated);
+    publishedReviewRequests.forEach(async (request) => {
+      const newRequest = request;
+      newRequest.state = 'closed';
+      await updateReviewRequest(newRequest);
+    });
+
+    const draftReviews = reviewsData.filter((request) => request.state === 'draft');
+    draftReviews.forEach(async (review) => {
+      const newReview = review;
+      newReview.state = 'published';
+      await updateReview(newReview);
+    });
+  };
+
   render() {
     const { initialValues } = this.props;
 
@@ -86,15 +119,41 @@ class CrossCheckSessionDescription extends React.Component {
       const { title, state } = initialValues;
       const color = checkStatus(state);
 
-      const extraButtons =
-        state === 'active' || state === 'onReview' ? (
-          <Space size="middle">
-            <Button type="primary" onClick={this.finishRequestsCollection}>
+      let finishCollectionButton = (
+        <Button type="primary" onClick={this.finishRequestsCollection}>
+          Finish requests collection
+        </Button>
+      );
+
+      let stopSessionButton = (
+        <Button type="primary" className="disable">
+          Stop cross-check session{' '}
+        </Button>
+      );
+
+      switch (state) {
+        case 'onReview':
+          finishCollectionButton = (
+            <Button type="primary" className="disable">
               Finish requests collection
             </Button>
-            <Button type="primary">Stop cross-check session</Button>
-          </Space>
-        ) : null;
+          );
+          stopSessionButton = (
+            <Button type="primary" onClick={this.stopSession}>
+              Stop cross-check session{' '}
+            </Button>
+          );
+          break;
+        default:
+          break;
+      }
+
+      const extraButtons = (
+        <Space size="middle">
+          {finishCollectionButton}
+          {stopSessionButton}
+        </Space>
+      );
 
       return (
         <div className="wrapper">
@@ -119,9 +178,10 @@ CrossCheckSessionDescription.propTypes = {
   getCrossCheckSession: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ crossCheckSessions, reviewRequestsData }) => ({
+const mapStateToProps = ({ crossCheckSessions, reviewRequestsData, reviewsData }) => ({
   initialValues: crossCheckSessions.currentSessionInfo,
   reviewRequestsData,
+  reviewsData,
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -129,6 +189,7 @@ const mapDispatchToProps = (dispatch) => {
     getCrossCheckSession: (id) => dispatch(getCrossCheckSession(id)),
     updateCrossCheckSession: (attendees) => dispatch(updateCrossCheckSession(attendees)),
     updateReviewRequest: (newReviewRequest) => dispatch(updateReviewRequest(newReviewRequest)),
+    updateReview: (newReviews) => dispatch(updateReview(newReviews)),
   };
 };
 
