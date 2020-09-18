@@ -82,7 +82,6 @@ class CrossCheckSessionDescription extends React.Component {
   };
 
   stopSession = async () => {
-    console.log('stopSession');
     const {
       reviewRequestsData,
       initialValues,

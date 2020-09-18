@@ -19,10 +19,10 @@ class CrossCheckSessionsTable extends React.Component {
       getReviews,
     } = this.props;
     getCrossCheckSessions();
-    if (reviewRequestsData.length === 0) {
+    if (!reviewRequestsData.length) {
       getReviewRequests();
     }
-    if (reviewsData.length === 0) {
+    if (!reviewsData.length) {
       getReviews();
     }
   }
