@@ -1,4 +1,4 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeEvery, put } from 'redux-saga/effects';
 import { axiosDB } from '../../axios';
 import {
   POST_TASK_SESSIONS,
@@ -14,52 +14,55 @@ import {
 } from '../actions/types/task';
 
 function* workerPostTask(action) {
-  const uri = 'http://localhost:3000/tasks';
   try {
     yield axiosDB.post('tasks', action.payload);
     yield put({ type: POST_TASK_SESSIONS_SUCCESS });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: POST_TASK_SESSIONS_FAILURE,
-      payload: `ERROR! Cannot post task at ${uri}`,
+      payload: 'ERROR! Cannot post task',
     });
   }
 }
 
 function* workerUpdateTaskSession(action) {
+  const { id } = action.payload;
   try {
-    yield axiosDB.put(`/tasks/${action.payload.id}`, action.payload);
+    yield axiosDB.put(`/tasks/${id}`, action.payload);
     yield put({ type: UPDATE_TASK_SESSION_SUCCESS });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: UPDATE_TASK_SESSION_FAILURE,
-      payload: `ERROR! Cannot update task session with this ID`,
+      payload: `ERROR! Cannot update task with ID ${id}`,
     });
   }
 }
 
 function* workerGetTasksTable() {
-  const uri = 'http://localhost:3000/tasks';
   try {
     const result = yield axiosDB.get('tasks');
     yield put({ type: GET_TASKSTABLE_SESSIONS_SUCCESS, payload: result.data });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: GET_TASKSTABLE_SESSIONS_FAILURE,
-      payload: `ERROR! Cannot get tasks at ${uri}`,
+      payload: 'ERROR! Cannot get tasks',
     });
   }
 }
 
 function* workerGetTaskTableById(action) {
-  const uri = `http://localhost:3000/tasks?taskId=${action.payload}`;
+  const id = action.payload;
   try {
-    const result = yield axiosDB.get(`/tasks?taskId=${action.payload}`);
+    const result = yield axiosDB.get(`/tasks?taskId=${id}`);
     yield put({ type: GET_TASKSTABLE_SESSIONS_SUCCESS, payload: result.data });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: GET_TASKSTABLE_SESSIONS_FAILURE,
-      payload: `ERROR! Cannot get task at ${uri}`,
+      payload: `ERROR! Cannot get task with ID ${id}`,
     });
   }
 }
