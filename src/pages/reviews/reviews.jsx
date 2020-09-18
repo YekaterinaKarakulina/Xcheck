@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import { PageHeader, Button } from 'antd';
-import history from '../../history/history';
-
 import mapData from './mapData';
 import { getReviews } from '../../store/actions/reviews';
 import ReviewsTable from '../../components/reviews-table';
@@ -25,7 +22,9 @@ class Reviews extends React.Component {
   }
 
   showReview = (record) => {
-    history.push(`/reviews/${record.taskTitle.trim()}`);
+    const { history } = this.props;
+    history.push(`${record.taskTitle.trim()}`);
+
     const dataGrades = this.getDataGrades(record.key);
     const review = this.getReview(record.key);
     this.setState({
@@ -37,7 +36,8 @@ class Reviews extends React.Component {
   };
 
   hideReview = () => {
-    history.push(`/reviews`);
+    const { history } = this.props;
+    history.go(-1);
     this.setState({ isReview: false });
   };
 
@@ -104,6 +104,7 @@ const mapDispatchToProps = (dispatch) => {
 Reviews.propTypes = {
   reviewsData: PropTypes.arrayOf(PropTypes.object),
   getReviews: PropTypes.func,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 Reviews.defaultProps = {
