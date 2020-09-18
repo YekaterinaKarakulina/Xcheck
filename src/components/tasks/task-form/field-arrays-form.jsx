@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, FieldArray } from 'redux-form';
-import { Input, Button, InputNumber, Select, Checkbox } from 'antd';
-import { DeleteOutlined } from '@ant-design/icons';
+import { Input, Button, InputNumber, Select, Checkbox, Tooltip } from 'antd';
+import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { required } from '../../../utils';
 import { formItemLayout } from '../../forms/form-layout';
 import makeField from '../../forms/make-field';
@@ -17,11 +17,17 @@ const ACheckbox = makeField(Checkbox, formItemLayout);
 
 const renderTaskItem = ({ fields }) => {
   return (
-    <ul className="creationItemposition">
+    <ul className="creationItemPosition">
       <li>
-        <Button type="button" onClick={() => fields.push({})}>
-          Add evaluation criteria
-        </Button>
+        <Tooltip title="Add criteria" color="blue" key="evaluation">
+          <Button
+            type="primary"
+            icon={<PlusOutlined />}
+            className="addFieldArrayBtn"
+            shape="circle"
+            onClick={() => fields.push({})}
+          />
+        </Tooltip>
       </li>
       {fields.map((point, index) => (
         <li key={`${point}.title`}>
@@ -74,13 +80,11 @@ const renderTaskItem = ({ fields }) => {
 
           <Field
             label="Only mentor check"
-            name="mentorCheck"
+            name={`${point}.mentorCheck`}
             component={ACheckbox}
             type="checkbox"
             hasFeedback
           />
-
-          <Field label="Fine" name="fine" component={ACheckbox} type="checkbox" hasFeedback />
         </li>
       ))}
     </ul>

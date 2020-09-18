@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "47fb03a6-b770-4e64-a533-e507cfa49020",
-      "githubId": "torvalds",
+      "githubId": "viktorsipach",
       "roles": [
         "author",
         "student",
@@ -54,10 +54,10 @@
   "tasks": [
     {
       "taskScore": 100,
-      "title": "Task #1",
-      "state": "closed",
-      "author": "author1",
-      "description": "Task #1 description",
+      "title": "Task 1",
+      "state": "draft",
+      "author": "viktorsipach",
+      "description": "Task 1 description",
       "items": [
         {
           "id": "task-1-bp1",
@@ -92,18 +92,18 @@
           "mentorCheck": false
         },
         {
-          "id": "task-1-f1",
+          "id": "task-1-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-10",
+          "score": "10",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         },
         {
-          "id": "task-1-f2",
+          "id": "task-1-fp2",
           "title": "fines_p2",
           "category": "fines",
-          "score": "-10",
+          "score": "10",
           "description": "fines_p2 - You need to do some things",
           "mentorCheck": false
         }
@@ -113,10 +113,10 @@
     },
     {
       "taskScore": 100,
-      "title": "Task #2",
-      "state": "draft",
-      "author": "author2",
-      "description": "Task #2 description",
+      "title": "Task 2",
+      "state": "closed",
+      "author": "KatiaR",
+      "description": "Task 2 description",
       "items": [
         {
           "id": "task-2-bp1",
@@ -135,10 +135,10 @@
           "mentorCheck": true
         },
         {
-          "id": "task-2-f1",
+          "id": "task-2-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-10",
+          "score": "10",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         }
@@ -148,10 +148,10 @@
     },
     {
       "taskScore": 100,
-      "title": "Task #3",
+      "title": "Task 3",
       "state": "open",
-      "author": "author3",
-      "description": "Task #3 description",
+      "author": "YekaterinaKarakulina",
+      "description": "Task 3 description",
       "items": [
         {
           "id": "task-3-bp1",
@@ -170,10 +170,10 @@
           "mentorCheck": true
         },
         {
-          "id": "task-3-f1",
+          "id": "task-3-fp1",
           "title": "fines_p1",
           "category": "fines",
-          "score": "-10",
+          "score": "10",
           "description": "fines_p1 - You need to do some things",
           "mentorCheck": true
         }
@@ -183,14 +183,14 @@
     },
     {
       "taskScore": 100,
-      "title": "Task #4",
+      "title": "Task 4",
       "state": "archived",
       "author": "author4",
-      "description": "Task #4 description",
+      "description": "Task 4 description",
       "items": [
         {
           "id": "task-4-bp1",
-          "title": "title-basic_p1",
+          "title": "basic_p1",
           "category": "basic",
           "score": "10",
           "description": "basic_p1 - You need to do some things",
@@ -203,6 +203,14 @@
           "score": "30",
           "description": "extra_p1 - You need to do some things",
           "mentorCheck": true
+        },
+        {
+          "id": "task-4-fp1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "20",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
         }
       ],
       "taskId": "task-4",
@@ -213,9 +221,9 @@
     {
       "id": "xcheck-1",
       "title": "rss2020Q3react-songbird",
-      "author": "author1",
+      "author": "viktorsipach",
       "state": "draft",
-      "taskTitle": "Task #1",
+      "taskTitle": "Task 1",
       "crossCheckSessionPeriod": [
         "2020-07-08",
         "2020-07-14"
@@ -230,9 +238,9 @@
     {
       "id": "xcheck-2",
       "title": "rss2020Q3react-xcheck",
-      "author": "author1",
-      "state": "closed",
-      "taskTitle": "Task #2",
+      "author": "KatiaR",
+      "state": "draft",
+      "taskTitle": "Task 2",
       "crossCheckSessionPeriod": [
         "2020-09-15",
         "2020-09-17"
@@ -247,9 +255,9 @@
     {
       "id": "xcheck-3",
       "title": "rss2020Q3react-schedule",
-      "author": "author3",
-      "state": "active",
-      "taskTitle": "Task #3",
+      "author": "YekaterinaKarakulina",
+      "state": "closed",
+      "taskTitle": "Task 3",
       "crossCheckSessionPeriod": [
         "2020-08-22",
         "2020-09-22"
@@ -259,40 +267,141 @@
       "discardMaxScore": false,
       "minReviewsAmount": 1,
       "desiredReviewsAmount": 2,
-      "attendees": []
+      "attendees": [
+        {
+          "githubId": "viktorsipach",
+          "reviewerOf": [
+            "Kipris",
+            "Ghuseynova"
+          ]
+        },
+        {
+          "githubId": "PavelZaharov1987",
+          "reviewerOf": [
+            "viktorsipach",
+            "Ghuseynova"
+          ]
+        },
+        {
+          "githubId": "Ghuseynova",
+          "reviewerOf": [
+            "Kipris",
+            "PavelZaharov1987"
+          ]
+        },
+        {
+          "githubId": "Kipris",
+          "reviewerOf": [
+            "viktorsipach",
+            "PavelZaharov1987"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xcheck-4",
+      "title": "rss2020Q3react-someApp",
+      "author": "KatiaR",
+      "state": "active",
+      "taskTitle": "Task 3",
+      "crossCheckSessionPeriod": [
+        "2020-08-22",
+        "2020-09-22"
+      ],
+      "coefficient": 0.7,
+      "discardMinScore": true,
+      "discardMaxScore": false,
+      "minReviewsAmount": 1,
+      "desiredReviewsAmount": 2,
+      "attendees": [
+      ]
     }
   ],
   "reviews": [
     {
       "id": "rev-id-1",
       "requestId": "rev-req-1",
-      "author": "author1",
-      "task": "english fo kids",
-      "state": "disputed",
+      "author": "KatiaR",
+      "taskTitle": "Task 1",
+      "state": "published",
+      "comments": [
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Yes!"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Well done!"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Good!"
+        }
+      ],
       "grade": {
         "items": {
-          "basic_p1": {
-            "score": 20,
+          "task-1-bp1": {
+            "score": 15,
             "comment": "Well done!"
           },
-          "extra_p1": {
-            "score": 15,
+          "task-1-ep1": {
+            "score": 0,
             "comment": "Some things are done, some are not"
           },
-          "fines_p1": {
-            "score": 0,
+          "task-1-fp1": {
+            "score": -20,
             "comment": "No ticket today"
-          },
-          "total": 35
-        }
+          }
+        },
+        "total": -5
       }
     },
     {
       "id": "rev-id-2",
       "requestId": "rev-req-2",
-      "author": "author2",
-      "task": "movie search",
+      "author": "YekaterinaKarakulina",
+      "taskTitle": "Task 2",
       "state": "published",
+      "comments": [
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Well!"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Good Job!"
+        }
+      ],
+      "grade": {
+        "items": {
+          "task-2-bp1": {
+            "score": 25,
+            "comment": "Well done!"
+          },
+          "task-2-ep1": {
+            "score": 5,
+            "comment": "Some things are done, some are not"
+          },
+          "task-2-fp1": {
+            "score": -10,
+            "comment": "No ticket today"
+          }
+        },
+        "total": 40
+      }
+    },
+    {
+      "id": "rev-id-3",
+      "requestId": "rev-req-4",
+      "author": "PavelZaharov1987",
+      "taskTitle": "Task 3",
+      "state": "draft",
+      "comments": [],
       "grade": {
         "items": {
           "basic_p1": {
@@ -304,29 +413,69 @@
             "comment": "Some things are done, some are not"
           },
           "fines_p1": {
-            "score": -10,
+            "score": 0,
             "comment": "No ticket today"
+          }
+        },
+        "total": 40
+      }
+    },
+    {
+      "id": "rev-id-4",
+      "requestId": "rev-req-4",
+      "author": "Ghuseynova",
+      "taskTitle": "Task 3",
+      "state": "draft",
+      "comments": [],
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 25,
+            "comment": "Well done!"
           },
-          "total": 30
-        }
+          "extra_p1": {
+            "score": 10,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 0,
+            "comment": "No ticket today"
+          }
+        },
+        "total": 40
+      }
+    },
+    {
+      "id": "rev-id-5",
+      "requestId": "rev-req-4",
+      "author": "Kipris",
+      "taskTitle": "Task 3",
+      "state": "draft",
+      "comments": [],
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 25,
+            "comment": "Good!"
+          },
+          "extra_p1": {
+            "score": 10,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": -5,
+            "comment": "No ticket today"
+          }
+        },
+        "total": 40
       }
     }
   ],
   "reviewRequests": [
     {
-      "id": "rev-req-1",
-      "author": "cardamo",
-      "taskTitle": "Task #1",
-      "state": "draft",
-      "selfGrade": {},
-      "linkToDemo": "#",
-      "linkToPR": "#",
-      "crossCheckSessionId": ""
-    },
-    {
       "id": "rev-req-2",
-      "author": "author2",
-      "taskTitle": "Task #2",
+      "author": "KatiaR",
+      "taskTitle": "Task 2",
       "state": "draft",
       "selfGrade": {},
       "linkToDemo": "#",
@@ -335,29 +484,29 @@
     },
     {
       "id": "rev-req-3",
-      "author": "darmamo",
-      "taskTitle": "Task #1",
+      "author": "KatiaR",
+      "taskTitle": "Task 3",
       "state": "draft",
       "selfGrade": {},
       "linkToDemo": "#",
       "linkToPR": "#",
-      "crossCheckSessionId": ""
+      "crossCheckSessionId": "xcheck-3"
     },
     {
       "id": "rev-req-4",
-      "author": "author4",
-      "taskTitle": "Task #3",
+      "author": "viktorsipach",
+      "taskTitle": "Task 3",
       "state": "readyToXCheck",
       "selfGrade": {
-        "basic_p1": {
+        "task-3-bp1": {
           "score": 20,
           "comment": "Well done!"
         },
-        "extra_p1": {
+        "task-3-ep1": {
           "score": 15,
           "comment": "Some things are done, some are not"
         },
-        "fines_p1": {
+        "task-3-fp1": {
           "score": 0,
           "comment": "No ticket today"
         }
@@ -368,19 +517,19 @@
     },
     {
       "id": "rev-req-5",
-      "author": "author5",
-      "taskTitle": "Task #3",
+      "author": "PavelZaharov1987",
+      "taskTitle": "Task 3",
       "state": "readyToXCheck",
       "selfGrade": {
-        "basic_p1": {
+        "task-3-bp1": {
           "score": 20,
           "comment": "Well done!"
         },
-        "extra_p1": {
+        "task-3-ep1": {
           "score": 15,
           "comment": "Some things are done, some are not"
         },
-        "fines_p1": {
+        "task-3-fp1": {
           "score": 0,
           "comment": "No ticket today"
         }
@@ -391,19 +540,19 @@
     },
     {
       "id": "rev-req-6",
-      "author": "author6",
-      "taskTitle": "Task #3",
+      "author": "Ghuseynova",
+      "taskTitle": "Task 3",
       "state": "readyToXCheck",
       "selfGrade": {
-        "basic_p1": {
+        "task-3-bp1": {
           "score": 20,
           "comment": "Well done!"
         },
-        "extra_p1": {
+        "task-3-ep1": {
           "score": 15,
           "comment": "Some things are done, some are not"
         },
-        "fines_p1": {
+        "task-3-fp1": {
           "score": 0,
           "comment": "No ticket today"
         }
@@ -414,19 +563,19 @@
     },
     {
       "id": "rev-req-7",
-      "author": "author7",
-      "taskTitle": "Task #3",
+      "author": "Kipris",
+      "taskTitle": "Task 3",
       "state": "readyToXCheck",
       "selfGrade": {
-        "basic_p1": {
+        "task-3-bp1": {
           "score": 20,
           "comment": "Well done!"
         },
-        "extra_p1": {
+        "task-3-ep1": {
           "score": 15,
           "comment": "Some things are done, some are not"
         },
-        "fines_p1": {
+        "task-3-fp1": {
           "score": 0,
           "comment": "No ticket today"
         }
@@ -437,19 +586,19 @@
     },
     {
       "id": "rev-req-8",
-      "author": "author8",
-      "taskTitle": "Task #3",
-      "state": "readyToXCheck",
+      "author": "PavelZaharov1987",
+      "taskTitle": "Task 2",
+      "state": "closed",
       "selfGrade": {
-        "basic_p1": {
+        "task-2-bp1": {
           "score": 20,
           "comment": "Well done!"
         },
-        "extra_p1": {
+        "task-2-ep1": {
           "score": 15,
           "comment": "Some things are done, some are not"
         },
-        "fines_p1": {
+        "task-2-fp1": {
           "score": 0,
           "comment": "No ticket today"
         }
@@ -457,6 +606,29 @@
       "linkToDemo": "#",
       "linkToPR": "#",
       "crossCheckSessionId": "xcheck-3"
+    },
+    {
+      "id": "rev-req-9",
+      "author": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "selfGrade": {
+        "task-3-bp1": {
+          "score": 20,
+          "comment": "Well done!"
+        },
+        "task-3-ep1": {
+          "score": 15,
+          "comment": "Some things are done, some are not"
+        },
+        "task-3-fp1": {
+          "score": 0,
+          "comment": "No ticket today"
+        }
+      },
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": ""
     }
   ]
 }

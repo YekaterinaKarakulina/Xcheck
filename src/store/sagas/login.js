@@ -1,6 +1,6 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
-import Axios from 'axios';
+import { takeEvery, put } from 'redux-saga/effects';
 import { v4 as uuidv4 } from 'uuid';
+import { axiosAuth, axiosDB } from '../../axios';
 import {
   LOGIN,
   LOGIN_START,
@@ -19,30 +19,29 @@ import { getRoles } from '../../utils';
 function* workerLogin(action) {
   const { data, uri } = action.payload;
   yield put({ type: LOGIN_START });
+  console.log(uri);
   try {
-    const response = yield call(Axios.post, uri, data);
+    const response = yield axiosAuth.post('/authenticate', data);
     yield put({ type: LOGIN_SUCCESS, payload: response.data });
 
     // Get user by githubId
-    const userUrl = `http://localhost:3000/users?githubId=${response.data.login}`;
     try {
-      const result = yield call(Axios.get, userUrl);
+      const result = yield axiosDB.get(`/users?githubId=${response.data.login}`);
       if (result.data.length) {
         yield put({ type: GET_USER_BY_GITHUBID_SUCCESS });
         yield put({ type: SET_USER_ROLES_SUCCESS, payload: result.data[0].roles });
       } else {
         // post a user
-        const url = 'http://localhost:3000/users';
         const user = {
           id: uuidv4(),
           githubId: response.data.login,
           roles: getRoles(),
         };
         try {
-          yield call(Axios.post, url, user);
+          yield axiosDB.post('/users', user);
           yield put({ type: POST_USER_SUCCESS, payload: user });
         } catch {
-          yield put({ type: POST_USER_FAILURE, payload: `ERROR! Cannot post user at ${url}` });
+          yield put({ type: POST_USER_FAILURE, payload: `ERROR! Cannot post user` });
         }
       }
     } catch (error) {

@@ -1,9 +1,14 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import { Typography } from 'antd';
 import 'antd/dist/antd.css';
+import { connect } from 'react-redux';
+import { isEmpty } from 'lodash';
+import { getReviewRequest } from '../../store/actions/review-requests';
+import { getTaskByTitle } from '../../store/actions/task';
 import CheckForm from '../../components/check-form';
-import { tasks, reviewRequests } from './data';
 import './check.scss';
 
 const { Title } = Typography;
@@ -13,19 +18,31 @@ class Check extends Component {
     super(props);
 
     this.state = {
-      task: {},
-      reviewRequest: {},
       detailIds: {},
       commentFieldIds: {},
       commentIds: {},
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      task: tasks[0],
-      reviewRequest: reviewRequests[0], // reviewRequests[0] || { selfGrade: {} }
-    });
+  async componentDidMount() {
+    const { location, getReviewRequest } = this.props;
+
+    const url = location.pathname;
+    const splitedUrl = url.split('/');
+    const lastPath = splitedUrl[splitedUrl.length - 1];
+
+    getReviewRequest(lastPath);
+  }
+
+  componentDidUpdate(prevProps) {
+    const { getTaskByTitle, currentReviewRequest } = this.props;
+    const { taskTitle } = currentReviewRequest;
+
+    if (taskTitle !== prevProps.currentReviewRequest.taskTitle) {
+      getTaskByTitle(taskTitle);
+    } else {
+      console.log('tasktitle is undefined');
+    }
   }
 
   toggleMore = (id) => {
@@ -62,8 +79,10 @@ class Check extends Component {
   };
 
   render() {
-    const { task, reviewRequest, detailIds, commentFieldIds, commentIds } = this.state;
-    const items = task.items || [];
+    const { detailIds, commentFieldIds, commentIds } = this.state;
+    const { currentReviewRequest, currentTask } = this.props;
+    const { selfGrade } = currentReviewRequest;
+    const items = currentTask ? currentTask.items : [];
     const basics = {
       id: 1,
       title: 'Basic Scope',
@@ -84,13 +103,13 @@ class Check extends Component {
 
     items.forEach((listItem) => {
       switch (listItem.category) {
-        case 'Basic Scope':
+        case 'basic':
           basics.items.push(listItem);
           break;
-        case 'Extra Scope':
+        case 'extra':
           extras.items.push(listItem);
           break;
-        case 'Fines':
+        case 'fines':
           fines.items.push(listItem);
           break;
         default:
@@ -98,6 +117,19 @@ class Check extends Component {
     });
 
     const groups = [basics, extras, fines];
+    const initialValues = {};
+
+    if (!isEmpty(selfGrade)) {
+      // eslint-disable-next-line no-restricted-syntax
+
+      for (const item of Object.keys(selfGrade)) {
+        initialValues[item] = selfGrade[item].score;
+      }
+    } else {
+      items.forEach((item) => {
+        initialValues[item.id] = 0;
+      });
+    }
 
     return (
       <>
@@ -107,8 +139,9 @@ class Check extends Component {
               Check Form
             </Title>
             <CheckForm
+              initialValues={initialValues}
               scopes={groups || {}}
-              reviewRequest={reviewRequest}
+              reviewRequest={currentReviewRequest}
               detailIds={detailIds}
               commentFieldIds={commentFieldIds}
               commentIds={commentIds}
@@ -123,4 +156,16 @@ class Check extends Component {
   }
 }
 
-export default Check;
+const mapStateToProps = ({ reviewRequests, tasks }) => ({
+  currentReviewRequest: reviewRequests.currentReviewRequest,
+  currentTask: tasks.currentTask[0],
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getReviewRequest: (id) => dispatch(getReviewRequest(id)),
+    getTaskByTitle: (title) => dispatch(getTaskByTitle(title)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Check);

@@ -2,13 +2,13 @@ install:
 	npm install
 
 start:
-	npm run start
+	npm run dev-server
 
 db:
 	json-server db.json
 
-auth-server:
-	node server/index.js
+auth:
+	node auth-server/index.js
 
 lint:
 	npx eslint .

@@ -1,50 +1,43 @@
 import {
   POST_TASK_SESSIONS_SUCCESS,
   POST_TASK_SESSIONS_FAILURE,
-  GET_TASKSTABLE_SESSIONS_SUCCESS,
-  GET_TASKSTABLE_SESSIONS_FAILURE,
-  REDIRECT_TO_TASK_SESSIONS,
-  REDIRECT_TO_TASK_SESSION_FORM,
+  GET_TASK_SUCCESS,
+  GET_TASK_FAILURE,
+  GET_TASK_BY_TITLE_SUCCESS,
+  GET_TASK_BY_TITLE_FAILURE,
   UPDATE_TASK_SESSION_SUCCESS,
   UPDATE_TASK_SESSION_FAILURE,
 } from '../../actions/types/task';
 
 const initialState = {
-  isRedirectToTableReady: false,
-  isRedirectToFormReady: false,
   formValues: {},
+  currentTask: {},
 };
 
 const tasks = (state = initialState, action) => {
   switch (action.type) {
-    case GET_TASKSTABLE_SESSIONS_SUCCESS:
+    case GET_TASK_SUCCESS:
       return {
         ...state,
         formValues: action.payload,
-        isRedirectToTableReady: false,
-        isRedirectToFormReady: false,
       };
 
-    case GET_TASKSTABLE_SESSIONS_FAILURE:
+    case GET_TASK_FAILURE:
       return state;
 
-    case REDIRECT_TO_TASK_SESSIONS:
+    case GET_TASK_BY_TITLE_SUCCESS:
       return {
         ...state,
-        isRedirectToTableReady: true,
+        currentTask: action.payload,
       };
-
-    case REDIRECT_TO_TASK_SESSION_FORM:
+    case GET_TASK_BY_TITLE_FAILURE:
       return {
         ...state,
-        isRedirectToFormReady: true,
       };
 
     case UPDATE_TASK_SESSION_SUCCESS:
       return {
         ...state,
-        isRedirectToTableReady: false,
-        isRedirectToFormReady: false,
         formValues: {},
       };
 
