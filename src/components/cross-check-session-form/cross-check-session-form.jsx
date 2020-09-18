@@ -65,7 +65,7 @@ const CrossCheckSessionFormCreation = (props) => {
       >
         {tasks.map(({ title, id }) => {
           return (
-            <Option value={id} key={id}>
+            <Option value={title} key={id}>
               {title}
             </Option>
           );
