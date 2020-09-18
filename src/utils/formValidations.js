@@ -1,5 +1,3 @@
-import { isWebUri } from 'valid-url';
-
 const required = (value) => (value ? undefined : 'This field is required');
 
 const minLength = (min) => (value) =>
@@ -8,6 +6,4 @@ const minLength = (min) => (value) =>
 const maxLength = (max) => (value) =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined;
 
-const validUrl = (value) => (!isWebUri(value) ? 'Not a valid url' : undefined);
-
-export { required, minLength, maxLength, validUrl };
+export { required, minLength, maxLength };

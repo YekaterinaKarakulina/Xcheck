@@ -44,8 +44,8 @@ function* workerGetReviewRequest(action) {
 function* workerPostReviewRequest(action) {
   const uri = 'http://localhost:3000/reviewRequests';
   try {
-    const result = yield call(Axios.post, uri, action.payload);
-    yield put({ type: POST_REVIEW_REQUEST_SUCCESS, payload: result.data });
+    yield call(Axios.post, uri, action.payload);
+    yield put({ type: POST_REVIEW_REQUEST_SUCCESS });
   } catch {
     yield put({
       type: POST_REVIEW_REQUEST_FAILURE,
@@ -58,8 +58,8 @@ function* workerUpdateReviewRequest(action) {
   const { id } = action.payload;
   const uri = `http://localhost:3000/reviewRequests/${id}`;
   try {
-    const result = yield call(Axios.put, uri, action.payload);
-    yield put({ type: UPDATE_REVIEW_REQUEST_SUCCESS, payload: result.data });
+    yield call(Axios.put, uri, action.payload);
+    yield put({ type: UPDATE_REVIEW_REQUEST_SUCCESS });
   } catch {
     yield put({
       type: UPDATE_REVIEW_REQUEST_FAILURE,

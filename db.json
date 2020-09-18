@@ -413,7 +413,8 @@
       "discardMaxScore": false,
       "minReviewsAmount": 1,
       "desiredReviewsAmount": 2,
-      "attendees": []
+      "attendees": [
+      ]
     }
   ],
   "reviews": [
@@ -493,6 +494,81 @@
         },
         "total": 40
       }
+    },
+    {
+      "id": "rev-id-3",
+      "requestId": "rev-req-4",
+      "author": "yekaterinakarakulina",
+      "taskTitle": "movie search",
+      "state": "draft",
+      "comments": [],
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 25,
+            "comment": "Well done!"
+          },
+          "extra_p1": {
+            "score": 5,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 0,
+            "comment": "No ticket today"
+          }
+        },
+        "total": 40
+      }
+    },
+    {
+      "id": "rev-id-4",
+      "requestId": "rev-req-4",
+      "author": "KatiaR",
+      "taskTitle": "movie search",
+      "state": "draft",
+      "comments": [],
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 25,
+            "comment": "Well done!"
+          },
+          "extra_p1": {
+            "score": 10,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 0,
+            "comment": "No ticket today"
+          }
+        },
+        "total": 40
+      }
+    },
+    {
+      "id": "rev-id-5",
+      "requestId": "rev-req-4",
+      "author": "PavelZaharov1987",
+      "taskTitle": "movie search",
+      "state": "draft",
+      "comments": [],
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 25,
+            "comment": "Good!"
+          },
+          "extra_p1": {
+            "score": 10,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": -5,
+            "comment": "No ticket today"
+          }
+        },
+        "total": 40
+      }
     }
   ],
   "reviewRequests": [
@@ -528,7 +604,7 @@
     },
     {
       "id": "rev-req-4",
-      "author": "author4",
+      "author": "viktorsipach",
       "taskTitle": "Task 4",
       "state": "readyToXCheck",
       "selfGrade": {
@@ -552,7 +628,7 @@
     {
       "id": "rev-req-5",
       "author": "author5",
-      "taskTitle": "Task 5",
+      "taskTitle": "Task 3",
       "state": "readyToXCheck",
       "selfGrade": {
         "task-5-bp1": {
@@ -575,7 +651,7 @@
     {
       "id": "rev-req-6",
       "author": "author6",
-      "taskTitle": "Task 6",
+      "taskTitle": "Task 3",
       "state": "readyToXCheck",
       "selfGrade": {
         "task-6-bp1": {
@@ -598,7 +674,7 @@
     {
       "id": "rev-req-7",
       "author": "author7",
-      "taskTitle": "Task 7",
+      "taskTitle": "Task 3",
       "state": "readyToXCheck",
       "selfGrade": {
         "task-7-bp1": {
@@ -621,7 +697,7 @@
     {
       "id": "rev-req-8",
       "author": "author8",
-      "taskTitle": "Task 8",
+      "taskTitle": "Task 3",
       "state": "readyToXCheck",
       "selfGrade": {
         "task-8-bp1": {

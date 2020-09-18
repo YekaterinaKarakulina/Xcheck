@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Form, Input, Button, InputNumber, Select } from 'antd';
+import { Form, Input, Button, Select } from 'antd';
 import PropTypes from 'prop-types';
 import makeField from '../../forms/make-field';
 import { required, minLength, maxLength } from '../../../utils';
@@ -17,7 +17,6 @@ const { TextArea } = Input;
 const FormItem = Form.Item;
 
 const AInput = makeField(Input, formItemLayout);
-const AInputNumber = makeField(InputNumber, formItemLayout);
 const ASelect = makeField(Select, formItemLayout);
 const ATextArea = makeField(TextArea, formItemLayout);
 
@@ -45,19 +44,8 @@ let TaskFormCreation = (props) => {
       />
 
       <Field
-        label="Max score"
-        name="taskScore"
-        min={0}
-        max={1000}
-        step={0.1}
-        component={AInputNumber}
-        hasFeedback
-        validate={required}
-      />
-
-      <Field
         label="Status"
-        name="status"
+        name="state"
         component={ASelect}
         validate={required}
         onBlur={(e) => e.preventDefault()}
@@ -69,14 +57,6 @@ let TaskFormCreation = (props) => {
       </Field>
 
       <Field label="Description" name="description" component={ATextArea} hasFeedback />
-
-      <Field
-        label="Link to this task "
-        name="link"
-        component={AInput}
-        placeholder="https://github.com/rolling-scopes-school/tasks/blob/master/tasks/xcheck/xcheck.md"
-        hasFeedback
-      />
 
       <FieldArraysForm />
 
@@ -93,9 +73,14 @@ TaskFormCreation.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   pristine: PropTypes.bool.isRequired,
   submitting: PropTypes.bool.isRequired,
-  initialValues: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  initialValues: PropTypes.oneOfType([PropTypes.object]),
+};
+
+TaskFormCreation.defaultProps = {
+  initialValues: undefined,
 };
 
 export default TaskFormCreation = reduxForm({
   form: 'taskCreation',
+  enableReinitialize: true,
 })(TaskFormCreation);
