@@ -1,5 +1,5 @@
-const checkStatus = (status) => {
-  switch (status) {
+const checkStatus = (state) => {
+  switch (state) {
     case 'active':
       return 'green';
     case 'open':

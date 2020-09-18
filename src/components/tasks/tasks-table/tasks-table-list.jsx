@@ -80,8 +80,8 @@ class TasksTable extends React.Component {
     const { getTaskSessionById, history } = this.props;
     getTaskSessionById(taskId);
     return editMode
-      ? history.push(`/task-edit-form/${taskId}`)
-      : history.push(`/tasks-description/${taskId}`);
+      ? history.push(`task-edit-form/${taskId}`)
+      : history.push(`tasks-description/${taskId}`);
   };
 
   render() {
@@ -106,12 +106,12 @@ class TasksTable extends React.Component {
       },
       {
         title: 'Status',
-        key: 'status',
-        dataIndex: 'status',
-        ...this.getColumnSearchProps('status'),
-        render: (status) => {
-          const color = checkStatus(status);
-          return <Tag color={color}>{status.toUpperCase()}</Tag>;
+        key: 'state',
+        dataIndex: 'state',
+        ...this.getColumnSearchProps('state'),
+        render: (state) => {
+          const color = checkStatus(state);
+          return <Tag color={color}>{state.toUpperCase()}</Tag>;
         },
       },
       {
