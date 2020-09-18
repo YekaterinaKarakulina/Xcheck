@@ -6,7 +6,7 @@ import './tasks.scss';
 
 const TaskDescription = (props) => {
   const {
-    task: { title, author, taskScore, status, description, items },
+    task: { title, author, taskScore, state, description, items },
   } = props;
 
   return (
@@ -15,12 +15,11 @@ const TaskDescription = (props) => {
         <Descriptions.Item label="Task title">{title}</Descriptions.Item>
         <Descriptions.Item label="Author">{author}</Descriptions.Item>
         <Descriptions.Item label="Max score">{taskScore}</Descriptions.Item>
-        <Descriptions.Item label="Status">{status}</Descriptions.Item>
+        <Descriptions.Item label="Status">{state}</Descriptions.Item>
         <Descriptions.Item label="Description">{description}</Descriptions.Item>
         <Descriptions.Item label="Link to this task ">{1}</Descriptions.Item>
       </Descriptions>
-      {items &&
-        items.length &&
+      {items && items.length ? (
         items.map((item) => {
           return (
             <Descriptions
@@ -34,7 +33,10 @@ const TaskDescription = (props) => {
               <Descriptions.Item label="Max score">{item.score}</Descriptions.Item>
             </Descriptions>
           );
-        })}
+        })
+      ) : (
+        <Descriptions />
+      )}
     </>
   );
 };
@@ -44,12 +46,12 @@ TaskDescription.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
   taskScore: PropTypes.number,
-  status: PropTypes.string,
+  state: PropTypes.string,
   description: PropTypes.string,
 };
 
 TaskDescription.defaultProps = {
-  status: undefined,
+  state: undefined,
   description: undefined,
   title: undefined,
   author: undefined,
