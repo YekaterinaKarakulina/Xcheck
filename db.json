@@ -675,7 +675,7 @@
       "id": "rev-req-7",
       "author": "author7",
       "taskTitle": "Task 3",
-      "state": "readyToXCheck",
+      "state": "published",
       "selfGrade": {
         "task-7-bp1": {
           "score": 20,
@@ -698,7 +698,7 @@
       "id": "rev-req-8",
       "author": "author8",
       "taskTitle": "Task 3",
-      "state": "readyToXCheck",
+      "state": "closed",
       "selfGrade": {
         "task-8-bp1": {
           "score": 20,
