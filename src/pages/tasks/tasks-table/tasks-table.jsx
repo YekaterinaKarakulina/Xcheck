@@ -24,8 +24,12 @@ class TasksTable extends React.Component {
     return (
       <div className="wrapper">
         <PageHeader className="site-page-header" title="Tasks table" />
-        <Button style={{ margin: '1rem' }} type="primary" icon={<PlusOutlined />} size="small">
-          <Link style={{ color: 'white' }} to="/task-form">
+        <Button
+          style={{ margin: '1rem' }}
+          type="primary"
+          icon={<PlusOutlined style={{ marginRight: '1rem' }} />}
+        >
+          <Link style={{ color: 'white' }} to="/tasks/task-form">
             Add new task
           </Link>
         </Button>

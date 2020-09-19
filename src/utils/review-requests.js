@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 const transformFormValuesToReviewRequestObject = (values) => {
-  const { author, task, linkToDemo, linkToPR, crossCheckSession } = values;
+  const { author, taskTitle, linkToDemo, linkToPR, crossCheckSessionId } = values;
 
   let { id } = values;
 
@@ -12,13 +12,27 @@ const transformFormValuesToReviewRequestObject = (values) => {
   return {
     id,
     author,
-    task,
+    taskTitle,
     state: 'draft',
     selfGrade: {},
     linkToDemo,
     linkToPR,
-    crossCheckSession,
+    crossCheckSessionId: crossCheckSessionId === undefined ? '' : crossCheckSessionId,
   };
 };
 
-export default transformFormValuesToReviewRequestObject;
+const getCrossCheckSessionsInfoForReviewRequestForm = (value) => {
+  const crossCheckSessions = [];
+  const crossCheckSessionsActive = value.filter(
+    (crossCheckSession) => crossCheckSession.state === 'active'
+  );
+  crossCheckSessionsActive.forEach((crossCheckSessionActive) => {
+    const { id } = crossCheckSessionActive;
+    crossCheckSessions.push({
+      id,
+    });
+  });
+  return crossCheckSessions;
+};
+
+export { transformFormValuesToReviewRequestObject, getCrossCheckSessionsInfoForReviewRequestForm };

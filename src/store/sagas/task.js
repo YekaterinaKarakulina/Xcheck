@@ -1,71 +1,86 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
-import Axios from 'axios';
+import { takeEvery, put } from 'redux-saga/effects';
+import { axiosDB } from '../../axios';
 import {
   POST_TASK_SESSIONS,
   POST_TASK_SESSIONS_SUCCESS,
   POST_TASK_SESSIONS_FAILURE,
-  REDIRECT_TO_TASK_SESSIONS,
   UPDATE_TASK_SESSION_SUCCESS,
   UPDATE_TASK_SESSION_FAILURE,
   UPDATE_TASK_SESSION,
   GET_TASKSTABLE_SESSIONS,
   GET_TASKSTABLE_SESSIONS_SUCCESS,
   GET_TASKSTABLE_SESSIONS_FAILURE,
-  GET_TASK_SESSION_BY_ID,
-  REDIRECT_TO_TASK_SESSION_FORM,
+  GET_TASK,
+  GET_TASK_SUCCESS,
+  GET_TASK_FAILURE,
+  GET_TASK_BY_TITLE,
+  GET_TASK_BY_TITLE_SUCCESS,
+  GET_TASK_BY_TITLE_FAILURE,
 } from '../actions/types/task';
 
 function* workerPostTask(action) {
-  const uri = 'http://localhost:3000/tasks';
   try {
-    yield call(Axios.post, uri, action.payload);
+    yield axiosDB.post('tasks', action.payload);
     yield put({ type: POST_TASK_SESSIONS_SUCCESS });
-    yield put({ type: REDIRECT_TO_TASK_SESSIONS });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: POST_TASK_SESSIONS_FAILURE,
-      payload: `ERROR! Cannot post task at ${uri}`,
+      payload: 'ERROR! Cannot post task',
     });
   }
 }
 
 function* workerUpdateTaskSession(action) {
+  const { id } = action.payload;
   try {
-    const uri = `http://localhost:3000/tasks/${action.payload.id}`;
-    yield call(Axios.put, uri, action.payload);
+    yield axiosDB.put(`/tasks/${id}`, action.payload);
     yield put({ type: UPDATE_TASK_SESSION_SUCCESS });
-    yield put({ type: REDIRECT_TO_TASK_SESSIONS });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: UPDATE_TASK_SESSION_FAILURE,
-      payload: `ERROR! Cannot update task session with this ID`,
+      payload: `ERROR! Cannot update task with ID ${id}`,
     });
   }
 }
 
 function* workerGetTasksTable() {
-  const uri = 'http://localhost:3000/tasks';
   try {
-    const result = yield call(Axios.get, uri);
+    const result = yield axiosDB.get('tasks');
     yield put({ type: GET_TASKSTABLE_SESSIONS_SUCCESS, payload: result.data });
-  } catch {
+  } catch (error) {
+    console.error(error);
     yield put({
       type: GET_TASKSTABLE_SESSIONS_FAILURE,
-      payload: `ERROR! Cannot get tasks at ${uri}`,
+      payload: 'ERROR! Cannot get tasks',
     });
   }
 }
 
 function* workerGetTaskTableById(action) {
-  const uri = `http://localhost:3000/tasks?taskId=${action.payload}`;
+  const id = action.payload;
   try {
-    const result = yield call(Axios.get, uri);
-    yield put({ type: GET_TASKSTABLE_SESSIONS_SUCCESS, payload: result.data });
-    yield put({ type: REDIRECT_TO_TASK_SESSION_FORM });
-  } catch {
+    const result = yield axiosDB.get(`/tasks?taskId=${id}`);
+    yield put({ type: GET_TASK_SUCCESS, payload: result.data });
+  } catch (error) {
+    console.error(error);
     yield put({
-      type: GET_TASKSTABLE_SESSIONS_FAILURE,
-      payload: `ERROR! Cannot get task at ${uri}`,
+      type: GET_TASK_FAILURE,
+      payload: `ERROR! Cannot get task with ID ${id}`,
+    });
+  }
+}
+
+function* workerGetTaskByTitle(action) {
+  try {
+    const result = yield axiosDB.get(`tasks?title=${action.payload}`);
+    yield put({ type: GET_TASK_BY_TITLE_SUCCESS, payload: result.data });
+  } catch (error) {
+    console.error(error);
+    yield put({
+      type: GET_TASK_BY_TITLE_FAILURE,
+      payload: 'ERROR! Cannot get task',
     });
   }
 }
@@ -74,7 +89,8 @@ function* watchTask() {
   yield takeEvery(POST_TASK_SESSIONS, workerPostTask);
   yield takeEvery(UPDATE_TASK_SESSION, workerUpdateTaskSession);
   yield takeEvery(GET_TASKSTABLE_SESSIONS, workerGetTasksTable);
-  yield takeEvery(GET_TASK_SESSION_BY_ID, workerGetTaskTableById);
+  yield takeEvery(GET_TASK, workerGetTaskTableById);
+  yield takeEvery(GET_TASK_BY_TITLE, workerGetTaskByTitle);
 }
 
 export default watchTask;

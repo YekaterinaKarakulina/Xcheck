@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import { PageHeader, Button } from 'antd';
-import history from '../../history/history';
-
 import mapData from './mapData';
 import { getReviews } from '../../store/actions/reviews';
 import { getReviewRequests } from '../../store/actions/review-requests';
@@ -28,6 +25,7 @@ class Reviews extends React.Component {
   }
 
   showReview = (record) => {
+    const { history } = this.props;
     history.push(`/reviews/${record.key}`);
     const dataGrades = this.getDataGrades(record.key);
     const review = this.getReview(record.key);
@@ -40,7 +38,8 @@ class Reviews extends React.Component {
   };
 
   hideReview = () => {
-    history.push(`/reviews`);
+    const { history } = this.props;
+    history.go(-1);
     this.setState({
       isReview: false,
       isCrossCheck: false,
@@ -59,6 +58,7 @@ class Reviews extends React.Component {
   };
 
   showCrossCheckReview = (record) => {
+    const { history } = this.props;
     history.push(`/reviews/${record.key}`);
     const dataGrades = this.getDataGrades(record.key);
     const review = this.getDataCrossCheckReviews(record.key);
@@ -169,6 +169,7 @@ Reviews.propTypes = {
   reviewRequestsData: PropTypes.arrayOf(PropTypes.object).isRequired,
   getReviews: PropTypes.func.isRequired,
   getReviewRequests: PropTypes.func.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Reviews);

@@ -1,4 +1,4 @@
-import { required, minLength, maxLength, validUrl } from './formValidations';
+import { required, minLength, maxLength } from './formValidations';
 import getRoles from './login';
 
-export { required, minLength, maxLength, validUrl, getRoles };
+export { required, minLength, maxLength, getRoles };
