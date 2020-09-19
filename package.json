@@ -6,7 +6,7 @@
   "scripts": {
     "dev-server": "webpack-dev-server --open",
     "start": "node server/index.js",
-    "build": "webpack --env.mode=production",
+    "build": "cd .. && webpack --env.mode=production",
     "build-prod": "webpack --env.mode=production",
     "build-dev": "webpack --env.mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
