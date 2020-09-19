@@ -93,7 +93,7 @@ class ReviewRequestsTableCreation extends React.Component {
           );
         },
         sorter: (a, b) => (a.task > b.task ? 1 : -1),
-        ...this.getColumnSearchProps('task'),
+        ...this.getColumnSearchProps('taskTitle'),
       },
       {
         title: 'Author',
@@ -111,7 +111,7 @@ class ReviewRequestsTableCreation extends React.Component {
         key: 'state',
         align: 'center',
         sorter: (a, b) => (a.state > b.state ? 1 : -1),
-        ...this.getColumnSearchProps('author'),
+        ...this.getColumnSearchProps('state'),
         render: (state) => {
           const color = checkStatus(state);
           return <Tag color={color}>{state.toUpperCase()}</Tag>;

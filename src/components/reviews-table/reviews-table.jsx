@@ -87,7 +87,7 @@ class ReviewsTable extends React.Component {
           );
         },
         sorter: (a, b) => (a.task > b.task ? 1 : -1),
-        ...this.getColumnSearchProps('task'),
+        ...this.getColumnSearchProps('taskTitle'),
       },
       {
         title: 'Author',
