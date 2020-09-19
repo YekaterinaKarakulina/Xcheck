@@ -1,24 +1,17 @@
 import React from 'react';
 import { PageHeader, Button } from 'antd';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TaskDescription from '../../components/tasks/task-description';
 
 const TaskDetails = (props) => {
-  const { tasks, history } = props;
+  const { tasks } = props;
   return (
     <div className="wrapper">
       <PageHeader className="site-page-header" title="Task details" />
-      <Button
-        type="primary"
-        size="small"
-        style={{ width: 90 }}
-        onClick={() => {
-          history.push(`/tasks`);
-        }}
-      >
-        Back
+      <Button type="primary">
+        <Link to="/tasks/">Back</Link>
       </Button>
       {tasks?.formValues && tasks.formValues[0] && <TaskDescription task={tasks.formValues[0]} />}
     </div>
@@ -27,11 +20,10 @@ const TaskDetails = (props) => {
 
 TaskDetails.propTypes = {
   tasks: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = ({ tasks }) => ({
   tasks,
 });
 
-export default withRouter(connect(mapStateToProps)(TaskDetails));
+export default connect(mapStateToProps)(TaskDetails);

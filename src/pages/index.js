@@ -4,22 +4,18 @@ import CrossCheckSessionsTable from './cross-check-sessions/cross-check-sessions
 import CrossCheckSessionLayout from './cross-check-sessions/cross-check-session-layout';
 import Reviews from './reviews';
 import Login from './login';
-import TaskForm from './tasks/task-form/task-form';
-import TaskFormEdit from './tasks/task-form/task-form-edit';
 import ReviewRequestsTable from './review-requests/review-requests-table';
 import ReviewRequestForm from './review-requests/review-requests-form';
-import TaskDetails from './tasks/task-details';
+import TaskLayout from './tasks/task-layout';
 
 export {
   CrossCheckSessionsTable,
   CrossCheckSessionLayout,
   TasksTable,
-  TaskForm,
-  TaskFormEdit,
   Reviews,
   Login,
   Check,
   ReviewRequestsTable,
   ReviewRequestForm,
-  TaskDetails,
+  TaskLayout,
 };

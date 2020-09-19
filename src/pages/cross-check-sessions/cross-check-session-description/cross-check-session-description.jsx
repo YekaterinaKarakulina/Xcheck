@@ -83,6 +83,8 @@ class CrossCheckSessionDescription extends React.Component {
 
   stopSession = async () => {
     const {
+      id,
+      getCrossCheckSession,
       reviewRequestsData,
       initialValues,
       updateCrossCheckSession,
@@ -110,6 +112,7 @@ class CrossCheckSessionDescription extends React.Component {
       newReview.state = 'published';
       await updateReview(newReview);
     });
+    getCrossCheckSession(id);
   };
 
   render() {
@@ -148,12 +151,28 @@ class CrossCheckSessionDescription extends React.Component {
           break;
       }
 
-      const extraButtons = (
-        <Space size="middle">
-          {finishCollectionButton}
-          {stopSessionButton}
-        </Space>
-      );
+      let extraButtons = null;
+
+      switch (state) {
+        case 'active':
+          extraButtons = (
+            <Space size="middle">
+              {finishCollectionButton}
+              {stopSessionButton}
+            </Space>
+          );
+          break;
+        case 'onReview':
+          extraButtons = (
+            <Space size="middle">
+              {finishCollectionButton}
+              {stopSessionButton}
+            </Space>
+          );
+          break;
+        default:
+          break;
+      }
 
       return (
         <div className="wrapper">

@@ -1,8 +1,8 @@
 import {
   POST_TASK_SESSIONS_SUCCESS,
   POST_TASK_SESSIONS_FAILURE,
-  GET_TASKSTABLE_SESSIONS_SUCCESS,
-  GET_TASKSTABLE_SESSIONS_FAILURE,
+  GET_TASK_SUCCESS,
+  GET_TASK_FAILURE,
   GET_TASK_BY_TITLE_SUCCESS,
   GET_TASK_BY_TITLE_FAILURE,
   UPDATE_TASK_SESSION_SUCCESS,
@@ -16,13 +16,13 @@ const initialState = {
 
 const tasks = (state = initialState, action) => {
   switch (action.type) {
-    case GET_TASKSTABLE_SESSIONS_SUCCESS:
+    case GET_TASK_SUCCESS:
       return {
         ...state,
         formValues: action.payload,
       };
 
-    case GET_TASKSTABLE_SESSIONS_FAILURE:
+    case GET_TASK_FAILURE:
       return state;
 
     case GET_TASK_BY_TITLE_SUCCESS:

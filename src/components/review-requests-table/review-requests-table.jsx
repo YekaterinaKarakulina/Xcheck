@@ -6,6 +6,7 @@ import { isEmpty } from 'lodash';
 import { Table, Space, Button, Input, Tag } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { getReviewRequests } from '../../store/actions/review-requests';
+import checkStatus from '../../utils/status';
 
 class ReviewRequestsTableCreation extends React.Component {
   componentDidMount() {
@@ -88,20 +89,7 @@ class ReviewRequestsTableCreation extends React.Component {
         sorter: (a, b) => (a.state > b.state ? 1 : -1),
         ...this.getColumnSearchProps('author'),
         render: (state) => {
-          let color = 'green';
-          switch (state) {
-            case 'PUBLISHED':
-              color = 'green';
-              break;
-            case 'DRAFT':
-              color = 'geekblue';
-              break;
-            case 'COMPLETED':
-              color = 'volcano';
-              break;
-            default:
-              color = 'green';
-          }
+          const color = checkStatus(state);
           return <Tag color={color}>{state.toUpperCase()}</Tag>;
         },
       },
@@ -113,9 +101,6 @@ class ReviewRequestsTableCreation extends React.Component {
           const isEmptySelfGrade = isEmpty(record.selfGrade);
           const { state } = record;
 
-          if (state === 'COMPLETED') {
-            return null;
-          }
           if (isEmptySelfGrade) {
             return (
               <Link to={`/check/${row.id}`}>
@@ -126,13 +111,17 @@ class ReviewRequestsTableCreation extends React.Component {
             );
           }
 
-          return (
-            <Link to={`/check/${row.id}`}>
-              <Button type="primary" size="small" style={{ width: 90 }}>
-                Check
-              </Button>
-            </Link>
-          );
+          if (state === 'published') {
+            return (
+              <Link to={`/check/${row.id}`}>
+                <Button type="primary" size="small" style={{ width: 90 }}>
+                  Check
+                </Button>
+              </Link>
+            );
+          }
+
+          return null;
         },
       },
     ];
