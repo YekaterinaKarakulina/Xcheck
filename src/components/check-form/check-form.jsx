@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { isEmpty } from 'lodash';
-import { Button, Typography } from 'antd';
+import { Button, Divider, Row, Typography } from 'antd';
 import SelfGradeFields from './selfgrade-fields';
 import GradeFields from './grade-fields';
 
@@ -30,12 +30,11 @@ const CheckForm = ({
 
   const renderScopes = scopes.map((scope) => {
     return (
-      <div className="check__form-row" key={scope.id}>
-        <Title level={4} className="check__form-row-title">
-          {scope.title}
-        </Title>
+      <Row key={scope.id}>
+        <Title style={{ fontSize: '1.8rem' }}>{scope.title}</Title>
+        <Divider style={{ marginTop: '0.5rem' }} />
 
-        <div className="check__form-row-body">
+        <div>
           {isSelfGradeEmpty ? (
             <SelfGradeFields
               fields={scope.items}
@@ -57,18 +56,18 @@ const CheckForm = ({
             />
           )}
         </div>
-      </div>
+      </Row>
     );
   });
 
   return (
-    <form onSubmit={handleSubmit} className="check__form">
-      <div className="check__form-inner"> {renderScopes}</div>
-      <div className="check__form-bottom">
-        <Button type="primary" htmlType="submit" size="large" disabled={pristine || submitting}>
-          Submit
-        </Button>
-      </div>
+    <form onSubmit={handleSubmit}>
+      <div> {renderScopes}</div>
+
+      <Divider />
+      <Button type="primary" htmlType="submit" size="large" disabled={pristine || submitting}>
+        Submit
+      </Button>
     </form>
   );
 };

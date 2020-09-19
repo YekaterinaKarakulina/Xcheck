@@ -40,7 +40,6 @@ const GradeField = (props) => {
     toggleShow,
     toggleAdd,
   } = props;
-  console.log(selfGrade);
   const { comment } = !isEmpty(selfGrade[id]) ? selfGrade[id] : '';
   const isDetailViewed = detailIds[id];
   const isCommentViewed = commentIds[id];
@@ -68,53 +67,42 @@ const GradeField = (props) => {
   );
 
   return (
-    <div className="check__form-item" key={id}>
-      <div className="check__form-item-top">
-        <Space size="middle" align="start">
-          <Space size="small" align="start">
-            <Title level={5} className="check__form-item-title">
-              {title}
-            </Title>
-            <Button
-              onClick={() => {
-                toggleMore(id);
-              }}
-            >
-              More info {!isDetailViewed ? <CaretDownOutlined /> : <CaretUpOutlined />}
-            </Button>
-          </Space>
-          <Space size="small" align="start">
-            <Field
-              name={id}
-              placeholder="Score"
-              component={AInputNumber}
-              validate={[required, maxValue, minValue, maxLength3, minLength1]}
-            />
-            <Button
-              className="check__form-item-show"
-              onClick={() => {
-                toggleShow(id);
-              }}
-            >
-              Show Student Comment
-            </Button>
-          </Space>
+    <>
+      <Space size="middle" align="start">
+        <Space size="small" align="start">
+          <Title level={5}>{title}</Title>
+          <Button
+            onClick={() => {
+              toggleMore(id);
+            }}
+          >
+            More info {!isDetailViewed ? <CaretDownOutlined /> : <CaretUpOutlined />}
+          </Button>
         </Space>
-      </div>
+        <Space size="small" align="start">
+          <Field
+            name={id}
+            placeholder="Score"
+            component={AInputNumber}
+            validate={[required, maxValue, minValue, maxLength3, minLength1]}
+          />
+          <Button
+            onClick={() => {
+              toggleShow(id);
+            }}
+          >
+            Show Student Comment
+            {!isCommentViewed ? <CaretDownOutlined /> : <CaretUpOutlined />}
+          </Button>
+        </Space>
+      </Space>
 
-      <div className="check__form-item-inner">
-        <p className="check__form-item-desc" style={{ display: isDetailViewed ? 'block' : 'none' }}>
-          {description}
-        </p>
-        <p
-          className="check__form-item-comment"
-          style={{ display: isCommentViewed ? 'block' : 'none' }}
-        >
-          {comment}
-        </p>
+      <div>
+        <p style={{ display: isDetailViewed ? 'block' : 'none' }}>{description}</p>
+        <p style={{ display: isCommentViewed ? 'block' : 'none' }}>{comment}</p>
 
-        <div className="check__form-item-group">
-          <div className="check__form-item-group-top">
+        <div>
+          <div>
             <Space size="middle" align="start">
               <Field label="Performed" name={`performans-group-${id}`} component={ARadioGroup}>
                 <Radio value="0">Not performed</Radio>
@@ -122,7 +110,7 @@ const GradeField = (props) => {
                 <Radio value="100%">100% Performed</Radio>
               </Field>
               <Button
-                className="check__form-item-add"
+                type="primary"
                 onClick={() => {
                   toggleAdd(id);
                 }}
@@ -132,7 +120,7 @@ const GradeField = (props) => {
               </Button>
             </Space>
           </div>
-          <div className="check__form-item-group-body">
+          <div style={{ display: isCommentFieldOpened ? 'block' : 'none' }}>
             <Field
               name={`comment_${id}`}
               placeholder="Comment"
@@ -142,7 +130,7 @@ const GradeField = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

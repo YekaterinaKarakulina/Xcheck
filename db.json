@@ -313,8 +313,7 @@
       "discardMaxScore": false,
       "minReviewsAmount": 1,
       "desiredReviewsAmount": 2,
-      "attendees": [
-      ]
+      "attendees": []
     }
   ],
   "reviews": [
@@ -371,6 +370,11 @@
       "taskTitle": "Task 2",
       "state": "published",
       "comments": [
+        {
+          "author": "Ghuseynova",
+          "avatar": "https://avatars2.githubusercontent.com/u/37036608?v=4",
+          "content": "sada"
+        },
         {
           "author": "viktorsipach",
           "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
