@@ -1,18 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import { Table, Space, Button, Input, Tag } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, InfoCircleTwoTone } from '@ant-design/icons';
 import { getReviewRequests } from '../../store/actions/review-requests';
 import checkStatus from '../../utils/status';
+import { getTask, getTaskByTitle } from '../../store/actions/task';
 
 class ReviewRequestsTableCreation extends React.Component {
   componentDidMount() {
     const { getReviewRequests } = this.props;
     getReviewRequests();
   }
+
+  componentDidUpdate(prev) {
+    const { currentTask, history, getTask } = this.props;
+    const currentTaskId = currentTask.taskId;
+
+    if (currentTaskId !== prev.currentTask.taskId) {
+      history.push(`/tasks/${currentTaskId}`);
+      getTask(currentTaskId);
+    }
+  }
+
+  redirectToTask = async (taskTitle) => {
+    const { getTaskByTitle } = this.props;
+    await getTaskByTitle(taskTitle);
+  };
 
   getColumnSearchProps = (dataIndex) => ({
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
@@ -66,7 +82,15 @@ class ReviewRequestsTableCreation extends React.Component {
         dataIndex: 'taskTitle',
         key: 'task',
         render: (text, record) => {
-          return <a href={record.urlTask}>{text}</a>;
+          return (
+            <span>
+              {text}
+              <InfoCircleTwoTone
+                onClick={() => this.redirectToTask(record.taskTitle)}
+                style={{ marginLeft: '0.5rem' }}
+              />
+            </span>
+          );
         },
         sorter: (a, b) => (a.task > b.task ? 1 : -1),
         ...this.getColumnSearchProps('task'),
@@ -75,8 +99,8 @@ class ReviewRequestsTableCreation extends React.Component {
         title: 'Author',
         dataIndex: 'author',
         key: 'author',
-        render: (text, record) => {
-          return <a href={record.urlAuthor}>{text}</a>;
+        render: (text) => {
+          return <span>{text}</span>;
         },
         sorter: (a, b) => (a.author > b.author ? 1 : -1),
         ...this.getColumnSearchProps('author'),
@@ -132,16 +156,31 @@ class ReviewRequestsTableCreation extends React.Component {
 ReviewRequestsTableCreation.propTypes = {
   getReviewRequests: PropTypes.func.isRequired,
   reviewRequestsData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
+  getTask: PropTypes.func.isRequired,
+  getTaskByTitle: PropTypes.func.isRequired,
+  currentTask: PropTypes.instanceOf(Object),
 };
 
-const mapStateToProps = ({ reviewRequestsData }) => {
-  return { reviewRequestsData };
+ReviewRequestsTableCreation.defaultProps = {
+  currentTask: {},
+};
+
+const mapStateToProps = ({ reviewRequestsData, tasks }) => {
+  return {
+    reviewRequestsData,
+    currentTask: tasks.currentTask[0],
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getReviewRequests: () => dispatch(getReviewRequests()),
+    getTask: (id) => dispatch(getTask(id)),
+    getTaskByTitle: (title) => dispatch(getTaskByTitle(title)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewRequestsTableCreation);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(ReviewRequestsTableCreation)
+);
