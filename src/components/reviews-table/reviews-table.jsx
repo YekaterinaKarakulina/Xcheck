@@ -1,14 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { Table, Space, Button, Input, Tag } from 'antd';
+import { SearchOutlined, InfoCircleTwoTone } from '@ant-design/icons';
+import checkStatus from '../../utils/status';
+import { getTask, getTaskByTitle } from '../../store/actions/task';
 
-import { Table, Tag, Space, Button, Input } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
-import Highlighter from 'react-highlight-words';
+class ReviewsTable extends React.Component {
+  componentDidUpdate(prev) {
+    const { currentTask, history, getTask } = this.props;
+    const currentTaskId = currentTask.taskId;
 
-export default class ReviewsTable extends React.Component {
-  state = {
-    searchText: '',
-    searchedColumn: '',
+    if (currentTaskId !== prev.currentTask.taskId) {
+      history.push(`/tasks/${currentTaskId}`);
+      getTask(currentTaskId);
+    }
+  }
+
+  redirectToTask = async (taskTitle) => {
+    const { getTaskByTitle } = this.props;
+    await getTaskByTitle(taskTitle);
   };
 
   getColumnSearchProps = (dataIndex) => ({
@@ -17,14 +29,14 @@ export default class ReviewsTable extends React.Component {
         <Input
           placeholder={`Search ${dataIndex}`}
           value={selectedKeys[0]}
-          onChange={(event) => setSelectedKeys(event.target.value ? [event.target.value] : [])}
-          onPressEnter={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+          onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+          onPressEnter={() => this.handleSearch(confirm)}
           style={{ width: 188, marginBottom: 8, display: 'block' }}
         />
         <Space>
           <Button
             type="primary"
-            onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
+            onClick={() => this.handleSearch(confirm)}
             icon={<SearchOutlined />}
             size="small"
             style={{ width: 90 }}
@@ -44,32 +56,14 @@ export default class ReviewsTable extends React.Component {
       record[dataIndex]
         ? record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
         : '',
-    render: (text) => {
-      const { searchedColumn, searchText } = this.state;
-      return searchedColumn === dataIndex ? (
-        <Highlighter
-          highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
-          searchWords={[searchText]}
-          autoEscape
-          textToHighlight={text ? text.toString() : ''}
-        />
-      ) : (
-        text
-      );
-    },
   });
 
-  handleSearch = (selectedKeys, confirm, dataIndex) => {
+  handleSearch = (confirm) => {
     confirm();
-    this.setState({
-      searchText: selectedKeys[0],
-      searchedColumn: dataIndex,
-    });
   };
 
   handleReset = (clearFilters) => {
     clearFilters();
-    this.setState({ searchText: '' });
   };
 
   render() {
@@ -78,11 +72,19 @@ export default class ReviewsTable extends React.Component {
 
     const columns = [
       {
-        title: 'Name task',
+        title: 'Task',
         dataIndex: 'taskTitle',
         key: 'taskTitle',
         render: (text, record) => {
-          return <a href={record.urlTask}>{text}</a>;
+          return (
+            <span>
+              {text}
+              <InfoCircleTwoTone
+                onClick={() => this.redirectToTask(record.taskTitle)}
+                style={{ marginLeft: '0.5rem' }}
+              />
+            </span>
+          );
         },
         sorter: (a, b) => (a.task > b.task ? 1 : -1),
         ...this.getColumnSearchProps('task'),
@@ -91,8 +93,8 @@ export default class ReviewsTable extends React.Component {
         title: 'Author',
         dataIndex: 'author',
         key: 'author',
-        render: (text, record) => {
-          return <a href={record.urlAuthor}>{text}</a>;
+        render: (text) => {
+          return <span>{text}</span>;
         },
         sorter: (a, b) => (a.author > b.author ? 1 : -1),
         ...this.getColumnSearchProps('author'),
@@ -103,18 +105,7 @@ export default class ReviewsTable extends React.Component {
         key: 'state',
         align: 'center',
         render: (state) => {
-          let color = 'green';
-          switch (state) {
-            case 'published':
-              color = 'volcano';
-              break;
-            case 'draft':
-              color = 'geekblue';
-              break;
-
-            default:
-              color = 'green';
-          }
+          const color = checkStatus(state);
           return <Tag color={color}>{state.toUpperCase()}</Tag>;
         },
       },
@@ -152,9 +143,30 @@ export default class ReviewsTable extends React.Component {
 ReviewsTable.propTypes = {
   tableData: PropTypes.arrayOf(PropTypes.object),
   handleClick: PropTypes.func,
+  history: PropTypes.instanceOf(Object).isRequired,
+  getTask: PropTypes.func.isRequired,
+  getTaskByTitle: PropTypes.func.isRequired,
+  currentTask: PropTypes.instanceOf(Object),
 };
 
 ReviewsTable.defaultProps = {
   tableData: [],
   handleClick: PropTypes.func,
+  currentTask: {},
 };
+
+const mapStateToProps = ({ reviewRequestsData, tasks }) => {
+  return {
+    reviewRequestsData,
+    currentTask: tasks.currentTask[0],
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getTask: (id) => dispatch(getTask(id)),
+    getTaskByTitle: (title) => dispatch(getTaskByTitle(title)),
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ReviewsTable));
