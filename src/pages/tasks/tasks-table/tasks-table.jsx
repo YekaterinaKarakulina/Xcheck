@@ -23,7 +23,7 @@ class TasksTable extends React.Component {
 
     return (
       <div className="wrapper">
-        <PageHeader className="site-page-header" title="Tasks table" />
+        <PageHeader className="site-page-header" title="Tasks" />
         <Button
           style={{ margin: '1rem' }}
           type="primary"
