@@ -49,7 +49,7 @@ make start
 ```
 
 ## How to deploy 
-  - deploy your db data https://github.com/jesperorb/json-server-heroku
+  - deploy your database https://github.com/jesperorb/json-server-heroku
   - go to github.com > Settings > Developer settings > OAuth Apps > Create new OAuth App > fill fields with app info > Register application https://docs.github.com/en/developers/apps/creating-an-oauth-app
   - deploy auth server on path /auth-server-heroku/index.js on heroku as separate repository using heroku cli or connect to github repository;
   make sure you has procfile, that starts server file;
@@ -58,7 +58,7 @@ make start
     ```bash
     const env = {
       clientId: <clientId from registered Github OAuth app>,
-      dbBaseURL: <deployed db url>,
+      dbBaseURL: <deployed database url>,
       authBaseURL: <deployed auth server url>,
       appBaseURL: <app url you will deploy>,
     };
