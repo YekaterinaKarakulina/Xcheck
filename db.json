@@ -265,11 +265,16 @@
   "reviews": [
     {
       "id": "rev-id-1",
-      "requestId": "rev-req-1",
+      "requestId": "rev-req-4",
       "author": "author1",
       "taskTitle": "english fo kids",
-      "state": "disputed",
+      "state": "published",
       "comments": [
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Test saga!"
+        },
         {
           "author": "viktorsipach",
           "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
@@ -306,7 +311,7 @@
     },
     {
       "id": "rev-id-2",
-      "requestId": "rev-req-2",
+      "requestId": "rev-req-4",
       "author": "author2",
       "taskTitle": "movie search",
       "state": "published",

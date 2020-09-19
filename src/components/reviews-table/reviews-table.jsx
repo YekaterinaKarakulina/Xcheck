@@ -102,19 +102,16 @@ export default class ReviewsTable extends React.Component {
         dataIndex: 'state',
         key: 'state',
         align: 'center',
-        sorter: (a, b) => (a.state > b.state ? 1 : -1),
         render: (state) => {
           let color = 'green';
           switch (state) {
             case 'published':
-              color = 'green';
+              color = 'volcano';
               break;
             case 'draft':
               color = 'geekblue';
               break;
-            case 'disputed':
-              color = 'volcano';
-              break;
+
             default:
               color = 'green';
           }

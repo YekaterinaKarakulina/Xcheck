@@ -1,5 +1,5 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
-import Axios from 'axios';
+import { takeEvery, put } from 'redux-saga/effects';
+import { axiosDB } from '../../axios';
 import {
   GET_REVIEWS,
   GET_REVIEWS_SUCCESS,
@@ -13,9 +13,8 @@ import {
 } from '../actions/types/reviews';
 
 function* workerGetReviews() {
-  const uri = 'http://localhost:3000/reviews';
   try {
-    const result = yield call(Axios.get, uri);
+    const result = yield axiosDB.get('reviews');
     yield put({
       type: GET_REVIEWS_SUCCESS,
       payload: result.data,
@@ -23,20 +22,19 @@ function* workerGetReviews() {
   } catch {
     yield put({
       type: GET_REVIEWS_FAILURE,
-      payload: `ERROR! Cannot get reviews list at ${uri}`,
+      payload: `ERROR! Cannot get reviews list`,
     });
   }
 }
 
 function* workerPostReview(action) {
-  const uri = 'http://localhost:3000/reviews';
   try {
-    const result = yield call(Axios.post, uri, action.payload);
+    const result = yield axiosDB.post('reviews', action.payload);
     yield put({ type: POST_REVIEW_SUCCESS, payload: result.data });
   } catch {
     yield put({
       type: POST_REVIEW_FAILURE,
-      payload: `ERROR! Cannot post review request at ${uri}`,
+      payload: `ERROR! Cannot post review`,
     });
   }
 }
@@ -44,8 +42,8 @@ function* workerPostReview(action) {
 function* workerUpdateReview(action) {
   const { id } = action.payload;
   try {
-    const uri = `http://localhost:3000/reviews/${id}`;
-    yield call(Axios.put, uri, action.payload);
+    // const uri = `http://localhost:3000/reviews/${id}`;
+    yield axiosDB.put(`reviews/${id}`, action.payload);
     yield put({ type: UPDATE_REVIEW_SUCCESS });
   } catch {
     yield put({
