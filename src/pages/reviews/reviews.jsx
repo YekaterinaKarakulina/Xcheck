@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { PageHeader, Button } from 'antd';
 import mapData from './mapData';
 import { getReviews } from '../../store/actions/reviews';
@@ -38,8 +39,6 @@ class Reviews extends React.Component {
   };
 
   hideReview = () => {
-    const { history } = this.props;
-    history.go(-1);
     this.setState({
       isReview: false,
       isCrossCheck: false,
@@ -124,7 +123,7 @@ class Reviews extends React.Component {
         <div className="wrapper">
           <PageHeader className="site-page-header" title={`${nameTask}`} />
           <Button onClick={() => this.hideReview()} type="primary">
-            Back
+            <Link to="/reviews/">Back</Link>
           </Button>
           <GradesTable tableData={dataGrades} />
           <Feedback review={review} />
@@ -136,7 +135,7 @@ class Reviews extends React.Component {
         <div className="wrapper">
           <PageHeader className="site-page-header" title={`${nameTask}`} />
           <Button onClick={() => this.hideReview()} type="primary">
-            Back
+            <Link to="/reviews/">Back</Link>
           </Button>
           <ReviewsTable tableData={review} handleClick={this.showReview} />
         </div>
