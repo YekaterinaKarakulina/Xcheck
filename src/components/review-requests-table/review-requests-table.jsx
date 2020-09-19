@@ -78,9 +78,9 @@ class ReviewRequestsTableCreation extends React.Component {
 
     const columns = [
       {
-        title: 'Task title',
+        title: 'Task',
         dataIndex: 'taskTitle',
-        key: 'task',
+        key: 'taskTitle',
         render: (text, record) => {
           return (
             <span>
