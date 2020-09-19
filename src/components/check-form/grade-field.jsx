@@ -40,7 +40,8 @@ const GradeField = (props) => {
     toggleShow,
     toggleAdd,
   } = props;
-  const { comment } = !isEmpty(selfGrade[title]) ? selfGrade[title] : '';
+  console.log(selfGrade);
+  const { comment } = !isEmpty(selfGrade[id]) ? selfGrade[id] : '';
   const isDetailViewed = detailIds[id];
   const isCommentViewed = commentIds[id];
   const isCommentFieldOpened = commentFieldIds[id];
