@@ -56,7 +56,7 @@ class CrossCheckSessionsTableCreation extends React.Component {
         key: 'author',
       },
       {
-        title: 'State',
+        title: 'Status',
         key: 'state',
         dataIndex: 'state',
         render: (state) => {
