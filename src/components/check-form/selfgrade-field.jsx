@@ -87,7 +87,7 @@ const SelfGradeField = (props) => {
       <div style={{ display: isDetailViewed || isCommentFieldOpened ? 'block' : 'none' }}>
         <p style={{ display: isDetailViewed ? 'block' : 'none' }}>{description}</p>
         <Field
-          name={`comment_${id}`}
+          name={`${id}_comment`}
           placeholder="Comment"
           component={ATextarea}
           style={{ display: isCommentFieldOpened ? 'block' : 'none' }}

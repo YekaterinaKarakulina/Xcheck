@@ -1,13 +1,18 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { reduxForm } from 'redux-form';
 import { isEmpty } from 'lodash';
+
 import { Button, Divider, Row, Typography } from 'antd';
 import SelfGradeFields from './selfgrade-fields';
 import GradeFields from './grade-fields';
+import transformFormValuesToSelfGradeObject from '../../utils/check';
+import { updateReviewRequest } from '../../store/actions/review-requests';
 
 const { Title } = Typography;
 
@@ -24,9 +29,25 @@ const CheckForm = ({
   detailIds,
   commentFieldIds,
   commentIds,
+  updateReviewRequest,
+  history,
 }) => {
   const { selfGrade } = reviewRequest;
   const isSelfGradeEmpty = isEmpty(selfGrade);
+
+  const selfCheckSubmit = (values) => {
+    const newSelfGrade = transformFormValuesToSelfGradeObject(values);
+    const { crossCheckSessionId } = reviewRequest;
+    const status = crossCheckSessionId ? 'readyToXCheck' : 'published';
+    const newRequest = reviewRequest;
+
+    newRequest.selfGrade = newSelfGrade;
+    newRequest.state = status;
+
+    updateReviewRequest(newRequest);
+
+    history.push('/review-requests/');
+  };
 
   const renderScopes = scopes.map((scope) => {
     return (
@@ -61,7 +82,7 @@ const CheckForm = ({
   });
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(selfCheckSubmit)}>
       <div> {renderScopes}</div>
 
       <Divider />
@@ -76,9 +97,18 @@ const mapStateToProps = (state, ownProps) => {
   return { initialValues: ownProps.initialValues };
 };
 
-export default connect(mapStateToProps)(
-  reduxForm({
-    form: 'checkForm',
-    enableReinitialize: true,
-  })(CheckForm)
+const mapDispatchToProps = (dispatch) => ({
+  updateReviewRequest: (newRequest) => dispatch(updateReviewRequest(newRequest)),
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(
+    reduxForm({
+      form: 'checkForm',
+      enableReinitialize: true,
+    })(CheckForm)
+  )
 );
