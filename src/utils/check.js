@@ -1,7 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 
 const transformFormValuesToSelfGradeObject = (values) => {
-  console.log(values);
   const scoreIds = [];
   const selfGrade = {};
   for (const key of Object.keys(values)) {
