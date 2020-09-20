@@ -48,6 +48,24 @@ make auth
 make start
 ```
 
+## How to deploy 
+  - deploy your database https://github.com/jesperorb/json-server-heroku
+  - go to github.com > Settings > Developer settings > OAuth Apps > Create new OAuth App > fill fields with app info > Register application https://docs.github.com/en/developers/apps/creating-an-oauth-app
+  - deploy auth server on path /auth-server-heroku/index.js on heroku as separate repository using heroku cli or connect to github repository;
+  make sure you has procfile, that starts server file;
+  reveal config vars in heroku dashboard > settings; add keys: CLIENT_ID, CLIENT_SECRET with values you got for clientId and clientSecret in previous step and key PORT with needed value
+  - edit src/env.js file:
+    ```bash
+    const env = {
+      clientId: <clientId from registered Github OAuth app>,
+      dbBaseURL: <deployed database url>,
+      authBaseURL: <deployed auth server url>,
+      appBaseURL: <app url you will deploy>,
+    };
+    ```
+  - deploy app on heroku using heroku cli or connect to github repository
+  - reveal config vars in heroku dashboard > settings; add PORT key with needed value (3001 in our case)
+
 ## Usage
 
 ### Database entities
