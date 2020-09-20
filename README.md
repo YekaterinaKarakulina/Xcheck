@@ -22,7 +22,6 @@ It can help to improve tasks review process.
  - uuid
  - moment
  - lodash
- - valid-url
  - react-highlight-words
 
 ---
@@ -77,6 +76,23 @@ make start
 
  - /reviews
  - /reviews/:id
+
+## Extra features
+ ### Tasks:
+ - tasks filters and sorting by title, author and status
+ - task preview
+
+  ### Review Requests:
+ - redirecting to task preview from review requests table
+
+ ### Reviews:
+ - extra table for crossCheck sessions reviews
+ - redirecting to task preview from reviews table
+
+ ### CrossCheck sessions:
+ - redirecting to task preview from crossCheck sessions table
+ - crossCheck session preview
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
