@@ -40,5 +40,5 @@ describe('render', () => {
   test('CrossCheckSessionDescriptionCreation', () => {
   const result = render(<CrossCheckSessionDescriptionCreation descriptionValues={initialValues}/>);
     expect(result).toMatchSnapshot()
-  })
+  });
 });
