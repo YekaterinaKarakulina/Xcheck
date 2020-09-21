@@ -71,22 +71,32 @@ class Reviews extends React.Component {
 
   getCrossCheckReviews = () => {
     const { reviewRequestsData, reviewsData } = this.props;
-    const reviewRequests = reviewRequestsData.filter((item) => {
+    const newReviewRequest = {};
+    const result = [];
+    reviewRequestsData.forEach((item) => {
       const reviewRequest = item;
-      let isTrue;
       let total = 0;
+      let authors = '';
       reviewsData.forEach((item) => {
-        if (item.requestId === reviewRequest.id && item.state === 'published') {
-          isTrue = true;
+        if (
+          item.requestId === reviewRequest.id &&
+          item.state === 'published' &&
+          reviewRequest.crossCheckSessionId
+        ) {
           total += item.grade.total;
-          reviewRequest.grade = total;
-          reviewRequest.key = reviewRequest.id;
+          authors += ` ${item.author}`;
+          newReviewRequest.grade = total;
+          newReviewRequest.key = reviewRequest.id;
+          newReviewRequest.taskAuthor = reviewRequest.author;
+          newReviewRequest.author = authors;
+          newReviewRequest.state = item.state;
+          newReviewRequest.taskTitle = item.taskTitle;
+          result.push(newReviewRequest);
         }
       });
-      return isTrue;
     });
-
-    return reviewRequests;
+    result.length = 1;
+    return result;
   };
 
   getDataCrossCheckReviews = (id) => {

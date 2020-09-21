@@ -1,5 +1,5 @@
 const mapData = (databaseData) => {
-  const { id, author, state, taskTitle } = databaseData;
+  const { id, author, state, taskTitle, taskAuthor } = databaseData;
   const grade = databaseData.grade.total;
 
   return {
@@ -9,6 +9,7 @@ const mapData = (databaseData) => {
     state,
     taskTitle,
     grade,
+    taskAuthor,
   };
 };
 

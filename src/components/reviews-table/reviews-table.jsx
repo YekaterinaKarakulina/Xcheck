@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Table, Space, Button, Input, Tag } from 'antd';
+import { Table, Space, Button, Input, Tag, Tooltip } from 'antd';
 import { SearchOutlined, InfoCircleTwoTone } from '@ant-design/icons';
 import checkStatus from '../../utils/status';
 import { getTask, getTaskByTitle } from '../../store/actions/task';
@@ -90,12 +90,29 @@ class ReviewsTable extends React.Component {
         ...this.getColumnSearchProps('taskTitle'),
       },
       {
-        title: 'Author',
+        title: 'Task author',
+        dataIndex: 'taskAuthor',
+        key: 'taskAuthor',
+        render: (taskAuthor) => (
+          <Tooltip placement="topLeft" title={taskAuthor}>
+            <span>{taskAuthor}</span>
+          </Tooltip>
+        ),
+        sorter: (a, b) => (a.taskAuthor > b.taskAuthor ? 1 : -1),
+        ...this.getColumnSearchProps('taskAuthor'),
+      },
+      {
+        title: 'Check author',
         dataIndex: 'author',
         key: 'author',
-        render: (text) => {
-          return <span>{text}</span>;
+        ellipsis: {
+          showTitle: false,
         },
+        render: (author) => (
+          <Tooltip placement="topLeft" title={author}>
+            <span>{author}</span>
+          </Tooltip>
+        ),
         sorter: (a, b) => (a.author > b.author ? 1 : -1),
         ...this.getColumnSearchProps('author'),
       },

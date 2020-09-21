@@ -76,7 +76,7 @@ class Check extends Component {
 
   render() {
     const { detailIds, commentFieldIds, commentIds } = this.state;
-    const { currentReviewRequest, currentTask } = this.props;
+    const { currentReviewRequest, currentTask, login } = this.props;
     const { selfGrade } = currentReviewRequest;
     const items = currentTask ? currentTask.items : [];
     const basics = {
@@ -145,15 +145,17 @@ class Check extends Component {
           toggleMore={this.toggleMore}
           toggleAdd={this.toggleAdd}
           toggleShow={this.toggleShow}
+          user={login}
         />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ reviewRequests, tasks }) => ({
+const mapStateToProps = ({ reviewRequests, tasks, login }) => ({
   currentReviewRequest: reviewRequests.currentReviewRequest,
   currentTask: tasks.currentTask[0],
+  login,
 });
 
 const mapDispatchToProps = (dispatch) => {
