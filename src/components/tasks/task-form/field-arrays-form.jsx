@@ -64,7 +64,7 @@ const renderTaskItem = ({ fields }) => {
             label="Max score"
             name={`${point}.score`}
             min={0}
-            max={50}
+            max={1000}
             step={10}
             component={AInputNumber}
             validate={[required]}
