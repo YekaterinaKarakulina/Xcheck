@@ -3,7 +3,7 @@ import { Table, Tag, Space } from 'antd';
 import { EyeTwoTone, EditTwoTone, CloseCircleTwoTone, InfoCircleTwoTone } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import checkStatus from '../../utils/status';
-import { CrossCheckSessionModal } from '../modals';
+import { CrossCheckSessionModal } from '../cross-check-session-modal';
 
 const CrossCheckSessionsTable = (props) => {
   const {
