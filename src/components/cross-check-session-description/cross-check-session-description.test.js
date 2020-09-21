@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from "@testing-library/react";
 import CrossCheckSessionDescriptionCreation from './cross-check-session-description';
 
-const aaa = {
+const initialValues = {
   id: "xcheck-1",
   title: "rss2020Q3react-songbird",
   author: "viktorsipach",
@@ -28,8 +28,8 @@ describe('render', () => {
         matches: false,
         media: query,
         onchange: null,
-        addListener: jest.fn(), // deprecated
-        removeListener: jest.fn(), // deprecated
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
         addEventListener: jest.fn(),
         removeEventListener: jest.fn(),
         dispatchEvent: jest.fn(),
@@ -38,7 +38,7 @@ describe('render', () => {
   });
     
   test('CrossCheckSessionDescriptionCreation', () => {
-  const result = render(<CrossCheckSessionDescriptionCreation descriptionValues={aaa}/>);
+  const result = render(<CrossCheckSessionDescriptionCreation descriptionValues={initialValues}/>);
     expect(result).toMatchSnapshot()
   })
 });
