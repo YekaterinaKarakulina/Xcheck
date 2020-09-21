@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import TaskForm from '../task-form/task-form';
 import TaskFormEdit from '../task-form/task-form-edit';
 import TaskDetails from '../task-details';
@@ -14,6 +14,10 @@ const TaskLayout = ({ match }) => {
     default:
       return <TaskDetails id={id} />;
   }
+};
+
+TaskLayout.propTypes = {
+  match: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 export default TaskLayout;

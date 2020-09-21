@@ -37,14 +37,18 @@ npm install (make install)
 ```bash
 npm run dev-server
 json-server db.json
-node server/index.js 
+node auth-server/index.js 
 ```
 
 ## Run app with make
 ```bash
+make start
 make db
 make auth
-make start
+```
+## Run tests
+```bash
+npm run test (make test)
 ```
 
 ## How to deploy 
