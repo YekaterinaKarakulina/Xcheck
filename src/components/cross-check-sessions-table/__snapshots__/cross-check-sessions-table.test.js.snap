@@ -1,0 +1,1477 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render empty table 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ant-table-wrapper"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div
+            class="ant-spin-container"
+          >
+            <div
+              class="ant-table ant-table-empty"
+            >
+              <div
+                class="ant-table-container"
+              >
+                <div
+                  class="ant-table-content"
+                >
+                  <table
+                    style="table-layout: auto;"
+                  >
+                    <colgroup />
+                    <thead
+                      class="ant-table-thead"
+                    >
+                      <tr>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Title
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Author
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Status
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Task
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Coefficient
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Start date
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          End date
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Action
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="ant-table-tbody"
+                    >
+                      <tr
+                        class="ant-table-placeholder"
+                      >
+                        <td
+                          class="ant-table-cell"
+                          colspan="8"
+                        >
+                          <div
+                            class="ant-empty ant-empty-normal"
+                          >
+                            <div
+                              class="ant-empty-image"
+                            >
+                              <svg
+                                class="ant-empty-img-simple"
+                                height="41"
+                                viewBox="0 0 64 41"
+                                width="64"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g
+                                  fill="none"
+                                  fill-rule="evenodd"
+                                  transform="translate(0 1)"
+                                >
+                                  <ellipse
+                                    class="ant-empty-img-simple-ellipse"
+                                    cx="32"
+                                    cy="33"
+                                    rx="32"
+                                    ry="7"
+                                  />
+                                  <g
+                                    class="ant-empty-img-simple-g"
+                                    fill-rule="nonzero"
+                                  >
+                                    <path
+                                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                    />
+                                    <path
+                                      class="ant-empty-img-simple-path"
+                                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                    />
+                                  </g>
+                                </g>
+                              </svg>
+                            </div>
+                            <p
+                              class="ant-empty-description"
+                            >
+                              No Data
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ant-table-wrapper"
+    >
+      <div
+        class="ant-spin-nested-loading"
+      >
+        <div
+          class="ant-spin-container"
+        >
+          <div
+            class="ant-table ant-table-empty"
+          >
+            <div
+              class="ant-table-container"
+            >
+              <div
+                class="ant-table-content"
+              >
+                <table
+                  style="table-layout: auto;"
+                >
+                  <colgroup />
+                  <thead
+                    class="ant-table-thead"
+                  >
+                    <tr>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Title
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Author
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Status
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Task
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Coefficient
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Start date
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        End date
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <tr
+                      class="ant-table-placeholder"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        colspan="8"
+                      >
+                        <div
+                          class="ant-empty ant-empty-normal"
+                        >
+                          <div
+                            class="ant-empty-image"
+                          >
+                            <svg
+                              class="ant-empty-img-simple"
+                              height="41"
+                              viewBox="0 0 64 41"
+                              width="64"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g
+                                fill="none"
+                                fill-rule="evenodd"
+                                transform="translate(0 1)"
+                              >
+                                <ellipse
+                                  class="ant-empty-img-simple-ellipse"
+                                  cx="32"
+                                  cy="33"
+                                  rx="32"
+                                  ry="7"
+                                />
+                                <g
+                                  class="ant-empty-img-simple-g"
+                                  fill-rule="nonzero"
+                                >
+                                  <path
+                                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                  />
+                                  <path
+                                    class="ant-empty-img-simple-path"
+                                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                  />
+                                </g>
+                              </g>
+                            </svg>
+                          </div>
+                          <p
+                            class="ant-empty-description"
+                          >
+                            No Data
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`render filled table 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ant-table-wrapper"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div
+            class="ant-spin-container"
+          >
+            <div
+              class="ant-table"
+            >
+              <div
+                class="ant-table-container"
+              >
+                <div
+                  class="ant-table-content"
+                >
+                  <table
+                    style="table-layout: auto;"
+                  >
+                    <colgroup />
+                    <thead
+                      class="ant-table-thead"
+                    >
+                      <tr>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Title
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Author
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Status
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Task
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Coefficient
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Start date
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          End date
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Action
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="ant-table-tbody"
+                    >
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="xcheck-1"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          rss2020Q3react-songbird
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          viktorsipach
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span
+                            class="ant-tag ant-tag-geekblue"
+                          >
+                            DRAFT
+                          </span>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            Task 1
+                            <span
+                              aria-label="info-circle"
+                              class="anticon anticon-info-circle"
+                              role="img"
+                              style="margin-left: 0.5rem;"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="info-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                  fill="#1890ff"
+                                />
+                                <path
+                                  d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm32 588c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                                  fill="#e6f7ff"
+                                />
+                                <path
+                                  d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                  fill="#1890ff"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          0.2
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          2020-07-08
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          2020-07-14
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            data-id="xcheck-1"
+                          >
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 16px;"
+                            >
+                              <span
+                                aria-label="eye"
+                                class="anticon anticon-eye"
+                                role="img"
+                                tabindex="-1"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class=""
+                                  data-icon="eye"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M81.8 537.8a60.3 60.3 0 010-51.5C176.6 286.5 319.8 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c-192.1 0-335.4-100.5-430.2-300.2z"
+                                    fill="#f9f0ff"
+                                  />
+                                  <path
+                                    d="M512 258c-161.3 0-279.4 81.8-362.7 254C232.6 684.2 350.7 766 512 766c161.4 0 279.5-81.8 362.7-254C791.4 339.8 673.3 258 512 258zm-4 430c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"
+                                    fill="#f9f0ff"
+                                  />
+                                  <path
+                                    d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258s279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766z"
+                                    fill="#9254de"
+                                  />
+                                  <path
+                                    d="M508 336c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                                    fill="#9254de"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 16px;"
+                            >
+                              <span
+                                aria-label="edit"
+                                class="anticon anticon-edit"
+                                role="img"
+                                tabindex="-1"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class=""
+                                  data-icon="edit"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M761.1 288.3L687.8 215 325.1 577.6l-15.6 89 88.9-15.7z"
+                                    fill="#fffbf0"
+                                  />
+                                  <path
+                                    d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89z"
+                                    fill="#ffa940"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                            >
+                              <span
+                                aria-label="close-circle"
+                                class="anticon anticon-close-circle"
+                                role="img"
+                                tabindex="-1"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class=""
+                                  data-icon="close-circle"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                    fill="#ff4d4f"
+                                  />
+                                  <path
+                                    d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm171.8 527.1c1.2 1.5 1.9 3.3 1.9 5.2 0 4.5-3.6 8-8 8l-66-.3-99.3-118.4-99.3 118.5-66.1.3c-4.4 0-8-3.6-8-8 0-1.9.7-3.7 1.9-5.2L471 512.3l-130.1-155a8.32 8.32 0 01-1.9-5.2c0-4.5 3.6-8 8-8l66.1.3 99.3 118.4 99.4-118.5 66-.3c4.4 0 8 3.6 8 8 0 1.9-.6 3.8-1.8 5.2l-130.1 155 129.9 154.9z"
+                                    fill="#fff2f0"
+                                  />
+                                  <path
+                                    d="M685.8 352c0-4.4-3.6-8-8-8l-66 .3-99.4 118.5-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155-130.1 154.9a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3 99.3-118.5L611.7 680l66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.9 512.2l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
+                                    fill="#ff4d4f"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr
+                        class="ant-table-row ant-table-row-level-0"
+                        data-row-key="xcheck-2"
+                      >
+                        <td
+                          class="ant-table-cell"
+                        >
+                          rss2020Q3react-xcheck
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          KatiaR
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span
+                            class="ant-tag ant-tag-geekblue"
+                          >
+                            DRAFT
+                          </span>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <span>
+                            Task 2
+                            <span
+                              aria-label="info-circle"
+                              class="anticon anticon-info-circle"
+                              role="img"
+                              style="margin-left: 0.5rem;"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="info-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                  fill="#1890ff"
+                                />
+                                <path
+                                  d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm32 588c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                                  fill="#e6f7ff"
+                                />
+                                <path
+                                  d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                  fill="#1890ff"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          0.7
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          2020-09-15
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          2020-09-17
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          <div
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            data-id="xcheck-2"
+                          >
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 16px;"
+                            >
+                              <span
+                                aria-label="eye"
+                                class="anticon anticon-eye"
+                                role="img"
+                                tabindex="-1"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class=""
+                                  data-icon="eye"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M81.8 537.8a60.3 60.3 0 010-51.5C176.6 286.5 319.8 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c-192.1 0-335.4-100.5-430.2-300.2z"
+                                    fill="#f9f0ff"
+                                  />
+                                  <path
+                                    d="M512 258c-161.3 0-279.4 81.8-362.7 254C232.6 684.2 350.7 766 512 766c161.4 0 279.5-81.8 362.7-254C791.4 339.8 673.3 258 512 258zm-4 430c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"
+                                    fill="#f9f0ff"
+                                  />
+                                  <path
+                                    d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258s279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766z"
+                                    fill="#9254de"
+                                  />
+                                  <path
+                                    d="M508 336c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                                    fill="#9254de"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 16px;"
+                            >
+                              <span
+                                aria-label="edit"
+                                class="anticon anticon-edit"
+                                role="img"
+                                tabindex="-1"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class=""
+                                  data-icon="edit"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M761.1 288.3L687.8 215 325.1 577.6l-15.6 89 88.9-15.7z"
+                                    fill="#fffbf0"
+                                  />
+                                  <path
+                                    d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89z"
+                                    fill="#ffa940"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                            >
+                              <span
+                                aria-label="close-circle"
+                                class="anticon anticon-close-circle"
+                                role="img"
+                                tabindex="-1"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  class=""
+                                  data-icon="close-circle"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                    fill="#ff4d4f"
+                                  />
+                                  <path
+                                    d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm171.8 527.1c1.2 1.5 1.9 3.3 1.9 5.2 0 4.5-3.6 8-8 8l-66-.3-99.3-118.4-99.3 118.5-66.1.3c-4.4 0-8-3.6-8-8 0-1.9.7-3.7 1.9-5.2L471 512.3l-130.1-155a8.32 8.32 0 01-1.9-5.2c0-4.5 3.6-8 8-8l66.1.3 99.3 118.4 99.4-118.5 66-.3c4.4 0 8 3.6 8 8 0 1.9-.6 3.8-1.8 5.2l-130.1 155 129.9 154.9z"
+                                    fill="#fff2f0"
+                                  />
+                                  <path
+                                    d="M685.8 352c0-4.4-3.6-8-8-8l-66 .3-99.4 118.5-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155-130.1 154.9a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3 99.3-118.5L611.7 680l66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.9 512.2l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
+                                    fill="#ff4d4f"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <ul
+              class="ant-pagination ant-table-pagination ant-table-pagination-right"
+              unselectable="unselectable"
+            >
+              <li
+                aria-disabled="true"
+                class="ant-pagination-prev ant-pagination-disabled"
+                title="Previous Page"
+              >
+                <button
+                  class="ant-pagination-item-link"
+                  disabled=""
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-label="left"
+                    class="anticon anticon-left"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="left"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </li>
+              <li
+                class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                tabindex="0"
+                title="1"
+              >
+                <a
+                  rel="nofollow"
+                >
+                  1
+                </a>
+              </li>
+              <li
+                aria-disabled="true"
+                class="ant-pagination-next ant-pagination-disabled"
+                title="Next Page"
+              >
+                <button
+                  class="ant-pagination-item-link"
+                  disabled=""
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    aria-label="right"
+                    class="anticon anticon-right"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class=""
+                      data-icon="right"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ant-table-wrapper"
+    >
+      <div
+        class="ant-spin-nested-loading"
+      >
+        <div
+          class="ant-spin-container"
+        >
+          <div
+            class="ant-table"
+          >
+            <div
+              class="ant-table-container"
+            >
+              <div
+                class="ant-table-content"
+              >
+                <table
+                  style="table-layout: auto;"
+                >
+                  <colgroup />
+                  <thead
+                    class="ant-table-thead"
+                  >
+                    <tr>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Title
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Author
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Status
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Task
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Coefficient
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Start date
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        End date
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                      >
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="xcheck-1"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        rss2020Q3react-songbird
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        viktorsipach
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        <span
+                          class="ant-tag ant-tag-geekblue"
+                        >
+                          DRAFT
+                        </span>
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        <span>
+                          Task 1
+                          <span
+                            aria-label="info-circle"
+                            class="anticon anticon-info-circle"
+                            role="img"
+                            style="margin-left: 0.5rem;"
+                            tabindex="-1"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="info-circle"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                fill="#1890ff"
+                              />
+                              <path
+                                d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm32 588c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                                fill="#e6f7ff"
+                              />
+                              <path
+                                d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                fill="#1890ff"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        0.2
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        2020-07-08
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        2020-07-14
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        <div
+                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          data-id="xcheck-1"
+                        >
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 16px;"
+                          >
+                            <span
+                              aria-label="eye"
+                              class="anticon anticon-eye"
+                              role="img"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="eye"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M81.8 537.8a60.3 60.3 0 010-51.5C176.6 286.5 319.8 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c-192.1 0-335.4-100.5-430.2-300.2z"
+                                  fill="#f9f0ff"
+                                />
+                                <path
+                                  d="M512 258c-161.3 0-279.4 81.8-362.7 254C232.6 684.2 350.7 766 512 766c161.4 0 279.5-81.8 362.7-254C791.4 339.8 673.3 258 512 258zm-4 430c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"
+                                  fill="#f9f0ff"
+                                />
+                                <path
+                                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258s279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766z"
+                                  fill="#9254de"
+                                />
+                                <path
+                                  d="M508 336c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                                  fill="#9254de"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 16px;"
+                          >
+                            <span
+                              aria-label="edit"
+                              class="anticon anticon-edit"
+                              role="img"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="edit"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M761.1 288.3L687.8 215 325.1 577.6l-15.6 89 88.9-15.7z"
+                                  fill="#fffbf0"
+                                />
+                                <path
+                                  d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89z"
+                                  fill="#ffa940"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-space-item"
+                          >
+                            <span
+                              aria-label="close-circle"
+                              class="anticon anticon-close-circle"
+                              role="img"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="close-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                  fill="#ff4d4f"
+                                />
+                                <path
+                                  d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm171.8 527.1c1.2 1.5 1.9 3.3 1.9 5.2 0 4.5-3.6 8-8 8l-66-.3-99.3-118.4-99.3 118.5-66.1.3c-4.4 0-8-3.6-8-8 0-1.9.7-3.7 1.9-5.2L471 512.3l-130.1-155a8.32 8.32 0 01-1.9-5.2c0-4.5 3.6-8 8-8l66.1.3 99.3 118.4 99.4-118.5 66-.3c4.4 0 8 3.6 8 8 0 1.9-.6 3.8-1.8 5.2l-130.1 155 129.9 154.9z"
+                                  fill="#fff2f0"
+                                />
+                                <path
+                                  d="M685.8 352c0-4.4-3.6-8-8-8l-66 .3-99.4 118.5-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155-130.1 154.9a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3 99.3-118.5L611.7 680l66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.9 512.2l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
+                                  fill="#ff4d4f"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="xcheck-2"
+                    >
+                      <td
+                        class="ant-table-cell"
+                      >
+                        rss2020Q3react-xcheck
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        KatiaR
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        <span
+                          class="ant-tag ant-tag-geekblue"
+                        >
+                          DRAFT
+                        </span>
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        <span>
+                          Task 2
+                          <span
+                            aria-label="info-circle"
+                            class="anticon anticon-info-circle"
+                            role="img"
+                            style="margin-left: 0.5rem;"
+                            tabindex="-1"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              class=""
+                              data-icon="info-circle"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                fill="#1890ff"
+                              />
+                              <path
+                                d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm32 588c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                                fill="#e6f7ff"
+                              />
+                              <path
+                                d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                fill="#1890ff"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        0.7
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        2020-09-15
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        2020-09-17
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                      >
+                        <div
+                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          data-id="xcheck-2"
+                        >
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 16px;"
+                          >
+                            <span
+                              aria-label="eye"
+                              class="anticon anticon-eye"
+                              role="img"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="eye"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M81.8 537.8a60.3 60.3 0 010-51.5C176.6 286.5 319.8 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c-192.1 0-335.4-100.5-430.2-300.2z"
+                                  fill="#f9f0ff"
+                                />
+                                <path
+                                  d="M512 258c-161.3 0-279.4 81.8-362.7 254C232.6 684.2 350.7 766 512 766c161.4 0 279.5-81.8 362.7-254C791.4 339.8 673.3 258 512 258zm-4 430c-97.2 0-176-78.8-176-176s78.8-176 176-176 176 78.8 176 176-78.8 176-176 176z"
+                                  fill="#f9f0ff"
+                                />
+                                <path
+                                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258s279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766z"
+                                  fill="#9254de"
+                                />
+                                <path
+                                  d="M508 336c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                                  fill="#9254de"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 16px;"
+                          >
+                            <span
+                              aria-label="edit"
+                              class="anticon anticon-edit"
+                              role="img"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="edit"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M761.1 288.3L687.8 215 325.1 577.6l-15.6 89 88.9-15.7z"
+                                  fill="#fffbf0"
+                                />
+                                <path
+                                  d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89z"
+                                  fill="#ffa940"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-space-item"
+                          >
+                            <span
+                              aria-label="close-circle"
+                              class="anticon anticon-close-circle"
+                              role="img"
+                              tabindex="-1"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class=""
+                                data-icon="close-circle"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                  fill="#ff4d4f"
+                                />
+                                <path
+                                  d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm171.8 527.1c1.2 1.5 1.9 3.3 1.9 5.2 0 4.5-3.6 8-8 8l-66-.3-99.3-118.4-99.3 118.5-66.1.3c-4.4 0-8-3.6-8-8 0-1.9.7-3.7 1.9-5.2L471 512.3l-130.1-155a8.32 8.32 0 01-1.9-5.2c0-4.5 3.6-8 8-8l66.1.3 99.3 118.4 99.4-118.5 66-.3c4.4 0 8 3.6 8 8 0 1.9-.6 3.8-1.8 5.2l-130.1 155 129.9 154.9z"
+                                  fill="#fff2f0"
+                                />
+                                <path
+                                  d="M685.8 352c0-4.4-3.6-8-8-8l-66 .3-99.4 118.5-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155-130.1 154.9a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3 99.3-118.5L611.7 680l66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.9 512.2l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
+                                  fill="#ff4d4f"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <ul
+            class="ant-pagination ant-table-pagination ant-table-pagination-right"
+            unselectable="unselectable"
+          >
+            <li
+              aria-disabled="true"
+              class="ant-pagination-prev ant-pagination-disabled"
+              title="Previous Page"
+            >
+              <button
+                class="ant-pagination-item-link"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-label="left"
+                  class="anticon anticon-left"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="left"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              tabindex="0"
+              title="1"
+            >
+              <a
+                rel="nofollow"
+              >
+                1
+              </a>
+            </li>
+            <li
+              aria-disabled="true"
+              class="ant-pagination-next ant-pagination-disabled"
+              title="Next Page"
+            >
+              <button
+                class="ant-pagination-item-link"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

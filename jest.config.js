@@ -1,9 +1,12 @@
 module.exports = {
     roots: [
-      '<rootDir>',
+      '<rootDir>/src',
     ],
     testRegex: 'test.js$',
     moduleFileExtensions: [
       'js',
+      'jsx',
     ],
+    setupFilesAfterEnv: ['./jest.setup.js']
   };
+  

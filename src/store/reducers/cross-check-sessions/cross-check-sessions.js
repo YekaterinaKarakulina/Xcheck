@@ -42,7 +42,6 @@ const crossCheckSessions = (state = initialState, action) => {
     case UPDATE_CROSSCHECK_SESSION_SUCCESS:
       return {
         ...state,
-        // currentSessionInfo: {},
       };
 
     case UPDATE_CROSSCHECK_SESSION_FAILURE:
