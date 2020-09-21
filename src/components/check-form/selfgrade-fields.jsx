@@ -5,7 +5,7 @@ import SelfGradeField from './selfgrade-field';
 const SelfGradeFields = (props) => {
   const { fields, detailIds, commentFieldIds, toggleMore, toggleAdd } = props;
   return (
-    <div>
+    <>
       {fields.map((field) => {
         return (
           <SelfGradeField
@@ -18,7 +18,7 @@ const SelfGradeFields = (props) => {
           />
         );
       })}
-    </div>
+    </>
   );
 };
 

@@ -6,7 +6,7 @@ const mapDataValues = (values) => {
   let fullScore = 0;
   if (fieldArrayForm.length) {
     fieldArrayForm.forEach((item) => {
-      item.id = `${item.title}${item.category}`;
+      item.id = uuidv4();
       item.mentorCheck = item.mentorCheck || false;
       item.description = item.description || '';
       item.score = parseInt(item.score, 10);

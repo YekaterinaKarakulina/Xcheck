@@ -57,50 +57,43 @@ const SelfGradeField = (props) => {
   );
 
   return (
-    <div key={id} className="check__form-item">
-      <div className="check__form-item-top">
-        <Space size="middle" align="start">
-          <Title level={5} className="check__form-item-title">
-            {title}
-          </Title>
-          <Button
-            className="check__form-item-more"
-            onClick={() => {
-              toggleMore(id);
-            }}
-          >
-            More info {!isDetailViewed ? <CaretDownOutlined /> : <CaretUpOutlined />}
-          </Button>
-          <Field
-            name={id}
-            placeholder="Score"
-            component={AInputNumber}
-            validate={[required, maxValue, minValue, maxLength3, minLength1]}
-          />
-          <Button
-            className="check__form-item-add"
-            onClick={() => {
-              toggleAdd(id);
-            }}
-          >
-            Add Comment
-            {!isCommentFieldOpened ? <PlusCircleOutlined /> : <MinusCircleOutlined />}
-          </Button>
-        </Space>
-      </div>
-
-      <div className="check__form-item-inner">
-        <p className="check__form-item-desc" style={{ display: isDetailViewed ? 'block' : 'none' }}>
-          {description}
-        </p>
+    <>
+      <Space size="middle" align="start">
+        <Title level={5}>{title}</Title>
+        <Button
+          onClick={() => {
+            toggleMore(id);
+          }}
+        >
+          More info {!isDetailViewed ? <CaretDownOutlined /> : <CaretUpOutlined />}
+        </Button>
         <Field
-          name={`comment_${id}`}
+          name={id}
+          placeholder="Score"
+          component={AInputNumber}
+          validate={[required, maxValue, minValue, maxLength3, minLength1]}
+        />
+        <Button
+          type="primary"
+          onClick={() => {
+            toggleAdd(id);
+          }}
+        >
+          Add Comment
+          {!isCommentFieldOpened ? <PlusCircleOutlined /> : <MinusCircleOutlined />}
+        </Button>
+      </Space>
+
+      <div style={{ display: isDetailViewed || isCommentFieldOpened ? 'block' : 'none' }}>
+        <p style={{ display: isDetailViewed ? 'block' : 'none' }}>{description}</p>
+        <Field
+          name={`${id}_comment`}
           placeholder="Comment"
           component={ATextarea}
           style={{ display: isCommentFieldOpened ? 'block' : 'none' }}
         />
       </div>
-    </div>
+    </>
   );
 };
 

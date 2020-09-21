@@ -101,6 +101,9 @@ class TasksTable extends React.Component {
         title: 'Description',
         dataIndex: 'description',
         key: 'description',
+        render: (description) => {
+          return description.length > 20 ? `${description.slice(0, 20)}...` : description;
+        },
       },
       {
         title: 'Status',
