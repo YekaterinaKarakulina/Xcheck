@@ -3,12 +3,7 @@
     {
       "id": "47fb03a6-b770-4e64-a533-e507cfa49020",
       "githubId": "viktorsipach",
-      "roles": [
-        "author",
-        "student",
-        "supervisor",
-        "course_manager"
-      ]
+      "roles": ["author", "student", "supervisor", "course_manager"]
     },
     {
       "id": "4dc0685c-df82-4db1-8d5b-ac31f954434e",
@@ -18,37 +13,22 @@
     {
       "id": "f8044829-0a33-4c68-81eb-7849a0cb0e18",
       "githubId": "YekaterinaKarakulina",
-      "roles": [
-        "author",
-        "student",
-        "supervisor",
-        "course_manager"
-      ]
+      "roles": ["author", "student", "supervisor", "course_manager"]
     },
     {
       "id": "dc79022b-80b5-4200-bcd3-a739923818a3",
       "githubId": "PavelZaharov1987",
-      "roles": [
-        "author",
-        "student"
-      ]
+      "roles": ["author", "student"]
     },
     {
       "id": "59b7f101-3462-4cd2-a418-e210f4fb8149",
       "githubId": "Ghuseynova",
-      "roles": [
-        "author"
-      ]
+      "roles": ["author"]
     },
     {
       "id": "b08a13d8-5df2-4953-be60-0ed72617c58f",
       "githubId": "Kipris",
-      "roles": [
-        "author",
-        "student",
-        "supervisor",
-        "course_manager"
-      ]
+      "roles": ["author", "student", "supervisor", "course_manager"]
     }
   ],
   "tasks": [
@@ -547,10 +527,7 @@
       "author": "viktorsipach",
       "state": "draft",
       "taskTitle": "Task 1",
-      "crossCheckSessionPeriod": [
-        "2020-07-08",
-        "2020-07-14"
-      ],
+      "crossCheckSessionPeriod": ["2020-07-08", "2020-07-14"],
       "coefficient": 0.2,
       "discardMinScore": true,
       "discardMaxScore": true,
@@ -564,10 +541,7 @@
       "author": "KatiaR",
       "state": "draft",
       "taskTitle": "Task 2",
-      "crossCheckSessionPeriod": [
-        "2020-09-15",
-        "2020-09-17"
-      ],
+      "crossCheckSessionPeriod": ["2020-09-15", "2020-09-17"],
       "coefficient": 0.7,
       "discardMinScore": true,
       "discardMaxScore": true,
@@ -581,10 +555,7 @@
       "author": "YekaterinaKarakulina",
       "state": "closed",
       "taskTitle": "Task 3",
-      "crossCheckSessionPeriod": [
-        "2020-08-22",
-        "2020-09-22"
-      ],
+      "crossCheckSessionPeriod": ["2020-08-22", "2020-09-22"],
       "coefficient": 0.7,
       "discardMinScore": true,
       "discardMaxScore": false,
@@ -593,31 +564,19 @@
       "attendees": [
         {
           "githubId": "viktorsipach",
-          "reviewerOf": [
-            "Kipris",
-            "Ghuseynova"
-          ]
+          "reviewerOf": ["Kipris", "Ghuseynova"]
         },
         {
           "githubId": "PavelZaharov1987",
-          "reviewerOf": [
-            "viktorsipach",
-            "Ghuseynova"
-          ]
+          "reviewerOf": ["viktorsipach", "Ghuseynova"]
         },
         {
           "githubId": "Ghuseynova",
-          "reviewerOf": [
-            "Kipris",
-            "PavelZaharov1987"
-          ]
+          "reviewerOf": ["Kipris", "PavelZaharov1987"]
         },
         {
           "githubId": "Kipris",
-          "reviewerOf": [
-            "viktorsipach",
-            "PavelZaharov1987"
-          ]
+          "reviewerOf": ["viktorsipach", "PavelZaharov1987"]
         }
       ]
     },
@@ -627,10 +586,7 @@
       "author": "KatiaR",
       "state": "active",
       "taskTitle": "Task 3",
-      "crossCheckSessionPeriod": [
-        "2020-08-22",
-        "2020-09-22"
-      ],
+      "crossCheckSessionPeriod": ["2020-08-22", "2020-09-22"],
       "coefficient": 0.7,
       "discardMinScore": true,
       "discardMaxScore": false,
@@ -693,6 +649,11 @@
       "taskTitle": "Task 2",
       "state": "published",
       "comments": [
+        {
+          "author": "Ghuseynova",
+          "avatar": "https://avatars2.githubusercontent.com/u/37036608?v=4",
+          "content": "sada"
+        },
         {
           "author": "viktorsipach",
           "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
