@@ -5,6 +5,24 @@ const initialState = {
   currentSessionInfo: {},
 };
 
+const crossCheckSession = {
+  "id": "xcheck-1",
+  "title": "rss2020Q3react-songbird",
+  "author": "viktorsipach",
+  "state": "draft",
+  "taskTitle": "Task 1",
+  "crossCheckSessionPeriod": [
+    "2020-07-08",
+    "2020-07-14"
+  ],
+  "coefficient": 0.2,
+  "discardMinScore": true,
+  "discardMaxScore": true,
+  "minReviewsAmount": 1,
+  "desiredReviewsAmount": 2,
+  "attendees": []
+}
+
 describe('Modal tests', () => {
 test('modal open', () => {
     const result = crossCheckSessions(initialState, {type: 'OPEN_MODAL'});
@@ -17,23 +35,6 @@ test('modal close', () => {
 });
 
 describe('Get cross check session', () => {
-  const crossCheckSession = {
-    "id": "xcheck-1",
-    "title": "rss2020Q3react-songbird",
-    "author": "viktorsipach",
-    "state": "draft",
-    "taskTitle": "Task 1",
-    "crossCheckSessionPeriod": [
-      "2020-07-08",
-      "2020-07-14"
-    ],
-    "coefficient": 0.2,
-    "discardMinScore": true,
-    "discardMaxScore": true,
-    "minReviewsAmount": 1,
-    "desiredReviewsAmount": 2,
-    "attendees": []
-  }
 test('success', () => {
    const result = crossCheckSessions(initialState, {type: 'GET_CROSSCHECK_SESSION_SUCCESS', payload: crossCheckSession});
       expect(result.currentSessionInfo).toEqual(crossCheckSession);
