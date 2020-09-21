@@ -46,6 +46,10 @@ make start
 make db
 make auth
 ```
+## Run tests
+```bash
+npm run test (make test)
+```
 
 ## How to deploy 
   - deploy your database https://github.com/jesperorb/json-server-heroku
