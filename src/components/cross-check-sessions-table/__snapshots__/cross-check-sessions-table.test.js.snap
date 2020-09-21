@@ -409,6 +409,7 @@ Object {
                     >
                       <tr
                         class="ant-table-row ant-table-row-level-0"
+                        data-row-key="xcheck-1"
                       >
                         <td
                           class="ant-table-cell"
@@ -474,10 +475,14 @@ Object {
                         </td>
                         <td
                           class="ant-table-cell"
-                        />
+                        >
+                          2020-07-08
+                        </td>
                         <td
                           class="ant-table-cell"
-                        />
+                        >
+                          2020-07-14
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -594,6 +599,7 @@ Object {
                       </tr>
                       <tr
                         class="ant-table-row ant-table-row-level-0"
+                        data-row-key="xcheck-2"
                       >
                         <td
                           class="ant-table-cell"
@@ -659,10 +665,14 @@ Object {
                         </td>
                         <td
                           class="ant-table-cell"
-                        />
+                        >
+                          2020-09-15
+                        </td>
                         <td
                           class="ant-table-cell"
-                        />
+                        >
+                          2020-09-17
+                        </td>
                         <td
                           class="ant-table-cell"
                         >
@@ -943,6 +953,7 @@ Object {
                   >
                     <tr
                       class="ant-table-row ant-table-row-level-0"
+                      data-row-key="xcheck-1"
                     >
                       <td
                         class="ant-table-cell"
@@ -1008,10 +1019,14 @@ Object {
                       </td>
                       <td
                         class="ant-table-cell"
-                      />
+                      >
+                        2020-07-08
+                      </td>
                       <td
                         class="ant-table-cell"
-                      />
+                      >
+                        2020-07-14
+                      </td>
                       <td
                         class="ant-table-cell"
                       >
@@ -1128,6 +1143,7 @@ Object {
                     </tr>
                     <tr
                       class="ant-table-row ant-table-row-level-0"
+                      data-row-key="xcheck-2"
                     >
                       <td
                         class="ant-table-cell"
@@ -1193,10 +1209,14 @@ Object {
                       </td>
                       <td
                         class="ant-table-cell"
-                      />
+                      >
+                        2020-09-15
+                      </td>
                       <td
                         class="ant-table-cell"
-                      />
+                      >
+                        2020-09-17
+                      </td>
                       <td
                         class="ant-table-cell"
                       >
