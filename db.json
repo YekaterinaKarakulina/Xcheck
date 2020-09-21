@@ -215,6 +215,41 @@
       ],
       "taskId": "task-4",
       "id": "task-4"
+    },
+    {
+      "taskScore": 30,
+      "title": "Task for X check",
+      "state": "open",
+      "author": "Vasia Pupkin",
+      "description": "Reproduced the xCheck and created a request",
+      "items": [
+        {
+          "title": "SubTask1 for X check",
+          "category": "basic",
+          "score": 10,
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+          "mentorCheck": true,
+          "id": "SubTask1 for X checkbasic"
+        },
+        {
+          "title": "SubTask2 for X check",
+          "category": "extra",
+          "score": 20,
+          "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+          "id": "SubTask2 for X checkextra",
+          "mentorCheck": false
+        },
+        {
+          "title": "SubTask3 for X check",
+          "category": "fines",
+          "score": 10,
+          "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+          "id": "SubTask3 for X checkfines",
+          "mentorCheck": false
+        }
+      ],
+      "taskId": "13f5260e-1732-4213-bfa9-ad35e86fd698",
+      "id": "aHBnvCf"
     }
   ],
   "crossCheckSessions": [
@@ -313,8 +348,7 @@
       "discardMaxScore": false,
       "minReviewsAmount": 1,
       "desiredReviewsAmount": 2,
-      "attendees": [
-      ]
+      "attendees": []
     }
   ],
   "reviews": [
