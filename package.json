@@ -9,7 +9,7 @@
     "build": "webpack --env.mode=production",
     "build-prod": "webpack --env.mode=production",
     "build-dev": "webpack --env.mode=development",
-    "test": "jest"
+    "test": "jest --coverage --collectCoverageFrom=src/**/*.{js,jsx}"
   },
   "repository": {
     "type": "git",
@@ -85,11 +85,5 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "collectCoverageFrom": [
-      "srs/js"
-    ]
   }
 }

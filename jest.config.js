@@ -1,6 +1,6 @@
 module.exports = {
     roots: [
-      '<rootDir>',
+      '<rootDir>/src',
     ],
     testRegex: 'test.js$',
     moduleFileExtensions: [
