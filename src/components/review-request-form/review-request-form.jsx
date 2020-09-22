@@ -81,7 +81,7 @@ class ReviewRequestFormCreation extends React.Component {
             label="Link to PR"
             name="linkToPR"
             component={AInput}
-            placeholder="Add link for Rull Request"
+            placeholder="Add link for Pull Request"
             hasFeedback
             validate={required}
           />
