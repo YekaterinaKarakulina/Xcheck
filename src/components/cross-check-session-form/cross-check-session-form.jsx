@@ -151,16 +151,22 @@ const CrossCheckSessionFormCreation = (props) => {
 };
 
 CrossCheckSessionFormCreation.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  pristine: PropTypes.bool.isRequired,
-  submitting: PropTypes.bool.isRequired,
-  reset: PropTypes.func.isRequired,
-  submitButtonName: PropTypes.string.isRequired,
-  tasks: PropTypes.instanceOf(Array).isRequired,
+  handleSubmit: PropTypes.func,
+  pristine: PropTypes.bool,
+  submitting: PropTypes.bool,
+  reset: PropTypes.func,
+  submitButtonName: PropTypes.string,
+  tasks: PropTypes.instanceOf(Array),
   initialValues: PropTypes.instanceOf(Object),
 };
 
 CrossCheckSessionFormCreation.defaultProps = {
+  handleSubmit: () => {},
+  pristine: false,
+  submitting: false,
+  reset: () => {},
+  submitButtonName: 'submit',
+  tasks: [],
   initialValues: {
     draft: true,
   },
