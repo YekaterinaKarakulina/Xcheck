@@ -3,7 +3,12 @@
     {
       "id": "47fb03a6-b770-4e64-a533-e507cfa49020",
       "githubId": "viktorsipach",
-      "roles": ["author", "student", "supervisor", "course_manager"]
+      "roles": [
+        "author",
+        "student",
+        "supervisor",
+        "course_manager"
+      ]
     },
     {
       "id": "4dc0685c-df82-4db1-8d5b-ac31f954434e",
@@ -13,22 +18,37 @@
     {
       "id": "f8044829-0a33-4c68-81eb-7849a0cb0e18",
       "githubId": "YekaterinaKarakulina",
-      "roles": ["author", "student", "supervisor", "course_manager"]
+      "roles": [
+        "author",
+        "student",
+        "supervisor",
+        "course_manager"
+      ]
     },
     {
       "id": "dc79022b-80b5-4200-bcd3-a739923818a3",
       "githubId": "PavelZaharov1987",
-      "roles": ["author", "student"]
+      "roles": [
+        "author",
+        "student"
+      ]
     },
     {
       "id": "59b7f101-3462-4cd2-a418-e210f4fb8149",
       "githubId": "Ghuseynova",
-      "roles": ["author"]
+      "roles": [
+        "author"
+      ]
     },
     {
       "id": "b08a13d8-5df2-4953-be60-0ed72617c58f",
       "githubId": "Kipris",
-      "roles": ["author", "student", "supervisor", "course_manager"]
+      "roles": [
+        "author",
+        "student",
+        "supervisor",
+        "course_manager"
+      ]
     }
   ],
   "tasks": [
@@ -527,7 +547,10 @@
       "author": "viktorsipach",
       "state": "draft",
       "taskTitle": "Task 1",
-      "crossCheckSessionPeriod": ["2020-07-08", "2020-07-14"],
+      "crossCheckSessionPeriod": [
+        "2020-07-08",
+        "2020-07-14"
+      ],
       "coefficient": 0.2,
       "discardMinScore": true,
       "discardMaxScore": true,
@@ -541,7 +564,10 @@
       "author": "KatiaR",
       "state": "draft",
       "taskTitle": "Task 2",
-      "crossCheckSessionPeriod": ["2020-09-15", "2020-09-17"],
+      "crossCheckSessionPeriod": [
+        "2020-09-15",
+        "2020-09-17"
+      ],
       "coefficient": 0.7,
       "discardMinScore": true,
       "discardMaxScore": true,
@@ -555,7 +581,10 @@
       "author": "YekaterinaKarakulina",
       "state": "closed",
       "taskTitle": "Task 3",
-      "crossCheckSessionPeriod": ["2020-08-22", "2020-09-22"],
+      "crossCheckSessionPeriod": [
+        "2020-08-22",
+        "2020-09-22"
+      ],
       "coefficient": 0.7,
       "discardMinScore": true,
       "discardMaxScore": false,
@@ -564,19 +593,31 @@
       "attendees": [
         {
           "githubId": "viktorsipach",
-          "reviewerOf": ["Kipris", "Ghuseynova"]
+          "reviewerOf": [
+            "Kipris",
+            "Ghuseynova"
+          ]
         },
         {
           "githubId": "PavelZaharov1987",
-          "reviewerOf": ["viktorsipach", "Ghuseynova"]
+          "reviewerOf": [
+            "viktorsipach",
+            "Ghuseynova"
+          ]
         },
         {
           "githubId": "Ghuseynova",
-          "reviewerOf": ["Kipris", "PavelZaharov1987"]
+          "reviewerOf": [
+            "Kipris",
+            "PavelZaharov1987"
+          ]
         },
         {
           "githubId": "Kipris",
-          "reviewerOf": ["viktorsipach", "PavelZaharov1987"]
+          "reviewerOf": [
+            "viktorsipach",
+            "PavelZaharov1987"
+          ]
         }
       ]
     },
@@ -586,7 +627,10 @@
       "author": "KatiaR",
       "state": "active",
       "taskTitle": "Task 3",
-      "crossCheckSessionPeriod": ["2020-08-22", "2020-09-22"],
+      "crossCheckSessionPeriod": [
+        "2020-08-22",
+        "2020-09-22"
+      ],
       "coefficient": 0.7,
       "discardMinScore": true,
       "discardMaxScore": false,
@@ -600,6 +644,7 @@
       "id": "rev-id-1",
       "requestId": "rev-req-1",
       "author": "KatiaR",
+      "requestor": "viktorsipach",
       "taskTitle": "Task 1",
       "state": "published",
       "comments": [
@@ -646,6 +691,7 @@
       "id": "rev-id-2",
       "requestId": "rev-req-2",
       "author": "YekaterinaKarakulina",
+      "requestor": "viktorsipach",
       "taskTitle": "Task 2",
       "state": "published",
       "comments": [
@@ -687,6 +733,7 @@
       "id": "rev-id-3",
       "requestId": "rev-req-4",
       "author": "PavelZaharov1987",
+      "requestor": "viktorsipach",
       "taskTitle": "Task 3",
       "state": "draft",
       "comments": [],
@@ -712,6 +759,7 @@
       "id": "rev-id-4",
       "requestId": "rev-req-4",
       "author": "Ghuseynova",
+      "requestor": "viktorsipach",
       "taskTitle": "Task 3",
       "state": "draft",
       "comments": [],
@@ -736,6 +784,7 @@
     {
       "id": "rev-id-5",
       "requestId": "rev-req-4",
+      "requestor": "viktorsipach",
       "author": "Kipris",
       "taskTitle": "Task 3",
       "state": "draft",
@@ -756,6 +805,90 @@
           }
         },
         "total": 40
+      }
+    },
+    {
+      "id": "e534df59-8150-42f5-9e1d-11f3325f2016",
+      "requestId": "rev-req-9",
+      "author": "viktorsipach",
+      "requestor": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Test"
+        }
+      ],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 5,
+            "comment": ""
+          },
+          "task-3-ep1": {
+            "score": 15,
+            "comment": "Well"
+          },
+          "task-3-fp1": {
+            "score": -5,
+            "comment": ""
+          }
+        },
+        "total": 15
+      }
+    },
+    {
+      "id": "3fa99256-4b52-4c09-823b-8d9f5b08535b",
+      "requestId": "rev-req-9",
+      "taskAuthor": "viktorsipach",
+      "author": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 10,
+            "comment": "Test"
+          },
+          "task-3-ep1": {
+            "score": 4.5,
+            "comment": "Well"
+          },
+          "task-3-fp1": {
+            "score": -2,
+            "comment": "Good"
+          }
+        },
+        "total": 12.5
+      }
+    },
+    {
+      "id": "26c66a70-a7ab-4b6f-ac31-39ec6d489b1b",
+      "requestId": "rev-req-9",
+      "requestor": "viktorsipach",
+      "author": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 10,
+            "comment": "Test 2"
+          },
+          "task-3-ep1": {
+            "score": 7.5,
+            "comment": ""
+          },
+          "task-3-fp1": {
+            "score": -1,
+            "comment": ""
+          }
+        },
+        "total": 16.5
       }
     }
   ],
