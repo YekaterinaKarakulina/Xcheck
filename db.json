@@ -644,7 +644,7 @@
       "id": "rev-id-1",
       "requestId": "rev-req-1",
       "author": "KatiaR",
-      "taskAuthor": "viktorsipach",
+      "requestor": "viktorsipach",
       "taskTitle": "Task 1",
       "state": "published",
       "comments": [
@@ -691,7 +691,7 @@
       "id": "rev-id-2",
       "requestId": "rev-req-2",
       "author": "YekaterinaKarakulina",
-      "taskAuthor": "viktorsipach",
+      "requestor": "viktorsipach",
       "taskTitle": "Task 2",
       "state": "published",
       "comments": [
@@ -733,7 +733,7 @@
       "id": "rev-id-3",
       "requestId": "rev-req-4",
       "author": "PavelZaharov1987",
-      "taskAuthor": "viktorsipach",
+      "requestor": "viktorsipach",
       "taskTitle": "Task 3",
       "state": "draft",
       "comments": [],
@@ -759,7 +759,7 @@
       "id": "rev-id-4",
       "requestId": "rev-req-4",
       "author": "Ghuseynova",
-      "taskAuthor": "viktorsipach",
+      "requestor": "viktorsipach",
       "taskTitle": "Task 3",
       "state": "draft",
       "comments": [],
@@ -784,7 +784,7 @@
     {
       "id": "rev-id-5",
       "requestId": "rev-req-4",
-      "taskAuthor": "viktorsipach",
+      "requestor": "viktorsipach",
       "author": "Kipris",
       "taskTitle": "Task 3",
       "state": "draft",
@@ -810,11 +810,17 @@
     {
       "id": "e534df59-8150-42f5-9e1d-11f3325f2016",
       "requestId": "rev-req-9",
-      "taskAuthor": "viktorsipach",
       "author": "viktorsipach",
+      "requestor": "viktorsipach",
       "taskTitle": "Task 3",
       "state": "published",
-      "comments": [],
+      "comments": [
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Test"
+        }
+      ],
       "grade": {
         "items": {
           "task-3-bp1": {
@@ -831,6 +837,58 @@
           }
         },
         "total": 15
+      }
+    },
+    {
+      "id": "3fa99256-4b52-4c09-823b-8d9f5b08535b",
+      "requestId": "rev-req-9",
+      "taskAuthor": "viktorsipach",
+      "author": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 10,
+            "comment": "Test"
+          },
+          "task-3-ep1": {
+            "score": 4.5,
+            "comment": "Well"
+          },
+          "task-3-fp1": {
+            "score": -2,
+            "comment": "Good"
+          }
+        },
+        "total": 12.5
+      }
+    },
+    {
+      "id": "26c66a70-a7ab-4b6f-ac31-39ec6d489b1b",
+      "requestId": "rev-req-9",
+      "requestor": "viktorsipach",
+      "author": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 10,
+            "comment": "Test 2"
+          },
+          "task-3-ep1": {
+            "score": 7.5,
+            "comment": ""
+          },
+          "task-3-fp1": {
+            "score": -1,
+            "comment": ""
+          }
+        },
+        "total": 16.5
       }
     }
   ],

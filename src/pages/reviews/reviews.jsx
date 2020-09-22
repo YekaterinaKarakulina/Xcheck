@@ -87,8 +87,8 @@ class Reviews extends React.Component {
           authors += ` ${item.author}`;
           newReviewRequest.grade = total;
           newReviewRequest.key = reviewRequest.id;
-          newReviewRequest.taskAuthor = reviewRequest.author;
           newReviewRequest.author = authors;
+          newReviewRequest.requestor = reviewRequest.author;
           newReviewRequest.state = item.state;
           newReviewRequest.taskTitle = item.taskTitle;
           result.push(newReviewRequest);

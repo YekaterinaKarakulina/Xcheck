@@ -90,16 +90,16 @@ class ReviewsTable extends React.Component {
         ...this.getColumnSearchProps('taskTitle'),
       },
       {
-        title: 'Task author',
-        dataIndex: 'taskAuthor',
-        key: 'taskAuthor',
-        render: (taskAuthor) => (
-          <Tooltip placement="topLeft" title={taskAuthor}>
-            <span>{taskAuthor}</span>
+        title: 'Requestor',
+        dataIndex: 'requestor',
+        key: 'requestor',
+        render: (requestor) => (
+          <Tooltip placement="topLeft" title={requestor}>
+            <span>{requestor}</span>
           </Tooltip>
         ),
-        sorter: (a, b) => (a.taskAuthor > b.taskAuthor ? 1 : -1),
-        ...this.getColumnSearchProps('taskAuthor'),
+        sorter: (a, b) => (a.requestor > b.requestor ? 1 : -1),
+        ...this.getColumnSearchProps('requestor'),
       },
       {
         title: 'Check author',
