@@ -15,7 +15,7 @@ const initialState = {
 };
 
 const tasks = (state = initialState, action) => {
-  switch (action.type) {
+  switch (action && action.type) {
     case GET_TASK_SUCCESS:
       return {
         ...state,
