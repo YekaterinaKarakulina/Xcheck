@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import { Typography } from 'antd';
+import { PageHeader } from 'antd';
 import 'antd/dist/antd.css';
 import { connect } from 'react-redux';
 import { isEmpty } from 'lodash';
@@ -10,8 +10,6 @@ import { getReviewRequest } from '../../store/actions/review-requests';
 import { getTaskByTitle } from '../../store/actions/task';
 import CheckForm from '../../components/check-form';
 import './check.scss';
-
-const { Title } = Typography;
 
 class Check extends Component {
   constructor(props) {
@@ -40,8 +38,6 @@ class Check extends Component {
 
     if (taskTitle !== prevProps.currentReviewRequest.taskTitle) {
       getTaskByTitle(taskTitle);
-    } else {
-      console.log('tasktitle is undefined');
     }
   }
 
@@ -80,7 +76,7 @@ class Check extends Component {
 
   render() {
     const { detailIds, commentFieldIds, commentIds } = this.state;
-    const { currentReviewRequest, currentTask } = this.props;
+    const { currentReviewRequest, currentTask, login } = this.props;
     const { selfGrade } = currentReviewRequest;
     const items = currentTask ? currentTask.items : [];
     const basics = {
@@ -132,33 +128,34 @@ class Check extends Component {
     }
 
     return (
-      <>
-        <div className="check">
-          <div className="check__container">
-            <Title level={1} className="check__title">
-              Check Form
-            </Title>
-            <CheckForm
-              initialValues={initialValues}
-              scopes={groups || {}}
-              reviewRequest={currentReviewRequest}
-              detailIds={detailIds}
-              commentFieldIds={commentFieldIds}
-              commentIds={commentIds}
-              toggleMore={this.toggleMore}
-              toggleAdd={this.toggleAdd}
-              toggleShow={this.toggleShow}
-            />
-          </div>
-        </div>
-      </>
+      <div className="wrapper">
+        <PageHeader
+          title={!isEmpty(selfGrade) ? 'Check Form' : 'Selfcheck Form'}
+          className="site-page-header"
+          style={{ display: 'flex', justifyContent: 'center' }}
+        />
+
+        <CheckForm
+          initialValues={initialValues}
+          scopes={groups || {}}
+          reviewRequest={currentReviewRequest}
+          detailIds={detailIds}
+          commentFieldIds={commentFieldIds}
+          commentIds={commentIds}
+          toggleMore={this.toggleMore}
+          toggleAdd={this.toggleAdd}
+          toggleShow={this.toggleShow}
+          user={login}
+        />
+      </div>
     );
   }
 }
 
-const mapStateToProps = ({ reviewRequests, tasks }) => ({
+const mapStateToProps = ({ reviewRequests, tasks, login }) => ({
   currentReviewRequest: reviewRequests.currentReviewRequest,
   currentTask: tasks.currentTask[0],
+  login,
 });
 
 const mapDispatchToProps = (dispatch) => {

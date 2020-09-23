@@ -7,7 +7,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import { getCrossCheckSessions } from '../../../store/actions/cross-check-session';
 import { getReviewRequests } from '../../../store/actions/review-requests';
 import { getReviews } from '../../../store/actions/reviews';
-import CrossCheckSessionsTableCreation from '../../../components/cross-check-sessions-table/cross-check-sessions-table-creation';
+import CrossCheckSessionsTableContainer from '../../../components/cross-check-sessions-table/cross-check-sessions-table-creation';
 import mapData from '../../../components/cross-check-sessions-table/map-data';
 
 class CrossCheckSessionsTable extends React.Component {
@@ -47,7 +47,7 @@ class CrossCheckSessionsTable extends React.Component {
             Add new session
           </Link>
         </Button>
-        <CrossCheckSessionsTableCreation tableData={tableData} />
+        <CrossCheckSessionsTableContainer tableData={tableData} />
       </div>
     );
   }

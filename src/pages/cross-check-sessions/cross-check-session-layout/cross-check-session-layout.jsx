@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CrossCheckSessionForm, CrossCheckSessionEditForm } from '../cross-check-session-forms';
 import CrossCheckSessionDescription from '../cross-check-session-description';
 
@@ -13,6 +13,10 @@ const CrossCheckSessionLayout = ({ match }) => {
     default:
       return <CrossCheckSessionDescription id={id} />;
   }
+};
+
+CrossCheckSessionLayout.propTypes = {
+  match: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 export default CrossCheckSessionLayout;

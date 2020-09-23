@@ -1,17 +1,22 @@
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { reduxForm } from 'redux-form';
 import { isEmpty } from 'lodash';
-import { Button, Typography } from 'antd';
+import { v4 as uuidv4 } from 'uuid';
+import { Button, Divider, Row, Typography } from 'antd';
 import SelfGradeFields from './selfgrade-fields';
 import GradeFields from './grade-fields';
+import {
+  transformFormValuesToSelfGradeObject,
+  transformFormValuesToGradeObject,
+} from '../../utils/check';
+import { updateReviewRequest } from '../../store/actions/review-requests';
+import { postReview } from '../../store/actions/reviews';
 
 const { Title } = Typography;
 
-// eslint-disable-next-line import/no-mutable-exports
 const CheckForm = ({
   scopes,
   reviewRequest,
@@ -24,18 +29,63 @@ const CheckForm = ({
   detailIds,
   commentFieldIds,
   commentIds,
+  updateReviewRequest,
+  postReview,
+  history,
+  user,
 }) => {
   const { selfGrade } = reviewRequest;
   const isSelfGradeEmpty = isEmpty(selfGrade);
 
+  const selfCheckSubmit = (values) => {
+    console.log(values);
+    const newSelfGrade = transformFormValuesToSelfGradeObject(values);
+    console.log(newSelfGrade);
+    const { crossCheckSessionId } = reviewRequest;
+    const status = crossCheckSessionId ? 'readyToXCheck' : 'published';
+    const newRequest = reviewRequest;
+
+    newRequest.selfGrade = newSelfGrade;
+    newRequest.state = status;
+
+    updateReviewRequest(newRequest);
+
+    history.push('/review-requests/');
+  };
+
+  const checkSubmit = (values) => {
+    const review = {};
+    const { crossCheckSessionId, id, author, taskTitle } = reviewRequest;
+    const status = crossCheckSessionId ? 'draft' : 'published';
+    const grade = transformFormValuesToGradeObject(values);
+    review.id = uuidv4();
+    review.requestId = id;
+    review.requestor = author;
+    review.author = user.user.login;
+    review.taskTitle = taskTitle;
+    review.state = status;
+    review.comments = [];
+    review.grade = grade;
+
+    postReview(review);
+
+    history.push('/reviews/');
+  };
+
+  const submit = () => {
+    if (isSelfGradeEmpty) {
+      return selfCheckSubmit;
+    }
+    return checkSubmit;
+  };
+
   const renderScopes = scopes.map((scope) => {
     return (
-      <div className="check__form-row" key={scope.id}>
-        <Title level={4} className="check__form-row-title">
-          {scope.title}
-        </Title>
+      <Row key={scope.id}>
+        <Title style={{ fontSize: '1.8rem' }}>{scope.title}</Title>
+        <Divider style={{ marginTop: '0.5rem' }} />
 
-        <div className="check__form-row-body">
+        <div>
           {isSelfGradeEmpty ? (
             <SelfGradeFields
               fields={scope.items}
@@ -57,18 +107,18 @@ const CheckForm = ({
             />
           )}
         </div>
-      </div>
+      </Row>
     );
   });
 
   return (
-    <form onSubmit={handleSubmit} className="check__form">
-      <div className="check__form-inner"> {renderScopes}</div>
-      <div className="check__form-bottom">
-        <Button type="primary" htmlType="submit" size="large" disabled={pristine || submitting}>
-          Submit
-        </Button>
-      </div>
+    <form onSubmit={handleSubmit(submit())}>
+      <div> {renderScopes}</div>
+
+      <Divider />
+      <Button type="primary" htmlType="submit" size="large" disabled={pristine || submitting}>
+        Submit
+      </Button>
     </form>
   );
 };
@@ -77,9 +127,19 @@ const mapStateToProps = (state, ownProps) => {
   return { initialValues: ownProps.initialValues };
 };
 
-export default connect(mapStateToProps)(
-  reduxForm({
-    form: 'checkForm',
-    enableReinitialize: true,
-  })(CheckForm)
+const mapDispatchToProps = (dispatch) => ({
+  updateReviewRequest: (newRequest) => dispatch(updateReviewRequest(newRequest)),
+  postReview: (newReview) => dispatch(postReview(newReview)),
+});
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(
+    reduxForm({
+      form: 'checkForm',
+      enableReinitialize: true,
+    })(CheckForm)
+  )
 );
