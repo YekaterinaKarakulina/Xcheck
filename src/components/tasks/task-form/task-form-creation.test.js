@@ -1,9 +1,9 @@
 
 import React from 'react';
-import TaskFormCreation from './task-form-creation';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { mount } from '../../../../jest.setup';
+import TaskFormCreation from './task-form-creation';
 
 const mockStore = configureStore();
 

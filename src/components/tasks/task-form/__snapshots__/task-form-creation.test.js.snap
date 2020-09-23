@@ -1,17 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` 1`] = `ShallowWrapper {}`;
-
 exports[`Render TaskFormCreation render correctly 1`] = `ReactWrapper {}`;
-
-exports[`check field form values r 1`] = `ShallowWrapper {}`;
-
-exports[`check field form values renders correctly 1`] = `ShallowWrapper {}`;
-
-exports[`render Renders correctly 1`] = `ShallowWrapper {}`;
-
-exports[`render TaskFormCreation with initial values 1`] = `ShallowWrapper {}`;
-
-exports[`render renders correctly 1`] = `ShallowWrapper {}`;
-
-exports[`renders correctly 1`] = `ShallowWrapper {}`;
