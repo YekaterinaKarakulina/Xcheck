@@ -7,6 +7,9 @@ module.exports = {
       'js',
       'jsx',
     ],
-    setupFilesAfterEnv: ['./jest.setup.js']
+    setupFilesAfterEnv: ['./jest.setup.js'],
+    moduleNameMapper: {
+      "^.+\\.(css|less|scss)$": "babel-jest"
+    }
   };
   
