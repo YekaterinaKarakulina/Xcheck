@@ -1,7 +1,3 @@
-/* eslint-disable import/named */
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { connect } from 'react-redux';
@@ -21,7 +17,6 @@ import { postReview } from '../../store/actions/reviews';
 
 const { Title } = Typography;
 
-// eslint-disable-next-line import/no-mutable-exports
 const CheckForm = ({
   scopes,
   reviewRequest,
@@ -43,7 +38,9 @@ const CheckForm = ({
   const isSelfGradeEmpty = isEmpty(selfGrade);
 
   const selfCheckSubmit = (values) => {
+    console.log(values);
     const newSelfGrade = transformFormValuesToSelfGradeObject(values);
+    console.log(newSelfGrade);
     const { crossCheckSessionId } = reviewRequest;
     const status = crossCheckSessionId ? 'readyToXCheck' : 'published';
     const newRequest = reviewRequest;
