@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render TaskDescription render 1`] = `ShallowWrapper {}`;
+
+exports[`render TaskDescription render with data 1`] = `ShallowWrapper {}`;
+
+exports[`render TaskDescription render without data 1`] = `ShallowWrapper {}`;
