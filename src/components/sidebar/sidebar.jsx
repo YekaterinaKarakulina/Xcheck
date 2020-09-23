@@ -32,30 +32,26 @@ class Sidebar extends React.PureComponent {
   };
 
   renderUserInfo = () => {
-    const {
-      user: { avatarUrl, name, roles },
-    } = this.props;
-    const userAvatar = avatarUrl ? (
-      <Avatar shape="square" size={64} src={avatarUrl} />
-    ) : (
-      <Avatar shape="square" size={64} icon={<UserOutlined />} />
-    );
-    const userRoles = !isEmpty(roles) ? (
-      <div role="listbox" className="sidebar__about-role">
-        {roles.map((role) => (
-          <Tag key={role} color="blue">
-            {role}
-          </Tag>
-        ))}
-      </div>
-    ) : null;
-    return (
+    const { user } = this.props;
+    return !isEmpty(user) ? (
       <div role="banner" className="sidebar__about">
         <div role="img" className="sidebar__logo">
-          {userAvatar}
+          <Avatar shape="square" size={64} src={user.avatarUrl} />
         </div>
-        <h3 className="sidebar__about-name">{name}</h3>
-        {userRoles}
+        <h3 className="sidebar__about-name">{user.name}</h3>
+        <div role="listbox" className="sidebar__about-role">
+          {user.roles.map((role) => (
+            <Tag key={role} color="blue">
+              {role}
+            </Tag>
+          ))}
+        </div>
+      </div>
+    ) : (
+      <div role="banner" className="sidebar__about">
+        <div role="img" className="sidebar__logo">
+          <Avatar shape="square" size={64} icon={<UserOutlined />} />
+        </div>
       </div>
     );
   };
@@ -89,13 +85,7 @@ class Sidebar extends React.PureComponent {
 }
 
 Sidebar.propTypes = {
-  //   user: PropTypes.objectOf,
-  //   location: PropTypes.objectOf.isRequired,
   logout: PropTypes.func.isRequired,
 };
-
-// Sidebar.defaultProps = {
-//   user: null,
-// };
 
 export default withRouter(Sidebar);

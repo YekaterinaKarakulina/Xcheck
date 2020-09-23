@@ -6,7 +6,7 @@ import tasks from './tasks/tasks';
 import tasksTableData from './tasks/tasks-table';
 import reviewsData from './reviews/reviews-data';
 import review from './reviews/review';
-import login from './login';
+import login from './login/login';
 import crossCheckSessionsData from './cross-check-sessions/cross-check-sessions-data';
 import crossCheckSessions from './cross-check-sessions/cross-check-sessions';
 import crossCheckSession from './cross-check-sessions/cross-check-session';
