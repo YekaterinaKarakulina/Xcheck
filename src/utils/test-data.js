@@ -48,6 +48,33 @@ const xCheckObject = {
   attendees: [],
 }
 
+const reviewRequestFormValuesRequired = {
+  author: "yekaterinakarakulina",
+  linkToDemo: "some link to Demo",
+  linkToPR: "some link to PR",
+  taskTitle: "Task 3"
+}
+
+const reviewRequestFormValues = {
+  author: "yekaterinakarakulina",
+  crossCheckSessionId: "xcheck-4",
+  hasChoiceCrossCheckSession: true,
+  linkToDemo: "some link to Demo",
+  linkToPR: "some link to PR",
+  taskTitle: "Task 3"
+}
+
+const reviewRequestExpectedObject = {
+  author: "yekaterinakarakulina",
+  crossCheckSessionId: "xcheck-4",
+  id: "9ff4b103-2645-4fa7-9882-25efb5c17c5d",
+  linkToDemo: "some link to Demo",
+  linkToPR: "some link to PR",
+  selfGrade: {},
+  state: "draft",
+  taskTitle: "Task 3"
+}
+
 const tasks = [
   {
     "taskScore": 100,
@@ -215,9 +242,113 @@ const tasks = [
   }
 ];
 
+const crossCheckSessions = [
+  {
+    "id": "xcheck-1",
+    "title": "rss2020Q3react-songbird",
+    "author": "viktorsipach",
+    "state": "draft",
+    "taskTitle": "Task 1",
+    "crossCheckSessionPeriod": [
+      "2020-07-08",
+      "2020-07-14"
+    ],
+    "coefficient": 0.2,
+    "discardMinScore": true,
+    "discardMaxScore": true,
+    "minReviewsAmount": 1,
+    "desiredReviewsAmount": 2,
+    "attendees": []
+  },
+  {
+    "id": "xcheck-2",
+    "title": "rss2020Q3react-xcheck",
+    "author": "KatiaR",
+    "state": "draft",
+    "taskTitle": "Task 2",
+    "crossCheckSessionPeriod": [
+      "2020-09-15",
+      "2020-09-17"
+    ],
+    "coefficient": 0.7,
+    "discardMinScore": true,
+    "discardMaxScore": true,
+    "minReviewsAmount": 1,
+    "desiredReviewsAmount": 2,
+    "attendees": []
+  },
+  {
+    "id": "xcheck-3",
+    "title": "rss2020Q3react-schedule",
+    "author": "YekaterinaKarakulina",
+    "state": "closed",
+    "taskTitle": "Task 3",
+    "crossCheckSessionPeriod": [
+      "2020-08-22",
+      "2020-09-22"
+    ],
+    "coefficient": 0.7,
+    "discardMinScore": true,
+    "discardMaxScore": false,
+    "minReviewsAmount": 1,
+    "desiredReviewsAmount": 2,
+    "attendees": [
+      {
+        "githubId": "viktorsipach",
+        "reviewerOf": [
+          "Kipris",
+          "Ghuseynova"
+        ]
+      },
+      {
+        "githubId": "PavelZaharov1987",
+        "reviewerOf": [
+          "viktorsipach",
+          "Ghuseynova"
+        ]
+      },
+      {
+        "githubId": "Ghuseynova",
+        "reviewerOf": [
+          "Kipris",
+          "PavelZaharov1987"
+        ]
+      },
+      {
+        "githubId": "Kipris",
+        "reviewerOf": [
+          "viktorsipach",
+          "PavelZaharov1987"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "xcheck-4",
+    "title": "rss2020Q3react-someApp",
+    "author": "KatiaR",
+    "state": "active",
+    "taskTitle": "Task 3",
+    "crossCheckSessionPeriod": [
+      "2020-08-22",
+      "2020-09-22"
+    ],
+    "coefficient": 0.7,
+    "discardMinScore": true,
+    "discardMaxScore": false,
+    "minReviewsAmount": 1,
+    "desiredReviewsAmount": 2,
+    "attendees": []
+  }
+]
+
 export { 
   xCheckFormValuesDraft,
   xCheckFormValuesActive,
   xCheckObject,
-  tasks
+  reviewRequestFormValuesRequired,
+  reviewRequestFormValues,
+  reviewRequestExpectedObject,
+  tasks,
+  crossCheckSessions
 }
