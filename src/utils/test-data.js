@@ -1,34 +1,34 @@
 import moment from 'moment';
 
 const xCheckFormValuesDraft = {
-  author: 'yekaterinakarakulina',
+  author: "yekaterinakarakulina",
   coefficient: "0.1",
   crossCheckSessionPeriod: [
-    moment('2020-09-10', 'YYYY-MM-DD'),
-    moment('2020-09-20', 'YYYY-MM-DD')
+    moment("2020-09-10", "YYYY-MM-DD"),
+    moment("2020-09-20", "YYYY-MM-DD")
   ],
-  desiredReviewsAmount: '4',
+  desiredReviewsAmount: "4",
   discardMinScore: true,
   discardMaxScore: false,
-  minReviewsAmount: '1',
-  taskTitle: 'Task 3',
-  title: 'Some title',
+  minReviewsAmount: "1",
+  taskTitle: "Task 3",
+  title: "Some title",
   draft: true
 }
   
 const xCheckFormValuesActive = {
-  author: 'yekaterinakarakulina',
+  author: "yekaterinakarakulina",
   coefficient: "0.1",
   crossCheckSessionPeriod: [
-    moment('2020-09-10', 'YYYY-MM-DD'),
-    moment('2020-09-20', 'YYYY-MM-DD')
+    moment("2020-09-10", "YYYY-MM-DD"),
+    moment("2020-09-20", "YYYY-MM-DD")
   ],
-  desiredReviewsAmount: '4',
+  desiredReviewsAmount: "4",
   discardMinScore: true,
   discardMaxScore: false,
-  minReviewsAmount: '1',
-  taskTitle: 'Task 3',
-  title: 'Some title',
+  minReviewsAmount: "1",
+  taskTitle: "Task 3",
+  title: "Some title",
   draft: false
 }
   
@@ -36,8 +36,8 @@ const xCheckObject = {
   author: "yekaterinakarakulina",
   coefficient: 0.1,
   crossCheckSessionPeriod: [
-    moment('2020-09-10', 'YYYY-MM-DD'),
-    moment('2020-09-20', 'YYYY-MM-DD')
+    moment("2020-09-10", "YYYY-MM-DD"),
+    moment("2020-09-20", "YYYY-MM-DD")
   ],
   desiredReviewsAmount: 4,
   discardMinScore: true,
@@ -73,6 +73,23 @@ const reviewRequestExpectedObject = {
   selfGrade: {},
   state: "draft",
   taskTitle: "Task 3"
+}
+
+const selfCheckFormValues = {
+  "task-2-bp1": "10",
+  "task-2-bp1_comment": "some comment",
+  "task-2-ep1": "5",
+  "task-2-fp1": "-2",
+  "task-2-fp1_comment": "eslint errors"
+}
+
+const checkFormValues = {
+  "comment_task-3-bp1": "Great!",
+  "comment_task-3-fp1": "1 linter error!",
+  "performans-group-task-3-bp1": "100%",
+  "task-3-bp1": "10",
+  "task-3-ep1": "13",
+  "task-3-fp1": "-1"
 }
 
 const tasks = [
@@ -349,6 +366,8 @@ export {
   reviewRequestFormValuesRequired,
   reviewRequestFormValues,
   reviewRequestExpectedObject,
+  selfCheckFormValues,
+  checkFormValues,
   tasks,
   crossCheckSessions
 }

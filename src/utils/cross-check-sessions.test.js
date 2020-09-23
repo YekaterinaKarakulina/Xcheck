@@ -7,7 +7,7 @@ import {
 } from './test-data';
 
 describe('Transform form values into crossCheckSession object', () => {
-test('state values correct transformation', () => {
+test('values correct transformation', () => {
     const crossCheckSessionObject = transformFormValuesToCrossCheckSessionObject(xCheckFormValuesDraft);
     expect(crossCheckSessionObject).toBeDefined();
     expect(crossCheckSessionObject.author).toEqual(xCheckObject.author);
