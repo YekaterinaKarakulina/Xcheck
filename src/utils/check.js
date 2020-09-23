@@ -1,5 +1,4 @@
 /* eslint-disable no-restricted-syntax */
-
 const transformFormValuesToSelfGradeObject = (values) => {
   const scoreIds = [];
   const selfGrade = {};
