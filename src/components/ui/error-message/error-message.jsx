@@ -9,7 +9,11 @@ const ErrorMessage = ({ children }) => (
 );
 
 ErrorMessage.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.string,
+};
+
+ErrorMessage.defaultProps = {
+  children: '',
 };
 
 export default React.memo(ErrorMessage);
