@@ -24,6 +24,3 @@ describe('render ', () => {
 		expect(tree).toMatchSnapshot();
 	});
 });
-
-
-
