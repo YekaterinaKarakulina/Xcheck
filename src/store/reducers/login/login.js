@@ -5,9 +5,9 @@ import {
   LOGOUT_SUCCESS,
   SET_USER_ROLES_SUCCESS,
   GET_USER_BY_GITHUBID_SUCCESS,
-} from '../actions/types/login';
-import { getRoles } from '../../utils';
-import env from '../../env';
+} from '../../actions/types/login';
+import { getRoles } from '../../../utils';
+import env from '../../../env';
 
 const initialState = {
   isLoggedIn: JSON.parse(localStorage.getItem('isLoggedIn')) || false,
