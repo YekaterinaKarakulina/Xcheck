@@ -12,3 +12,4 @@ module.exports = {
     "^.+\\.(css|less|scss)$": "babel-jest"
   }
 };
+

@@ -9,7 +9,7 @@ import {
   MinusCircleOutlined,
 } from '@ant-design/icons';
 import makeField from '../forms/make-field';
-import { required, maxLength, minLength } from '../../utils/formValidations';
+import { required, maxLength, minLength } from '../../utils/form-validations';
 
 const maxLength3 = maxLength(3);
 const minLength1 = minLength(1);
