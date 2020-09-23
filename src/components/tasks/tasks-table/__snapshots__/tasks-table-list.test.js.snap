@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render  render TasksTable 1`] = `ShallowWrapper {}`;
+
+exports[`render TasksTable render 1`] = `ShallowWrapper {}`;

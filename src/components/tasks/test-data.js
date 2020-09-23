@@ -128,3 +128,6 @@ const tasks = [
 		"taskId": "task-3",
 		"id": "task-3"
 	}]
+
+
+export default tasks;
