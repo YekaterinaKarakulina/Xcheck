@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import ReviewFeedback from './review-feedback';
 
 describe('render ', () => {
-	it('Reviews Table', () => {
+	it('Review Feedback', () => {
 		const tree = shallow(<ReviewFeedback />);
 		expect(tree).toMatchSnapshot();
 	});
