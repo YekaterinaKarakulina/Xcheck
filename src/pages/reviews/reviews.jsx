@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { PageHeader, Button } from 'antd';
 import mapData from './mapData';
 import { getReviews } from '../../store/actions/reviews';
@@ -181,4 +181,4 @@ Reviews.propTypes = {
   history: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Reviews);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Reviews));
