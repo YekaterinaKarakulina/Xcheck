@@ -4,7 +4,7 @@ import {
 } from '../../actions/types/task';
 
 const tasksTableData = (state = [], action) => {
-  switch (action.type) {
+  switch (action && action.type) {
     case GET_TASKSTABLE_SESSIONS_SUCCESS:
       return action.payload;
 

@@ -19,6 +19,9 @@ const reviewRequests = (state = initialState, action) => {
     case GET_REVIEW_REQUESTS_SUCCESS:
       return {
         ...state,
+        currentReviewRequest: {
+          ...action.payload,
+        },
       };
 
     case GET_REVIEW_REQUESTS_FAILURE:
