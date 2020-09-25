@@ -21,47 +21,47 @@ describe('CrossCheck sessions actions', () => {
 test('getCrossCheckSessions', () => {
     const result = getCrossCheckSessions();
     expect(result).toBeInstanceOf(Object);
-    expect(result.type).toEqual(GET_CROSSCHECK_SESSIONS)
+    expect(result.type).toEqual(GET_CROSSCHECK_SESSIONS);
   });
 
   test('getCrossCheckSession', () => {
     const result = getCrossCheckSession('some_id');
     expect(result).toBeInstanceOf(Object);
-    expect(result.type).toEqual(GET_CROSSCHECK_SESSION)
+    expect(result.type).toEqual(GET_CROSSCHECK_SESSION);
     expect(result.payload).toEqual('some_id')
   });
 
   test('postCrossCheckSession', () => {
     const result = postCrossCheckSession('some_id');
     expect(result).toBeInstanceOf(Object);
-    expect(result.type).toEqual(POST_CROSSCHECK_SESSION)
-    expect(result.payload).toEqual('some_id')
+    expect(result.type).toEqual(POST_CROSSCHECK_SESSION);
+    expect(result.payload).toEqual('some_id');
   });
 
   test('updateCrossCheckSession', () => {
     const result = updateCrossCheckSession('some_id');
     expect(result).toBeInstanceOf(Object);
-    expect(result.type).toEqual(UPDATE_CROSSCHECK_SESSION)
-    expect(result.payload).toEqual('some_id')
+    expect(result.type).toEqual(UPDATE_CROSSCHECK_SESSION);
+    expect(result.payload).toEqual('some_id');
   });
 
   test('deleteCrossCheckSession', () => {
     const result = deleteCrossCheckSession('some_id');
     expect(result).toBeInstanceOf(Object);
-    expect(result.type).toEqual(DELETE_CROSSCHECK_SESSION)
-    expect(result.payload).toEqual('some_id')
+    expect(result.type).toEqual(DELETE_CROSSCHECK_SESSION);
+    expect(result.payload).toEqual('some_id');
   });
 
   test('openModal', () => {
     const result = openModal();
     expect(result).toBeInstanceOf(Object);
-    expect(result.type).toEqual(OPEN_MODAL)
+    expect(result.type).toEqual(OPEN_MODAL);
   });
 
   test('closeModal', () => {
     const result = closeModal();
     expect(result).toBeInstanceOf(Object);
-    expect(result.type).toEqual(CLOSE_MODAL)
+    expect(result.type).toEqual(CLOSE_MODAL);
   });
 
 });

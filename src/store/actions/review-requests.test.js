@@ -20,14 +20,14 @@ describe('Review requests actions', () => {
   test('getReviewRequest', () => {
     const result = getReviewRequest('some_id');
     expect(result).toBeInstanceOf(Object);
-    expect(result.type).toEqual(GET_REVIEW_REQUEST)
+    expect(result.type).toEqual(GET_REVIEW_REQUEST);
     expect(result.payload).toEqual('some_id');
   });
 
   test('getReviewRequests', () => {
     const result = getReviewRequests();
     expect(result).toBeInstanceOf(Object);
-    expect(result.type).toEqual(GET_REVIEW_REQUESTS)
+    expect(result.type).toEqual(GET_REVIEW_REQUESTS);
   });
 
   test('postReviewRequest', () => {
