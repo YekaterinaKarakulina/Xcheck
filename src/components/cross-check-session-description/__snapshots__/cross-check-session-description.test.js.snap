@@ -79,9 +79,11 @@ Object {
                   Task
                 </th>
                 <td
-                  class=""
+                  class="ant-descriptions-item-content"
                   colspan="3"
-                />
+                >
+                  Task 1
+                </td>
               </tr>
               <tr
                 class="ant-descriptions-row"
@@ -259,9 +261,11 @@ Object {
                 Task
               </th>
               <td
-                class=""
+                class="ant-descriptions-item-content"
                 colspan="3"
-              />
+              >
+                Task 1
+              </td>
             </tr>
             <tr
               class="ant-descriptions-row"

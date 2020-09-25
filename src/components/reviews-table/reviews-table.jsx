@@ -102,7 +102,7 @@ class ReviewsTable extends React.Component {
         ...this.getColumnSearchProps('requestor'),
       },
       {
-        title: 'Check author',
+        title: 'Reviewer',
         dataIndex: 'author',
         key: 'author',
         ellipsis: {
