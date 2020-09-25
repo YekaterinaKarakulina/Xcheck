@@ -11,7 +11,9 @@ const TaskForm = (props) => {
   const { postTaskSession, getTasksTable, history } = props;
 
   const onSubmit = async (values) => {
+    console.log(values);
     const fullObjectValues = mapDataValues(values);
+    console.log(fullObjectValues);
     await postTaskSession(fullObjectValues);
     getTasksTable();
     history.go(-1);
