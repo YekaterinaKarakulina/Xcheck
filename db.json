@@ -901,7 +901,7 @@
       "selfGrade": {},
       "linkToDemo": "#",
       "linkToPR": "#",
-      "crossCheckSessionTitle": "xcheck-3"
+      "crossCheckSessionId": "xcheck-3"
     },
     {
       "id": "rev-req-3",
@@ -911,7 +911,7 @@
       "selfGrade": {},
       "linkToDemo": "#",
       "linkToPR": "#",
-      "crossCheckSessionTitle": "xcheck-3"
+      "crossCheckSessionId": "xcheck-3"
     },
     {
       "id": "rev-req-4",
@@ -934,7 +934,7 @@
       },
       "linkToDemo": "#",
       "linkToPR": "#",
-      "crossCheckSessionTitle": "xcheck-3"
+      "crossCheckSessionId": "xcheck-3"
     },
     {
       "id": "rev-req-5",
@@ -957,7 +957,7 @@
       },
       "linkToDemo": "#",
       "linkToPR": "#",
-      "crossCheckSessionTitle": "xcheck-3"
+      "crossCheckSessionId": "xcheck-3"
     },
     {
       "id": "rev-req-6",
@@ -980,7 +980,7 @@
       },
       "linkToDemo": "#",
       "linkToPR": "#",
-      "crossCheckSessionTitle": "xcheck-3"
+      "crossCheckSessionId": "xcheck-3"
     },
     {
       "id": "rev-req-7",
@@ -1003,7 +1003,7 @@
       },
       "linkToDemo": "#",
       "linkToPR": "#",
-      "crossCheckSessionTitle": "xcheck-3"
+      "crossCheckSessionId": "xcheck-3"
     },
     {
       "id": "rev-req-8",
@@ -1026,7 +1026,7 @@
       },
       "linkToDemo": "#",
       "linkToPR": "#",
-      "crossCheckSessionTitle": "xcheck-3"
+      "crossCheckSessionId": "xcheck-3"
     },
     {
       "id": "rev-req-9",
@@ -1049,7 +1049,7 @@
       },
       "linkToDemo": "#",
       "linkToPR": "#",
-      "crossCheckSessionTitle": ""
+      "crossCheckSessionId": ""
     },
     {
       "id": "67268be2-5301-4d90-ad3e-b268e8a92dcd",
@@ -1059,7 +1059,7 @@
       "selfGrade": {},
       "linkToDemo": "https://example.com",
       "linkToPR": "https://example.com",
-      "crossCheckSessionTitle": "rss2020Q3react-someApp"
+      "crossCheckSessionId": "rss2020Q3react-someApp"
     },
     {
       "id": "88d27704-4300-4d4f-9beb-78c1a8607bce",
@@ -1069,7 +1069,7 @@
       "selfGrade": {},
       "linkToDemo": "https://example.com",
       "linkToPR": "https://example.com",
-      "crossCheckSessionTitle": ""
+      "crossCheckSessionId": ""
     }
   ]
 }
