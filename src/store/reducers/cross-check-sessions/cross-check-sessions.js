@@ -17,7 +17,7 @@ const initialState = {
 };
 
 const crossCheckSessions = (state = initialState, action) => {
-  switch (action.type) {
+  switch (action && action.type) {
     case GET_CROSSCHECK_SESSION_SUCCESS:
       return {
         ...state,

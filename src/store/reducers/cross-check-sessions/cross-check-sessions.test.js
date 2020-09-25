@@ -60,3 +60,11 @@ test('failure', () => {
     expect(result.currentSessionInfo).toBeTruthy();
   })
 });
+
+describe('Default', () => {
+  test('No action passed', () => {
+    const result = crossCheckSessions(initialStateFilled, {type: ''});
+    expect(result).toBeDefined();
+    expect(result).toBeInstanceOf(Object);
+  });
+});

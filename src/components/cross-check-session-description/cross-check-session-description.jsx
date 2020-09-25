@@ -3,7 +3,7 @@ import { Descriptions } from 'antd';
 import PropTypes from 'prop-types';
 
 const CrossCheckSessionDescriptionCreation = ({ descriptionValues }) => {
-  const { author, coefficient, crossCheckSessionPeriod, taskId, attendees } = descriptionValues;
+  const { author, coefficient, crossCheckSessionPeriod, taskTitle, attendees } = descriptionValues;
 
   return (
     <Descriptions layout="horizontal" column={2} bordered>
@@ -12,7 +12,7 @@ const CrossCheckSessionDescriptionCreation = ({ descriptionValues }) => {
       <Descriptions.Item label="Start date">{crossCheckSessionPeriod[0]}</Descriptions.Item>
       <Descriptions.Item label="End date">{crossCheckSessionPeriod[1]}</Descriptions.Item>
       <Descriptions.Item label="Task" span={2}>
-        {taskId}
+        {taskTitle}
       </Descriptions.Item>
       <Descriptions.Item label="Attendees" span={2}>
         {attendees.map((attendee) => {
