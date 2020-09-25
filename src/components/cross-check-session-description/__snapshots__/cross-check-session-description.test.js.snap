@@ -79,9 +79,11 @@ Object {
                   Task
                 </th>
                 <td
-                  class=""
+                  class="ant-descriptions-item-content"
                   colspan="3"
-                />
+                >
+                  Task 1
+                </td>
               </tr>
               <tr
                 class="ant-descriptions-row"
@@ -95,7 +97,88 @@ Object {
                 <td
                   class="ant-descriptions-item-content"
                   colspan="3"
-                />
+                >
+                  <div>
+                    <span
+                      style="font-weight: 700; margin-right: 1rem;"
+                    >
+                      viktorsipach
+                    </span>
+                    [
+                    <span
+                      style="margin-right: 1rem; margin-left: 1rem;"
+                    >
+                      Kipris
+                    </span>
+                    <span
+                      style="margin-right: 1rem; margin-left: 1rem;"
+                    >
+                      Ghuseynova
+                    </span>
+                    ]
+                    <br />
+                  </div>
+                  <div>
+                    <span
+                      style="font-weight: 700; margin-right: 1rem;"
+                    >
+                      PavelZaharov1987
+                    </span>
+                    [
+                    <span
+                      style="margin-right: 1rem; margin-left: 1rem;"
+                    >
+                      viktorsipach
+                    </span>
+                    <span
+                      style="margin-right: 1rem; margin-left: 1rem;"
+                    >
+                      Ghuseynova
+                    </span>
+                    ]
+                    <br />
+                  </div>
+                  <div>
+                    <span
+                      style="font-weight: 700; margin-right: 1rem;"
+                    >
+                      Ghuseynova
+                    </span>
+                    [
+                    <span
+                      style="margin-right: 1rem; margin-left: 1rem;"
+                    >
+                      Kipris
+                    </span>
+                    <span
+                      style="margin-right: 1rem; margin-left: 1rem;"
+                    >
+                      PavelZaharov1987
+                    </span>
+                    ]
+                    <br />
+                  </div>
+                  <div>
+                    <span
+                      style="font-weight: 700; margin-right: 1rem;"
+                    >
+                      Kipris
+                    </span>
+                    [
+                    <span
+                      style="margin-right: 1rem; margin-left: 1rem;"
+                    >
+                      viktorsipach
+                    </span>
+                    <span
+                      style="margin-right: 1rem; margin-left: 1rem;"
+                    >
+                      PavelZaharov1987
+                    </span>
+                    ]
+                    <br />
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -178,9 +261,11 @@ Object {
                 Task
               </th>
               <td
-                class=""
+                class="ant-descriptions-item-content"
                 colspan="3"
-              />
+              >
+                Task 1
+              </td>
             </tr>
             <tr
               class="ant-descriptions-row"
@@ -194,7 +279,88 @@ Object {
               <td
                 class="ant-descriptions-item-content"
                 colspan="3"
-              />
+              >
+                <div>
+                  <span
+                    style="font-weight: 700; margin-right: 1rem;"
+                  >
+                    viktorsipach
+                  </span>
+                  [
+                  <span
+                    style="margin-right: 1rem; margin-left: 1rem;"
+                  >
+                    Kipris
+                  </span>
+                  <span
+                    style="margin-right: 1rem; margin-left: 1rem;"
+                  >
+                    Ghuseynova
+                  </span>
+                  ]
+                  <br />
+                </div>
+                <div>
+                  <span
+                    style="font-weight: 700; margin-right: 1rem;"
+                  >
+                    PavelZaharov1987
+                  </span>
+                  [
+                  <span
+                    style="margin-right: 1rem; margin-left: 1rem;"
+                  >
+                    viktorsipach
+                  </span>
+                  <span
+                    style="margin-right: 1rem; margin-left: 1rem;"
+                  >
+                    Ghuseynova
+                  </span>
+                  ]
+                  <br />
+                </div>
+                <div>
+                  <span
+                    style="font-weight: 700; margin-right: 1rem;"
+                  >
+                    Ghuseynova
+                  </span>
+                  [
+                  <span
+                    style="margin-right: 1rem; margin-left: 1rem;"
+                  >
+                    Kipris
+                  </span>
+                  <span
+                    style="margin-right: 1rem; margin-left: 1rem;"
+                  >
+                    PavelZaharov1987
+                  </span>
+                  ]
+                  <br />
+                </div>
+                <div>
+                  <span
+                    style="font-weight: 700; margin-right: 1rem;"
+                  >
+                    Kipris
+                  </span>
+                  [
+                  <span
+                    style="margin-right: 1rem; margin-left: 1rem;"
+                  >
+                    viktorsipach
+                  </span>
+                  <span
+                    style="margin-right: 1rem; margin-left: 1rem;"
+                  >
+                    PavelZaharov1987
+                  </span>
+                  ]
+                  <br />
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>

@@ -4,7 +4,7 @@ import {
 } from '../../actions/types/review-requests';
 
 const reviewRequestsData = (state = [], action) => {
-  switch (action.type) {
+  switch (action && action.type) {
     case GET_REVIEW_REQUESTS_SUCCESS:
       return action.payload;
 
