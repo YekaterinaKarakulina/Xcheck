@@ -13,7 +13,36 @@ const initialValues = {
   discardMaxScore: true,
   minReviewsAmount: 1,
   desiredReviewsAmount: 2,
-  attendees: []
+  attendees: [
+    {
+      "githubId": "viktorsipach",
+      "reviewerOf": [
+        "Kipris",
+        "Ghuseynova"
+      ]
+    },
+    {
+      "githubId": "PavelZaharov1987",
+      "reviewerOf": [
+        "viktorsipach",
+        "Ghuseynova"
+      ]
+    },
+    {
+      "githubId": "Ghuseynova",
+      "reviewerOf": [
+        "Kipris",
+        "PavelZaharov1987"
+      ]
+    },
+    {
+      "githubId": "Kipris",
+      "reviewerOf": [
+        "viktorsipach",
+        "PavelZaharov1987"
+      ]
+    }
+  ]
 }
 
 export default initialValues;
