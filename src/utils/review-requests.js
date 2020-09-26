@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
 const transformFormValuesToReviewRequestObject = (values) => {
-  const { author, taskTitle, linkToDemo, linkToPR, crossCheckSessionId } = values;
+  const { author, taskTitle, linkToDemo, linkToPR, crossCheckSessionTitle } = values;
 
   let { id } = values;
 
@@ -17,7 +17,7 @@ const transformFormValuesToReviewRequestObject = (values) => {
     selfGrade: {},
     linkToDemo,
     linkToPR,
-    crossCheckSessionId: crossCheckSessionId === undefined ? '' : crossCheckSessionId,
+    crossCheckSessionId: crossCheckSessionTitle === undefined ? '' : crossCheckSessionTitle,
   };
 };
 
@@ -27,9 +27,10 @@ const getCrossCheckSessionsInfoForReviewRequestForm = (value) => {
     (crossCheckSession) => crossCheckSession.state === 'active'
   );
   crossCheckSessionsActive.forEach((crossCheckSessionActive) => {
-    const { id } = crossCheckSessionActive;
+    const { id, title } = crossCheckSessionActive;
     crossCheckSessions.push({
       id,
+      title,
     });
   });
   return crossCheckSessions;
