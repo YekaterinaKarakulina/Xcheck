@@ -19,6 +19,7 @@ class Check extends Component {
       detailIds: {},
       commentFieldIds: {},
       commentIds: {},
+      changedInputIds: {},
     };
   }
 
@@ -74,8 +75,34 @@ class Check extends Component {
     });
   };
 
+  handleInputChange = (id) => {
+    this.setState((prevState) => {
+      const changedInputIds = { ...prevState.changedInputIds };
+      changedInputIds[id] = !changedInputIds[id];
+
+      return {
+        changedInputIds,
+      };
+    });
+  };
+
+  hideCommentArea = (id) => {
+    this.setState((prevState) => {
+      const commentFieldIds = { ...prevState.commentFieldIds };
+      commentFieldIds[id] = false;
+
+      const changedInputIds = { ...prevState.changedInputIds };
+      changedInputIds[id] = false;
+
+      return {
+        commentFieldIds,
+        changedInputIds,
+      };
+    });
+  };
+
   render() {
-    const { detailIds, commentFieldIds, commentIds } = this.state;
+    const { detailIds, commentFieldIds, commentIds, changedInputIds } = this.state;
     const { currentReviewRequest, currentTask, login } = this.props;
     const { selfGrade } = currentReviewRequest;
     const items = currentTask ? currentTask.items : [];
@@ -146,9 +173,12 @@ class Check extends Component {
           detailIds={detailIds}
           commentFieldIds={commentFieldIds}
           commentIds={commentIds}
+          changedInputIds={changedInputIds}
           toggleMore={this.toggleMore}
           toggleAdd={this.toggleAdd}
           toggleShow={this.toggleShow}
+          handleInputChange={this.handleInputChange}
+          hideCommentArea={this.hideCommentArea}
           user={login}
         />
       </div>

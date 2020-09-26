@@ -9,9 +9,12 @@ const GradeFields = (props) => {
     detailIds,
     commentIds,
     commentFieldIds,
+    changedInputIds,
     toggleMore,
     toggleShow,
     toggleAdd,
+    handleInputChange,
+    hideCommentArea,
   } = props;
   return (
     <div>
@@ -23,9 +26,12 @@ const GradeFields = (props) => {
             detailIds={detailIds}
             commentFieldIds={commentFieldIds}
             commentIds={commentIds}
+            changedInputIds={changedInputIds}
             toggleMore={toggleMore}
             toggleAdd={toggleAdd}
             toggleShow={toggleShow}
+            handleInputChange={handleInputChange}
+            hideCommentArea={hideCommentArea}
             selfGrade={selfGrade}
           />
         );

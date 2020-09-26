@@ -28,7 +28,10 @@ const CheckForm = ({
   detailIds,
   commentFieldIds,
   commentIds,
+  changedInputIds,
   updateReviewRequest,
+  handleInputChange,
+  hideCommentArea,
   postReview,
   history,
   user,
@@ -99,9 +102,12 @@ const CheckForm = ({
               detailIds={detailIds}
               commentIds={commentIds}
               commentFieldIds={commentFieldIds}
+              changedInputIds={changedInputIds}
               toggleMore={toggleMore}
               toggleAdd={toggleAdd}
               toggleShow={toggleShow}
+              handleInputChange={handleInputChange}
+              hideCommentArea={hideCommentArea}
               selfGrade={selfGrade}
             />
           )}
