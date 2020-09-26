@@ -12,4 +12,10 @@ describe('Get review requests', () => {
         expect(result).toBeInstanceOf(Array);
         expect(result).toHaveLength(0);
     })
+
+    test('default', () => {
+        const result = reviewRequestsData(initialStateEmpty, {type: ''});
+        expect(result).toBeInstanceOf(Array);
+        expect(result).toHaveLength(0);
+    })
 });
