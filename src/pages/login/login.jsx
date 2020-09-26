@@ -2,12 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Card } from 'antd';
-import {
-  getLoadingStatus,
-  getClientId,
-  getRedirectUri,
-  getLoginError,
-} from '../../store/selectors/login';
 import { login, setUserRoles } from '../../store/actions/login';
 import LoginCover from './login-cover';
 import LoginSelect from './login-select';
@@ -75,10 +69,10 @@ class Login extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  loading: getLoadingStatus(state),
-  clientId: getClientId(state),
-  redirectUri: getRedirectUri(state),
-  error: getLoginError(state),
+  loading: state.login.loading,
+  clientId: state.login.clientId,
+  redirectUri: state.login.redirectUri,
+  error: state.login.errorMessage,
 });
 
 const mapDispatchToProps = (dispatch) => ({
