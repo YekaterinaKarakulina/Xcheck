@@ -1,6 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const transformFormValuesToReviewRequestObject = (values) => {
+const transformFormValuesToReviewRequestObject = (values, crossCheckSessionsActive) => {
+  console.log(values);
+  console.log(crossCheckSessionsActive);
   const { author, taskTitle, linkToDemo, linkToPR, crossCheckSessionTitle } = values;
 
   let { id } = values;

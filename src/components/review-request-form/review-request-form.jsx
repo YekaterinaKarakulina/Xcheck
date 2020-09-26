@@ -105,7 +105,7 @@ class ReviewRequestFormCreation extends React.Component {
             >
               {crossCheckSessions.map(({ id, title }) => {
                 return (
-                  <Option value={title} key={id}>
+                  <Option value={id} key={id}>
                     {title}
                   </Option>
                 );

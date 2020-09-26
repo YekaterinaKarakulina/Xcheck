@@ -1052,16 +1052,6 @@
       "crossCheckSessionId": ""
     },
     {
-      "id": "67268be2-5301-4d90-ad3e-b268e8a92dcd",
-      "author": "PavelZaharov1987",
-      "taskTitle": "X Check App / RS Assessment Tool",
-      "state": "draft",
-      "selfGrade": {},
-      "linkToDemo": "https://example.com",
-      "linkToPR": "https://example.com",
-      "crossCheckSessionId": "rss2020Q3react-someApp"
-    },
-    {
       "id": "88d27704-4300-4d4f-9beb-78c1a8607bce",
       "author": "PavelZaharov1987",
       "taskTitle": "X Check App / RS Assessment Tool",
@@ -1070,6 +1060,16 @@
       "linkToDemo": "https://example.com",
       "linkToPR": "https://example.com",
       "crossCheckSessionId": ""
+    },
+    {
+      "id": "28087f7d-b055-4674-900f-aef1a8458c5e",
+      "author": "PavelZaharov1987",
+      "taskTitle": "X Check App / RS Assessment Tool",
+      "state": "draft",
+      "selfGrade": {},
+      "linkToDemo": "https://example.com",
+      "linkToPR": "https://example.com",
+      "crossCheckSessionId": "xcheck-4"
     }
   ]
 }
