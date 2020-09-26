@@ -20,6 +20,7 @@ describe('Render CheckForm When SelfGrade Empty', () => {
             detailIds={{}}
             commentFieldIds={{}}
             commentIds={{}}
+            changedInputIds={{}}
           />
         </MemoryRouter>
       </Provider>
@@ -39,6 +40,7 @@ describe('Render CheckForm When SelfGrade Fillled', () => {
             detailIds={{}}
             commentFieldIds={{}}
             commentIds={{}}
+            changedInputIds={{}}
           />
         </MemoryRouter>
       </Provider>
