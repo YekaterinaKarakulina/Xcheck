@@ -22,7 +22,6 @@ const CheckForm = ({
   reviewRequest,
   handleSubmit,
   submitting,
-  // pristine,
   toggleMore,
   toggleAdd,
   toggleShow,

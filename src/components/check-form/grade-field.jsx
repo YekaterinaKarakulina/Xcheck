@@ -85,9 +85,6 @@ const GradeField = (props) => {
             placeholder="Score"
             component={AInputNumber}
             validate={[required, maxValue, minValue, maxLength3, minLength1]}
-            onChange={(e, value) => {
-              console.log(value, e);
-            }}
           />
           <Button
             onClick={() => {
