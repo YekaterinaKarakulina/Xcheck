@@ -20,7 +20,7 @@ const initialState = {
 };
 
 const login = (state = initialState, action) => {
-  switch (action.type) {
+  switch (action && action.type) {
     case LOGIN_START: {
       return {
         ...state,
