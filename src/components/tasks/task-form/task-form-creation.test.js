@@ -5,20 +5,16 @@ import configureStore from 'redux-mock-store';
 import { mount } from '../../../../jest.setup';
 import TaskFormCreation from './task-form-creation';
 
-const mockStore = configureStore();
-
-
 describe('Render TaskFormCreation', () => {
 
 	it('render correctly', () => {
 		const mockDispatchFn = jest.fn();
 		const wrapper = mount(
-			<Provider store={mockStore()}>
+			<Provider store={configureStore()()}>
 				<TaskFormCreation dispatch={mockDispatchFn} />
-			</Provider>,
+			</Provider>
 		);
 		expect(wrapper).toBeDefined();
 		expect(wrapper).toMatchSnapshot();
 	});
-
 });
