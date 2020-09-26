@@ -36,3 +36,18 @@ describe('Logout', () => {
        expect(result.user).toEqual(null);
      })
 });
+
+describe('Default', () => {
+  test('No action passed', () => {
+    const result = login(initialStateFilled, {type: ''});
+    expect(result).toBeDefined();
+    expect(result).toBeInstanceOf(Object);
+  });
+});
+
+describe('without initialState', () => {
+  test('success', () => {
+      const result = login();
+      expect(result).toBeInstanceOf(Object);
+  })
+});
