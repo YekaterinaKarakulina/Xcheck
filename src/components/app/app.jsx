@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
 import { logout } from '../../store/actions/login';
-import { getLoginStatus, getUser, getUserRoles } from '../../store/selectors/login';
 import Sidebar from '../sidebar';
 import Routes from '../../routes';
 import './app.scss';
@@ -32,9 +31,9 @@ class App extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => ({
-  isLoggedIn: getLoginStatus(state),
-  user: getUser(state),
-  roles: getUserRoles(state),
+  isLoggedIn: state.login.isLoggedIn,
+  user: state.login.user,
+  roles: state.login.roles,
 });
 
 const mapDispatchToProps = (dispatch) => {

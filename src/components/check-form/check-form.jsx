@@ -40,9 +40,7 @@ const CheckForm = ({
   const isSelfGradeEmpty = isEmpty(selfGrade);
 
   const selfCheckSubmit = (values) => {
-    console.log(values);
     const newSelfGrade = transformFormValuesToSelfGradeObject(values);
-    console.log(newSelfGrade);
     const { crossCheckSessionId } = reviewRequest;
     const status = crossCheckSessionId ? 'readyToXCheck' : 'published';
     const newRequest = reviewRequest;
@@ -60,6 +58,7 @@ const CheckForm = ({
     const { crossCheckSessionId, id, author, taskTitle } = reviewRequest;
     const status = crossCheckSessionId ? 'draft' : 'published';
     const grade = transformFormValuesToGradeObject(values);
+
     review.id = uuidv4();
     review.requestId = id;
     review.requestor = author;
@@ -78,6 +77,7 @@ const CheckForm = ({
     if (isSelfGradeEmpty) {
       return selfCheckSubmit;
     }
+
     return checkSubmit;
   };
 

@@ -97,16 +97,16 @@ class ReviewRequestFormCreation extends React.Component {
           {hasChoiceCrossCheckSession && (
             <Field
               label="Cross check session"
-              name="crossCheckSessionId"
+              name="crossCheckSessionTitle"
               component={ASelect}
               hasFeedback
               validate={required}
               onBlur={(e) => e.preventDefault()}
             >
-              {crossCheckSessions.map(({ id }) => {
+              {crossCheckSessions.map(({ id, title }) => {
                 return (
                   <Option value={id} key={id}>
-                    {id}
+                    {title}
                   </Option>
                 );
               })}

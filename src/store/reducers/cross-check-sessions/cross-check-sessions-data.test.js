@@ -12,4 +12,10 @@ test('success', () => {
     expect(result).toBeInstanceOf(Array);
     expect(result).toHaveLength(0);
   })
+
+  test('default', () => {
+    const result = crossCheckSessionsData(initialStateEmpty, {type: ''});
+    expect(result).toBeInstanceOf(Array);
+    expect(result).toHaveLength(0);
+  })
 });

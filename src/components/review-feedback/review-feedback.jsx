@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
@@ -140,4 +141,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Feedback);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Feedback));

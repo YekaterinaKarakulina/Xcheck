@@ -7,7 +7,7 @@ describe('check status', () => {
   });
 
   test('open', () => {
-    const result = checkStatus('active');
+    const result = checkStatus('open');
     expect(result).toEqual('green');
   });
 

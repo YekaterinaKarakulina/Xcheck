@@ -4,7 +4,7 @@ import {
 } from '../../actions/types/cross-check-sessions';
 
 const crossCheckSessionsData = (state = [], action) => {
-  switch (action.type) {
+  switch (action && action.type) {
     case GET_CROSSCHECK_SESSIONS_SUCCESS:
       return action.payload;
 

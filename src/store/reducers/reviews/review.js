@@ -6,7 +6,7 @@ import {
 } from '../../actions/types/reviews';
 
 const review = (state = [], action) => {
-  switch (action.type) {
+  switch (action && action.type) {
     case POST_REVIEW_SUCCESS:
       return {
         ...state,

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskLayout defaul value toMatchSnapshot TaskLayout defaul value 1`] = `ReactWrapper {}`;
+
+exports[`TaskLayout with id=task-edit-form toMatchSnapshot TaskLayout with id=task-edit-form 1`] = `ReactWrapper {}`;
+
+exports[`TaskLayout with id=task-form toMatchSnapshot TaskLayout with id=task-form 1`] = `ReactWrapper {}`;

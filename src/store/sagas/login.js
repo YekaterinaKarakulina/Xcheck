@@ -17,9 +17,8 @@ import {
 import { getRoles } from '../../utils';
 
 function* workerLogin(action) {
-  const { data, uri } = action.payload;
+  const { data } = action.payload;
   yield put({ type: LOGIN_START });
-  console.log(uri);
   try {
     const response = yield axiosAuth.post('/authenticate', data);
     yield put({ type: LOGIN_SUCCESS, payload: response.data });

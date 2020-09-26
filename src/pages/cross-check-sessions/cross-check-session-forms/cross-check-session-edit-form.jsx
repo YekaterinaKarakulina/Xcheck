@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -62,6 +61,7 @@ CrossCheckSessionEditForm.propTypes = {
   updateCrossCheckSession: PropTypes.func.isRequired,
   tasksTableData: PropTypes.instanceOf(Array).isRequired,
   getTasksTable: PropTypes.func.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = ({ crossCheckSessions, tasksTableData }) => ({

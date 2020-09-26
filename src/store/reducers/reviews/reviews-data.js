@@ -1,7 +1,7 @@
 import { GET_REVIEWS_SUCCESS, GET_REVIEWS_FAILURE } from '../../actions/types/reviews';
 
 const reviewsData = (state = [], action) => {
-  switch (action.type) {
+  switch (action && action.type) {
     case GET_REVIEWS_SUCCESS:
       return action.payload;
 
