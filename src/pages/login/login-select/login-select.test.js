@@ -7,7 +7,8 @@ describe('render', () => {
     const roles = ['author', 'student', 'supervisor', 'course_manager'];
     const result = render(
       <LoginSelect
-        roles={roles} />
+        roles={roles}
+        change={() => {}} />
     );
     expect(result).toMatchSnapshot()
   });
