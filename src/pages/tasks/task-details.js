@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TaskDescription from '../../components/tasks/task-description';
 
-const TaskDetails = (props) => {
+export const TaskDetails = (props) => {
   const { tasks } = props;
   return (
     <div className="wrapper">
