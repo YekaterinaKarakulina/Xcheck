@@ -26,8 +26,7 @@
       "error",
       "never"
     ],
-    "import/no-named-as-default": 0,
-    "import/no-mutable-exports": 0,
+    "import/no-named-as-default": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

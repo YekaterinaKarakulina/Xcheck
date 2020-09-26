@@ -8,7 +8,7 @@ import { getTasksTable } from '../../../store/actions/task';
 import TasksTableList from '../../../components/tasks/tasks-table/tasks-table-list';
 import mapDataTable from '../../../components/tasks/tasks-table/map-data-table';
 
-export class TasksTable extends React.Component {
+class TasksTable extends React.Component {
   componentDidMount() {
     const { getTasksTable } = this.props;
     getTasksTable();

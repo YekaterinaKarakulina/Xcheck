@@ -20,7 +20,7 @@ const AInput = makeField(Input, formItemLayout);
 const ASelect = makeField(Select, formItemLayout);
 const ATextArea = makeField(TextArea, formItemLayout);
 
-export let TaskFormCreation = (props) => {
+let TaskFormCreation = (props) => {
   const { handleSubmit, pristine, submitting } = props;
 
   return (

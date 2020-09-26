@@ -7,7 +7,7 @@ import TaskFormCreation from '../../../components/tasks/task-form/task-form-crea
 import { updateTaskSession, getTasksTable } from '../../../store/actions/task';
 import mapDataValues from './map-data-form';
 
-export const TaskFormEdit = (props) => {
+const TaskFormEdit = (props) => {
   const {
     tasks: { formValues },
     updateTaskSession,
@@ -51,3 +51,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TaskFormEdit));
+
+export { TaskFormEdit };
