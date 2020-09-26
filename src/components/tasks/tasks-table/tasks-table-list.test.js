@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import TasksTable from './tasks-table-list';
-import tasks from '../test-data';
+import { mount } from 'enzyme';
+import { tasks, task } from '../test-data';
 import mapData from './map-data-table';
+import { TasksTable } from './tasks-table-list';
 
 const initialData = tasks[0];
 const result = mapData(initialData);
@@ -18,9 +18,25 @@ describe('Check mapData', () => {
 	});
 });
 
-describe('render ', () => {
-	it('render TasksTable', () => {
-		const tree = shallow(<TasksTable />);
+describe('TasksTable component', () => {
+	const defaultProps = {
+		getTask: () => task,
+		tableData: [],
+		history: {}
+	};
+
+	it('toMatchSnapshot TasksTable component', () => {
+		const tree = mount(<TasksTable {...defaultProps} />);
 		expect(tree).toMatchSnapshot();
+	});
+
+	it('state searchText for TasksTable component', () => {
+		const tree = mount(<TasksTable {...defaultProps} />);
+		expect(tree.state().searchText).toBe("");
+	});
+
+	it('state searchedColumn for TasksTable component', () => {
+		const tree = mount(<TasksTable {...defaultProps} />);
+		expect(tree.state().searchedColumn).toBe("");
 	});
 });

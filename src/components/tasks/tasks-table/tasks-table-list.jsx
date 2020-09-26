@@ -9,7 +9,7 @@ import Highlighter from 'react-highlight-words';
 import checkStatus from '../../../utils/status';
 import { getTask } from '../../../store/actions/task';
 
-class TasksTable extends React.Component {
+export class TasksTable extends React.Component {
   state = {
     searchText: '',
     searchedColumn: '',

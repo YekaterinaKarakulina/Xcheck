@@ -7,7 +7,7 @@ import TaskFormCreation from '../../../components/tasks/task-form/task-form-crea
 import { updateTaskSession, getTasksTable } from '../../../store/actions/task';
 import mapDataValues from './map-data-form';
 
-const TaskFormEdit = (props) => {
+export const TaskFormEdit = (props) => {
   const {
     tasks: { formValues },
     updateTaskSession,
