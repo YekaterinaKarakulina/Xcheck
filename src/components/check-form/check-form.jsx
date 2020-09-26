@@ -22,7 +22,7 @@ const CheckForm = ({
   reviewRequest,
   handleSubmit,
   submitting,
-  pristine,
+  // pristine,
   toggleMore,
   toggleAdd,
   toggleShow,
@@ -116,7 +116,7 @@ const CheckForm = ({
       <div> {renderScopes}</div>
 
       <Divider />
-      <Button type="primary" htmlType="submit" size="large" disabled={pristine || submitting}>
+      <Button type="primary" htmlType="submit" size="large" disabled={submitting}>
         Submit
       </Button>
     </form>

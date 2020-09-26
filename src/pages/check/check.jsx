@@ -119,7 +119,11 @@ class Check extends Component {
       // eslint-disable-next-line no-restricted-syntax
 
       for (const item of Object.keys(selfGrade)) {
-        initialValues[item] = selfGrade[item].score;
+        if (item.includes('fp')) {
+          initialValues[item] = -Math.abs(selfGrade[item].score);
+        } else {
+          initialValues[item] = selfGrade[item].score;
+        }
       }
     } else {
       items.forEach((item) => {

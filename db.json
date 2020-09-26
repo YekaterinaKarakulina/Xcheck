@@ -890,6 +890,58 @@
         },
         "total": 16.5
       }
+    },
+    {
+      "id": "658e06a2-b058-4d7f-824c-89a7453e3657",
+      "requestId": "rev-req-9",
+      "requestor": "viktorsipach",
+      "author": "Ghuseynova",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 10,
+            "comment": ""
+          },
+          "task-3-ep1": {
+            "score": 30,
+            "comment": ""
+          },
+          "task-3-fp1": {
+            "score": -10,
+            "comment": ""
+          }
+        },
+        "total": 30
+      }
+    },
+    {
+      "id": "ee8c8995-559b-4ed5-8915-ea51e3f5cae1",
+      "requestId": "rev-req-9",
+      "requestor": "viktorsipach",
+      "author": "Ghuseynova",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 10,
+            "comment": ""
+          },
+          "task-3-ep1": {
+            "score": 30,
+            "comment": ""
+          },
+          "task-3-fp1": {
+            "score": -10,
+            "comment": ""
+          }
+        },
+        "total": 30
+      }
     }
   ],
   "reviewRequests": [
@@ -1035,15 +1087,15 @@
       "state": "published",
       "selfGrade": {
         "task-3-bp1": {
-          "score": 20,
+          "score": 10,
           "comment": "Well done!"
         },
         "task-3-ep1": {
-          "score": 15,
+          "score": 30,
           "comment": "Some things are done, some are not"
         },
         "task-3-fp1": {
-          "score": 0,
+          "score": 10,
           "comment": "No ticket today"
         }
       },

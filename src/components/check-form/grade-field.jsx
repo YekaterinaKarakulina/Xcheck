@@ -53,7 +53,7 @@ const GradeField = (props) => {
     minScore = -Math.abs(score);
   } else {
     maxScore = Number(score);
-    minScore = 0;
+    minScore = -Math.abs(score / 2);
   }
 
   const maxValue = useMemo(
@@ -85,6 +85,9 @@ const GradeField = (props) => {
             placeholder="Score"
             component={AInputNumber}
             validate={[required, maxValue, minValue, maxLength3, minLength1]}
+            onChange={(e, value) => {
+              console.log(value, e);
+            }}
           />
           <Button
             onClick={() => {
