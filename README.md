@@ -47,6 +47,7 @@ make db
 make auth
 ```
 ## Run tests
+Before running tests installation steps need to be done.
 ```bash
 npm run test (make test)
 ```

@@ -14,11 +14,11 @@ describe('reviewRequests', () => {
 
 describe('Get review request', () => {
   test('success', () => {
-    const result = reviewRequests(initialStateFull, {type: 'GET_REVIEW_REQUESTS_SUCCESS', payload: reviewRequest});
+    const result = reviewRequests(initialStateFull, {type: 'GET_REVIEW_REQUEST_SUCCESS', payload: reviewRequest});
         expect(result.currentReviewRequest).toEqual(reviewRequest);
     })
   test('failure', () => {
-    const result = reviewRequests(initialStateFull, {type: 'GET_REVIEW_REQUESTS_FAILURE'});
+    const result = reviewRequests(initialStateFull, {type: 'GET_REVIEW_REQUEST_FAILURE'});
     expect(result.currentReviewRequest).toEqual({});
   })
 });
@@ -44,5 +44,13 @@ describe('Update review request', () => {
   test('failure', () => {
     const result = reviewRequests(initialStateFull, {type: 'UPDATE_REVIEW_REQUEST_FAILURE'});
     expect(result.currentReviewRequest).toBeTruthy();
+  })
+});
+
+describe('Default', () => {
+  test('No action passed', () => {
+    const result = reviewRequests(initialStateFull, {type: ''});
+    expect(result).toBeDefined();
+    expect(result).toBeInstanceOf(Object);
   })
 });

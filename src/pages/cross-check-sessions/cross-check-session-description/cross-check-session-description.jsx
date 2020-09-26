@@ -192,9 +192,15 @@ class CrossCheckSessionDescription extends React.Component {
 }
 
 CrossCheckSessionDescription.propTypes = {
-  id: PropTypes.string.isRequired,
-  initialValues: PropTypes.instanceOf(Object).isRequired,
-  getCrossCheckSession: PropTypes.func.isRequired,
+  id: PropTypes.string,
+  initialValues: PropTypes.instanceOf(Object),
+  getCrossCheckSession: PropTypes.func,
+};
+
+CrossCheckSessionDescription.defaultProps = {
+  id: 'id',
+  initialValues: {},
+  getCrossCheckSession: () => {},
 };
 
 const mapStateToProps = ({ crossCheckSessions, reviewRequestsData, reviewsData }) => ({

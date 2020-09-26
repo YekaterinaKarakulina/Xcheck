@@ -842,7 +842,7 @@
     {
       "id": "3fa99256-4b52-4c09-823b-8d9f5b08535b",
       "requestId": "rev-req-9",
-      "taskAuthor": "viktorsipach",
+      "requestor": "viktorsipach",
       "author": "viktorsipach",
       "taskTitle": "Task 3",
       "state": "published",
