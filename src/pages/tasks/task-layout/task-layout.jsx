@@ -4,7 +4,7 @@ import TaskForm from '../task-form/task-form';
 import TaskFormEdit from '../task-form/task-form-edit';
 import TaskDetails from '../task-details';
 
-export const TaskLayout = ({ match }) => {
+const TaskLayout = ({ match }) => {
   const { id } = match.params;
   switch (id) {
     case 'task-form':
