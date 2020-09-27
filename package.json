@@ -9,7 +9,8 @@
     "build": "webpack --env.mode=production",
     "build-prod": "webpack --env.mode=production",
     "build-dev": "webpack --env.mode=development",
-    "test": "jest --coverage --collectCoverageFrom=src/**/*.{js,jsx}"
+    "test": "jest --coverage --collectCoverageFrom=src/**/*.{js,jsx}",
+    "lint": "eslint ./src"
   },
   "repository": {
     "type": "git",
