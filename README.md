@@ -51,6 +51,7 @@ Before running tests installation steps need to be done.
 ```bash
 npm run test (make test)
 ```
+Coverage report will be printed in terminal. Also "coverage" folder will be created, it will contain more information about coverage. 
 
 ## How to deploy 
   - deploy your database https://github.com/jesperorb/json-server-heroku
@@ -69,8 +70,6 @@ npm run test (make test)
     ```
   - deploy app on heroku using heroku cli or connect to github repository
   - reveal config vars in heroku dashboard > settings; add PORT key with needed value (3001 in our case)
-
-## Usage
 
 ### Database entities
  - /users
