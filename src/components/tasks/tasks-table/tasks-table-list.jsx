@@ -122,14 +122,14 @@ export class TasksTable extends React.Component {
           <Space size="large">
             <Button
               type="link"
-              onClick={() => this.handleClick(taskId, !editMode)}
-              icon={<EditTwoTone twoToneColor="#ffa940" />}
+              onClick={() => this.handleClick(taskId, editMode)}
+              icon={<EyeTwoTone twoToneColor="#9254de" />}
               size="small"
             />
             <Button
               type="link"
-              onClick={() => this.handleClick(taskId, editMode)}
-              icon={<EyeTwoTone twoToneColor="#9254de" />}
+              onClick={() => this.handleClick(taskId, !editMode)}
+              icon={<EditTwoTone twoToneColor="#ffa940" />}
               size="small"
             />
           </Space>

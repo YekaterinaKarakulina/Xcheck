@@ -36,14 +36,18 @@ const GradeField = (props) => {
     detailIds,
     commentIds,
     commentFieldIds,
+    changedInputIds,
     toggleMore,
     toggleShow,
     toggleAdd,
+    handleInputChange,
+    hideCommentArea,
   } = props;
   const { comment } = !isEmpty(selfGrade[id]) ? selfGrade[id] : '';
   const isDetailViewed = detailIds[id];
   const isCommentViewed = commentIds[id];
   const isCommentFieldOpened = commentFieldIds[id];
+  const isInputChanged = changedInputIds[id];
 
   let maxScore;
   let minScore;
@@ -85,6 +89,14 @@ const GradeField = (props) => {
             placeholder="Score"
             component={AInputNumber}
             validate={[required, maxValue, minValue, maxLength3, minLength1]}
+            onChange={(value) => {
+              if (value !== Number(score)) {
+                handleInputChange(id);
+                toggleAdd(id);
+              } else {
+                hideCommentArea(id);
+              }
+            }}
           />
           <Button
             onClick={() => {
@@ -104,7 +116,19 @@ const GradeField = (props) => {
         <div>
           <div>
             <Space size="middle" align="start">
-              <Field label="Performed" name={`performans-group-${id}`} component={ARadioGroup}>
+              <Field
+                label="Performed"
+                name={`performans-group-${id}`}
+                component={ARadioGroup}
+                onChange={(e, value) => {
+                  if (value !== '50%') {
+                    hideCommentArea(id);
+                  } else {
+                    handleInputChange(id);
+                    toggleAdd(id);
+                  }
+                }}
+              >
                 <Radio value="0">Not performed</Radio>
                 <Radio value="50%">50% Performed </Radio>
                 <Radio value="100%">100% Performed</Radio>
@@ -125,8 +149,26 @@ const GradeField = (props) => {
               name={`comment_${id}`}
               placeholder="Comment"
               component={ATextarea}
-              style={{ display: isCommentFieldOpened ? 'block' : 'none' }}
+              style={{
+                display: isCommentFieldOpened ? 'block' : 'none',
+                borderColor: isInputChanged ? '#ff4d4f' : '#d9d9d9',
+              }}
+              onChange={(e, value) => {
+                if (value.length > 0) {
+                  handleInputChange(id);
+                }
+              }}
             />
+            <div
+              style={{
+                display: isInputChanged ? 'block' : 'none',
+                color: 'red',
+                marginTop: '-15px',
+                marginBottom: '15px',
+              }}
+            >
+              You noted: partially completed. Be sure to leave feedback!
+            </div>
           </div>
         </div>
       </div>
