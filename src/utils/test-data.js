@@ -57,7 +57,7 @@ const reviewRequestFormValuesRequired = {
 
 const reviewRequestFormValues = {
   author: "yekaterinakarakulina",
-  crossCheckSessionId: "xcheck-4",
+  crossCheckSessionTitle: "xcheck-4",
   hasChoiceCrossCheckSession: true,
   linkToDemo: "some link to Demo",
   linkToPR: "some link to PR",
