@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TasksTable page toMatchSnapshot TasksTable 1`] = `ShallowWrapper {}`;

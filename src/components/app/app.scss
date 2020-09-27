@@ -1,0 +1,23 @@
+@import '~antd/dist/antd.css';
+
+html {
+  font-size: 10px;
+}
+
+.main {
+  width: 100%;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.ant-page-header {
+  margin-bottom: 2.5rem;
+}
+
+.ant-table-wrapper,
+.ant-descriptions-view {
+  margin: 2rem auto;
+}

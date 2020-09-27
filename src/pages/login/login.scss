@@ -1,0 +1,16 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -65%);
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .login {
+    top: 20px;
+    transform: translate(-50%, 0px);
+  }
+}

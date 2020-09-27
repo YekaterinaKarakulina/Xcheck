@@ -1,0 +1,17 @@
+.creationItemPosition {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  li {
+    list-style-type: none;
+    .addFieldArrayBtn {
+      position: fixed;
+      bottom: 50%;
+      right: 4rem;
+    }
+  }
+  li:first-child {
+    align-self: center;
+    margin-bottom: 1rem;
+  }
+}

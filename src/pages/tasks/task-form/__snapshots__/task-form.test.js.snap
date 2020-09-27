@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskForm page toMatchSnapshot for TaskForm page 1`] = `ReactWrapper {}`;

@@ -1,0 +1,58 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": [
+    "import",
+    "jsx-a11y",
+    "react",
+    "react-hooks"
+  ],
+  "rules": {
+    "strict": 0,
+    "react/state-in-constructor": 0,
+    "react/jsx-props-no-spreading": "off",
+    "no-console": "off",
+    "no-shadow": "off",
+    "func-names": [
+      "error",
+      "never"
+    ],
+    "import/no-named-as-default": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,1127 @@
+{
+  "users": [
+    {
+      "id": "47fb03a6-b770-4e64-a533-e507cfa49020",
+      "githubId": "viktorsipach",
+      "roles": [
+        "author",
+        "student",
+        "supervisor",
+        "course_manager"
+      ]
+    },
+    {
+      "id": "4dc0685c-df82-4db1-8d5b-ac31f954434e",
+      "githubId": "KatiaR",
+      "roles": []
+    },
+    {
+      "id": "f8044829-0a33-4c68-81eb-7849a0cb0e18",
+      "githubId": "YekaterinaKarakulina",
+      "roles": [
+        "author",
+        "student",
+        "supervisor",
+        "course_manager"
+      ]
+    },
+    {
+      "id": "dc79022b-80b5-4200-bcd3-a739923818a3",
+      "githubId": "PavelZaharov1987",
+      "roles": [
+        "author",
+        "student"
+      ]
+    },
+    {
+      "id": "59b7f101-3462-4cd2-a418-e210f4fb8149",
+      "githubId": "Ghuseynova",
+      "roles": [
+        "author"
+      ]
+    },
+    {
+      "id": "b08a13d8-5df2-4953-be60-0ed72617c58f",
+      "githubId": "Kipris",
+      "roles": [
+        "author",
+        "student",
+        "supervisor",
+        "course_manager"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "taskScore": 100,
+      "title": "Task 1",
+      "state": "draft",
+      "author": "viktorsipach",
+      "description": "Task 1 description",
+      "items": [
+        {
+          "id": "task-1-bp1",
+          "title": "basic_p1",
+          "category": "basic",
+          "score": "10",
+          "description": "basic_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-1-bp2",
+          "title": "basic_p2",
+          "category": "basic",
+          "score": "20",
+          "description": "basic_p2 - You need to do some things",
+          "mentorCheck": false
+        },
+        {
+          "id": "task-1-ep1",
+          "title": "extra_p1",
+          "category": "extra",
+          "score": "30",
+          "description": "extra_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-1-ep2",
+          "title": "extra_p2",
+          "category": "extra",
+          "score": "50",
+          "description": "extra_p2 - You need to do some things",
+          "mentorCheck": false
+        },
+        {
+          "id": "task-1-fp1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "10",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-1-fp2",
+          "title": "fines_p2",
+          "category": "fines",
+          "score": "10",
+          "description": "fines_p2 - You need to do some things",
+          "mentorCheck": false
+        }
+      ],
+      "taskId": "task-1",
+      "id": "task-1"
+    },
+    {
+      "taskScore": 100,
+      "title": "Task 2",
+      "state": "closed",
+      "author": "KatiaR",
+      "description": "Task 2 description",
+      "items": [
+        {
+          "id": "task-2-bp1",
+          "title": "basic_p1",
+          "category": "basic",
+          "score": "10",
+          "description": "basic_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-2-ep1",
+          "title": "extra_p1",
+          "category": "extra",
+          "score": "30",
+          "description": "extra_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-2-fp1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "10",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
+        }
+      ],
+      "taskId": "task-2",
+      "id": "task-2"
+    },
+    {
+      "taskScore": 100,
+      "title": "Task 3",
+      "state": "open",
+      "author": "YekaterinaKarakulina",
+      "description": "Task 3 description",
+      "items": [
+        {
+          "id": "task-3-bp1",
+          "title": "basic_p1",
+          "category": "basic",
+          "score": "10",
+          "description": "basic_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-3-ep1",
+          "title": "extra_p1",
+          "category": "extra",
+          "score": "30",
+          "description": "extra_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-3-fp1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "10",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
+        }
+      ],
+      "taskId": "task-3",
+      "id": "task-3"
+    },
+    {
+      "taskScore": 100,
+      "title": "Task 4",
+      "state": "archived",
+      "author": "author4",
+      "description": "Task 4 description",
+      "items": [
+        {
+          "id": "task-4-bp1",
+          "title": "basic_p1",
+          "category": "basic",
+          "score": "10",
+          "description": "basic_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-4-ep1",
+          "title": "extra_p1",
+          "category": "extra",
+          "score": "30",
+          "description": "extra_p1 - You need to do some things",
+          "mentorCheck": true
+        },
+        {
+          "id": "task-4-fp1",
+          "title": "fines_p1",
+          "category": "fines",
+          "score": "20",
+          "description": "fines_p1 - You need to do some things",
+          "mentorCheck": true
+        }
+      ],
+      "taskId": "task-4",
+      "id": "task-4"
+    },
+    {
+      "taskScore": 600,
+      "title": "X Check App / RS Assessment Tool",
+      "state": "open",
+      "author": "Artёm Sinicyn",
+      "description": "Цели задания\nРазработать инструмент, который может использоваться тысячами реальных пользователей.\nПомочь будущим поколениям студентов и менторов школы Rolling Scopes.\nПолучить опыт командной работы близкий к условиям реальных проектов.\nУкрасить CV ссылкой на качественное приложение.\nПосле оценки работ мы (организаторы и студенты) выберем решение, которое будет интегрировано в RS App. Решения будут оцениваться по следующим критериям:\n\nСогласие команды на использование их кода.\nКачество кода и реализации.\nСхожесть дизайна и набора технологий с RS App.\nГотовность команды работать над интеграцией решения в RS App.\nОсобенности задания\nРабота ведётся в группах. Описание процесса командной работы\nДля проверки и оценки решений проводится кросс-чек.\nИнформацию, которую команда хочет донести до проверяющих необходимо поместить в README репозитория.\nТехнические требования\nНужно использовать\nReact\nМожно использовать\nRedux.\nCreate React App\nTypeScript, Next.js, Ant Design - для более простой интеграции решения в RS App\nВсё остальное\nМожно не использовать\nХуки. Правда, можно и без них.\nСервер\nВ качестве сервера рекомендуется использовать json-server. Это будет достаточным приближением к реальному Rest API.\n\nДля удобства командной работы можно коммитить исходный файл (db.json). Но будьте внимательны и не добавляйте в коммиты нежелательные изменения (не делайте git add .).\n\nВ продакшн сборке не будет локального json-server, поэтому каждая команда должна задеплоить свой json-server на какой-нибудь хостинг, например - heroku.\n\nМожно использовать не json-server, а любую другой способ реализации Rest API. Если не используется сервер, а например локальная эмуляция с localStorage, то оценка будет ниже (см. критерии оценки).\n\nФункциональные требования\nПриложению нужна аутентификация, но форму логина можно сделать упрощённой - с обязательным вводом только логина (githubId). Наличие поля для ввода пароля - на ваше усмотрение, но тогда нужна и упрощённая регистрация. У пользователя также должна быть одна или несколько ролей. Роли выбираются при логине или регистрации (если она есть).\n\nЗадание создаётся пользователем (автором) в виде списка оцениваемых требований. Каждое требование обязательно содержит название и максимальную оценку. Для удобства можно сделать отдельное текстовое описание.\n\nЧтобы создать запрос на оценку, студент выбирает задачу и указывает ссылку на решение и на pull request.\n\nПеред тем как запрос становится доступен для проверяющих, студент должен выполнить самопроверку.\n\nПри самопроверке студент ставит оценку по каждому пункту от 0 до максимума. Для каждого пункта можно оставить комментарий, например, пояснить каким образом было реализовано требование.\n\nПри проверке чужой работы процедура та же, но проверяющий видит оценки и комментарии из самопроверки. Для удобства можно заполнять форму оценками из самопроверки, чтобы проверяющий менял только те оценки, с которыми не согласен.\n\nПосле того как проверяющий опубликовал свою проверку, она становится доступна для просмотра студенту. Если студент не согласен с оценкой по каким-то пунктам, он может оспорить каждый пункт в отдельности. Проверяющий может изменить оценку или оставить как есть.\n\nМожно организовывать сессии кросс-чека как в последних наборах RS School. При этом сохраняется возможность создания запроса на проверку вне сессии.\n\nКросс-чек сессия проходит несколько стадий:\n\nСбор запросов на оценку.\nПроверка работ случайно выбранными участниками сессии.\nВыставление итоговой оценки по результатам проверок.\nЕсли для стадий кросс-чек сессии можно указать дедлайны, то они носят информативный характер и переключение между стадиями производятся пользователем.\n\nСущности и состояния\nНиже следует пример того, как могли бы выглядеть сущности в приложении. Ваше приложение может использовать как точно такие же структуры, так и совершенно другие. Скорее всего, список неполный и понадобятся ещё вспомогательные сущности. Набор полей точно не исчерпывающий, например не описана структура для финальных оценок после кросс-чека. Демо\nЕго нет! Вы создаёте уникальное приложение, общеизвестных аналогов которому не существует. Если подобное приложение вам попадалось - просьба отправить ссылку @cardamo.",
+      "items": [
+        {
+          "title": "Упрощённая страница/окно авторизации",
+          "category": "basic",
+          "score": 10,
+          "description": "",
+          "id": "1f7dd999-4b7b-4d2e-8a9e-2f9b3b2cbc5a",
+          "mentorCheck": false
+        },
+        {
+          "category": "basic",
+          "score": 10,
+          "description": "",
+          "title": "Страница со списком задач (tasks)",
+          "id": "04999ed8-06c9-4730-b92b-dcabc06743a2",
+          "mentorCheck": false
+        },
+        {
+          "score": 20,
+          "description": "",
+          "category": "basic",
+          "title": "Форма (на отдельной странице или в окне) создания и редактирования задачи",
+          "id": "e8cf01ef-7e65-4f00-9b44-e108b31624f5",
+          "mentorCheck": false
+        },
+        {
+          "description": "",
+          "score": 10,
+          "category": "basic",
+          "title": "Страница со списком запросов на проверку (review requests)",
+          "id": "087a8bf7-7242-450c-938f-40954c180cf3",
+          "mentorCheck": false
+        },
+        {
+          "description": "",
+          "score": 10,
+          "category": "basic",
+          "title": "Список запросов на проверку можно сортировать и фильтровать по заданию, выполнившему студенту и статусу",
+          "id": "07ce1157-0783-430a-b6b1-63f94e57847c",
+          "mentorCheck": false
+        },
+        {
+          "title": "Форма создания запроса на проверку",
+          "description": "",
+          "score": 10,
+          "category": "basic",
+          "id": "84cd8c01-8914-461d-85be-f003b685b054",
+          "mentorCheck": false
+        },
+        {
+          "description": "",
+          "score": 20,
+          "category": "basic",
+          "title": "Форма проверки и самопроверки задания",
+          "id": "3a29ba16-5825-4526-87d0-94a13896a99c",
+          "mentorCheck": false
+        },
+        {
+          "description": "",
+          "score": 10,
+          "category": "basic",
+          "title": "Страница со списком оценок работ (reviews)",
+          "id": "d186adc6-1576-4546-bf8e-46ae81ec918f",
+          "mentorCheck": false
+        },
+        {
+          "description": "Список оценок можно сортировать по всем полям/колонкам, где сортировка применима",
+          "score": 10,
+          "category": "basic",
+          "title": "Сортировка списка оценок",
+          "id": "5011cfe1-2459-43cc-9894-adcfc8e886f7",
+          "mentorCheck": false
+        },
+        {
+          "description": "",
+          "score": 10,
+          "category": "basic",
+          "title": "Список оценок можно фильтровать по заданию, выполнившему студенту и проверяющему",
+          "id": "b2da23ce-50a1-43e0-9a3a-d89b4a69739e",
+          "mentorCheck": false
+        },
+        {
+          "description": "",
+          "score": 10,
+          "category": "basic",
+          "title": "Страница или окно с деталями оценки одного проверяющего",
+          "id": "4ed79c58-b819-41e0-9f66-73e5a3728b95",
+          "mentorCheck": false
+        },
+        {
+          "description": "Главная страница со ссылками на остальные доступные страницы ИЛИ всегда видимое меню для навигации",
+          "score": 10,
+          "category": "basic",
+          "title": "Меню для навигации",
+          "id": "52e5aab7-8d1b-4cb0-8edf-1af9208f869d",
+          "mentorCheck": false
+        },
+        {
+          "title": "Пометить пункт как штраф ИЛИ возможность указать минимальный балл меньше 0",
+          "category": "extra",
+          "score": 10,
+          "description": "",
+          "id": "4dcd5ad5-1448-421e-8444-41e15596a8d2",
+          "mentorCheck": false
+        },
+        {
+          "title": "Система ролей",
+          "category": "extra",
+          "score": 10,
+          "description": "Пометить пункт как проверяемый только ментором (скрывать при кросс-чеке), или более сложная система ролей при проверке",
+          "id": "9a341930-2737-4dca-b52b-ac5b87f394ae",
+          "mentorCheck": false
+        },
+        {
+          "title": "Объединение требований в категории (basic scope, advanced, etc)",
+          "category": "extra",
+          "score": 10,
+          "description": "",
+          "id": "c3a9b0e3-0a3b-441c-b698-fdd304adad51",
+          "mentorCheck": false
+        },
+        {
+          "title": "Импорт пунктов и категорий в формате RSS Checklist",
+          "category": "extra",
+          "score": 10,
+          "description": "",
+          "id": "70d29d15-ecad-42e9-ba62-9df34d07dccf",
+          "mentorCheck": false
+        },
+        {
+          "title": "Markdown формат",
+          "category": "extra",
+          "score": 30,
+          "description": "Импорт пунктов и категорий в markdown формате, в котором описано большинство задач RSS",
+          "id": "aef65f92-2f41-435a-9646-a196d3f2c0b9",
+          "mentorCheck": false
+        },
+        {
+          "title": "Экспорт и импорт задания в собственном JSON формате",
+          "category": "extra",
+          "score": 20,
+          "description": "Побочный эффект - задание легко скопировать, оставив оригинальное без изменений. ",
+          "id": "d156db67-e8f9-48e9-b673-2c9d13daf65f",
+          "mentorCheck": false
+        },
+        {
+          "title": "Кнопки для быстрой оценки",
+          "category": "extra",
+          "score": 10,
+          "description": "Кнопки для быстрой оценки (не выполнено - 0 баллов, выполнено частично - 50%, выполнено полностью - 100%), но остаётся возможность указать любое промежуточное значение.",
+          "id": "489631fa-0b9d-4b43-a776-33fcca467d8a",
+          "mentorCheck": false
+        },
+        {
+          "title": "Пункт со штрафными или поощрительными баллами",
+          "category": "extra",
+          "score": 10,
+          "description": "Дать возможность проверяющему добавить ещё один пункт со штрафными или поощрительными баллами. Способы реализации могут быть различными, например можно просто дать возможность указывать не только максимальный балл за требование, но и минимальный меньше ноля. ",
+          "id": "d5db0adc-9128-480c-9a72-d5d76749d6af",
+          "mentorCheck": false
+        },
+        {
+          "title": " Поле комментария ",
+          "category": "extra",
+          "score": 10,
+          "description": "Сделать поле комментария обязательным, если оценка не совпадает с самопроверкой.",
+          "id": "c5f800b0-0b97-4453-b5eb-12ddad0e942d",
+          "mentorCheck": false
+        },
+        {
+          "title": "Промежуточное состояние проверки",
+          "category": "extra",
+          "score": 10,
+          "description": "Промежуточное состояние проверки (и самопроверки тоже) можно сохранить, не публикуя её.",
+          "id": "f8505547-8080-40a5-ba64-defe11497df1",
+          "mentorCheck": false
+        },
+        {
+          "title": "Обратная связь ",
+          "category": "extra",
+          "score": 10,
+          "description": "Возможность оставить обратную связь проверяющему - поблагодарить или пожаловаться. ",
+          "id": "0131a8bd-aae8-411b-9904-ce48594bd3b4",
+          "mentorCheck": false
+        },
+        {
+          "title": "Возможность оспорить оценку по каждому пункту",
+          "category": "extra",
+          "score": 30,
+          "description": " ",
+          "id": "20438cfa-b02f-4f12-b151-1563dcaf484c",
+          "mentorCheck": false
+        },
+        {
+          "title": "Решение по оспариваемому пункту",
+          "score": 10,
+          "description": "Принять решение по оспариваемому пункту может не только проверяющий, но и пользователь со специальной ролью.",
+          "category": "extra",
+          "id": "ef3cf55d-0ddc-497d-914b-390175a8f444",
+          "mentorCheck": false
+        },
+        {
+          "title": "Страница со списком кросс-чек сессий",
+          "category": "extra",
+          "score": 20,
+          "description": "Страница со списком кросс-чек сессий. Автор заданий (или другая роль на ваше усмотрение) может создавать и редактировать сессии. ",
+          "id": "e863aab2-6892-403e-bdd5-c7b3e8131f1c",
+          "mentorCheck": false
+        },
+        {
+          "title": " Запросы на проверку в рамках конкретной кросс-чек сессии",
+          "category": "extra",
+          "score": 10,
+          "description": "Студенты могут создавать запросы на проверку в рамках конкретной кросс-чек сессии.",
+          "id": "a6051c6b-0ddc-4cee-915b-f5f4a5039414",
+          "mentorCheck": false
+        },
+        {
+          "title": "Остановка сбора запросов на проверку в рамках кросс-чек сессии",
+          "category": "extra",
+          "score": 10,
+          "description": "Автор задания может остановить сбор запросов на проверку в рамках кросс-чек сессии и случайным образом распределить проверяющих",
+          "id": "308fdd8f-0e17-4794-a17f-20af24d31995",
+          "mentorCheck": false
+        },
+        {
+          "title": "Завершение кросс-чек сессии",
+          "category": "extra",
+          "score": 10,
+          "description": "Автор задания может завершить кросс-чек сессию, после чего студент может посмотреть свою итоговую оценку.",
+          "id": "5bf4486f-2e71-4a15-ad17-eaab77c09b4a",
+          "mentorCheck": false
+        },
+        {
+          "title": "Набор ролей ",
+          "category": "extra",
+          "score": 30,
+          "description": "Каждое действие, меняющее данные, доступно только при наличии у пользователя соответствующей роли. Набор ролей можно взять из примера или придумать свои. ",
+          "id": "4acd064b-e873-4805-a66c-b095d1f78fc9",
+          "mentorCheck": false
+        },
+        {
+          "title": "Полноценная авторизация через GitHub OAuth",
+          "category": "extra",
+          "score": 20,
+          "description": "Для удобства проверки выбор ролей лучше оставить при логине. ",
+          "id": "abc16f47-9c9c-4b01-96a9-39b5aa5f8e6f",
+          "mentorCheck": false
+        },
+        {
+          "title": "Примеры сущностей каждого типа",
+          "category": "extra",
+          "score": 10,
+          "description": "В исходной базе (db.json) есть примеры сущностей каждого типа. ",
+          "id": "fe287dc2-ba71-48c5-ba13-322ba3c0fd82",
+          "mentorCheck": false
+        },
+        {
+          "title": "Воспроизведено задание xcheck и создан запрос на его оценку",
+          "category": "extra",
+          "score": 10,
+          "description": "В исходной базе (db.json) воспроизведено задание xcheck и создан запрос на его оценку. ",
+          "id": "7091abef-f9bb-4d23-b97d-28aa722a31db",
+          "mentorCheck": false
+        },
+        {
+          "title": "Дополнительные полезные возможности",
+          "category": "extra",
+          "score": 30,
+          "description": "Дополнительные полезные возможности, не описанные в требованиях к заданию. Для оценки должны обязательно быть описаны в README.",
+          "id": "916a3cc2-7d7b-4cbe-bcf6-4849cb701785",
+          "mentorCheck": false
+        },
+        {
+          "title": "README файл ",
+          "category": "extra",
+          "score": 20,
+          "description": "README файл в репозитории с описанием используемых технологий, инструкцией для начала разработки и для деплоя продакшн версии. ",
+          "id": "739f2d88-b9f6-4f3a-bf8a-2a6bc51fc9e9",
+          "mentorCheck": false
+        },
+        {
+          "title": "Юнит-тесты",
+          "category": "extra",
+          "score": 50,
+          "description": "Написаны юнит-тесты, code coverage > 50%. Способ получения coverage report описан в README.",
+          "id": "67505888-5dc7-40f6-b6a1-24bdebcc5e85",
+          "mentorCheck": false
+        },
+        {
+          "title": "Осмысленные ассерты для тестов",
+          "category": "extra",
+          "score": 30,
+          "description": "По названиям юнит тестов понятно, что они тестируют. Тесты не просто вызывают код, но и делают осмысленные ассерты. до +30, если code coverage меньше 50%, максимальная оценка снижается пропорционально (при 25% максимум +15 баллов).",
+          "id": "d332c5a3-b0ba-420f-9c2d-f2f7ae676867",
+          "mentorCheck": false
+        },
+        {
+          "title": "Eslint preset",
+          "category": "extra",
+          "score": 20,
+          "description": "Использован eslint preset (не обязательно airbnb) и нет предупреждений и ошибок. ",
+          "id": "937e7579-16f2-456a-8f08-2f4d344f0188",
+          "mentorCheck": false
+        },
+        {
+          "title": "Kомментарии в пулл реквестах",
+          "category": "extra",
+          "score": 10,
+          "description": "В репозитории есть \"следы\" активной командной работы - комментарии в пулл реквестах. ",
+          "id": "4e0049e2-8cdf-4fcc-bd0b-f37c505125ae",
+          "mentorCheck": false
+        }
+      ],
+      "taskId": "0f3f3610-70b3-49c9-8246-309bc65c1a44",
+      "id": "0S65qPX"
+    }
+  ],
+  "crossCheckSessions": [
+    {
+      "id": "xcheck-1",
+      "title": "rss2020Q3react-songbird",
+      "author": "viktorsipach",
+      "state": "draft",
+      "taskTitle": "Task 1",
+      "crossCheckSessionPeriod": [
+        "2020-07-08",
+        "2020-07-14"
+      ],
+      "coefficient": 0.2,
+      "discardMinScore": true,
+      "discardMaxScore": true,
+      "minReviewsAmount": 1,
+      "desiredReviewsAmount": 2,
+      "attendees": []
+    },
+    {
+      "id": "xcheck-2",
+      "title": "rss2020Q3react-xcheck",
+      "author": "KatiaR",
+      "state": "draft",
+      "taskTitle": "Task 2",
+      "crossCheckSessionPeriod": [
+        "2020-09-15",
+        "2020-09-17"
+      ],
+      "coefficient": 0.7,
+      "discardMinScore": true,
+      "discardMaxScore": true,
+      "minReviewsAmount": 1,
+      "desiredReviewsAmount": 2,
+      "attendees": []
+    },
+    {
+      "id": "xcheck-3",
+      "title": "rss2020Q3react-schedule",
+      "author": "YekaterinaKarakulina",
+      "state": "closed",
+      "taskTitle": "Task 3",
+      "crossCheckSessionPeriod": [
+        "2020-08-22",
+        "2020-09-22"
+      ],
+      "coefficient": 0.7,
+      "discardMinScore": true,
+      "discardMaxScore": false,
+      "minReviewsAmount": 1,
+      "desiredReviewsAmount": 2,
+      "attendees": [
+        {
+          "githubId": "viktorsipach",
+          "reviewerOf": [
+            "Kipris",
+            "Ghuseynova"
+          ]
+        },
+        {
+          "githubId": "PavelZaharov1987",
+          "reviewerOf": [
+            "viktorsipach",
+            "Ghuseynova"
+          ]
+        },
+        {
+          "githubId": "Ghuseynova",
+          "reviewerOf": [
+            "Kipris",
+            "PavelZaharov1987"
+          ]
+        },
+        {
+          "githubId": "Kipris",
+          "reviewerOf": [
+            "viktorsipach",
+            "PavelZaharov1987"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xcheck-4",
+      "title": "rss2020Q3react-someApp",
+      "author": "KatiaR",
+      "state": "active",
+      "taskTitle": "Task 3",
+      "crossCheckSessionPeriod": [
+        "2020-08-22",
+        "2020-09-22"
+      ],
+      "coefficient": 0.7,
+      "discardMinScore": true,
+      "discardMaxScore": false,
+      "minReviewsAmount": 1,
+      "desiredReviewsAmount": 2,
+      "attendees": []
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-id-1",
+      "requestId": "rev-req-1",
+      "author": "KatiaR",
+      "requestor": "viktorsipach",
+      "taskTitle": "Task 1",
+      "state": "published",
+      "comments": [
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Test saga!"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Yes!"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Well done!"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Good!"
+        }
+      ],
+      "grade": {
+        "items": {
+          "task-1-bp1": {
+            "score": 15,
+            "comment": "Well done!"
+          },
+          "task-1-ep1": {
+            "score": 0,
+            "comment": "Some things are done, some are not"
+          },
+          "task-1-fp1": {
+            "score": -20,
+            "comment": "No ticket today"
+          }
+        },
+        "total": -5
+      }
+    },
+    {
+      "id": "rev-id-2",
+      "requestId": "rev-req-2",
+      "author": "YekaterinaKarakulina",
+      "requestor": "viktorsipach",
+      "taskTitle": "Task 2",
+      "state": "published",
+      "comments": [
+        {
+          "author": "Ghuseynova",
+          "avatar": "https://avatars2.githubusercontent.com/u/37036608?v=4",
+          "content": "sada"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Well!"
+        },
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Good Job!"
+        }
+      ],
+      "grade": {
+        "items": {
+          "task-2-bp1": {
+            "score": 25,
+            "comment": "Well done!"
+          },
+          "task-2-ep1": {
+            "score": 5,
+            "comment": "Some things are done, some are not"
+          },
+          "task-2-fp1": {
+            "score": -10,
+            "comment": "No ticket today"
+          }
+        },
+        "total": 40
+      }
+    },
+    {
+      "id": "rev-id-3",
+      "requestId": "rev-req-4",
+      "author": "PavelZaharov1987",
+      "requestor": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "draft",
+      "comments": [],
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 25,
+            "comment": "Well done!"
+          },
+          "extra_p1": {
+            "score": 5,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 0,
+            "comment": "No ticket today"
+          }
+        },
+        "total": 40
+      }
+    },
+    {
+      "id": "rev-id-4",
+      "requestId": "rev-req-4",
+      "author": "Ghuseynova",
+      "requestor": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "draft",
+      "comments": [],
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 25,
+            "comment": "Well done!"
+          },
+          "extra_p1": {
+            "score": 10,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": 0,
+            "comment": "No ticket today"
+          }
+        },
+        "total": 40
+      }
+    },
+    {
+      "id": "rev-id-5",
+      "requestId": "rev-req-4",
+      "requestor": "viktorsipach",
+      "author": "Kipris",
+      "taskTitle": "Task 3",
+      "state": "draft",
+      "comments": [],
+      "grade": {
+        "items": {
+          "basic_p1": {
+            "score": 25,
+            "comment": "Good!"
+          },
+          "extra_p1": {
+            "score": 10,
+            "comment": "Some things are done, some are not"
+          },
+          "fines_p1": {
+            "score": -5,
+            "comment": "No ticket today"
+          }
+        },
+        "total": 40
+      }
+    },
+    {
+      "id": "e534df59-8150-42f5-9e1d-11f3325f2016",
+      "requestId": "rev-req-9",
+      "author": "viktorsipach",
+      "requestor": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [
+        {
+          "author": "viktorsipach",
+          "avatar": "https://avatars1.githubusercontent.com/u/54073656?v=4",
+          "content": "Test"
+        }
+      ],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 5,
+            "comment": ""
+          },
+          "task-3-ep1": {
+            "score": 15,
+            "comment": "Well"
+          },
+          "task-3-fp1": {
+            "score": -5,
+            "comment": ""
+          }
+        },
+        "total": 15
+      }
+    },
+    {
+      "id": "3fa99256-4b52-4c09-823b-8d9f5b08535b",
+      "requestId": "rev-req-9",
+      "requestor": "viktorsipach",
+      "author": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 10,
+            "comment": "Test"
+          },
+          "task-3-ep1": {
+            "score": 4.5,
+            "comment": "Well"
+          },
+          "task-3-fp1": {
+            "score": -2,
+            "comment": "Good"
+          }
+        },
+        "total": 12.5
+      }
+    },
+    {
+      "id": "26c66a70-a7ab-4b6f-ac31-39ec6d489b1b",
+      "requestId": "rev-req-9",
+      "requestor": "viktorsipach",
+      "author": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 10,
+            "comment": "Test 2"
+          },
+          "task-3-ep1": {
+            "score": 7.5,
+            "comment": ""
+          },
+          "task-3-fp1": {
+            "score": -1,
+            "comment": ""
+          }
+        },
+        "total": 16.5
+      }
+    },
+    {
+      "id": "658e06a2-b058-4d7f-824c-89a7453e3657",
+      "requestId": "rev-req-9",
+      "requestor": "viktorsipach",
+      "author": "Ghuseynova",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 10,
+            "comment": ""
+          },
+          "task-3-ep1": {
+            "score": 30,
+            "comment": ""
+          },
+          "task-3-fp1": {
+            "score": -10,
+            "comment": ""
+          }
+        },
+        "total": 30
+      }
+    },
+    {
+      "id": "ee8c8995-559b-4ed5-8915-ea51e3f5cae1",
+      "requestId": "rev-req-9",
+      "requestor": "viktorsipach",
+      "author": "Ghuseynova",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "comments": [],
+      "grade": {
+        "items": {
+          "task-3-bp1": {
+            "score": 10,
+            "comment": ""
+          },
+          "task-3-ep1": {
+            "score": 30,
+            "comment": ""
+          },
+          "task-3-fp1": {
+            "score": -10,
+            "comment": ""
+          }
+        },
+        "total": 30
+      }
+    }
+  ],
+  "reviewRequests": [
+    {
+      "id": "rev-req-2",
+      "author": "KatiaR",
+      "taskTitle": "Task 2",
+      "state": "draft",
+      "selfGrade": {},
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": "xcheck-3"
+    },
+    {
+      "id": "rev-req-3",
+      "author": "KatiaR",
+      "taskTitle": "Task 3",
+      "state": "draft",
+      "selfGrade": {},
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": "xcheck-3"
+    },
+    {
+      "id": "rev-req-4",
+      "author": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "readyToXCheck",
+      "selfGrade": {
+        "task-3-bp1": {
+          "score": 20,
+          "comment": "Well done!"
+        },
+        "task-3-ep1": {
+          "score": 15,
+          "comment": "Some things are done, some are not"
+        },
+        "task-3-fp1": {
+          "score": 0,
+          "comment": "No ticket today"
+        }
+      },
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": "xcheck-3"
+    },
+    {
+      "id": "rev-req-5",
+      "author": "PavelZaharov1987",
+      "taskTitle": "Task 3",
+      "state": "readyToXCheck",
+      "selfGrade": {
+        "task-3-bp1": {
+          "score": 20,
+          "comment": "Well done!"
+        },
+        "task-3-ep1": {
+          "score": 15,
+          "comment": "Some things are done, some are not"
+        },
+        "task-3-fp1": {
+          "score": 0,
+          "comment": "No ticket today"
+        }
+      },
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": "xcheck-3"
+    },
+    {
+      "id": "rev-req-6",
+      "author": "Ghuseynova",
+      "taskTitle": "Task 3",
+      "state": "readyToXCheck",
+      "selfGrade": {
+        "task-3-bp1": {
+          "score": 20,
+          "comment": "Well done!"
+        },
+        "task-3-ep1": {
+          "score": 15,
+          "comment": "Some things are done, some are not"
+        },
+        "task-3-fp1": {
+          "score": 0,
+          "comment": "No ticket today"
+        }
+      },
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": "xcheck-3"
+    },
+    {
+      "id": "rev-req-7",
+      "author": "Kipris",
+      "taskTitle": "Task 3",
+      "state": "readyToXCheck",
+      "selfGrade": {
+        "task-3-bp1": {
+          "score": 20,
+          "comment": "Well done!"
+        },
+        "task-3-ep1": {
+          "score": 15,
+          "comment": "Some things are done, some are not"
+        },
+        "task-3-fp1": {
+          "score": 0,
+          "comment": "No ticket today"
+        }
+      },
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": "xcheck-3"
+    },
+    {
+      "id": "rev-req-8",
+      "author": "PavelZaharov1987",
+      "taskTitle": "Task 2",
+      "state": "closed",
+      "selfGrade": {
+        "task-2-bp1": {
+          "score": 20,
+          "comment": "Well done!"
+        },
+        "task-2-ep1": {
+          "score": 15,
+          "comment": "Some things are done, some are not"
+        },
+        "task-2-fp1": {
+          "score": 0,
+          "comment": "No ticket today"
+        }
+      },
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": "xcheck-3"
+    },
+    {
+      "id": "rev-req-9",
+      "author": "viktorsipach",
+      "taskTitle": "Task 3",
+      "state": "published",
+      "selfGrade": {
+        "task-3-bp1": {
+          "score": 10,
+          "comment": "Well done!"
+        },
+        "task-3-ep1": {
+          "score": 30,
+          "comment": "Some things are done, some are not"
+        },
+        "task-3-fp1": {
+          "score": 10,
+          "comment": "No ticket today"
+        }
+      },
+      "linkToDemo": "#",
+      "linkToPR": "#",
+      "crossCheckSessionId": ""
+    },
+    {
+      "id": "88d27704-4300-4d4f-9beb-78c1a8607bce",
+      "author": "PavelZaharov1987",
+      "taskTitle": "X Check App / RS Assessment Tool",
+      "state": "draft",
+      "selfGrade": {},
+      "linkToDemo": "https://example.com",
+      "linkToPR": "https://example.com",
+      "crossCheckSessionId": ""
+    },
+    {
+      "id": "28087f7d-b055-4674-900f-aef1a8458c5e",
+      "author": "PavelZaharov1987",
+      "taskTitle": "X Check App / RS Assessment Tool",
+      "state": "draft",
+      "selfGrade": {},
+      "linkToDemo": "https://example.com",
+      "linkToPR": "https://example.com",
+      "crossCheckSessionId": "xcheck-4"
+    }
+  ]
+}
