@@ -53,7 +53,7 @@ const GradeField = (props) => {
     minScore = -Math.abs(score);
   } else {
     maxScore = Number(score);
-    minScore = 0;
+    minScore = -Math.abs(score / 2);
   }
 
   const maxValue = useMemo(

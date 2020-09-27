@@ -43,7 +43,7 @@ const SelfGradeField = (props) => {
     minScore = -Math.abs(score);
   } else {
     maxScore = score;
-    minScore = 0;
+    minScore = -Math.abs(score / 2);
   }
 
   const maxValue = useMemo(
