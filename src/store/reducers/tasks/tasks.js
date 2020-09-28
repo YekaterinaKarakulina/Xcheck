@@ -55,7 +55,6 @@ const tasks = (state = initialState, action) => {
     default:
       return {
         ...state,
-        currentTask: {},
       };
   }
 };
